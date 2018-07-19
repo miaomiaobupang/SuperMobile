@@ -1,0 +1,425 @@
+<style>
+.DepartmentTypen{
+	display:none;
+}
+.DepartmentTypeb{
+	display:block;
+}
+#allmap {width: 100%;height:300px;overflow: hidden;margin:0;font-family:"微软雅黑";}
+.child{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-sitemap" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">部门管理</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+    <div class="row">
+		<!-- col 12 -->
+        <div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>部门</strong>增加
+					</h1>
+					<div class="pull-right">
+						<a href="__MODULE__/ClassManage/show" role="button" class="btn btn-red"><span class="icon-reply"></span> 返回部门列表</a>
+					</div>
+              <div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+              </div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body">
+					<form class="form-horizontal " action="__MODULE__/ClassManage/insert" method="post" role="form" id="DepartmentAdd">
+							<div class="form-group col-md-6 col-sm-12">
+								<label for="type" class="col-sm-4 control-label">
+									部门类型
+								</label>
+								<div class="col-sm-8">
+									<ul class="nolisttypes inlineSelect inline">
+										<li>
+											<div class="radio radio-transparent">
+												<input type="radio" value="1" id="type1" name="type" onclick="Category(this)">
+												<label for="type1">分支机构</label>
+											</div>
+										</li>
+										<li>
+											<div class="radio radio-transparent">
+												<input type="radio" value="2" id="type2" name="type" onclick="Category(this)" checked>
+												<label for="type2">普通部门</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							
+							<div class="form-group col-md-6 col-sm-12">
+								<label for="className" class="col-sm-4 control-label">
+									<span class="DepartmentType">部门</span>全称
+								</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="className" id="className">
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12 DepartmentTypen">
+								<label for="abbreviation" class="col-sm-4 control-label">
+									公司简称
+								</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="abbreviation" id="abbreviation">
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12 DepartmentTypeb">
+								<label for="pid" class="col-sm-4 control-label">
+									上级部门
+								</label>
+								<div class="col-sm-8">
+									<select class="chosen-select chosen-transparent form-control" id="pid" name="pid">
+										<option value="0">请选择</option>
+										<volist name="pids" id="pids" empty="暂时没有数据">
+											<option value="{$pids.id}" >{$pids.className}</option>
+										</volist>										
+									</select>
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12">
+								<label for="classCoding" class="col-sm-4 control-label">
+									<span class="DepartmentType">部门</span>序号
+								</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="classCoding" id="classCoding" data-toggle="tooltip" data-placement="top" title="" data-original-title="请输出小于255的有效数字">
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12">
+								<label for="address" class="col-sm-4 control-label">
+									<span class="DepartmentType">部门</span>地址
+								</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="address" id="address">
+								</div>
+								<div class="col-sm-2">
+									<a class="btn btn-default" role="button" id="addressbtn" >继承上级</a>
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12">
+								<label for="coordinate" class="col-sm-4 control-label">
+									<span class="DepartmentType">部门</span>坐标
+								</label>
+								<div class="col-sm-6">
+									<div class="input-group">
+										<input type="text" class="form-control" name="coordinate" id="coordinate" readonly>
+										<div class="input-group-btn">
+											<a href="#MapPickup" class="btn btn-greensea dropdown-toggle" role="button" data-toggle="modal"><i class="icon-screenshot"></i></a>
+											<ul class="dropdown-menu pull-right">
+												<li>
+													<div id="event-colorpalette" data-return-color="#coordinate"></div>
+												</li>
+											</ul>
+										</div><!-- /btn-group -->
+									</div><!-- /input-group -->
+                      </div>
+								<div class="col-sm-2">
+									<a class="btn btn-default" role="button" id="coordinatebtn" >继承上级</a>
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12">
+								<label for="phone" class="col-sm-4 control-label">
+									<span class="DepartmentType">部门</span>电话
+								</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="phone" id="phone">
+								</div>
+								<div class="col-sm-2">
+									<a class="btn btn-default" role="button" id="phonebtn" >继承上级</a>
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12">
+								<label for="fax" class="col-sm-4 control-label">
+									<span class="DepartmentType">部门</span>传真
+								</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="fax" id="fax">
+								</div>
+								<div class="col-sm-2">
+									<a class="btn btn-default" role="button" id="faxbtn" >继承上级</a>
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12">
+								<label for="principal" class="col-sm-4 control-label">
+									<span class="DepartmentType">部门</span>主管
+								</label>
+								<div class="col-sm-8">
+									<div class="input-group">
+										<input type="hidden" class="form-control" name="principal" id="principal" readonly>
+										<input type="text" class="form-control" id="principalName" readonly>
+										<div class="input-group-btn">
+											<a href="#userSelect" class="btn btn-greensea dropdown-toggle" role="button" data-toggle="modal"><i class="icon-user"></i></a>
+											<ul class="dropdown-menu pull-right">
+												<li>
+													<div id="event-colorpalette" data-return-color="#principal"></div>
+												</li>
+											</ul>
+										</div><!-- /btn-group -->
+									</div><!-- /input-group -->
+                      </div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12">
+								<label for="postcode" class="col-sm-4 control-label">
+									邮政编码
+								</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="postcode" id="postcode"  >
+								</div>
+								<div class="col-sm-2">
+									<a class="btn btn-default" role="button" id="postcodebtn" >继承上级</a>
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12">
+								<label for="email" class="col-sm-4 control-label">
+									电子邮箱
+								</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="email" id="email"  >
+								</div>
+								<div class="col-sm-2">
+									<a class="btn btn-default" role="button" id="emailbtn" >继承上级</a>
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12">
+								<label for="sites" class="col-sm-4 control-label">
+									<span class="DepartmentType">部门</span>网站
+								</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="sites" id="sites">
+								</div>
+								<div class="col-sm-2">
+									<a class="btn btn-default" role="button" id="sitesbtn" >继承上级</a>
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12 DepartmentTypen">
+								<label for="businessLicense" class="col-sm-4 control-label">
+									营业执照号码
+								</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="businessLicense" id="businessLicense">
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12 DepartmentTypen">
+								<label for="busPath" class="col-sm-4 control-label">
+									营业执照图片路径
+								</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="busPath" id="busPath">
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12 DepartmentTypen">
+								<label for="stateTaxes" class="col-sm-4 control-label">
+									税务登记证号码
+								</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="stateTaxes" id="stateTaxes">
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12 DepartmentTypen">
+								<label for="staPath" class="col-sm-4 control-label">
+									税务登记证图片路径
+								</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="staPath" id="staPath">
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12 DepartmentTypen">
+								<label for="landTax" class="col-sm-4 control-label">
+									组织机构代码证号码
+								</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="landTax" id="landTax">
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12 DepartmentTypen">
+								<label for="lanPath" class="col-sm-4 control-label">
+									组织机构代码证图片路径
+								</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="lanPath" id="lanPath">
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12 DepartmentTypen">
+								<label for="bank" class="col-sm-4 control-label">
+									开户银行
+								</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="bank" id="bank">
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12 DepartmentTypen">
+								<label for="bankMark" class="col-sm-4 control-label">
+									银行账户
+								</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="bankMark" id="bankMark">
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12">
+								<label for="astrict" class="col-sm-4 control-label">
+									管理权限
+								</label>
+								<div class="col-sm-8">
+									<ul class="nolisttypes inlineSelect inline">
+										<li>
+											<div class="radio radio-transparent">
+												<input type="radio" value="1" id="astrict1" name="astrict" checked>
+												<label for="astrict1">不允许管理子部门数据</label>
+											</div>
+										</li>
+										<li>
+											<div class="radio radio-transparent">
+												<input type="radio" value="2" id="astrict2" name="astrict">
+												<label for="astrict2">允许管理子部门数据</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group col-md-12 col-sm-12">
+									<label for="functions" class="col-md-2 col-sm-4 control-label">
+										<span class="DepartmentType">部门</span>职能
+									</label>
+									<div class="col-md-10 col-sm-8">
+										<textarea class="form-control" id="functions" rows="6" name="functions"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group col-md-12 col-sm-12">
+									<label for="remark" class="col-md-2 col-sm-4 control-label">
+										<span class="DepartmentType">部门</span>备注
+									</label>
+									<div class="col-md-10 col-sm-8">
+										<textarea class="form-control" id="remark" rows="6" name="remark"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="form-group form-footer">
+								<div class="col-sm-offset-4 col-sm-4">
+									<button type="submit" class="btn btn-greensea btn-block" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tooltip on top">提交</button>
+								</div>
+							</div>
+                    </form>
+				</div>
+                <!-- /tile body -->
+				<!-- 拾取坐标图层开始 -->
+				<div class="modal fade" id="MapPickup" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">关闭</button>
+								<h3 class="modal-title" id="modalConfirmLabel"><strong>坐标</strong> 拾取</h3>
+							</div>
+								<div class="modal-body">	
+									<div class="form-group">
+										<div id="allmap"></div>
+									</div>									
+									<div class="form-group">
+										<label for="coding" class="col-sm-4 control-label">拾取坐标</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" id="Mapcoding">
+										</div>
+									</div>
+									
+								</div>						
+								<div class="modal-footer">
+									<button class="btn btn-red" data-dismiss="modal" aria-hidden="true" onclick="MapPickupSure()">确定</button>
+								</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->	
+				<!-- 拾取坐标图层结束 -->
+				<!-- 选择用户层开始 -->
+				<div class="modal fade" id="userSelect" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true">
+					<div class="modal-dialog" >
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">关闭</button>
+								<div class="row">
+									<div class="col-lg-8">
+										<h3 class="modal-title" id="modalConfirmLabel"><strong>用户单项选择API </strong> DEMO</h3>
+									</div><!-- /.col-lg-6 -->
+									<div class="col-lg-4">
+										<div class="input-group">
+											<input type="text" class="form-control" aria-label="..." id="userSearch">
+											<div class="input-group-btn">
+											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">检索 <span class="caret"></span></button>
+											<ul class="dropdown-menu dropdown-menu-right" role="menu">
+												<li class="hand"><a onclick="Search(1)">在全部门检索</a></li>
+												<li class="hand"><a onclick="Search(2)">在该部门下检索</a></li>
+											</ul>
+											</div><!-- /btn-group -->
+										</div><!-- /input-group -->
+								  </div><!-- /.col-lg-6 -->
+								</div>
+							</div>
+							<div class="row">
+							
+								<div class="col-md-5 col-md-offset-1">
+									<table class='table'>
+										<tr id="company">
+											<td><span class="hand icon-plus" onclick="Telescopic(0)"></span> <span onclick="UserData({$class.id})" class="hand">总公司</span></td>
+										<tr>
+									</table>
+								</div>
+								<div class="col-md-5">
+									<table class="table">
+										<tbody id="userData">
+											<tr class="nodata"><td class="text-center" colspan="13"> 暂 无 数 据 </td></tr>
+										</tbody>
+								  </table>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-red" data-dismiss="modal" aria-hidden="true">取消</button>
+								<a role="button" class="btn btn-green" disabled="disabled" id="userSure" onclick="UserSure()" data-dismiss="modal" aria-hidden="true">确定</a>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->  
+				<!-- 选择用户册结束结束 -->
+			</section>
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+
+
+
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

@@ -1,0 +1,640 @@
+.minBodyDivStyle{
+	width:920px;
+	height:632px;
+	margin:0px auto;
+	margin-top:107px;
+}
+.minBodyDivTop{
+	width:100%;
+	height:240px;
+	background:#10687f;
+	position:relative;
+}
+.minBodyDivTopImg{
+	width:275px;
+	height:240px;
+	position:absolute;
+	z-index:10;
+	bottom:12px;
+	left:20px;
+}
+.orderImgStyle{
+	width:275px;
+	height:240px;
+}
+.minBodyDivTopRight{
+	width:620px;
+	height:100%;
+	position:absolute;
+	z-index:10;
+	right:0px;
+}
+.minBodyDivTopRightOne{
+	height:80px;
+	line-height:80px;
+	width:100%;
+	font-size:16px;
+	color:white;
+	text-align:center;
+}
+.minBodyDivTopRightTwo{
+	width:100%;
+	height:160px;
+}
+.orederLine{
+	width:100%;
+	height:22px;
+	margin-top:2px;
+}
+.orederLineLeft{
+	width:65%;
+	height:22px;
+	line-height:22px;
+	color:white;
+	font-size:14px;
+	padding-left:100px;
+	float:left;
+}
+.orederLineRight{
+	width:35%;
+	height:22px;
+	line-height:22px;
+	color:white;
+	font-size:14px;
+	float:right;
+}
+.minBodyDivBottom{
+	width:100%;
+	height:380px;
+	border:1px solid #10687f;
+	margin-top:12px;
+}
+.minBodyDivBottomOne{
+	font-size:16px;
+	height:20px;
+	line-height:20px;
+	color:#10687f;
+	text-align:left;
+	padding-left:24px;
+	padding-top:20px;
+}
+.minBodyDivBottomTwo{
+	width:740px;
+	height:150px;
+	line-height:150px;
+	margin:0px auto;
+	margin-top:90px;
+}
+.orederBottomLine{
+	width:100%;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	margin-top:2px;
+}
+.orederBottomLineOne{
+	width:30%;
+	height:100%;
+	line-height:100%;
+	font-size:14px;
+	color:#10687f;
+	float:left;
+}
+.orederBottomLineTwo{
+	width:30%;
+	height:100%;
+	line-height:100%;
+	font-size:14px;
+	color:#10687f;
+	float:left;
+}
+.orederBottomLineThree{
+	width:40%;
+	height:100%;
+	line-height:100%;
+	font-size:14px;
+	color:#10687f;
+	float:left;
+}
+.orderBottomSub{
+	width:540px;
+	height:40px;
+	line-height:40px;
+	font-size:16px;
+	background:#10687f;
+	color:white;
+	margin-top:40px;
+	margin-left:190px;
+	border:1px solid #10687f;
+	border-radius:5px;
+	text-align:center;
+	cursor:pointer;
+}
+.minBodyDivStyleNext{
+	width:920px;
+	height:690px;
+	border:1px solid #10687f;
+	margin:0px auto;
+	margin-top:50px;
+}
+.minBodyDivStyleStyle{
+	width:190px;
+	height:40px;
+	line-height:40px;
+	background:#10687f;
+	color:white;
+	font-size:18px;
+	margin-top:20px;
+	padding-left:18px;
+}
+.minBodyDivStyleNextBody{
+	width:590px;
+	height:250px;
+	margin:0px auto;
+	margin-top:90px;
+}
+.minBodyDivStyleNextOne{
+	height:40px;
+	line-height:40px;
+	width:100%;
+	font-size:16px;
+	color:#10687f;
+	margin-bottom:20px;	
+}
+.minBodyDivStyleNextLine{
+	width:100%;
+	height:40px;
+	margin-bottom:10px;
+}
+.minBodyDivStyleNextLineOne{
+	width:40%;
+	height:100%;
+	line-height:100%;
+	float:left;%;
+	float:left;
+	color:#10687f;
+}
+.minBodyDivStyleNextLineTwo{
+	width:30%;
+	height:100%;
+	line-height:100%;
+	float:left;%;
+	float:left;
+	color:#10687f;
+}
+.minBodyDivStyleNextLineThree{
+	width:30%;
+	height:100%;
+	line-height:100%;
+	float:left;
+	color:#10687f;
+}
+.orderBottomNextSub{
+	width:540px;
+	height:40px;
+	line-height:40px;
+	font-size:16px;
+	background:#10687f;
+	color:white;
+	margin-top:160px;
+	margin-left:162px;
+	border:1px solid #10687f;
+	border-radius:5px;
+	text-align:center;
+	cursor:pointer;
+}
+/*=====================*/
+.minBodyOrderSub{
+	width:950px;
+	margin:0px auto;
+	height:300px;
+	border:1px solid #157eae;
+	margin-top:10px;
+	border-radius:5px;
+}
+.minBodyOrderTitle{
+	width:130px;
+	height:40px;
+	line-height:40px;
+	padding-left:10px;
+	margin-left:125px;
+	border-radius:5px;
+	background:#157eae;
+	color:white;
+	font-size:18px;
+	font-weight:bold;
+	margin-top:20px;
+}
+.minBodyOrderLine{
+	width:700px;
+	height:120px;
+	margin-left:120px;
+	margin-top:15px;
+}
+.minBodyOrderLineLeft{
+	width:120px;
+	height:40px;
+	line-height:40px;
+	color:#525252;
+	font-size:16px;
+	font-weight:bold;
+	float:left;
+}
+.minBodyOrderLineRight{
+	width:578px;
+	height:100%;
+	float:left;
+}
+.minBodyOrderLineRightOne{
+	width:100%;
+	height:30px;
+	line-height:30px;
+	font-size:16px;
+	color:#525252;
+}
+.minBodyOrderLineNext{
+	width:100%;
+	height:50%;
+}
+.minBodyOrderLineNextLeft{
+	width:120px;
+	height:60px;
+	float:left;
+	font-size:16px;
+	font-weight:bold;
+}
+.minBodyOrderLineNextRight{
+	width:578px;
+	height:100%;
+	float:left;
+}
+.minBodyOrderLineNextLine{
+	width:100%;
+	height:50%;
+}
+.minBodyOrderLineNextLineOne{
+	width:50%;
+	height:100%;
+	font-size:16px;
+	float:left;
+	color:#525252;
+}
+.minBodyOrderLineNextLineOnes{
+	width:100%;
+	height:100%;
+	font-size:16px;
+	float:left;
+	color:#525252;
+}
+.minBodyOrderLineNextLineTwo{
+	width:50%;
+	height:100%;
+	font-size:16px;
+	float:left;
+	color:#525252;
+}
+/*==========================*/
+.orderPayType{
+	cursor:pointer;
+}
+.minBodyOrderType{
+	width:950px;
+	margin:0px auto;
+	border:1px solid #157eae;
+	margin-top:10px;
+	border-radius:5px;
+	padding-bottom:30px;
+	clear:both;
+}
+.minBodyOrderCheck{
+	width:100%;
+	height:100px;
+	background:#157eae;
+	padding-left:105px;
+	margin-bottom:27px;
+}
+.orderPayType{
+	width:120px;
+	height:40px;
+	line-height:40px;
+	font-size:16px;
+	font-weight:bold;
+	color:#525252;
+	text-align:center;
+	margin-top:30px;
+	margin-left:55px;
+	float:left;
+	background:white;
+	border-radius:5px;
+}
+.minBodyOrderAlipay{
+	width:100%;
+	height:100px;
+	padding-top:23px;
+}
+.minBodyOrderAlipayLine{
+	width:171px;
+	height:46px;
+	cursor:pointer;
+	margin:0px auto;
+}
+.orderTypeSubmit{
+	width:420px;
+	height:40px;
+	margin-left:400px;
+	margin-top:30px;
+	line-height:40px;
+	color:#525252;
+	cursor:pointer;
+	font-size:18px;
+	font-weight:bold;
+	border-radius:5px;
+	text-align:center;
+	border:1px solid #157eae;
+}
+.minBodyOrderNetbankLine{
+	width:850px;
+	height:44px;
+	margin-top:15px;
+}
+.minBodyOrderNetbankOne{
+	width:168px;
+	height:44px;
+	margin-left:40px;
+	cursor:pointer;
+}
+.minBodyOrderNetbankOnes{
+	width:168px;
+	height:44px;
+	margin-left:40px;
+	cursor:pointer;
+}
+.minBodyOrderNetbankLeft{
+	width:40px;
+	height:100%;
+	margin-top:10px;
+	float:left;
+}
+.minBodyOrderNetbankRight{
+	width:900px;
+	height:315px;
+	float:right;
+}
+.minBodyOrderNetbank{
+	clear:both;
+	width:100%;
+	height:300px;
+}
+.minBodyOrderOntline{
+	width:100%;
+	height:800px;
+}
+.minBodyOrderOntlineLeft{
+	width:430px;
+	height:300px;
+	margin-top:40px;
+	margin-left:120px;
+	float:left;
+}
+.minBodyOrderOntlineRight{
+	width:250px;
+	height:300px;
+	margin-top:40px;
+	float:right;
+	margin-right:120px;
+}
+.minBodyOrderOntlineLine{
+	height:30px;
+	line-height:30px;
+	margin-top:10px;
+	color:#525252;
+	font-size:18px;
+}
+.minBodyOrderOntlineLineContent{
+	height:20px;
+	line-height:20px;
+	color:#880606;
+	margin-top:10px;
+	font-size:14px;
+	word-break: break-word;
+}
+.minBodyOrderOntlineRightImg{
+	width:100%;
+	height:210px;
+}
+.minBodyOrderOntlineLineTitle{
+	font-weight:bold;
+}
+.phonsSpanStyle{
+	font-size:14px;
+	color:#880606;
+	width:100%;    
+	margin-top: 15px;
+	display:none;
+}
+.payInputStyle{
+	width:150px;
+	border:1px solid #157eae;
+}
+.payInputStyleDiv{
+	width:150px;
+}
+.payInputStyleDivs{
+	width:90px;
+}
+.minBodyOrderOntlineLines{
+	line-height:40px;
+	margin-top:30px;
+	color:#525252;
+	font-size:18px;
+}
+.huizhiStyle{
+	width:100%;
+	height:100%;
+	cursor:pointer;
+}
+.minBodyOrderWeichatMiddle{
+	width:200px;
+	height:200px;
+	margin:0px auto;
+}
+.minBodyOrderWeichatImg{
+	width:200px;
+	height:200px;
+}
+/*=============上传回执单================*/
+.putImgDivStyle{
+	width:700px;
+	height:300px;
+	margin-left:110px;
+}
+.btnFace{
+	position: relative;
+	overflow: hidden;
+	margin-left:10px;
+	margin-top:10px;
+	display:inline-block;
+	*display:inline;
+	padding:15px 90px 15px;
+	font-size:20px;
+	line-height:18px;
+	*line-height:20px;
+	color:#fff;
+	text-align:center;
+	vertical-align:middle;
+	cursor:pointer;
+	background-color:#157eae;
+	border:1px solid #cccccc;
+	border-color:#e6e6e6 #e6e6e6 #bfbfbf;
+	border-bottom-color:#e6e6e6;
+	border-radius:0px;
+}
+.btnFace input {
+	position: absolute;
+	top: 0; 
+	rightright: 0;
+	margin: 0;
+	border: solid transparent;
+	size:4px;
+	opacity: 0;
+	filter:alpha(opacity=0); 
+	cursor: pointer;
+}
+.btnBack input {
+	position: absolute;
+	top: 0; 
+	rightright: 0;
+	margin: 0;
+	border: solid transparent;
+	size:4px;
+	opacity: 0;
+	filter:alpha(opacity=0); 
+	cursor: pointer;
+}
+.barFace {
+	background-color:green; 
+	display:block; 
+	width:0%; 
+	height:20px; 
+	border-radius: 3px; 
+}			
+.percentFace { 
+	position:absolute; 
+	height:20px; 
+	display:inline-block; 
+	top:0px; 
+	left:2%; 
+	color:#fff 
+}			
+.filesFace{
+	height:22px; 
+	line-height:22px;
+	font-size:14px;
+	margin-left:10px;
+	margin-top:10px;
+	width:280px;
+	overflow:hidden;
+}
+.imageSizeFace{
+	width:100%;
+	height:100%;
+	border-radius:10px;
+}
+.demo{
+	width:800px;
+	height:340px;
+	margin-left:15px;
+	background-color:#ececec;
+	border-radius:4px;
+}
+.imgPicStyle{
+	padding-top:15px;
+	margin-left:10px;
+	font-size:14px;
+	color:#4b84ac;
+}
+#showimgFace{
+	width:700px;
+	height:300px;
+	margin-left:10px;
+	margin-top:20px;
+	cursor:pointer;
+	border:1px solid #aaaaaa;
+	border-radius:10px;
+	background-color:#ececec;
+}
+.waitPutImg{
+	width:180px;
+	height:180px;
+	margin:50px auto;
+}
+.waitPutImgStyle{
+	width:180px;
+	height:180px;
+}
+.sendMessage{
+	width:80px;
+	height:50px;
+	line-height:50px;
+	font-size:18px;
+	border:1px solid #157eae;
+	color:white;
+	background:#157eae;
+	cursor:pointer;
+	margin-left:10px;
+	padding:6px;
+}
+.bettwenBut{
+	width:30px;
+	height:30%;
+	text-align:center;
+	border:1px solid #157eae;
+	font-size:20px;
+	color:#157eae;
+	padding-top:5px;
+	margin-bottom:10px;
+	cursor:pointer;
+	background:white;
+}
+.bettwenButs{
+	width:30px;
+	height:30%;
+	text-align:center;
+	border:1px solid #157eae;
+	font-size:16px;
+	color:#157eae;
+	padding-top:5px;
+	cursor:pointer;
+	background:white;
+	border-left-color:white;
+}
+.bettwenButt{
+	border-left-color:white;
+}
+.jiejiCard{
+	margin-bottom:20px;
+}
+.xinyongCard{
+	display:none;
+	margin-bottom:20px;
+}
+.duigongCard{
+	display:none;
+	margin-bottom:20px;
+}
+.jiejiBut{
+	background:#157eae;
+	color:white;
+}
+
+
+
+
+
+
+
+
+
+
+
+

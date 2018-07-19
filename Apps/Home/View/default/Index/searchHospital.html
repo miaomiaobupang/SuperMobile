@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>超级医生-搜索医院</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1">
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<link rel="stylesheet" href="__CSS__/public.css">
+	<link rel="stylesheet" href="__CSS__/pagination.css">
+	<link rel="stylesheet" href="__CSS__/searchComprehensive.css">
+	<link rel="stylesheet" href="__CSS__/searchHospital.css">
+	<script src="__JS__/jquery.min.js"></script>
+	<script src="__JS__/pagination.min.js"></script>
+</head>
+<body>
+	<div class="box">
+		<!-- header -->
+		<include file="Public/cjysHeaderSearch" />
+		<div class="main">
+			<div class="mainBox">
+				<div class="mainBoxLeft fl">
+					<div>
+						<div class="mainLeft2List">
+			    			<img src="__IMG__/20180316cjys10.png" alt="" class="mainLeft2Img1 fl">
+			    			<div class="mainLeft2ListRight fl">
+			    				<li class="mainLeft2R_title">日本顺天堂大学附属顺天堂医院</li>
+			    				<li class="mainLeft2RLi2Box"><div class="mainLeft2RLi2Img fl">排名</div><span class="mainLeft2RLi2 fl">日本综合排名权威医院</span></li>
+			    				<li class="mainLeft2RLi3">优势科室：循环系统内科 食道·胃外科 消化系统内科 呼吸系统</li>
+			    				<div class="mainLeft2Button mainLeft2Button1">推荐专家</div>
+			    				<div class="mainLeft2Button mainLeft2Button2">咨询预约</div>
+			    			</div>
+			    		</div>
+			    		<div class="mainLeft2List">
+			    			<img src="__IMG__/20180316cjys10.png" alt="" class="mainLeft2Img1 fl">
+			    			<div class="mainLeft2ListRight fl">
+			    				<li class="mainLeft2R_title">日本顺天堂大学附属顺天堂医院</li>
+			    				<li class="mainLeft2RLi2Box"><div class="mainLeft2RLi2Img fl">排名</div><span class="mainLeft2RLi2 fl">日本综合排名权威医院</span></li>
+			    				<li class="mainLeft2RLi3">优势科室：循环系统内科 食道·胃外科 消化系统内科 呼吸系统</li>
+			    				<div class="mainLeft2Button mainLeft2Button1">推荐专家</div>
+			    				<div class="mainLeft2Button mainLeft2Button2">咨询预约</div>
+			    			</div>
+			    		</div>
+			    		<div>....</div>
+					</div>
+					<!-- 分页 -->
+					<div id="pagination"></div>
+				</div>
+				<div class="mainBoxRight fr">
+					<div class="mainBox3Right2">
+						<div class="mainBox3Right1Tilte">品牌医院推荐</div>
+						<div class="mainRight1-con">
+							<div class="mainRight1-context">
+								<img src="__IMG__/20180406_1.png" alt="" class="fl">
+								<div class="mainRight1-context-r fl">
+									<div class="context-r-1">美国麻省总医院</div>
+									<div class="context-r-2">三大美国最佳医院之一</div>
+									<div class="context-r-3 over2">优势科室：癌症、消化系统疾病消化系统疾病</div>
+								</div>
+							</div>
+							<div class="mainRight1-context">
+								<img src="__IMG__/20180406_1.png" alt="" class="fl">
+								<div class="mainRight1-context-r fl">
+									<div class="context-r-1">美国麻省总医院</div>
+									<div class="context-r-2">三大美国最佳医院之一</div>
+									<div class="context-r-3 over2">优势科室：癌症、消化系统疾病消化系统疾病</div>
+								</div>
+							</div>
+							<div class="mainRight1-context">
+								<img src="__IMG__/20180406_1.png" alt="" class="fl">
+								<div class="mainRight1-context-r fl">
+									<div class="context-r-1">美国麻省总医院</div>
+									<div class="context-r-2">三大美国最佳医院之一</div>
+									<div class="context-r-3 over2">优势科室：癌症、消化系统疾病消化系统疾病</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cl"></div>
+			</div>
+		</div>
+		<!-- footer -->
+		<include file="Public/cjysFooter" />
+	</div>
+	<script>
+		// ***分页***
+	    $("#pagination").whjPaging({
+		  	//设为true时，ajax里的success函数必须调用setPage方法，否则分页插件显示保持不变
+		  	// isResetPage: true,
+		  	css: 'css-1',
+	        //可选，展示页码数量6条
+				showPageNum: 6,
+				// 总共18页
+	        totalPage: 18,
+	        //可选，是否展示每页N条下拉框，默认true
+			isShowPageSizeOpt: false,
+			//可选，是否展示跳到指定页数，默认true
+			isShowSkip: false,
+			//可选，是否展示刷新，默认true
+			isShowRefresh: false,
+			//可选，是否展示共{}页，默认true
+			isShowTotalPage: false,
+			// 返回参数：第一个参数为页码，第二个参数为每页显示N条
+	        callBack: function (currPage, pageSize) {
+	            console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+	        }
+		});
+		/*
+		function loadData(currPage, pageSize) {
+			$.ajax({
+			    //其它参数选项请自填
+			    success: function(res) {
+				    
+			    }
+			});
+		}
+		loadData(1, 8);
+		*/
+	</script>
+</body>
+</html> 

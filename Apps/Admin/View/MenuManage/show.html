@@ -1,0 +1,319 @@
+<style>
+.child{
+	display:none;
+}
+.hiddens{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-book" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">菜单管理</b> 
+		<span>- Menu Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-3">
+			<section class="tile color transparent-black col-md-12">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h3>
+						<strong>请选择菜单</strong>
+					</h3>
+					<div class="pull-right">
+						<a href="__MODULE__/MenuManage/show" role="button" class="btn btn-red" data-toggle="modal">&nbsp;<span class="icon-plus"></span>&nbsp;</a>
+					</div>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body nopadding col-md-10 col-md-offset-1">
+
+						<table class='table'>
+							<volist name="list" id="list" empty="暂时没有数据">
+								<tr class="{$list.class}">
+									<td>{$list.nbsp}
+										<if condition="$list.pidState eq 1">
+											<span menu="close" class="hand icon-plus fatherico{$list.id}" onclick="Telescopic({$list.id})"></span>&nbsp;&nbsp;
+											<else />
+											&nbsp;&nbsp;&nbsp;&nbsp;
+										</if>
+										 <span onclick="MenuData({$list.id})" class="hand"><span class="{$list.ico}"></span> {$list.name}</span>
+									</td>
+								<tr>
+							</volist>
+						</table>
+
+					<div class="Prompt">
+						
+					</div>
+				</div>
+				<!-- /tile body -->
+			</section>
+		</div>
+		<div class="col-md-9">
+			<!-- tile -->
+			<section class="tile color transparent-black" id="MenuData">
+				<!-- tile header -->
+				<div class="tile-header MenuFrom">
+					<h1>
+						<strong>新增菜单</strong>
+					</h1>
+					<div class="pull-right">
+						<!-- <a href="#moduleAdd" role="button" class="btn btn-red" data-toggle="modal"><span class="icon-plus"></span> 添加用户</a> -->
+						<a onclick="test()" role="button" class="btn btn-red" data-toggle="modal"><span class="icon-trash"></span> 删除菜单</a>
+					</div>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<!-- tile body -->
+				<div class="tile-body MenuFrom">
+					<form class="form-horizontal " action="__MODULE__/MenuManage/insert" method="post" role="form">
+						<div class="form-group col-md-6 col-sm-12">
+							<label for="properties" class="col-sm-4 control-label">
+								菜单模式
+							</label>
+							<div class="col-sm-8">
+								<ul class="nolisttypes inlineSelect inline">
+									<li>
+										<div class="radio radio-transparent">
+											<input type="radio" value="1" id="properties1" name="model" onclick="MenuModel(this)" >
+											<label for="properties1">顶级</label>
+										</div>
+									</li>
+									<li>
+										<div class="radio radio-transparent">
+											<input type="radio" value="2" id="properties2" name="model" onclick="MenuModel(this)" checked>
+											<label for="properties2">二级</label>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-sm-12">
+							<label for="name" class="col-sm-4 control-label">
+								菜单名称
+							</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" name="name" id="name"  >
+							</div>
+						</div>
+											
+						<div class="form-group col-md-6 col-sm-12">
+							<label for="state" class="col-sm-4 control-label">
+								菜单状态
+							</label>
+							<div class="col-sm-8">
+								<ul class="nolisttypes inlineSelect inline">
+									<li>
+										<div class="radio radio-transparent">
+											<input type="radio" value="1" id="state1" name="state" checked>
+											<label for="state1">启用</label>
+										</div>
+									</li>
+									<li>
+										<div class="radio radio-transparent">
+											<input type="radio" value="2" id="state2" name="state">
+											<label for="state2">禁用</label>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-sm-12">
+							<label for="num" class="col-sm-4 control-label">
+								菜单排序
+							</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" name="num" id="num"  >
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-sm-12" id="MenuLinkType">
+								<label for="type" class="col-sm-4 control-label">
+									链接类型
+								</label>
+								<div class="col-sm-8">
+									<ul class="nolisttypes inlineSelect inline">
+										<li>
+											<div class="radio radio-transparent">
+												<input type="radio" value="1" id="MenuLinkType1" name="type" onclick="MenuLinkType(this)" checked>
+												<label for="MenuLinkType1">内置</label>
+											</div>
+										</li>
+										<li>
+											<div class="radio radio-transparent">
+												<input type="radio" value="2" id="MenuLinkType2" name="type"  onclick="MenuLinkType(this)">
+												<label for="MenuLinkType2">外链</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>						
+							<div class="form-group col-md-6 col-sm-12" id="pidsMenus" >
+								<label for="pid" class="col-sm-4 control-label">
+									选择菜单
+								</label>
+								<div class="col-sm-8">
+									<select class="chosen-select chosen-transparent form-control" id="pid" name="pid">
+										<option value="">请选择</option>
+										<volist name="pidsMenu" id="pidsMenu" empty="暂时没有数据">
+											<option value="{$pidsMenu.id}" <if condition="$pidsMenu.id == $pid">selected</if>>{$pidsMenu.name}</option>
+										</volist>										
+									</select>
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12" id="SelectModel">
+								<label for="principal" class="col-sm-4 control-label">
+									<span class="DepartmentType">选择</span>模块
+								</label>
+								<div class="col-sm-8">
+									<div class="input-group">
+										<input type="hidden" class="form-control" name="mid" id="ModuleIdSelect" readonly>
+										<input type="text" class="form-control" id="ModuleIdSelectlName" readonly>
+										<div class="input-group-btn">
+											<a href="#ModulesSelects" class="btn btn-greensea dropdown-toggle" role="button" data-toggle="modal"><i class="icon-cogs"></i></a>
+											<ul class="dropdown-menu pull-right">
+												<li>
+													<div id="event-colorpalette" data-return-color="#principal"></div>
+												</li>
+											</ul>
+										</div><!-- /btn-group -->
+									</div><!-- /input-group -->
+								</div>
+							</div>
+							<div class="form-group col-md-6 col-sm-12">
+								<label for="principal" class="col-sm-4 control-label">
+									<span class="DepartmentType">选择</span>图标
+								</label>
+								<div class="col-sm-2 col-sm-offset-1">
+									<h4><span id="IcoSelectResult"></span></h4>
+									<input type="hidden" class="form-control" name="ico" id="IcoSelectResultName"  >
+								</div>
+								<div class="col-sm-5">
+									<a href="#ICOSelect" role="button" class="btn btn-red" data-toggle="modal"><span class="icon-hand-up"></span> 选择图标</a>
+								</div>
+							</div>
+							<div class="form-group" id="MenuAddress">
+								<div class="form-group col-md-12 col-sm-12">
+									<label for="address" class="col-md-2 col-sm-4 control-label">
+										菜单地址
+									</label>
+									<div class="col-md-10 col-sm-8">
+										<input type="text" class="form-control" name="adress" id="address"  >
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-4 col-sm-4">
+									<button type="submit" class="btn btn-greensea btn-block">提交</button>
+								</div>
+							</div>
+                    </form>
+				</div>
+				<!-- /tile body -->
+				<!-- 选择模块层开始 -->
+				<div class="modal fade" id="ModulesSelects" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true">
+					<div class="modal-dialog" >
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">关闭</button>
+								<h3 class="modal-title" id="modalConfirmLabel"><strong>选择模块API </strong> DEMO</h3>
+							</div>
+							<div class="row">
+								<div class="col-md-10 col-md-offset-1">
+									<div class="alert alert-danger" role="alert" id="ModuleSelectAlert">请选择模块</div>
+								</div>
+							</div>
+							<div class="row">							
+								<div class="col-md-5 col-md-offset-1">
+									<table class='table' id="ModulesSelect">
+									</table>
+								</div>
+								<div class="col-md-5">
+									<table class="table">
+										<tbody id="MethodData">
+											<tr class="nodata"><td class="text-center" colspan="13"> 暂 无 数 据 </td></tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-red" data-dismiss="modal" aria-hidden="true">取消</button>
+								<a state="close" role="button" class="btn btn-green" disabled="disabled" id="ModuleSure" onclick="ModuleSure()" data-dismiss="modal" aria-hidden="true">确定</a>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->  
+				<!-- 选择模块层结束结束 -->
+				<!-- 选择图标层开始 -->
+				<div class="modal fade" id="ICOSelect" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true">
+					<div class="modal-dialog" >
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">关闭</button>
+								<div class="row">
+									<div class="col-lg-8">
+										<h3 class="modal-title" id="modalConfirmLabel"><strong>选择图标API </strong> DEMO</h3>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1 col-md-offset-1 text-right" style="padding-top:115px;" id="IcoDataLeft">
+									<h1 id="IcoDataLeftH"><span class="hand icon-chevron-left"></span></h1>
+								</div>
+								<div class="col-md-8">
+									<table class='table' id="icodata">
+									</table>
+								</div>
+								<div class="col-md-1 text-left" style="padding-top:115px;" id="IcoDataRight">
+									<h1 id="IcoDataRightH"><span class="hand icon-chevron-right"></span></h1>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-red" data-dismiss="modal" aria-hidden="true">取消</button>
+								<a state="close" role="button" class="btn btn-green" disabled="disabled" id="IcoDataSure" onclick="IcoSelectedSure()" data-dismiss="modal" aria-hidden="true">确定</a>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->  
+				<!-- 选择图标层结束结束 -->
+			</section>
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+
+
+
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

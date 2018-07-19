@@ -1,0 +1,132 @@
+<html>
+	<title>美国数据清洗并入库</title>
+	<script src="__JS__/jquery.min.js"></script>
+	<script src="__JS__/jquery.cookie.js"></script>
+	<style>
+		.oneDivStyle{
+			width:400px;
+			height:50px;
+			margin:300px auto;
+		}
+		.oneDivStyleO{
+			width:188px;
+			height:50px;
+			line-height:50px;
+			text-align:center;
+			font-size:18px;
+			border-radius:5px;
+			color:white;
+			float:left;
+			margin-left:12px
+		}
+		.oneDivStyleL{
+			cursor:pointer;
+			background:#00aaee;
+		}
+		.oneDivStyleR{
+			background:#ccc;
+		}
+		.oneDivStyleL:hover{
+			background:#00bbee;
+		}
+		.oneDivStyleT{
+			width:200px;
+			height:50px;
+			margin:0px auto;
+			margin-top:-290px;
+			line-height:50px;
+			text-align:center;
+		}
+		.spanStyle{
+			color:red;
+			font-size:16px;
+			font-weight:bold;
+		}
+	</style>
+	<div class="oneDivStyle">
+		<div class="oneDivStyleO oneDivStyleL" data-start='0' data-state="1">开 始</div>
+		<div class="oneDivStyleO oneDivStyleR" data-state="1">暂 停</div>
+	</div>
+	<div class="oneDivStyleT">第<span class="spanStyle"></span>条数据 错误<span class="spanStyleTwo"></span>条</div>
+	<script>
+		alert($.cookie('hopenoahStart'))
+		$('.spanStyle').html($.cookie('hopenoahStart'));
+		$('.spanStyleTwo').html($.cookie('hopenoahErrorNum'));
+		console.log($.cookie('hopenoahError'));
+		$('.oneDivStyleL').click(function(){
+			if($(this).data('state') == 1){
+				//禁用当前按钮
+				$(this).data('state',2);
+				$(this).removeClass('oneDivStyleL');
+				$(this).css({'background':'#ccc'});
+				//同时激活暂停按钮
+				$('.oneDivStyleR').css({'background':'#00aaee'});
+				$('.oneDivStyleR').addClass('oneDivStyleL');
+				//获取开始数据
+				var start = $.cookie('hopenoahStart');
+				recycleFunc(start);
+			}else{
+				alert('请不要重复点击该操作!');
+			}
+		});
+		
+		//开始
+		function recycleFunc(start){
+			//获取暂停状态
+			var stop = $('.oneDivStyleR').data('state');
+			if(stop == 1){
+				$.ajax({
+					url:'__WEBURL__/Test/usaDataClearFunc',
+					type:'post',
+					dataType:'json',
+					data:'num='+start,
+					success:function(data){
+						var parseIntID = parseInt(data.startID)+1;
+						if(data.status == 1){
+							//更新输入框条数
+							$('.spanStyle').html(parseIntID);
+						}else if(data.status == 4){
+							alert(data.message);
+							return false;
+						}else{
+							//更新输入框条数
+							$('.spanStyle').html(parseIntID);
+							//记录错误数据ID
+							//创建一个cookie并设置有效时间为300天:  
+							var hopenoahError = $.cookie('hopenoahError');
+							var hopenoahStart = $.cookie('hopenoahStart');
+							var hopenoahErrorNum = $.cookie('hopenoahErrorNum');
+							if(hopenoahErrorNum){
+								hopenoahErrorNum = parseInt(hopenoahErrorNum)+1;
+								$.cookie('hopenoahErrorNum',hopenoahErrorNum,{expires:300});
+							}else{
+								$.cookie('hopenoahErrorNum',1,{expires:300});
+							}
+							if(hopenoahError){
+								$.cookie('hopenoahError',hopenoahError+','+hopenoahStart,{expires:300});
+							}else{
+								$.cookie('hopenoahError',hopenoahStart,{expires:300});
+							}
+							$('.spanStyleTwo').html($.cookie('hopenoahErrorNum'));
+						}
+						recycleFunc(parseIntID);
+					}
+				})
+			}
+		}
+		//暂停
+		$('.oneDivStyleR').click(function(){
+			//执行暂停状态
+			$(this).data('state',2);
+			//禁用当前按钮
+			$(this).removeClass('oneDivStyleL');
+			$(this).css({'background':'#ccc'});
+			//开边开始按钮状态
+			$('.oneDivStyleL').data('state',1);
+			//同时开始暂停按钮
+			$('.oneDivStyleL').css({'background':'#00aaee'});
+			$('.oneDivStyleL').addClass('oneDivStyleL');
+		});
+		
+	</script>
+</html>

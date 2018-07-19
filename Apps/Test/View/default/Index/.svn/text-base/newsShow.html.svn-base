@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>新闻列表</title>
+<link href="__CSS__/huodongliebiao.css" type="text/css" rel="stylesheet" />
+<link href="__CSS__/reset.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="__CSS__/footer.css">
+</head>
+
+<body>
+<div class="hdyx_wrap">
+      <div class="hdyx_logo">
+         <img src="__ACC__/{$houseInfo.tlogo}" />
+      </div> 
+</div>
+<div class="hdlb_con">
+      <div class="hdlb_con_tit">
+            <div><p>新闻列表</p></div>
+      </div>
+	  <foreach name="newsList" item="news">
+		<a href="__MODULE__/Index/trendsShow/id/{$news.id}/hid/{$houseInfo.id}">
+			<div class="hdlb_con_list">
+				<div class="hdlb_con_listone">
+					<div class="hdlb_con_listone_l">
+						<img src="__ACC__/{$news.cover}" />
+					</div>
+					<div class="hdlb_con_listone_r">
+						<div class="top">{$news.title}</div>
+						<div class="bottom">{$news.content}</div>
+					</div>
+				</div>
+			</div>
+		</a>	
+	  </foreach>
+</div>
+<div class="fot_bottom">
+		<div class="fot_box">
+			<ul class="ul1">
+				<li>
+					<a href="__MODULE__/Index/houseShow/id/{$houseInfo.id}"><p><img src="__IMG__/icon_fot.png"></p><span>首页</span></a>
+				</li>
+				<li>
+					<a href="__MODULE__/Index/info/id/{$houseInfo.id}"><p><img src="__IMG__/icon_fot_2.png"></p><span>基本信息</span></a>
+				</li>
+				<li style="background:#a68068;">
+					<a href="__MODULE__/Index/trends/id/{$houseInfo.id}"><p><img src="__IMG__/icon_fot_3.png"></p><span>最新动态</span></a>
+				</li>
+				<li>
+					<a href="#"><p><img src="__IMG__/icon_fot_4.png"></p><span>客户推荐</span></a>
+				</li>
+				<li>
+					<a href="__MODULE__/Index/reserve/id/{$houseInfo.id}"><p><img src="__IMG__/icon_fot_5.png"></p><span>预约购房</span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

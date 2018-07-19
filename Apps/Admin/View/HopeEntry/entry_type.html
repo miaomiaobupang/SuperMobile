@@ -1,0 +1,239 @@
+<style>
+.child{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+body #content .dataTables_wrapper{
+    font-size: 14px;
+}
+body #content .dataTables_filter{
+    margin-left:150px;
+}
+.divChoose{
+	margin-left:749px;
+	margin-top:4px;
+}
+.chooseButtonLeft{
+	height:35px;
+	line-height:30px;
+	background:#304962;
+	color:#fff;
+	border:0px;
+}
+.chooseButtonRight{
+	height:35px;
+	line-height:30px;
+	background:#304962;
+	color:#fff;
+	border:0px;
+}
+.chooseButtonCenter{
+	height:35px;
+	line-height:30px;
+	background:#f2f2f2;
+	color:#000;
+	border:0px;
+}
+.chooseButtonCenter:hover{
+	background:#243446;
+	color:#fff;
+}
+.chooseButtonLeft:hover{
+	background:#243446;
+	color:#fff;
+}
+.chooseButtonRight:hover{
+	background:#243446;
+	color:#fff;
+}
+.spanColor{
+	width:15px;
+	height:15px;
+	border:1px solid #fff;
+	margin-left:10px;
+}
+.divColor{
+	margin-top:-17px;
+	margin-left:30px;
+}
+.ahref{
+	text-decoration:none;
+	color:#fff;
+}
+.ahref:hover{
+	color:blue;
+}
+.slide{
+	margin-top:5px;
+}
+.title{
+	width:140px;
+	vertical-align:middle;
+	display:block;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.pull-right{
+	margin-right:5px;
+	margin-top:5px;
+}
+.butSubmit{
+	width:300px;
+	height:70px;
+	border-radius:0px 0px 10px 0px;
+	float:right;
+	margin-right:-15px;
+    margin-top:-70px;
+	font-size:18px;
+}
+.butButton{
+	width:300px;
+	height:70px;
+	border-radius:0px 0px 0px 10px;
+	float:left;
+	margin-left:-15px;
+    margin-top:-16px;
+	font-size:18px;
+}
+
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">超级医生</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>超级医生-词条类型管理</strong>
+					</h1>
+					<div class="pull-right">
+						<a href="#moduleAdd" role="button" class="btn btn-red" data-toggle="modal"><span class="icon-plus"></span> 添加词条类型</a>
+					</div>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body form-group form-footer">
+					<table class="table" id="basicDataTable">
+						<thead>
+							<tr>
+							  <th class="text-center">词条类型名称</th>
+							  <th class="text-center">创建人</th>
+							  <th class="text-center">创建时间</th>
+							  <th class="text-center">状态</th>
+							</tr>
+						</thead>
+						<tbody>
+							<foreach name="info" item="da">
+								<tr>
+									<td class="text-center">{$da.name}</td>
+									<td class="text-center">{$da.uname}</td>
+									<td class="text-center">{$da.ctime}</td>
+									<td class="text-center"><if condition="$da.state eq 1">正常<else />禁用</if></td>
+									<td class="text-right">
+										<div class="btn-group" role="group" aria-label="...">
+											<!-- <a class="btn btn-default" role="button" href="__MODULE__/Role/adminRole/uid/{$da.uid}/p/{$p}">配置</a> -->
+											<!-- <a href="#moduleModPass" data-toggle="modal" class="btn btn-default passMod" data-uid="{$da.uid}" role="button">改密</a> -->
+											<a href="#moduleMod" data-toggle="modal" class="btn btn-default unamemMod" data-id="{$da.id}" data-name="{$da.name}" role="button">修改</a>
+										</div>
+									</td>
+								</tr>
+							</foreach>
+							<tr>
+								<td colspan="5"><span style="float:right;">{$row}</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+           <!-- /tile body -->
+			</section>
+			<!-- /tile -->
+			<!-- 模块增加表单开始 -->
+			<div class="modal fade" id="moduleAdd" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true" enctype='multipart/form-data'>
+				<div class="modal-dialog" style="margin-top:40px;">
+					<div class="modal-content" style="border-radius:10px">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">关闭</button>
+							<h3 class="modal-title" id="modalConfirmLabel"><strong>词条类型</strong> 添加</h3>
+						</div>
+						<form class="form-horizontal" role="form" action="__WEBURL__/HopeEntry/entry_type_add" method="post">
+							<div class="modal-body">
+								<div class="form-group col-md-12 col-sm-12">
+									<label for="coding"  class="col-sm-3 control-label">词条类型名称</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control col-sm-9" value="" id="uname" name="name" placeholder="必填"/>
+									</div>
+								</div>
+							</div>					
+							<div class="modal-footer" style="height:70px;margin-top:195px;border-radius:10px;">
+								<button class="btn btn-primary butButton" data-dismiss="modal" aria-hidden="true">取 消</button>
+								<input class="btn btn-primary butSubmit" type="submit" value="提 交"/>
+								<div style="clear:both;"></div>
+							</div>
+						</form>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->  
+			<!-- 模块增加表单结束 -->
+			<!-- 模块修改表单开始 -->
+			<div class="modal fade" id="moduleMod" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true" enctype='multipart/form-data'>
+				<div class="modal-dialog" style="margin-top:40px;">
+					<div class="modal-content" style="border-radius:10px">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">关闭</button>
+							<h3 class="modal-title" id="modalConfirmLabel"><strong>词条类型</strong> 修改</h3>
+						</div>
+						<form class="form-horizontals" role="form" action="__WEBURL__/HopeEntry/entry_type_update" method="post">
+							<input name="uid" type="hidden" value="" id="uidModal"/>
+							<div class="modal-body">
+								<div class="form-group col-md-12 col-sm-12">
+									<label for="coding"  class="col-sm-3 control-label">词条类型名称</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control col-sm-9" value="" data-uid="" id="entrystylename" name="name" placeholder="必填"/>
+										<input type="hidden"  value="" id="entrystyleid" name="entrystyleid"/>
+									</div>
+								</div>
+							</div>					
+							<div class="modal-footer" style="height:70px;margin-top:195px;border-radius:10px;">
+								<button class="btn btn-primary butButton" data-dismiss="modal" aria-hidden="true">取 消</button>
+								<input class="btn btn-primary butSubmit" type="submit" value="提 交"/>
+								<div style="clear:both;"></div>
+							</div>
+						</form>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->  
+			<!-- 模块修改表单结束 -->
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>

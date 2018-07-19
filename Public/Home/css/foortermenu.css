@@ -1,0 +1,283 @@
+textarea,input{
+	outline: 0 none;
+}
+/* 右侧快捷菜单开始 */
+.quickItools {
+	background-color: #e6e9e9;
+	height: 100%;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 33px;
+	z-index:301;
+}
+.quickItools > ul {
+  bottom: 20px;
+  position: absolute;
+}
+.quickItools li{
+	width:33px;
+	height:35px;
+	margin-bottom:8px;
+}
+.quickItoolsBtn {
+	height: 33px;
+	position: relative;
+	
+}
+/* 呼叫客服 */
+.customerServiceBtn .quickItoolsIco {
+  background: url("../images/itoolcustomerserviceb.png") no-repeat scroll 0 0;
+}
+.customerServiceBtn .quickItoolsIco:hover {
+  background: #21689b url("../images/itoolcustomerservicew.png") no-repeat scroll 0 0;
+}
+/* 我的足迹 */
+.footprintBtn .quickItoolsIco {
+  background: url("../images/itoolfootprintb.png") no-repeat scroll 0 0;
+}
+.footprintBtn .quickItoolsIco:hover {
+  background: #21689b url("../images/itoolfootprintw.png") no-repeat scroll 0 0;
+}
+/* 关注微信 */
+.WeChatBtn .quickItoolsIco {
+  background: url("../images/itoolwechatb.png") no-repeat scroll 0 0;
+}
+.WeChatBtn .quickItoolsIco:hover {
+  background: #21689b url("../images/itoolwechatw.png") no-repeat scroll 0 0;
+}
+/* 关注微博 */
+.microblogBtn .quickItoolsIco {
+  background: url("../images/itoolmicroblogb.png") no-repeat scroll 0 0;
+}
+.microblogBtn .quickItoolsIco:hover {
+  background: #21689b url("../images/itoolmicroblogw.png") no-repeat scroll 0 0;
+}
+/* 用户反馈 */
+.feedbackBtn .quickItoolsIco {
+  background: url("../images/itoolfeedbackb.png") no-repeat scroll 0 0;
+}
+.feedbackBtn .quickItoolsIco:hover {
+  background: #21689b url("../images/itoolfeedbackw.png") no-repeat scroll 0 0;
+}
+/* 返回顶部 */
+.returntopBtn .quickItoolsIco {
+  background: url("../images/itoolreturntopb.png") no-repeat scroll 0 0;
+}
+.returntopBtn .quickItoolsIco:hover {
+  background: #21689b url("../images/itoolreturntopw.png") no-repeat scroll 0 0;
+}
+.quickItoolsWeChatShow {
+	position: absolute;
+	top: 0;
+	right: 53px;
+	opacity:0;
+	display:none;
+}
+.quickItoolsText {
+	background-color: #2e2e2e;
+	color: #fff;
+	font-size: 14px;
+	line-height: 35px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 80px;
+	right: 53px;
+	opacity:0;
+	display:none;
+	z-index:302;
+}
+.quickItoolsarrow {
+  background: url("../images/quickitoolstext.png") no-repeat scroll 0 0;
+  height: 35px;
+  position: absolute;
+  right: -7px;
+  top: 0;
+  width: 7px;
+}
+.quickItoolsarroww {
+  background: url("../images/quickitoolstextw.png") no-repeat scroll 0 0;
+  height: 35px;
+  position: absolute;
+  right: -7px;
+  top: 0;
+  width: 7px;
+}
+.quickItoolsIco{
+	width:33px;
+	height:35px;
+	cursor:pointer;
+}
+/* 用户反馈开始 */
+.footerLeftPic {
+	width: 100px;
+	height: auto;
+}
+.footerLeft {
+	float: left;
+	margin-top: 30px;
+	width: 100px;
+}
+.footerLeftText .footerLeftTextLi{
+	color:#6a6a6a;
+}
+.footerRightMiddle{
+	color:#6a6a6a;
+}
+.backgroundShadow{
+	width:100%;
+	height:100%;
+	background: rgba(0,0,0,0.5);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000);
+	position: fixed;
+	top: 0;
+	z-index:300;
+	display:none;
+}
+.feedbackDiv {
+	background: #fff none repeat scroll 0 0;
+	height: 521px;
+	position: absolute;
+	top: -443px;
+	width: 500px;
+	z-index: 301;
+	right: 53px;
+	opacity:0;
+	display:none;
+}
+.feedbackContent {
+	border: 2px solid #cecece;
+	color: #212121;
+	font-size: 16px;
+	height: 230px;
+	margin-bottom: 25px;
+	margin-left: 20px;
+	margin-top: 30px;
+	padding: 10px;
+	resize: none;
+	width: 460px;
+}
+.feedbackContact {
+	border: 2px solid #cecece;
+	color: #212121;
+	font-size: 16px;
+	height: 50px;
+	margin-bottom: 25px;
+	margin-left: 20px;
+	*margin-left: 10px;/* IE7支持 */
+	padding: 10px;
+	width: 460px;
+}
+.feedbackContactVal{
+	border:none;
+	width:100%;
+}
+.feedbackverificationDiv {
+	border: 2px solid #e2e2e2;
+	font-size: 16px;
+	height: 50px;
+	margin-left: 20px;
+	width: 225px;
+}
+.feedbackverificationDiv > span {
+	border-right: 2px solid #e2e2e2;
+	color: #878787;
+	display: block;
+	float: left;
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+	width: 82px;
+}
+.feedbackverification {
+	border: medium none;
+	color: #212121;
+	margin-left: 10px;
+	margin-top: 10px;
+	width: 119px;
+}
+.feedbackverificationPic {
+	float: right;
+	height: 50px;
+	margin-right: 50px;
+	cursor:pointer;
+}
+.feedbackFooter {
+	bottom: 16px;
+	height: 50px;
+	position: absolute;
+	width:100%;
+}
+.feedbackFooter .btn{
+	border-radius:0;
+	width:178px;
+	height:50px;
+	font-size:16px;
+	margin-right:20px;
+	float:right;
+}
+.feedbackFooter .btn-primary{
+	background-color:#276ca3;
+}
+.feedbackFooter .btn-primary:hover{
+	background-color:#1b5c8f;
+}
+.feedbackError {
+	display: block;
+	font-size: 16px;
+	height: 50px;
+	line-height: 50px;
+	width: 280px;
+	color: #c9302c;
+	padding-left: 20px;
+	overflow: hidden;
+}
+.feedbackDivClose {
+	font-size: 22px;
+	color:#878787;
+	position: absolute;
+	cursor:pointer;
+	right: 5px;
+	top: 0;
+}
+.feedbackDivClose:hover{
+	color: #c9302c;
+}
+.feedbackarrow{
+	bottom: 44px;
+	background: url("../images/quickitoolstextw.png") no-repeat scroll 0 0;
+	height: 35px;
+	position: absolute;
+	right: -7px;
+	width: 7px;
+}
+/* 用户反馈结束 */
+/* 右侧快捷菜单结束 */
+
+/* 通用提示框 */
+.WebMsgTitles {
+	background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000);
+	border-radius: 5px;
+	color: #fff;
+	font-size: 22px;
+	height: 50px;
+	line-height: 50px;
+	position: fixed;
+	right: 58px;
+	text-align: center;
+	width: 200px;
+	z-index:302;
+	bottom: -50px;
+	opacity:0;
+	display:none;
+}
+.WebMsgTitlesClose {
+	position: absolute;
+	right: 10px;
+	cursor:pointer;
+}
+.WebMsgTitlesClose:hover{
+	color: #c9302c;
+}

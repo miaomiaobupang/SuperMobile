@@ -1,0 +1,58 @@
+/* Fairso 通用表单校验 */
+.inputDiv{
+	position: relative;
+	margin-top: 20px;
+	float: left;
+}
+.inputText {
+    color: #2c3a5d;
+    cursor: default;
+    float: left;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    width: 88px;
+}
+.inputValue {
+    float: left;
+    width: 280px;
+}
+
+.formFrame {
+    border: 1px solid #a0a0a0;
+    height: 40px;
+    padding-left: 10px;
+    width: 270px;
+}
+.formError {
+    position: absolute;
+    right: -220px;
+    width: 200px;
+	display:none;
+}
+.formError .alert{
+	padding:9px;
+}
+.formError .alert .errorIco{
+	padding-right:10px;
+}
+.formPrompt {
+    position: absolute;
+    right: -220px;
+    width: 200px;
+	display:none;
+}
+.formPrompt .alert{
+	padding:10px;
+}
+.formPrompt .alert .promptIco{
+	padding-right:10px;
+}
+.inputTxt{
+	border:1px solid #a0a0a0;
+	padding-left: 10px;
+}
+.verificationCode {
+    float: left;
+    width: 135px;
+}

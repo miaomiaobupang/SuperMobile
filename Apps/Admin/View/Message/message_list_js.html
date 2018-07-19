@@ -1,0 +1,84 @@
+<script>
+	$('.toExamineClass').click(function(){
+		var entry_id = $(this).data('id');
+		var entry_state = $(this).data('state');
+		var thisObj = $(this);
+		var url = "{$fromUrl}";
+		$.ajax({
+			url:URLS+'/Message/message_examine',
+			data:'id='+entry_id+'&type=2&state='+entry_state,
+			type:'post',
+			dataType:'json',
+			success:function(data){
+				if(data.status == 1){
+					//更新当前词条上下线状态以及文字
+					thisObj.data('state',data.data);
+					location.reload();
+				}
+			}
+		});
+	});
+	
+	//审核资讯
+	$('.examineSub').click(function(){
+		var state = $(this).data('state');
+		var id = $(this).data('id');
+		var url = "{$fromUrl}";
+		
+		$.ajax({
+			url:URLS+"/Message/message_examine",	
+			data:'id='+id+'&& state='+state+'&& type=1',
+			type:'post',
+			dataType:'json',
+			success:function(data){
+				if(data.status == 1){
+					location.reload();
+				}else{
+					alert(data.message);
+				}
+			}
+		});
+	});
+
+	$('.searchFunc').click(function(){
+		var keywords = $("#entryKeywords").val();
+		window.location.href = URLS+"/Message/message_list?cname="+keywords;
+	});
+	
+	$('.navSelected').each(function(){
+		if($(this).data('type') == {$type}){
+			$(this).css({'background':'#ff7b76'});
+		}
+	});
+	$('.navEdited').each(function(){
+		if($(this).data('type') == {$edit}){
+			$(this).css({'background':'#ff7b76'});
+		}
+	});
+	$('.navusered').each(function(){
+		if($(this).data('type') == {$user}){
+			$(this).css({'background':'#ff7b76'});
+		}
+	});
+	$('.examined').each(function(){
+		if($(this).data('type') == {$statecode}){
+			$(this).css({'background':'#ff7b76'});
+		}
+	});
+	$('.UpDowaned').each(function(){
+		if($(this).data('type') == {$statestatus}){
+			$(this).css({'background':'#ff7b76'});
+		}
+	});
+	$('.fromstate').each(function(){
+		if($(this).data('type') == {$fromstate}){
+			$(this).css({'background':'#ff7b76'});
+		}
+	});
+	
+	$('.publicTR').hover(function(){
+		$(this).css({'background':'#69a3d5'});
+	},function(){
+		$(this).css("background","#395571");
+	});
+</script>

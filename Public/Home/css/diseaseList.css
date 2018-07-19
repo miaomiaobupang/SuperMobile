@@ -1,0 +1,305 @@
+.main{
+	width:1240px;
+	height:auto;
+	margin:0 auto;
+	padding-top:20px;
+}
+.mainBox1{
+	width:100%;
+	height:300px;
+}
+.mainBox1Banner{
+	width:800px;
+	height:300px;
+}
+.mainBox1BannerImg{
+	width:800px;
+	height:300px;
+}
+.my-pagination{
+  width:100px;
+  height:8px;
+  position:absolute;
+  margin:auto;
+  bottom:20px;
+  left:0;
+  right:0;
+  z-index:1;
+}
+.my-pagination .swiper-pagination-switch{
+	background:#fff;
+	display:inline-block;
+	margin:0 10px;
+	border-radius:50%;
+	width:8px;
+	height:8px;
+	cursor:pointer;
+}
+.my-pagination .swiper-active-switch {
+  background:rgb(236, 120, 55);
+}
+.mainBox1Right{
+	width:400px;
+}
+.diseaseBox{
+	width:420px;
+}
+.diseaseTitle{
+	font-size:20px;
+	line-height:35px;
+	margin-bottom:15px;
+}
+.diseaseTip{
+	display:inline-block;
+	padding:5px 9px;
+	font-size:16px;
+	background:#fff;
+	border:1px solid #dcdcdc;
+	box-shadow:1px 2px 3px rgb(220,220,220); 
+	border-radius: 2px;
+	margin-right:8px;
+	margin-bottom:16px;
+	cursor:pointer;
+}
+.diseaseTip:hover{
+	background:#009FA8;
+	color:#fff;
+}
+.mainBox2{
+	width:1240px;
+	height:auto;
+	padding:35px;
+	position:relative;
+}
+.mainBox2 .diseaseTitle{
+	text-align:center;
+}
+.lb_left{
+	position:absolute;
+	top:122px;
+	left:30px;
+	cursor:pointer;
+}
+.lb_right{
+	position:absolute;
+	top:122px;
+	right:30px;
+	cursor:pointer;
+}
+.mainBox2InnerImg{
+	width:68px;
+	height:68px;
+	background:#009FA8;
+	border-radius:50%;
+	margin:0 auto;
+}
+.mainBox2InnerText{
+	font-size:18px;
+	margin-top:16px;
+	text-align:center;
+}
+.mainBox2Banner{
+	width:1040px;
+	height:110px;
+}
+.mainBox2BannerInner{
+	width:130px;
+	cursor:pointer;
+}
+.mainBox2BannerInner:hover .mainBox2InnerText{
+	color:#009FA8;
+}
+.mainBox3{
+	width:100%;
+	height:655px;
+}
+.mainBox3Left{
+	width:820px;
+	height:635px;
+	box-shadow:1px 2px 3px rgb(220,220,220);
+	border:1px solid #dcdcdc;
+}
+.mainBox3LeftTilte{
+	font-size:20px;
+	line-height:65px;
+	padding-left:20px;
+	border-bottom:1px solid #dcdcdc;
+}
+.mainBox3Left1{
+	width:366px;
+	height:567px;
+	background:#f5f5f5;
+	padding:20px;
+}
+.mainBox3Left1_title{
+	font-size:16px;
+	color:#009FA8;
+}
+.mainBox3Left1Pic{
+	position:relative;
+	width:143px;
+	height:464px;
+	background:url(../images/1511920180750.png) no-repeat;
+	margin:0 auto;
+	margin-top:25px;
+}
+.bodyPic{
+	position:absolute;
+	cursor:pointer;
+}
+.bodyPicThis .bodyPicText{
+	background:#999;
+}
+.bodyPicText{
+	padding:5px 9px;
+	font-size:16px;
+	background:#009FA8;
+	border-radius:2px;
+	color:#fff;
+}
+.bodyPic_1{
+	top:14px;
+	left:-54px;
+}
+.bodyPic_2{
+	top:72px;
+	left:-62px;
+}
+.bodyPic_3{
+	top:207px;
+	left:-68px;
+}
+.bodyPic_4{
+	top:123px;
+	right:-62px;
+}
+.bodyPic_5{
+	top:182px;
+	right:-49px;
+}
+.bodyPic_6{
+	top:257px;
+	right:-70px;
+}
+.mainBox3Left1_tip{
+	font-size:12px;
+	color:#999;
+	line-height:30px;
+	padding-left:30px;
+}
+.mainBox3Left2{
+	width:452px;
+	height:570px;
+	padding:20px;
+	display:none;
+}
+.mainBox3Left2_1{
+	display:block;
+}
+.mainBox3Left2_title{
+	padding-bottom:10px;
+	font-size:16px;
+	border-bottom:1px solid #dcdcdc;
+}
+.mainBox3Left2_title span{
+	font-size:16px;
+	color:#009FA8;
+}
+.mainBox3Left2Disease{
+	width:200px;
+}
+.mainBox3Left2Disease li{
+	font-size:18px;
+	color:#666;
+	padding-left:20px;
+	margin-top:15px;
+}
+.mainBox3Left2Disease li:hover{
+	color:#009FA8;
+	cursor:pointer;
+}
+.mainBox3Right1{
+	width:400px;
+	height:316px;
+	padding:0 20px;
+	border:1px solid #dcdcdc;
+	box-shadow:1px 2px 5px rgb(238,238,238);
+	margin-bottom:20px;
+}
+.mainBox3Right1Tilte{
+	font-size:20px;
+	line-height:60px;
+	border-bottom:1px solid #dcdcdc;
+}
+.mainBox3Right1 .mainBox3Left2Disease{
+	width:175px;
+}
+.mainBox3Right1 li{
+	margin-top:11px;
+}
+.mainBox3Right2{
+	width:400px;
+	height:299px;
+	padding:0 20px;
+	border:1px solid #dcdcdc;
+	box-shadow:1px 2px 5px rgb(238,238,238);
+}
+.mainBox3Right2 .mainBox3Right1Tilte{
+	border:0;
+}
+.questions{
+	width:360px;
+	height:218px;
+	background:#f5f5f5;
+	padding:15px 20px;
+	position:relative;
+}
+.questions textarea{
+	width:100%;
+	height:150px;
+	line-height:24px;
+	border:none;
+	resize:none;
+	font-size:16px;
+	color:#999;
+	background:none;
+}
+.questionsTip{
+	width:100%;
+	height:50px;
+	line-height:50px;
+	position:absolute;
+	bottom:0;
+	padding-left:130px;
+}
+.questionsTip button{
+	width:76px;
+	height:30px;
+	line-height:30px;
+	background:#009FA8;
+	border:none;
+	color:#fff;
+	font-size:14px;
+	border-radius: 2px;
+	cursor:pointer;
+	margin-left:5px;
+}
+.questionsTip span{
+	color:#999;
+	font-size:14px;
+}
+.mainBox4{
+	width:100%;
+	height:140px;
+	margin-bottom:40px;
+}
+.mainBox5{
+	margin-bottom:128px;
+}
+.mainBox5 .mainBox5Link{
+	color:#666;
+	margin-right:15px;
+}
+.mainBox5Link:hover{
+	color:#009FA8;
+}

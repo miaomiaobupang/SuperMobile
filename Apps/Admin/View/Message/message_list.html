@@ -1,0 +1,270 @@
+<style>
+	.child{
+		display:none;
+	}
+	.hand{
+		cursor: pointer;
+	}
+	body #content .dataTables_wrapper{
+		font-size: 14px;
+	}
+	body #content .dataTables_filter{
+		margin-left:150px;
+	}
+	.divChoose{
+		margin-left:749px;
+		margin-top:4px;
+	}
+	.chooseButtonLeft{
+		height:35px;
+		line-height:30px;
+		background:#304962;
+		color:#fff;
+		border:0px;
+	}
+	.chooseButtonRight{
+		height:35px;
+		line-height:30px;
+		background:#304962;
+		color:#fff;
+		border:0px;
+	}
+	.chooseButtonCenter{
+		height:35px;
+		line-height:30px;
+		background:#f2f2f2;
+		color:#000;
+		border:0px;
+	}
+	.chooseButtonCenter:hover{
+		background:#243446;
+		color:#fff;
+	}
+	.chooseButtonLeft:hover{
+		background:#243446;
+		color:#fff;
+	}
+	.chooseButtonRight:hover{
+		background:#243446;
+		color:#fff;
+	}
+	.spanColor{
+		width:15px;
+		height:15px;
+		border:1px solid #fff;
+		margin-left:10px;
+	}
+	.divColor{
+		margin-top:-17px;
+		margin-left:30px;
+	}
+	.ahref{
+		text-decoration:none;
+		color:#fff;
+	}
+	.ahref:hover{
+		color:blue;
+	}
+	.slide{
+		margin-top:5px;
+	}
+	.title{
+		width:140px;
+		vertical-align:middle;
+		display:block;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
+	}
+	.pull-right{
+		margin-right:5px;
+		margin-top:5px;
+	}
+	.butSubmit{
+		width:300px;
+		height:70px;
+		border-radius:0px 0px 10px 0px;
+		float:right;
+		margin-right:-15px;
+		margin-top:-70px;
+		font-size:18px;
+	}
+	.butButton{
+		width:300px;
+		height:70px;
+		border-radius:0px 0px 0px 10px;
+		float:left;
+		margin-left:-15px;
+		margin-top:-16px;
+		font-size:18px;
+	}
+	.searchFunc{
+		cursor:pointer;
+	}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">超级医生</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>超级医生-资讯管理</strong>
+					</h1>
+					<div class="pull-right">
+						<a href="__MODULE__/Message/message" role="button" class="btn btn-red" data-toggle="modal"><span class="icon-plus"></span>创建资讯</a>
+					</div>
+					<div class="pull-right btn-group" role="group" >
+						<a href="__MODULE__/Message/message_list?type=0&edit={$edit}&user={$user}&statecode={$statecode}&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-green navSelected" data-type="0" data-toggle="modal">全部</a>
+						<a href="__MODULE__/Message/message_list?type=1&edit={$edit}&user={$user}&statecode={$statecode}&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-green navSelected" data-type="1" data-toggle="modal">医疗前沿</a>
+						<a href="__MODULE__/Message/message_list?type=2&edit={$edit}&user={$user}&statecode={$statecode}&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-green navSelected" data-type="2" data-toggle="modal">最新案例</a>
+						<a href="__MODULE__/Message/message_list?type=3&edit={$edit}&user={$user}&statecode={$statecode}&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-green navSelected" data-type="3" data-toggle="modal">公益</a>
+						<a href="__MODULE__/Message/message_list?type=4&edit={$edit}&user={$user}&statecode={$statecode}&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-green navSelected" data-type="4" data-toggle="modal">海外医疗</a>
+						<a href="__MODULE__/Message/message_list?type=5&edit={$edit}&user={$user}&statecode={$statecode}&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-green navSelected" data-type="5" data-toggle="modal">世界大师中国行</a>
+						<a href="__MODULE__/Message/message_list?type=6&edit={$edit}&user={$user}&statecode={$statecode}&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-green navSelected" data-type="6" data-toggle="modal">专家资讯</a>
+						<a href="__MODULE__/Message/message_list?type=7&edit={$edit}&user={$user}&statecode={$statecode}&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-green navSelected" data-type="7" data-toggle="modal">医院新闻</a>
+					</div>
+				</div>
+				<if condition="$uidArr neq null">
+					<!-- Split button -->
+					<div class="tile-header" style="height: 70px;">
+						<h1><span>共计<span style="font-weight:bold;color:red;">{$count}</span>条</span></h1>
+						<div class="pull-right btn-group" role="group">
+							<a href="__MODULE__/Message/message_list?edit={$edit}&type={$type}&user=0&statecode={$statecode}&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-blue navusered" data-type="0" data-toggle="modal">全部</a>
+							<foreach name="uidArr" item="uidArr">
+								<a href="__MODULE__/Message/message_list?edit={$edit}&type={$type}&user={$uidArr.uid}&statecode={$statecode}&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-blue navusered" data-type="{$uidArr.uid}" data-toggle="modal">{$uidArr.uname}</a>
+							</foreach>
+						</div>
+					</div>
+				</if>
+				<if condition="$uidArr eq null">
+					<div class="tile-header" style="height:70px;">
+					<h1><span>共计<span style="font-weight:bold;color:red;">{$count}</span>条</span></h1>
+					<div class="pull-right btn-group" role="group">
+				<else/>
+					<div class="tile-header" style="height:50px;">
+					<div class="pull-right btn-group" role="group" style="margin-top:-20px;">
+				</if>
+						<a href="__MODULE__/Message/message_list?edit=3&type={$type}&user={$user}&statecode={$statecode}&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-blue navEdited" data-type="3" data-toggle="modal">全部</a>
+						<a href="__MODULE__/Message/message_list?edit=1&type={$type}&user={$user}&statecode={$statecode}&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-blue navEdited" data-type="1" data-toggle="modal">已编辑</a>
+						<a href="__MODULE__/Message/message_list?edit=2&type={$type}&user={$user}&statecode={$statecode}&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-blue navEdited" data-type="2" data-toggle="modal">未编辑</a>
+					</div>
+				</div>
+				<div class="tile-header" style="height:50px;">
+					<div class="pull-right btn-group" role="group" style="margin-top:-20px;">
+						<a href="__MODULE__/Message/message_list?edit={$edit}&type={$type}&user={$user}&statecode=4&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-blue examined" data-type="4" data-toggle="modal">全部</a>
+						<a href="__MODULE__/Message/message_list?edit={$edit}&type={$type}&user={$user}&statecode=2&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-blue examined" data-type="2" data-toggle="modal">审核中</a>
+						<a href="__MODULE__/Message/message_list?edit={$edit}&type={$type}&user={$user}&statecode=1&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-blue examined" data-type="1" data-toggle="modal">审核通过</a>
+						<a href="__MODULE__/Message/message_list?edit={$edit}&type={$type}&user={$user}&statecode=3&statestatus={$statestatus}&fromstate={$fromstate}" role="button" class="btn btn-default btn-blue examined" data-type="3" data-toggle="modal">审核失败</a>
+					</div>
+				</div>
+				<div class="tile-header" style="height:50px;">
+					<div class="pull-right btn-group" role="group" style="margin-top:-20px;">
+						<a href="__MODULE__/Message/message_list?edit={$edit}&type={$type}&user={$user}&statecode={$statecode}&statestatus={$statestatus}&fromstate=4" role="button" class="btn btn-default btn-blue fromstate" data-type="4" data-toggle="modal">全部来源</a>
+						<a href="__MODULE__/Message/message_list?edit={$edit}&type={$type}&user={$user}&statecode={$statecode}&statestatus={$statestatus}&fromstate=1" role="button" class="btn btn-default btn-blue fromstate" data-type="1" data-toggle="modal">手动录入</a>
+						<a href="__MODULE__/Message/message_list?edit={$edit}&type={$type}&user={$user}&statecode={$statecode}&statestatus={$statestatus}&fromstate=2" role="button" class="btn btn-default btn-blue fromstate" data-type="2" data-toggle="modal">美国</a>
+						<a href="__MODULE__/Message/message_list?edit={$edit}&type={$type}&user={$user}&statecode={$statecode}&statestatus={$statestatus}&fromstate=3" role="button" class="btn btn-default btn-blue fromstate" data-type="3" data-toggle="modal">日本</a>
+					</div>
+				</div>
+				<div class="tile-header" style="height:50px;">
+					<div class="pull-right btn-group" role="group" style="margin-top:-20px;">
+						<a href="__MODULE__/Message/message_list?edit={$edit}&type={$type}&user={$user}&statecode={$statecode}&statestatus=3&fromstate={$fromstate}" role="button" class="btn btn-default btn-blue UpDowaned" data-type="3" data-toggle="modal">全部</a>
+						<a href="__MODULE__/Message/message_list?edit={$edit}&type={$type}&user={$user}&statecode={$statecode}&statestatus=1&fromstate={$fromstate}" role="button" class="btn btn-default btn-blue UpDowaned" data-type="1" data-toggle="modal">上线</a>
+						<a href="__MODULE__/Message/message_list?edit={$edit}&type={$type}&user={$user}&statecode={$statecode}&statestatus=2&fromstate={$fromstate}" role="button" class="btn btn-default btn-blue UpDowaned" data-type="2" data-toggle="modal">下线</a>
+					</div>
+				</div>
+				<div class="tile-header" style="height:50px;">
+					<div class="input-group" style="width:400px;margin-left:69%;margin-top:-20px;">
+						 <input type="text" class="form-control" value="{$cname}" id="entryKeywords" placeholder="请输入关键字" aria-describedby="basic-addon2">
+						 <span class="input-group-addon searchFunc" id="basic-addon2">搜 索</span>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body form-group form-footer">
+					<table class="table" id="basicDataTable">
+						<thead>
+							<tr>
+							  <th class="text-center" style="width:500px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;">资讯名称</th>
+							  <th class="text-center">所属类型</th>
+							  <th class="text-center">所有人</th>
+							  <th class="text-center">最新编辑时间</th>
+							  <th class="text-center">浏览量</th>
+							  <th class="text-center">审核状态</th>
+							  <th class="text-center">状态</th>
+							</tr>
+						</thead>
+						<tbody>
+							<foreach name="info" item="da">
+								<tr class="publicTR">
+									<td class="text-center" style="width:500px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;">{$da.cname}</td>
+									<td class="text-center">{$da.message_type}</td>
+									<td class="text-center">{$da.uname}</td>
+									<td class="text-center">{$da.etime}</td>
+									<td class="text-center">{$da.view_num}</td>
+									<td class="text-center"><if condition="$da.statecode eq 1">审核通过<elseif condition="$da.statecode eq 2" />审核中<else />审核失败</if></td>
+									<td class="text-center"><if condition="$da.state eq 1">正常<else />禁用</if></td>
+									<td class="text-right">
+										<div class="btn-group" role="group" aria-label="...">
+											<a class="btn btn-default" role="button" href="__MODULE__/Message/message_detail/id/{$da.id}">详情</a>
+											<if condition="$role eq 1">
+												<a class="btn btn-default" role="button" href="__MODULE__/Message/message_recommend/id/{$da.id}">推荐</a>
+												<if condition="$da.statecode eq 2">
+													<a href="#" data-toggle="modal" class="btn btn-default unamemMod examineSub" data-id="{$da.id}" data-state="1" role="button">审核成功</a>
+													<a href="#" data-toggle="modal" class="btn btn-default unamemMod examineSub" data-id="{$da.id}" data-state="3" role="button">审核失败</a>
+												<elseif condition="$da.statecode eq 1" />
+													<a href="#" data-toggle="modal" class="btn btn-default unamemMod examineSub" data-id="{$da.id}" data-state="3" role="button">审核失败</a>
+												<elseif condition="$da.statecode eq 3" />
+													<a href="#" data-toggle="modal" class="btn btn-default unamemMod examineSub" data-id="{$da.id}" data-state="1" role="button">审核成功</a>
+												</if>
+												<if condition="$da.state eq 1">
+													<a class="btn btn-default" role="button" href="__NEWSURL__/{$da.id}.html" target="_blank">预览</a>
+													<a href="#" data-toggle="modal" class="btn btn-default unamemMod toExamineClass" data-id="{$da.id}" data-state="2" role="button">下线</a>
+												<else />
+													<a href="#" data-toggle="modal" class="btn btn-default unamemMod toExamineClass" data-id="{$da.id}" data-state="1" role="button">上线</a>
+												</if>
+											<else/>
+												<if condition="$da.state eq 1">
+													<a class="btn btn-default" role="button" href="__NEWSURL__/{$da.id}.html" target="_blank">预览</a>
+												</if>
+											</if>
+										</div>
+									</td>
+								</tr>
+							</foreach>
+							<tr>
+								<td colspan="5"><span style="float:right;">{$show}</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+           <!-- /tile body -->
+			</section>
+			<!-- /tile -->
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>

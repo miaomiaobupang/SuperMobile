@@ -1,0 +1,22 @@
+<script type="text/javascript">
+$('.fairsoformJS').ready(function(){
+	popupLayer('WorkPopup');
+});
+$('.get').click(function(){
+	popupLayerShow('WorkPopup');
+});
+$('.fairsoformJS').ready(function(){
+	popupLayer('WorkPopup1');
+});
+$('.set').click(function(){
+	popupLayerShow('WorkPopup1');
+});
+
+//图片弹层
+$(".fileCheck").click(function(){
+	var imagesfile=$('#imagesfile').val();
+	popupLayerIMG(imagesfile);
+})
+
+//======================================================
+</script>

@@ -1,0 +1,207 @@
+<style>
+.DepartmentTypen{
+	display:none;
+}
+.DepartmentTypeb{
+	display:block;
+}
+#allmap {width: 100%;height:300px;overflow: hidden;margin:0;font-family:"微软雅黑";}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-folder-open-alt" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">自定义类型</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+    <div class="row">
+		<!-- col 12 -->
+        <div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>非速搜用户</strong>修改
+					</h1>
+					<div class="pull-right">
+						<a href="javascript:history.back(-1);" role="button" class="btn btn-red"><span class="icon-reply"></span> 返回用户列表</a>
+					</div>
+              <div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+              </div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body">
+					<form class="form-horizontal " action="__MODULE__/FairsoUser/update" method="post" role="form" enctype='multipart/form-data'>
+						<input type='hidden' name="uid" value="{$vo.uid}"/>
+						<div class="form-group col-md-6 col-sm-12 DepartmentTypeb" style="margin-top:20px;">
+							<label for="classCoding" class="col-sm-4 control-label">
+								<span class="DepartmentType">用户</span>头像
+							</label>
+							<div class="col-sm-8">
+								<img src="{$vo.headimg}" width="100" height="100" name="headimg">
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-sm-12" style="margin-top:20px;">
+							<label for="address" class="col-sm-4 control-label">
+								<span class="DepartmentType">用户名</span>
+							</label>
+							<div class="col-sm-8">
+								<input type="text" readonly style="background:#263a4e;color:#fff;" class="form-control" name="uname" id="time" value="{$vo.uname}">
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-sm-12" style="margin-top:20px;">
+							<label for="address" class="col-sm-4 control-label">
+								<span class="DepartmentType">用户</span>密码
+							</label>
+							<div class="col-sm-8">
+								<input type="password" class="form-control" name="upass" id="time" value="{$vo.upass}">
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-sm-12">
+							<label for="classCoding" class="col-sm-4 control-label">
+								<span class="DepartmentType">用户</span>性别
+							</label>
+							<div class="col-sm-8">
+								<ul class="nolisttypes inlineSelect inline">
+									<li>
+										<div class="radio radio-transparent">
+											<input type="radio" value="1" id="properties1" name="sex" <if condition="$vo.sex == 1">checked</if>>
+											<label for="properties1">男</label>
+										</div>
+									</li>
+									<li>
+										<div class="radio radio-transparent">
+											<input type="radio" value="2" id="properties2" name="sex" <if condition="$vo.sex == 2">checked</if>>
+											<label for="properties2">女</label>
+										</div>
+									</li>
+									<li>
+										<div class="radio radio-transparent">
+											<input type="radio" value="3" id="properties3" name="sex" <if condition="$vo.sex == 3">checked</if>>
+											<label for="properties3">保密</label>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-sm-12">
+							<label for="classCoding" class="col-sm-4 control-label">
+								<span class="DepartmentType">用户</span>电话
+							</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" name="uphone" id="uphone" data-toggle="tooltip" data-placement="top" title="" data-original-title="请输出小于255的有效数字" value="{$vo.uphone}">
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-sm-12">
+							<label for="classCoding" class="col-sm-4 control-label">
+								<span class="DepartmentType">用户</span>邮箱
+							</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" name="uemail" id="uemail" data-toggle="tooltip" data-placement="top" title="" data-original-title="请输出小于255的有效数字" value="{$vo.uemail}">
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-sm-12">
+							<label for="classCoding" class="col-sm-4 control-label">
+								<span class="DepartmentType">用户</span>昵称
+							</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" name="nickname" id="nickname" data-toggle="tooltip" data-placement="top" title="" data-original-title="请输出小于255的有效数字" value="{$vo.nickname}">
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-sm-12">
+							<label for="classCoding" class="col-sm-4 control-label">
+								<span class="DepartmentType">用户</span>地址
+							</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" name="address" id="classCoding" data-toggle="tooltip" data-placement="top" title="" data-original-title="请输出小于255的有效数字" value="{$vo.address}">
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-sm-12">
+							<label for="classCoding" class="col-sm-4 control-label">
+								<span class="DepartmentType">用户</span>生日
+							</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" name="birthday" id="classCoding" data-toggle="tooltip" data-placement="top" title="" data-original-title="请输出小于255的有效数字" value="{$vo.birthday}">
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-sm-12">
+							<label for="classCoding" class="col-sm-4 control-label">
+								<span class="DepartmentType">接受</span>推送
+							</label>
+							<div class="col-sm-8">
+								<ul class="nolisttypes inlineSelect inline">
+									<li>
+										<div class="radio radio-transparent">
+											<input type="radio" value="1" id="isAccept1" name="user_ispush" <if condition="$vo.user_ispush == 1">checked</if>>
+											<label for="isAccept1">是</label>
+										</div>
+									</li>
+									<li>
+										<div class="radio radio-transparent">
+											<input type="radio" value="2" id="isAccept2" name="user_ispush" <if condition="$vo.user_ispush == 2">checked</if>>
+											<label for="isAccept2">否</label>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="form-group col-md-6 col-sm-12">
+							<label for="classCoding" class="col-sm-4 control-label">
+								<span class="DepartmentType">用户</span>状态
+							</label>
+							<div class="col-sm-8">
+								<ul class="nolisttypes inlineSelect inline">
+									<li>
+										<div class="radio radio-transparent">
+											<input type="radio" value="1" id="state1" name="state" <if condition="$vo.state == 1">checked</if>>
+											<label for="state1">正常</label>
+										</div>
+									</li>
+									<li>
+										<div class="radio radio-transparent">
+											<input type="radio" value="2" id="state2" name="state" <if condition="$vo.state == 2">checked</if>>
+											<label for="state2">禁用</label>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="form-group form-footer" style="margin-top:-20px;">
+							<div class="col-sm-offset-4 col-sm-4">
+								<button type="submit" class="btn btn-greensea btn-block" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tooltip on top">提&nbsp;&nbsp;&nbsp;交</button>
+							</div>
+						</div>
+                    </form>
+				</div>
+                <!-- /tile body -->
+			</section>
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+
+
+
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

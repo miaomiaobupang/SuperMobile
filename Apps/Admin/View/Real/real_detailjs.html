@@ -1,0 +1,36 @@
+<script type="text/javascript">
+$('.fairsoformJS').ready(function(){
+	popupLayer('WorkPopup');
+});
+$('.get').click(function(){
+	popupLayerShow('WorkPopup');
+});
+$('.fairsoformJS').ready(function(){
+	popupLayer('WorkPopup1');
+});
+$('.set').click(function(){
+	popupLayerShow('WorkPopup1');
+});
+
+//图片弹层
+$("#bigImage1").click(function(){
+	popupLayerIMG($(this).attr('src'));
+})
+$("#bigImage2").click(function(){
+	popupLayerIMG($(this).attr('src'));
+})
+//企业条款点击展示
+$('.content_title1').click(function(){
+	var state=$(this).data("state");
+	if(state==1){
+		$(this).removeClass("content_title1");
+		$(this).addClass("content_title3");
+		$(this).data("state",2);
+	}else if(state==2){
+		$(this).removeClass("content_title3");
+		$(this).addClass("content_title1");
+		$(this).data("state",1);
+	}
+});
+//======================================================
+</script>

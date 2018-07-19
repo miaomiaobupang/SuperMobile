@@ -1,0 +1,408 @@
+<style>
+.child{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+body #content .dataTables_wrapper{
+    font-size: 14px;
+}
+body #content .dataTables_filter{
+    margin-left:150px;
+}
+.col-md-6{
+	width:52%;
+}
+.tile-body{
+	min-height:550px;
+}
+.tile-header h1 strong{
+	font-size:26px;
+	margin-left:30px;
+}
+.tile-header{
+	border-radius:10px 10px 0px 0px;
+}
+.get{
+	width:300px;
+	height:35px;
+	font-size:16px;
+	background:#1acfac;
+	border-radius:4px;
+	line-height:20px;
+}
+.set{
+	width:300px;
+	height:35px;
+	font-size:16px;
+	background:#1acfac;
+	border-radius:4px;
+	line-height:20px;
+	margin-left:98px;
+}
+.get:hover,.set:hover{
+	background:#17ac8f;
+}
+.over_text{
+	margin-left:-150px;
+}
+.form-control{
+	width:300px;
+	height:50px;
+	margin-top:-28px;
+	margin-left:120px;
+}
+.form-rea{
+	width:400px;
+	margin-top:-100px;
+	margin-left:40px;
+}
+.over_rea{
+	margin-left:-320px;
+	margin-top:80px;
+	font-size:16px;
+}
+.success{
+	text-align:center;
+	font-size:30px;
+	font-weight:bold;
+	margin-top:50px;
+}
+
+#WorkPopup{
+	background-color: #FFFFFF;
+    border-radius: 10px 10px 20px 20px;
+    width:730px;
+	position: absolute;
+	margin-left:125px;
+}
+#WorkPopup .PopupBody{
+	background-color:#E6E9E9;
+	border-radius: 10px 10px 0px 0px;
+	margin:10px 10px 0px 10px;
+	text-align:center;
+	border-radius:20px;
+}
+#WorkPopup .PopupBody p{
+	margin:0px;
+	line-height:320px;
+	font-size:24px;
+	color:#668db8;
+}
+#WorkPopup .PopupHead{
+	font-size: 30px;
+    left: 20px;
+    position: absolute;
+    top: -50px;
+	color:#fff;
+}
+#WorkPopup .PopupFooter{
+	width:100%;
+	line-height:70px;
+	height:70px;
+	text-align:center;
+	font-size:30px;
+	border-radius: 0 0 20px 20px;
+	cursor:pointer;
+}
+
+#WorkPopup .PopupFooter span{
+	display:block;
+	width:50%;
+	text-align:center;
+	float:left;	
+}
+#WorkPopup .PopupFooter .PopupFooterBack{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 0 20px;
+}
+#WorkPopup .PopupFooter .PopupFooterTrue{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 20px 0;
+}
+#WorkPopup .PopupFooter span:hover{
+	color:#FFFFFF;
+	background-color: #668db8;
+}
+#WorkPopup1{
+	background-color: #FFFFFF;
+    border-radius: 10px 10px 20px 20px;
+    width:730px;
+	position: absolute;
+	margin-left:125px;
+}
+#WorkPopup1 .PopupBody{
+	background-color:#E6E9E9;
+	border-radius: 10px 10px 0px 0px;
+	margin:10px 10px 0px 10px;
+	text-align:center;
+	border-radius:20px;
+}
+#WorkPopup1 .PopupBody p{
+	margin:0px;
+	line-height:90px;
+	font-size:24px;
+	color:#668db8;
+}
+#WorkPopup1 .PopupHead{
+	font-size: 30px;
+    left: 20px;
+    position: absolute;
+    top: -50px;
+	color:#fff;
+}
+#WorkPopup1 .PopupFooter{
+	width:100%;
+	line-height:70px;
+	height:70px;
+	text-align:center;
+	font-size:30px;
+	border-radius: 0 0 20px 20px;
+	cursor:pointer;
+}
+
+#WorkPopup1 .PopupFooter span{
+	display:block;
+	width:50%;
+	text-align:center;
+	float:left;	
+}
+#WorkPopup1 .PopupFooter .PopupFooterBack{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 0 20px;
+}
+#WorkPopup1 .PopupFooter .PopupFooterTrue{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 20px 0;
+}
+#WorkPopup1 .PopupFooter span:hover{
+	color:#FFFFFF;
+	background-color: #668db8;
+}
+.contents_divCheck{
+	margin-top:60px;
+	text-align:center;
+}
+.contentsDiv{
+	width:100%;
+	margin-top:45px;
+}
+.contents{
+	width:920px;
+	margin:auto;
+	font-size:15px;
+	padding-bottom:45px;
+}
+.header_line_1{
+	height:30px;
+	line-height:25px;
+}
+.line_1{
+	width:10px;
+	height:30px;
+	background:#1bcead;
+}
+.header_line_2,.line_3,.contents_body{
+	margin-top:20px;
+}
+.spanStyle a{
+	text-decoration:none;
+	color:#1acfac;
+}
+.spanStyle a:hover{
+	color:#17ac8f;
+}
+.spanStyle1{
+	margin-left:20px;
+}
+.fileCheck{
+	cursor: pointer;
+    height: 150px;
+    width: 120px;
+}
+</style>
+
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">主办管理</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>主办详情</strong>
+					</h1>
+					<!-- <div class="pull-right">
+						<a href="javascript:history.back(-1);" role="button" class="btn btn-red backButton" style="background:#1bceab;font-size:14px;width:60px;height:30px;line-height:25px;"> 返 回 </a>
+					</div> -->
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<div class="tile-body form-group form-footer">
+					<div class="contentsDiv">
+						<div class="contents">
+							<div class="contents_header">
+								<div class="header_line_1">
+									<div class="line_1"></div>
+									<div style="width:80px;height:30px;margin-left:20px;margin-top:-30px;line-height:30px;font-size:16px;">展会信息</div>
+								</div>
+								<div class="header_line_2">
+									<div class="line_2">
+										<span>展会名称：</span>
+										<span class="spanStyle"><a href="__URL__/fair/{$data.hid}" target="_blank">{$exhibition.name}</a></span>
+									</div>
+									<div class="line_3">
+										<span>开展时间：</span>
+										<span>{$exhibition.stime|date="Y-m-d",###} 至 {$exhibition.etime|date="Y-m-d",###}</span>
+									</div>
+									<div class="line_3">
+										<span>所在展馆：</span>
+										<span>{$exhibition.pavilion}</span>
+									</div>
+								</div>
+							</div>
+							<div class="contents_body">
+								<div class="header_line_1">
+									<div class="line_1"></div>
+									<div style="width:80px;height:30px;margin-left:20px;margin-top:-30px;line-height:30px;font-size:16px;">企业信息</div>
+								</div>
+								<div class="header_line_2">
+									<div class="line_2">
+										<span>企业名称：<span>
+										<span class="spanStyle"><a href="__WEBURL__/Real/real_detail?id={$data.eid}" target="_blank">{$real.name}</a></span>
+									</div>
+									<div class="line_3">
+										<span>创建用户：</span>
+										<span>{$real.realname}</span>
+										<span class="spanStyle1">联系方式：</span>
+										<span><if condition="$realuser.uphone neq null">{$realuser.uphone}<else/>{$realuser.uemail}</if></span>
+										<span class="spanStyle1">注册时间：</span>
+										<span><if condition="$realuser.ctime neq null">{$realuser.ctime|date="Y-m-d H:i:s",###}<else/>暂无</if></span>
+									</div>
+								</div>
+							</div>
+							<div class="contents_body">
+								<div class="header_line_1">
+									<div class="line_1"></div>
+									<div style="width:80px;height:30px;margin-left:20px;margin-top:-30px;line-height:30px;font-size:16px;">主办信息</div>
+								</div>
+								<div class="header_line_2">
+									<div class="line_2">
+										<span>认 证 人 ：<span>
+										<span class="spanStyle"><a href="__WEBURL__/FairsoUser/userDetail?uid={$data.uid}" target="_blank">{$userInfo.username}</a></span>
+									</div>
+									<div class="line_3">
+										<span>联系方式：</span>
+										<span><if condition="$user.uphone neq null">{$user.uphone}<else/>{$user.uemail}</if></span>
+										<span class="spanStyle1">注册时间：</span>
+										<span><if condition="$user.ctime neq null">{$user.ctime|date="Y-m-d H:i:s",###}<else/>暂无</if></span>
+									</div>
+									<if condition="$data.path neq null">
+										<div class="line_3">
+											<span>认证文件：</span>
+											<img class="fileCheck" src="__URL__{$data.path}"/>
+											<input value="{$data.path}" type="hidden" id="imagesfile"/>
+										</div>
+									</if>
+								</div>
+							</div>
+							<if condition="$data.statecode eq 2">
+								<div class="contents_divCheck">
+									<a class="btn btn-success get" trole="button" data-toggle="modal">审核通过</a>
+									<a class="btn btn-danger set" role="button" data-toggle="modal">审核失败</a>
+								</div>
+							</if>
+							<if condition="$data.statecode neq 2">
+								<div class="contents_body">
+									<div class="header_line_1">
+										<span>审核状态：</span>
+										<if condition="$data.statecode eq 1">
+											<span>审核通过</span>
+										<else/>
+											<span>审核未通过</span>
+										</if>
+										<span class="spanStyle1">审核人：</span>
+										<span>{$data.kuser}</span>
+										<span class="spanStyle1">审核时间：</span>
+										<span>{$data.stime|date="Y-m-d H:i:s",###}</span>
+									</div>
+								</div>
+							</if>
+						</div>
+					</div>
+				</div>
+				<!-- 模块展馆审核失败开始 -->
+				<div class="GeneralPopup" id="WorkPopup1">
+					<div class="PopupBody">
+						<p>审核未通过，请填写原因</p>
+						<form class="form-horizontal" role="form" action="__WEBURL__/Real/mainCheck" method="post">
+							<input type="hidden" name="id" value="{$data.id}"/>
+							<input type="hidden" name="type" value="1"/>
+							<div style="height:295px;" class="modal-body">
+								<div class="form-group col-md-6 col-sm-12" style="margin-left:80px;">
+									<div class="over_rea">错误原因</div>
+									<div class="col-sm-8">
+										<textarea type="text" style="height:200px;background:#fff;color:#000;" class="form-rea" value="" id="coding" name="reason"></textarea>
+									</div>
+								</div>
+								
+							</div>						
+							<div class="PopupFooter">
+								<span class="PopupFooterBack" data-id="WorkPopup1">取消</span>
+								<span class="PopupFooterTrue cooperationSure"><input style="border:none;background:none;" type="submit" value="确认"/></span>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- 模块展馆审核失败表单结束 -->
+				<!-- 模块展馆审核成功表单结束 -->
+				<div class="GeneralPopup" id="WorkPopup">
+					<div class="PopupBody">
+						<p><span class="icon-ok" style="color:#4CAE4C;padding-right:30px;font-size:40px"></span>您确定要审核通过吗？</p>
+					</div>
+					<div class="PopupFooter">
+						<span class="PopupFooterBack" data-id="WorkPopup">取消</span>
+						<a href="__WEBURL__/Real/mainCheck?id={$data.id}&type=2"><span class="PopupFooterTrue cooperationSure">确认</span></a>
+					</div>
+				</div>
+				<!-- 模块展馆审核成功表单结束 -->
+			</section>
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+<script>
+
+</script>

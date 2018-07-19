@@ -1,0 +1,108 @@
+<script type="text/javascript">
+//记录模块ID
+var RecordMid = 0;
+//记录模块名
+var RecordMname = null;
+//记录方法ID
+var RecordFid = 0;
+//记录方法名
+var RecordFname = null;
+//加载模块数据
+$.ajax({
+	url:"__MODULE__/Modules/ModuleDataEcho",		
+	type:'post',
+	dataType:'json',
+	success:function(data){	//	成功回调函数
+		for(var i=0;i<data.length;i++){
+			var info = "<tr class='hand' menu='close' id='houses"+data[i].id+"' onclick='Method(this,"+data[i].id+",\""+data[i].name+"\")'><td>"+data[i].name+"</td></tr>";
+			$('#ModulesSelect').append(info);
+		}
+		
+	}
+});
+//加载方法信息
+//传送本身，模块ID，模块名
+function Method(ob,id,name){
+	$(".Method").remove();
+	$(".nodata").remove();
+	//初始化方法ID信息为0
+	RecordFid = 0;
+	//监测确认按钮状态
+	ModuleSureMonitor();
+	//记录选择的模块ID和名字
+	RecordMid = id;
+	RecordMname = name;
+	//更新状态栏状态
+	ModuleSelectAlert(1);
+	//使用Ajax加载楼宇数据
+	$.ajax({
+		url:"__MODULE__/Modules/ModuleIDMethodEcho/id/"+id,				
+		type:'post',
+		dataType:'json',
+		success:function(data){	//	成功回调函数
+			var info="";
+			if(data){
+				//定义一行显示方法条数(由于宽度有限建议小于6)
+					var j = 5;
+					for(var i=0;i<data.length;i++){
+						if(i%j ==0){
+							info +="<tr class='Method Module"+id+"'>";
+							info +="<td class='hand Methodtd text-center' onclick='MethodSelected(this,"+data[i].id+",\""+data[i].name+"\")' id='room"+data[i].id+"'>"+data[i].name+"</td>";
+						}else if((i+1)%j==0){						
+							info +="<td class='hand Methodtd text-center' onclick='MethodSelected(this,"+data[i].id+",\""+data[i].name+"\")' id='room"+data[i].id+"'>"+data[i].name+"</td>";
+							info +="</tr>";
+						}else{
+							info +="<td class='hand Methodtd text-center' onclick='MethodSelected(this,"+data[i].id+",\""+data[i].name+"\")' id='room"+data[i].id+"'>"+data[i].name+"</td>";
+						}						
+					}
+					$("#MethodData").append(info);
+			}else{
+					info ="<tr class='nodata'><td class='text-center'> 暂 无 数 据 </td></tr>";
+					$("#MethodData").append(info);
+			}
+		}
+	});
+	$(ob).attr("menu","show");
+	
+}
+
+//方法选中
+function MethodSelected(ob,id,name){
+	$(".Methodtd").removeClass("bg-danger");
+	$(ob).addClass("bg-danger");
+	//记录选择的方法ID和名字
+	RecordFid = id;
+	RecordFname = name;
+	//监测确认按钮状态	
+	ModuleSureMonitor();
+	//更新状态栏状态
+	ModuleSelectAlert(2);
+}
+//模块选择确认按钮状态监测
+function ModuleSureMonitor(){
+	//如果没有选择方法则确认按钮不可用
+	if(RecordFid ==0 && $("#ModuleSure").attr("state") == "show"){
+		$("#ModuleSure").attr("disabled","disabled");
+		$("#ModuleSure").attr("state","close");		
+	}else if(RecordFid !=0 && $("#ModuleSure").attr("state") == "close"){
+		$("#ModuleSure").removeAttr("disabled");
+		$("#ModuleSure").attr("state","show");	
+	}
+}
+//方法选择确认
+function ModuleSure(){
+	$("#ModuleIdSelect").val(RecordFid);
+	$("#ModuleIdSelectlName").val(RecordMname+"#"+RecordFname);	
+}
+//状态栏显示
+function ModuleSelectAlert(type){
+	//type显示 1选择楼盘 2选择楼宇 3选择单元 4选择房间
+	$("#ModuleSelectAlert").attr("class","alert alert-success");
+	if(type == 1){
+		$("#ModuleSelectAlert").html("您已选择 "+RecordMname+"（模块），请选择相应的方法！");
+	}else if(type == 2){
+		$("#ModuleSelectAlert").html("您已选择 "+RecordMname+"（模块） <span class='icon-arrow-right'></span> "+RecordFname+"（方法） ，请单击确定按钮完成模块选择！");
+	}
+}
+
+</script>

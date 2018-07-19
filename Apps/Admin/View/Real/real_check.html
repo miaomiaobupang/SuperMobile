@@ -1,0 +1,449 @@
+<style>
+.child{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+body #content .dataTables_wrapper{
+    font-size: 14px;
+}
+body #content .dataTables_filter{
+    margin-left:150px;
+}
+.tile-header h1 strong{
+	margin-left:54px;
+}
+.tile-header{
+	font-size:28px;
+}
+.tile-body{
+	min-height:600px;
+}
+.col-md-6{
+	width:52%;
+}
+.sign_data{
+	margin-left:70px;
+}
+.get{
+	width:410px;
+	height:38px;
+	font-size:20px;
+	background:#1bceab;
+	border-radius:4px;
+	line-height:20px;
+}
+.set{
+	width:410px;
+	height:38px;
+	font-size:20px;
+	background:#1bceab;
+	border-radius:4px;
+	line-height:20px;
+	margin-left:98px;
+	margin-right:114px;
+}
+.over_text{
+	margin-left:-150px;
+}
+.form-control{
+	width:300px;
+	height:50px;
+	margin-top:-28px;
+	margin-left:120px;
+}
+.form-rea{
+	width:400px;
+	margin-top:-100px;
+	margin-left:40px;
+}
+.over_rea{
+	margin-left:-320px;
+	margin-top:80px;
+	font-size:16px;
+}
+.success{
+	text-align:center;
+	font-size:30px;
+	font-weight:bold;
+	margin-top:50px;
+}
+#WorkPopup1{
+	background-color: #FFFFFF;
+    border-radius: 10px 10px 20px 20px;
+    width:730px;
+	position: absolute;
+	margin-left:120px;
+	.margin-top:-90px;
+}
+#WorkPopup1 .PopupBody{
+	background-color:#E6E9E9;
+	border-radius: 10px 10px 0px 0px;
+	margin:10px 10px 0px 10px;
+	text-align:center;
+	border-radius:20px;
+}
+#WorkPopup1 .PopupBody p{
+	margin:0px;
+	line-height:130px;
+	font-size:30px;
+	color:#668db8;
+}
+#WorkPopup1 .PopupHead{
+	font-size: 30px;
+    left: 20px;
+    position: absolute;
+    top: -50px;
+	color:#fff;
+}
+#WorkPopup1 .PopupFooter{
+	width:100%;
+	line-height:70px;
+	height:70px;
+	text-align:center;
+	font-size:30px;
+	border-radius: 0 0 20px 20px;
+	cursor:pointer;
+}
+
+#WorkPopup1 .PopupFooter span{
+	display:block;
+	width:50%;
+	text-align:center;
+	float:left;	
+}
+#WorkPopup1 .PopupFooter .PopupFooterBack{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 0 20px;
+}
+#WorkPopup1 .PopupFooter .PopupFooterTrue{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 20px 0;
+}
+#WorkPopup1 .PopupFooter span:hover{
+	color:#FFFFFF;
+	background-color: #668db8;
+}
+#WorkPopup{
+	background-color: #FFFFFF;
+    border-radius: 10px 10px 20px 20px;
+    width:730px;
+	position: absolute;
+	margin-left:125px;
+}
+#WorkPopup .PopupBody{
+	background-color:#E6E9E9;
+	border-radius: 10px 10px 0px 0px;
+	margin:10px 10px 0px 10px;
+	text-align:center;
+	border-radius:20px;
+}
+#WorkPopup .PopupBody p{
+	margin:0px;
+	line-height:320px;
+	font-size:24px;
+	color:#668db8;
+}
+#WorkPopup .PopupHead{
+	font-size: 30px;
+    left: 20px;
+    position: absolute;
+    top: -50px;
+	color:#fff;
+}
+#WorkPopup .PopupFooter{
+	width:100%;
+	line-height:70px;
+	height:70px;
+	text-align:center;
+	font-size:30px;
+	border-radius: 0 0 20px 20px;
+	cursor:pointer;
+}
+
+#WorkPopup .PopupFooter span{
+	display:block;
+	width:50%;
+	text-align:center;
+	float:left;	
+}
+#WorkPopup .PopupFooter .PopupFooterBack{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 0 20px;
+}
+#WorkPopup .PopupFooter .PopupFooterTrue{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 20px 0;
+}
+#WorkPopup .PopupFooter span:hover{
+	color:#FFFFFF;
+	background-color: #668db8;
+}
+.divNull{
+	width:200px;
+	height:30px;
+}
+.topContent{
+	margin-left:115px;
+	border-bottom:1px dashed #fff;
+	width:920px;
+}
+.nickname{
+	margin-left:98px;
+	margin-top:-20px;
+}
+.divDown{
+	margin-top:15px;
+}
+.divCardimg{
+	float:left;
+	height:150px;
+}
+.cardimg{
+	width:120px;
+	height:150px;
+	margin-left:116px;
+    margin-top:-21px;
+}
+.card{
+    margin-left:146px;
+    margin-top:-20px;
+}
+.divRight {
+    margin-left:250px;
+    margin-top:-50px;
+}
+.time{
+	margin-left:76px;
+	margin-top:-20px;
+}
+.divAuthbook{
+	float:right;
+	margin-right:69px;
+}
+.divNull1{
+	width:200px;
+	height:15px;
+}
+.downContent{
+	margin-left:115px;
+}
+.etype{
+	margin-left:130px;
+	margin-top:-20px;
+}
+.levelbuy{
+	margin-left:146px;
+	margin-top:-20px;
+}
+.divLevel{
+	margin-left:610px;
+	margin-top:-20px;
+}
+.divCheck{
+	margin-left:114px;
+	margin-top:60px;
+}
+.realNameLeft{
+	width:615px;
+}
+.realNameRight{
+	min-width:200px;
+	margin-top:-22px;
+	margin-left:615px;
+}
+</style>
+
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">非速搜企业管理</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>企业详情</strong>
+					</h1>
+					<div class="pull-right">
+						<a href="javascript:history.back(-1);" role="button" class="btn btn-red backButton" style="background:#1bceab;font-size:14px;width:60px;height:30px;line-height:25px;"> 返 回 </a>
+					</div>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<div class="tile-body form-group form-footer">
+					<div class="divNull"></div>
+					<div class="topContent">
+						<div>
+							<div>创&nbsp;&nbsp;建&nbsp;&nbsp;者：</div>
+							<div class="nickname">{$data.nickname}</div>
+						</div>
+						<div class="divDown">
+							<div class="realNameLeft">
+								<span>企业名称：</span>
+								<div class="nickname">{$data.name}</div>
+							</div>
+							<div class="realNameRight">
+								<span>企业性质：</span>
+								<div class="nickname">
+									<if condition="$data.busitype eq 0">无</if>
+									<if condition="$data.busitype eq 1">主办方</if>
+									<if condition="$data.busitype eq 2">承办方</if>
+									<if condition="$data.busitype eq 3">代理</if>
+									<if condition="$data.busitype eq 4">总代理</if>
+								</div>
+							</div>
+						</div>
+						<div class="divDown">
+							<div class="realNameLeft">
+								<span>负&nbsp;&nbsp;责&nbsp;&nbsp;人：</span>
+								<div class="nickname">
+									<if condition="$data.tname neq NULL">{$data.tname}<else/>{$data.nickname}</if>
+								</div>
+							</div>
+							<div class="realNameRight">
+								<span>企业邮箱：</span>
+								<div class="nickname">
+									<if condition="$data.uemail neq NULL">{$data.uemail}<else/>无</if>
+								</div>
+							</div>
+						</div>
+						<div class="divDown">
+							<div>企业营业执照号码：</div>
+							<div class="card">{$data.card}</div>
+						</div>
+						<div class="divDown" style="padding-bottom:20px;">
+							<div class="divCardimg">
+								<span>营业执照扫描：</span>
+								<div class="cardimg"><img id="bigImage1" style="width:120px;height:150px;cursor:pointer;" src="{$data.cardimg}"/></div>
+							</div>
+							<div class="divAuthbook ">
+								<span>企业授权书：</span>
+								<div class="cardimg"><a target="_blank;" href="{$data.authbook}"><img id="bigImage" style="width:120px;height:150px;cursor:pointer;" src="{$data.authbook}"/></a></div>
+							</div>
+							<div style="clear:both;"></div>
+						</div>
+					</div>
+					<div class="divNull1"></div>
+					<div class="downContent">
+						<div class="divDown">
+							<div style="float:left;">
+								<div>企业级别：</div>
+								<div class="nickname">{$data.levelName}</div>
+							</div>
+							<div style="float:right;margin-right:234px;">
+								<div>是否购买企业级别：</div>
+								<div class="levelbuy">
+									<if condition="$data.levelbuy eq 0">未购买</if>
+									<if condition="$data.levelbuy eq 1">已购买</if>
+								</div>
+							</div>
+							<div style="clear:both;"></div>
+						</div>
+						<div class="divDown">
+							<div>企业开通的服务：</div>
+							<div class="levelbuy">{$etype}</div>
+						</div>
+					</div>
+					
+					<div class="divCheck">
+						<a class="btn btn-success btn-primary btn-lg get" trole="button" data-toggle="modal">审核通过</a>
+						<a class="btn btn-danger btn-primary btn-lg set" role="button" data-toggle="modal">审核失败</a>
+					</div>
+				</div>
+				<!-- 模块展馆审核失败开始 -->
+				<div class="GeneralPopup" id="WorkPopup1">
+					<div class="PopupBody">
+						<p>审核未通过，请填写原因</p>
+						<form class="form-horizontal" role="form" action="__CONTROLLER__/failure_audit" method="post">
+							<input type="hidden" name="id" value="{$data.id}"/>
+							<input type="hidden" name="uid" value="{$data.uid}"/>
+							
+							<div style="height:295px;" class="modal-body">
+								<!-- <div class="form-group col-md-6 col-sm-12" style="margin-left:80px;">
+									<div class="over_text">错误字段一</div>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" value="" id="coding" name="field1">
+									</div>
+									<div class="over_rea">原因</div>
+									<div class="col-sm-8">
+										<input type="text" class="form-rea" value="" id="coding" name="reason1">
+									</div>
+								</div>
+								<div class="form-group col-md-6 col-sm-12" style="margin-left:80px;">
+									<div class="over_text">错误字段二</div>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" value="" id="coding" name="field2">
+									</div>
+									<div class="over_rea">原因</div>
+									<div class="col-sm-8">
+										<input type="text" class="form-rea" value="" id="coding" name="reason2">
+									</div>
+								</div> -->
+								<div class="form-group col-md-6 col-sm-12" style="margin-left:80px;">
+									<div class="over_rea">错误原因</div>
+									<div class="col-sm-8">
+										<textarea type="text" style="height:200px;background:#fff;color:#000;" class="form-rea" value="" id="coding" name="reason"></textarea>
+									</div>
+								</div>
+								
+							</div>						
+							<div class="PopupFooter">
+								<span class="PopupFooterBack" data-id="WorkPopup1">取消</span>
+								<span class="PopupFooterTrue cooperationSure"><input style="border:none;background:none;" type="submit" value="确认"/></span>
+							</div>
+						</form>
+					</div>
+					
+				</div>
+				<!-- 模块展馆审核失败表单结束 -->
+				<!-- 模块展馆审核成功表单结束 -->
+				<div class="GeneralPopup" id="WorkPopup">
+					<div class="PopupBody">
+						<p><span class="icon-ok" style="color:#4CAE4C;padding-right:30px;font-size:40px"></span>您确定要审核通过吗？</p>
+					</div>
+					<div class="PopupFooter">
+						<span class="PopupFooterBack" data-id="WorkPopup">取消</span>
+						<a href="__CONTROLLER__/success_audit/id/{$data.id}"><span class="PopupFooterTrue cooperationSure">确认</span></a>
+					</div>
+				</div>
+				<!-- 模块展馆审核成功表单结束 -->
+			</section>
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+<script>
+
+</script>

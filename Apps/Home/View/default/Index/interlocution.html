@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>超级医生-互动问答</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1">
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<link rel="stylesheet" href="__CSS__/public.css">
+	<link rel="stylesheet" href="__CSS__/idangerous.swiper.css">
+	<link rel="stylesheet" href="__CSS__/index.css">
+	<link rel="stylesheet" href="__CSS__/interlocution.css">
+	<script src="__JS__/jquery.min.js"></script>
+	<script src="__JS__/idangerous.swiper.min.js"></script>
+</head>
+<body>
+	<div class="box">
+		<!-- header -->
+		<include file="Public/cjysHeader" />
+		<div class="main">
+			<img src="__IMG__/20180316cjys15.png" alt="" class="imgBanner">
+			<div class="main4Box">
+				<div class="mainContent" style="padding-top:20px;padding-bottom:20px">
+					<div class="main4Doc">
+						<div class="main4Doc1 fl">
+							<div class="main1_title2 fl">hot</div>
+							<span class="main1_title3 fl">优质问答</span>
+							<span class="main1Right_more fr">更多<img src="__IMG__/20180316cjys1.png" alt=""></span>
+							<div class="cl"></div>
+							<div class="main4Doc1List">
+								<li class="main2TwoList">
+									<span class="main2TwoList1 fl">肺癌骨转移后怎么治疗？</span>
+									<span class="main2TwoList2 fr">2回答</span>
+								</li>
+								<li class="main2TwoList">
+									<span class="main2TwoList1 fl">肺癌骨转移后怎么治疗？</span>
+									<span class="main2TwoList2 fr">2回答</span>
+								</li>
+							</div>
+						</div>
+						<div class="main4Doc1 fl" style="margin:0 20px">
+							<div class="main1_title2 fl">new</div>
+							<span class="main1_title3 fl">待解决</span>
+							<span class="main1Right_more fr">更多<img src="__IMG__/20180316cjys1.png" alt=""></span>
+							<div class="cl"></div>
+							<div class="main4Doc1List">
+								<li class="main2TwoList">
+									<span class="main2TwoList1 fl">肺癌骨转移后怎么治疗？</span>
+									<span class="main2TwoList2 fr">肺癌</span>
+								</li>
+								<li class="main2TwoList">
+									<span class="main2TwoList1 fl">肺癌骨转移后怎么治疗？</span>
+									<span class="main2TwoList2 fr">2回答</span>
+								</li>
+							</div>
+						</div>
+						<div class="main4Doc1 fl">
+							<div class="shareTilte">
+								<span class="main1_title3 fl" style="padding-left:16px">分享榜单</span>
+								<span class="main1Right_more fr">更多<img src="__IMG__/20180316cjys1.png" alt=""></span>
+								<div class="cl"></div>
+							</div>
+							<div class="main4Doc1_3">
+								<div class="shareBox">
+									<img src="__IMG__/20180316cjys18.png" alt="" class="fl">
+									<div class="shareBoxName fl">
+										<li class="shareBoxName1">刘医生<span class="shareBoxName1_ans fr">回答23次</span></li>
+										<li class="shareBoxName2">北京协和医院</li>
+										<li class="shareBoxName2">科室：消化科</li>
+									</div>
+								</div>
+								<div class="shareBox">
+									<img src="__IMG__/20180316cjys18.png" alt="" class="fl">
+									<div class="shareBoxName fl">
+										<li class="shareBoxName1">刘医生<span class="shareBoxName1_ans fr">回答23次</span></li>
+										<li class="shareBoxName2">北京协和医院</li>
+										<li class="shareBoxName2">科室：消化科</li>
+									</div>
+								</div>
+								<div class="shareBox">
+									<img src="__IMG__/20180316cjys18.png" alt="" class="fl">
+									<div class="shareBoxName fl">
+										<li class="shareBoxName1">刘医生<span class="shareBoxName1_ans fr">回答23次</span></li>
+										<li class="shareBoxName2">北京协和医院</li>
+										<li class="shareBoxName2">科室：消化科</li>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="cl"></div>
+					</div>
+				</div>
+			</div>
+			<div class="interlocution1Box">
+				<div class="mainContent" style="padding-top:52px">
+					<div class="interlocution1Box_l fl">
+						<span class="main1_title3 fl">按身体部位分类</span>
+						<span class="main1Right_more fr">更多<img src="__IMG__/20180316cjys1.png" alt=""></span>
+						<div class="cl"></div>
+						<div class="interlocution1Banner" id="doc1">
+							<div class="tabList">
+								<span class="tabListLi tabListLiNow" data-n="1">头颈部</span>
+								<span class="tabListLi" data-n="2">胸部</span>
+								<span class="tabListLi" data-n="3">腹部</span>
+								<span class="tabListLi" data-n="4">盆腔</span>
+								<span class="tabListLi" data-n="5">神经类</span>
+								<span class="tabListLi" data-n="6">儿童肿瘤</span>
+								<span class="tabListLi" data-n="7">其他肿瘤</span>
+								<span class="tabListLi" data-n="8">颅底</span>
+								<div class="cl"></div>
+							</div>
+							<div class="tabListLiChild tabListLiChild_1">
+								<span>脑瘤</span>
+								<span>甲状腺肿瘤</span>
+								<span>喉癌</span>
+								<span>副鼻窦癌</span>
+								<span>舌癌</span>
+								<span>牙龈癌</span>
+								<span>颊癌</span>
+								<span>听神经瘤</span>
+								<span>视网膜母细胞瘤</span>
+								<span>脑瘤</span>
+								<span>甲状腺肿瘤</span>
+								<span>喉癌</span>
+								<span>副鼻窦癌</span>
+								<span>舌癌</span>
+								<span>牙龈癌</span>
+								<span>颊癌</span>
+								<span>听神经瘤</span>
+								<span>视网膜母细胞瘤</span> 
+							</div>
+							<div class="tabListLiChild tabListLiChild_2">
+								<span>脑瘤</span>
+								<span>甲状腺肿瘤</span> 
+							</div>
+							<div class="tabListLiChild tabListLiChild_3">3</div>
+							<div class="tabListLiChild tabListLiChild_4">4</div>
+							<div class="tabListLiChild tabListLiChild_5">5</div>
+							<div class="tabListLiChild tabListLiChild_6">6</div>
+							<div class="tabListLiChild tabListLiChild_7">7</div>
+							<div class="tabListLiChild tabListLiChild_8">8</div>
+						</div>
+					</div>
+					<div class="interlocution1Box_r fr">
+						<span class="main1_title3 fl">关于医院问答</span>
+						<span class="main1Right_more fr">更多<img src="__IMG__/20180316cjys1.png" alt=""></span>
+						<div class="cl"></div>
+						<div class="moreHos">
+							<div class="moreHosList fl">
+								<img src="__IMG__/20180316cjys19.png" alt="">
+								<li>北京协和医院</li>
+							</div>
+							<div class="moreHosList fl">
+								<img src="__IMG__/20180316cjys19.png" alt="">
+								<li>北京协和医院</li>
+							</div>
+							<div class="moreHosList fl">
+								<img src="__IMG__/20180316cjys19.png" alt="">
+								<li>北京协和医院</li>
+							</div>
+							<div class="moreHosList fl">
+								<img src="__IMG__/20180316cjys19.png" alt="">
+								<li>北京协和医院</li>
+							</div>
+							<div class="cl"></div>
+						</div>
+					</div>
+					<div class="cl"></div>
+				</div>
+			</div>
+			<div class="interlocution2Box">
+				<div class="mainContent">
+					<span class="main1_title3 fl">专家问答</span>
+					<span class="main1Right_more fr">更多></span>
+					<div class="cl"></div>
+					<div class="expertBanner">
+						<div class="expertBannerBox swiper-container">
+							<div class="swiper-wrapper">
+				                <div class="swiper-slide">
+					                <div class="expertbannerList expertbannerList_1" data-n="1">
+					                	<div class="expertBannerFace"><img src="__IMG__/20180316cjys16.png" alt=""></div>
+					                	<li class="expertbannerListText1">1铃木建司教授</li>
+					                	<li class="expertbannerListText2">呼吸外科</li>
+					                </div>
+				                </div>
+				                <div class="swiper-slide">
+				                 	<div class="expertbannerList expertbannerList_2" data-n="2">
+					                	<div class="expertBannerFace"><img src="__IMG__/20180316cjys16.png" alt=""></div>
+					                	<li class="expertbannerListText1">2铃木建司教授</li>
+					                	<li class="expertbannerListText2">呼吸外科</li>
+					                </div>
+				                </div>
+				                <div class="swiper-slide">
+				                 	 <div class="expertbannerList expertbannerList_3" data-n="3">
+					                	<div class="expertBannerFace"><img src="__IMG__/20180316cjys16.png" alt=""></div>
+					                	<li class="expertbannerListText1">3铃木建司教授</li>
+					                	<li class="expertbannerListText2">呼吸外科</li>
+					                </div>
+				                </div>
+				                <div class="swiper-slide">
+				                 	<div class="expertbannerList expertbannerList_4" data-n="4">
+					                	<div class="expertBannerFace"><img src="__IMG__/20180316cjys16.png" alt=""></div>
+					                	<li class="expertbannerListText1">4铃木建司教授</li>
+					                	<li class="expertbannerListText2">呼吸外科</li>
+					                </div>
+				                </div>
+				                <div class="swiper-slide">
+				                 	 <div class="expertbannerList expertbannerList_5" data-n="5">
+					                	<div class="expertBannerFace"><img src="__IMG__/20180316cjys16.png" alt=""></div>
+					                	<li class="expertbannerListText1">5铃木建司教授</li>
+					                	<li class="expertbannerListText2">呼吸外科</li>
+					                </div>
+				                </div>
+				                <div class="swiper-slide">
+				                 	 <div class="expertbannerList expertbannerList_6" data-n="6">
+					                	<div class="expertBannerFace"><img src="__IMG__/20180316cjys16.png" alt=""></div>
+					                	<li class="expertbannerListText1">6铃木建司教授</li>
+					                	<li class="expertbannerListText2">呼吸外科</li>
+					                </div>
+				                </div>
+				            </div>
+						</div>
+						<div class="lbcon">
+						      <span class="lb_left"><img src="__IMG__/20180316cjys23.png" alt=""></span>
+						      <span class="lb_right"><img src="__IMG__/20180316cjys24.png" alt=""></span>
+					    </div>
+						<script>
+							$('.expertbannerList_1').css({'margin-top':'6px'});
+					        var mySwiper1 = new Swiper('.expertBannerBox',{
+					            loop: true,
+					            autoplay: 5000,
+					            slidesPerView: 6,
+					            onSlideChangeStart: function(swiper1){
+				                    var n=swiper1.activeLoopIndex+1;
+				                    $('.expert').hide();
+							    	$('.expert_'+n).show();
+							    	$('.expertbannerList').animate({'margin-top':'0px'},50);
+							    	$('.expertbannerList_'+n).animate({'margin-top':'6px'},50);
+				                }
+					        });
+					        $('body').on('click','.lb_left',function(){
+						      mySwiper1.swipePrev();
+						      
+						    })
+						    $('body').on('click','.lb_right',function(){
+						      mySwiper1.swipeNext();
+						    })
+						    // 专家问答，轮播切换
+						    $('.expertbannerList').hover(function(){
+						    	var active=$(this).data('n');
+						    	$('.expert').hide();
+						    	$('.expert_'+active).show();
+						    	$('.expertbannerList').animate({'margin-top':'0px'},50);
+						    	$(this).animate({'margin-top':'6px'},50);
+						    },function(){
+						    	
+						    });
+
+						    $('.mainContent').hover(function(){
+						    	mySwiper1.stopAutoplay();
+						    },function(){
+						    	mySwiper1.startAutoplay();
+						    });
+					    </script>
+					</div>
+					<div class="expert expert_1">
+						<div class="expertTop">
+							<div class="expertTopSign fl">
+								<img src="__IMG__/20180316cjys21.png" alt="">
+								<span>独家签约</span>
+							</div>
+							<div class="expertTopFace fl">
+								<img src="__IMG__/20180316cjys17.png" alt="" class="fl">
+								<div class="expertTopTitle fl">
+									<div class="expertTopName"><span>铃木建司</span>教授</div>
+									<div class="expertTopAdd">
+										<li>呼吸外科·医学部</li>
+										<li>医学研究所教授</li>
+									</div>
+								</div>
+							</div>
+							<div class="expertTopLine fl"></div>
+							<div class="expertTopText fl">
+								<div class="expertTopText1">个人拥有肺癌局部病灶Ⅰ期（T1b）3年总生存率95.5%、肺癌III期综合协作治疗3年生存率78%、肺癌Ⅲ期(N2)治疗5年生存率51.2%、合并症发生率仅为欧美顶级医疗机构20%的骄人成果。</div>
+								<div class="expertTopText2">擅长：肺癌  转移性肺癌  恶性胸膜间皮瘤</div>
+							</div>
+						</div>
+						<div class="expertBottom">
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+						</div>
+					</div>
+					<div class="expert expert_2">
+						<div class="expertTop">
+							<div class="expertTopSign fl">
+								<img src="__IMG__/20180316cjys21.png" alt="">
+								<span>独家签约</span>
+							</div>
+							<div class="expertTopFace fl">
+								<img src="__IMG__/20180316cjys17.png" alt="" class="fl">
+								<div class="expertTopTitle fl">
+									<div class="expertTopName"><span>2222222</span>教授</div>
+									<div class="expertTopAdd">
+										<li>呼吸外科·医学部</li>
+										<li>医学研究所教授</li>
+									</div>
+								</div>
+							</div>
+							<div class="expertTopLine fl"></div>
+							<div class="expertTopText fl">
+								<div class="expertTopText1">个人拥有肺癌局部病灶Ⅰ期（T1b）3年总生存率95.5%、肺癌III期综合协作治疗3年生存率78%、肺癌Ⅲ期(N2)治疗5年生存率51.2%、合并症发生率仅为欧美顶级医疗机构20%的骄人成果。</div>
+								<div class="expertTopText2">擅长：肺癌  转移性肺癌  恶性胸膜间皮瘤</div>
+							</div>
+						</div>
+						<div class="expertBottom">
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+						</div>
+					</div>
+					<div class="expert expert_3">
+						<div class="expertTop">
+							<div class="expertTopSign fl">
+								<img src="__IMG__/20180316cjys21.png" alt="">
+								<span>独家签约</span>
+							</div>
+							<div class="expertTopFace fl">
+								<img src="__IMG__/20180316cjys17.png" alt="" class="fl">
+								<div class="expertTopTitle fl">
+									<div class="expertTopName"><span>333333</span>教授</div>
+									<div class="expertTopAdd">
+										<li>呼吸外科·医学部</li>
+										<li>医学研究所教授</li>
+									</div>
+								</div>
+							</div>
+							<div class="expertTopLine fl"></div>
+							<div class="expertTopText fl">
+								<div class="expertTopText1">个人拥有肺癌局部病灶Ⅰ期（T1b）3年总生存率95.5%、肺癌III期综合协作治疗3年生存率78%、肺癌Ⅲ期(N2)治疗5年生存率51.2%、合并症发生率仅为欧美顶级医疗机构20%的骄人成果。</div>
+								<div class="expertTopText2">擅长：肺癌  转移性肺癌  恶性胸膜间皮瘤</div>
+							</div>
+						</div>
+						<div class="expertBottom">
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+						</div>
+					</div>
+					<div class="expert expert_4">
+						<div class="expertTop">
+							<div class="expertTopSign fl">
+								<img src="__IMG__/20180316cjys21.png" alt="">
+								<span>独家签约</span>
+							</div>
+							<div class="expertTopFace fl">
+								<img src="__IMG__/20180316cjys17.png" alt="" class="fl">
+								<div class="expertTopTitle fl">
+									<div class="expertTopName"><span>4444444</span>教授</div>
+									<div class="expertTopAdd">
+										<li>呼吸外科·医学部</li>
+										<li>医学研究所教授</li>
+									</div>
+								</div>
+							</div>
+							<div class="expertTopLine fl"></div>
+							<div class="expertTopText fl">
+								<div class="expertTopText1">个人拥有肺癌局部病灶Ⅰ期（T1b）3年总生存率95.5%、肺癌III期综合协作治疗3年生存率78%、肺癌Ⅲ期(N2)治疗5年生存率51.2%、合并症发生率仅为欧美顶级医疗机构20%的骄人成果。</div>
+								<div class="expertTopText2">擅长：肺癌  转移性肺癌  恶性胸膜间皮瘤</div>
+							</div>
+						</div>
+						<div class="expertBottom">
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+						</div>
+					</div>
+					<div class="expert expert_5">
+						<div class="expertTop">
+							<div class="expertTopSign fl">
+								<img src="__IMG__/20180316cjys21.png" alt="">
+								<span>独家签约</span>
+							</div>
+							<div class="expertTopFace fl">
+								<img src="__IMG__/20180316cjys17.png" alt="" class="fl">
+								<div class="expertTopTitle fl">
+									<div class="expertTopName"><span>5555555</span>教授</div>
+									<div class="expertTopAdd">
+										<li>呼吸外科·医学部</li>
+										<li>医学研究所教授</li>
+									</div>
+								</div>
+							</div>
+							<div class="expertTopLine fl"></div>
+							<div class="expertTopText fl">
+								<div class="expertTopText1">个人拥有肺癌局部病灶Ⅰ期（T1b）3年总生存率95.5%、肺癌III期综合协作治疗3年生存率78%、肺癌Ⅲ期(N2)治疗5年生存率51.2%、合并症发生率仅为欧美顶级医疗机构20%的骄人成果。</div>
+								<div class="expertTopText2">擅长：肺癌  转移性肺癌  恶性胸膜间皮瘤</div>
+							</div>
+						</div>
+						<div class="expertBottom">
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+							<li class="expertBottomLi">
+								<div class="expertBottomLi_L fl over2">合并症发生率仅疗机构20%的骄人成果合并症发生率仅疗机构20%的骄人成果</div>
+								<span class="expertBottomLi_R fr">6回答</span>
+							</li>
+						</div>
+					</div>
+					<div class="expert expert_6">
+						66666666
+					</div>
+				</div>
+			</div>
+			<div class="interlocution1Box interlocution3Box">
+				<div class="mainContent" style="padding-top:40px">
+					<div class="interlocution1Box_l fl">
+						<span class="main1_title3 fl">科室</span>
+						<span class="main1Right_more fr">更多<img src="__IMG__/20180316cjys1.png" alt=""></span>
+						<div class="cl"></div>
+						<div class="interlocution1Banner" id="doc2">
+							<div class="tabList">
+								<span class="tabListLi tabListLiNow" data-n="1">胸外科</span>
+								<span class="tabListLi" data-n="2">消化科</span>
+								<span class="tabListLi" data-n="3">泌尿科</span>
+								<span class="tabListLi" data-n="4">神经科</span>
+								<span class="tabListLi" data-n="5">神经类</span>
+								<span class="tabListLi" data-n="6">儿童肿瘤</span>
+								<span class="tabListLi" data-n="7">其他肿瘤</span>
+								<span class="tabListLi" data-n="8">颅底</span>
+								<div class="cl"></div>
+							</div>
+							<div class="tabListLiChild tabListLiChild_1">
+								<li class="departmentBox fl">
+									<div class="department1 over2 fl">铃木建顶级医疗机构20%的骄人成果...</div>
+									<div class="department2 fr">6回答</div>
+								</li>
+								<li class="departmentBox fl">
+									<div class="department1 over2 fl">铃木建顶级医疗机构20%的骄人成果...</div>
+									<div class="department2 fr">6回答</div>
+								</li>
+								<li class="departmentBox fl">
+									<div class="department1 over2 fl">铃木建顶级医疗机构20%的骄人成果...</div>
+									<div class="department2 fr">6回答</div>
+								</li>
+								<li class="departmentBox fl">
+									<div class="department1 over2 fl">铃木建顶级医疗机构20%的骄人成果...</div>
+									<div class="department2 fr">6回答</div>
+								</li>
+								<li class="departmentBox fl">
+									<div class="department1 over2 fl">铃木建顶级医疗机构20%的骄人成果...</div>
+									<div class="department2 fr">6回答</div>
+								</li>
+								<li class="departmentBox fl">
+									<div class="department1 over2 fl">铃木建顶级医疗机构20%的骄人成果...</div>
+									<div class="department2 fr">6回答</div>
+								</li>
+								<li class="departmentBox fl">
+									<div class="department1 over2 fl">铃木建顶级医疗机构20%的骄人成果...</div>
+									<div class="department2 fr">6回答</div>
+								</li>
+								<li class="departmentBox fl">
+									<div class="department1 over2 fl">铃木建顶级医疗机构20%的骄人成果...</div>
+									<div class="department2 fr">6回答</div>
+								</li>
+								<li class="departmentBox fl">
+									<div class="department1 over2 fl">铃木建顶级医疗机构20%的骄人成果...</div>
+									<div class="department2 fr">6回答</div>
+								</li>
+								<li class="departmentBox fl">
+									<div class="department1 over2 fl">铃木建顶级医疗机构20%的骄人成果...</div>
+									<div class="department2 fr">6回答</div>
+								</li>
+								<li class="departmentBox fl">
+									<div class="department1 over2 fl">铃木建顶级医疗机构20%的骄人成果...</div>
+									<div class="department2 fr">6回答</div>
+								</li>
+								<li class="departmentBox fl">
+									<div class="department1 over2 fl">铃木建顶级医疗机构20%的骄人成果...</div>
+									<div class="department2 fr">6回答</div>
+								</li>
+							</div>
+							<div class="tabListLiChild tabListLiChild_2">2</div>
+							<div class="tabListLiChild tabListLiChild_3">3</div>
+							<div class="tabListLiChild tabListLiChild_4">4</div>
+							<div class="tabListLiChild tabListLiChild_5">5</div>
+							<div class="tabListLiChild tabListLiChild_6">6</div>
+							<div class="tabListLiChild tabListLiChild_7">7</div>
+							<div class="tabListLiChild tabListLiChild_8">8</div>
+						</div>
+					</div>
+					<div class="interlocution1Box_r fr">
+						<span class="main1_title3 fl">胃癌治疗药物</span>
+						<span class="main1Right_more fr">更多<img src="__IMG__/20180316cjys1.png" alt=""></span>
+						<div class="cl"></div>
+						<div class="moreHos">
+							<div class="medicPic">
+							<img src="__IMG__/20180316cjys20.png" alt="" class="fl medicPicImg medicPicImg_1">
+							<img src="__IMG__/20180316cjys20.png" alt="" class="fl medicPicImg medicPicImg_2">
+							<img src="__IMG__/20180316cjys20.png" alt="" class="fl medicPicImg medicPicImg_3">
+							<img src="__IMG__/20180316cjys20.png" alt="" class="fl medicPicImg medicPicImg_4">
+							<div class="medicName fl">
+								<li class="medicNameLi over2" data-n="1">卡莫氟片（孚贝）</li>
+								<li class="medicNameLi over2" data-n="2">卡莫氟片（孚贝）</li>
+								<li class="medicNameLi over2" data-n="3">卡莫氟片（孚贝）</li>
+								<li class="medicNameLi over2" data-n="4">卡莫氟片孚贝卡莫氟片孚贝</li>
+							</div>
+						</div>
+							<span class="main1_title3 fl" style="font-size:18px">其他</span>
+							<span class="main1Right_more fr">更多<img src="__IMG__/20180316cjys1.png" alt=""></span>
+							<div class="cl"></div>
+							<div class="elseDoc">
+								<a href="">日本就医</a>
+							    <a href="">美国就医</a>      
+							    <a href="">新技术</a>      
+							    <a href="">其他</a>
+							</div>
+						</div>
+					</div>
+					<div class="cl"></div>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+		<include file="Public/cjysFooter" />
+	</div>
+	<script>
+	// 切换tab
+	var tabFunc=function(name){
+		$('body').on('click',''+name+' .tabListLi',function(){
+			var n=$(this).data('n');
+			$(''+name+' .tabListLi').removeClass('tabListLiNow');
+			$(this).addClass('tabListLiNow');
+			$(''+name+' .tabListLiChild').hide();
+			$(''+name+' .tabListLiChild_'+n).show();
+		});
+	}
+	tabFunc('#doc1');
+	tabFunc('#doc2');
+	// 胃癌治疗药物,切换图片
+	$('body').on('click','.medicNameLi',function(){
+		var n=$(this).data('n');
+		$('.medicPicImg').hide();
+		$('.medicPicImg_'+n).show();
+	});	
+
+	
+
+	
+	</script>
+</body>
+</html> 

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>户型列表</title>
+<link href="__CSS__/xuanfang.css" type="text/css" rel="stylesheet" />
+<link href="__CSS__/reset.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="__CSS__/footer.css">
+</head>
+<body>
+    <div class="hdyx_wrap">
+          <a href="javascript:history.go(-1);"><img src="__IMG__/return.png" /></a>
+          <div class="hdyx_logo">
+             <img src="__ACC__/{$tlogo}" />
+          </div> 
+          <a href="#"><img src="__IMG__/gps.png"/ style="float:right;"></a>
+    </div>
+	<foreach name="roomlist" item="room"  key="k">
+		<if condition="$k eq 0 ">
+   	<div class="chose" style="padding-top:20px;">
+		<else />
+	<div class="chose" style="padding-top:20px; border-top:none;">	
+		</if>
+    	<div class="xuan">
+            <a href="__MODULE__/Index/room/id/{$room.id}">
+                <div class="img"><img src="__ACC__/{$room.cover}"></div>
+                <ul>
+                    <li class="li1">{$room.name}<span>{$room.area}㎡</span></li>
+                    <li class="li2">{$room.auxiliaryname}</li>
+                </ul>
+                <p><img src="__IMG__/icon_xf.png" /></p>           
+            </a>
+        </div>
+    </div>
+	</foreach>
+    <div class="footer">
+    	<dl>
+        	<dt><img src="__IMG__/icon_xf_2.png" /></dt>
+            <dd>向上滑加载更多户型（<span class="sp1">10</span>/<span class="sp2">16</span>）</dd>
+        </dl>
+    </div>
+	<div class="fot_bottom">
+		<div class="fot_box">
+			<ul class="ul1">
+				<li>
+					<a href="__MODULE__/Index/houseShow/id/{$houseid}"><p><img src="__IMG__/icon_fot.png"></p><span>首页</span></a>
+				</li>
+				<li style="background:#a68068;">
+					<a href="__MODULE__/Index/info/id/{$houseid}"><p><img src="__IMG__/icon_fot_2.png"></p><span>基本信息</span></a>
+				</li>
+				<li>
+					<a href="__MODULE__/Index/trends/id/{$houseid}"><p><img src="__IMG__/icon_fot_3.png"></p><span>最新动态</span></a>
+				</li>
+				<li>
+					<a href="#"><p><img src="__IMG__/icon_fot_4.png"></p><span>客户推荐</span></a>
+				</li>
+				<li>
+					<a href="__MODULE__/Index/reserve/id/{$houseid}"><p><img src="__IMG__/icon_fot_5.png"></p><span>预约购房</span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

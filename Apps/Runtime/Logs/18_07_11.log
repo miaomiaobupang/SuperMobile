@@ -1,0 +1,144 @@
+<<<<<<< HEAD
+[ 2018-07-11T08:32:55+08:00 ] 192.168.1.21 /Mobile/index.php/Mobile/Index/questionList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000161s ]
+=======
+[ 2018-07-11T02:20:45+08:00 ] 37.232.46.106 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T04:37:25+08:00 ] 82.148.169.179 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T05:27:41+08:00 ] 187.108.69.129 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T05:57:02+08:00 ] 177.185.212.112 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T06:40:25+08:00 ] 186.249.139.84 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000049s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T08:02:16+08:00 ] 152.249.193.167 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000055s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T08:20:48+08:00 ] 185.64.209.34 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T08:31:31+08:00 ] 141.212.122.96 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000050s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T08:32:20+08:00 ] 210.12.18.39 /index.php/Mobile/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+
+[ 2018-07-11T10:51:01+08:00 ] 93.91.126.86 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000056s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T13:02:40+08:00 ] 192.162.238.96 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T13:12:56+08:00 ] 41.92.133.30 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000049s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T13:29:59+08:00 ] 119.18.153.250 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000055s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T13:34:13+08:00 ] 91.191.231.174 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T14:40:50+08:00 ] 84.232.18.171 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000055s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T14:40:51+08:00 ] 84.232.18.171 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T15:45:09+08:00 ] 78.162.36.6 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000063s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T17:08:20+08:00 ] 91.210.204.177 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000050s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T18:50:42+08:00 ] 151.237.222.85 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000048s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T20:50:23+08:00 ] 89.111.247.56 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000059s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T21:19:51+08:00 ] 212.66.121.24 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000055s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T22:01:12+08:00 ] 185.34.18.242 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000055s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-11T23:39:08+08:00 ] 46.245.39.248 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+>>>>>>> 9b8c6280e92d3edd6975bf495c3736ea8fa291b8
+

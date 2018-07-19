@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>时间</title>
+<link href="__CSS__/xiangmuzhuce.css" type="text/css" rel="stylesheet" />
+<link href="__CSS__/reset.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="__CSS__/footer.css">
+<script src="__JS__/jquery.min.js"></script>
+</head>
+<body>
+    <span class="timeH">{$time.H}</span>
+    <span class="timei">{$time.i}</span>
+    <span class="times">{$time.s}</span>
+	<script>
+	var timeH={$time.H};
+	var timei={$time.i};
+	var times={$time.s};
+	function timeadd(){
+		if(times<59){
+			times++;
+		}else{
+			//够60S
+			if(timei<59){
+				timei++;	
+			}else{
+				if(timeH<24){
+					timeH++;
+				}else{
+					//重置时针
+					timeH=0;
+					alert("超时！！！");
+				}
+				$(".timeH").html(timeH);
+				//重置分针
+				timei=0;
+			}
+			$(".timei").html(timei);
+			//重置秒针
+			times=0;
+		}
+		$(".times").html(times);
+	}
+	setInterval("timeadd()",1000);
+	</script>
+</body>
+</html>
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

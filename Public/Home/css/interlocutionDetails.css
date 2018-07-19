@@ -1,0 +1,408 @@
+.mainBox{
+	width:100%;
+	height:auto;
+	background:#f5f5f5;
+	padding:20px 0 190px 0;
+}
+.main{
+	width:1240px;
+	height:auto;
+	margin:0 auto;
+}
+.imgBanner{
+	width:100%;
+	display:block;
+	margin-bottom:20px;
+}
+.mainLeft{
+	width:810px;
+	height:auto;
+}
+.mainLeft1{
+	width:100%;
+	height:400px;
+	border:1px solid #dcdcdc;
+	box-shadow:1px 1px 2px rgb(245,245,245);
+	background:#fff;
+	padding:0px 40px;
+}
+.mainTitle{
+	font-size:16px;
+	color:#808080;
+}
+.mainTitle a{
+	font-size:16px;
+	color:#808080;
+}
+.mainTitleBox{
+	height:58px;
+	border-bottom:1px solid #dcdcdc;
+	padding-top:20px;
+}
+.mainTitleBox img{
+	margin-top:2.5px;
+	margin-right:10px;
+}
+.mainContent{
+	padding-top:20px;
+}
+.iconQues{
+	width:31px;
+}
+.mainLeft1Title{
+	font-size:24px;
+	margin-left:20px;
+}
+.disease1 span{
+	font-size:16px;
+	color:#666;
+	margin-right:10px;
+}
+.disease1{
+	margin:25px 0;
+	padding-left:52px;
+}
+.disease2{
+	font-size:16px;
+	margin-bottom:25px;
+	padding-left:52px;
+}
+.disease3{
+	font-size:14px;
+	color:#999;
+	margin-bottom:25px;
+	padding-left:52px;
+}
+.disease3 span{
+	font-size:14px;
+	color:#999;
+}
+.disease4 span{
+	display:inline-block;
+	line-height:24px;
+	width:54px;
+	text-align:center;
+	background:#f0f0f0;
+	border-radius:2px;
+	margin-right:3px;
+	color:#666;
+}
+.disease4 span:hover{
+	background:rgba(0,159,168,0.1);
+	cursor:pointer;
+}
+.disease4{
+	padding-left:52px;
+}
+.asking{
+	width:84px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	font-size:16px;
+	background:#009FA8;
+	color:#fff;
+	margin-top:33px;
+	margin-left:52px;
+	border-radius:2px;
+	cursor:pointer;
+}
+.mainLeft2{
+	width:100%;
+	height:250px;
+	border:1px solid #dcdcdc;
+	box-shadow:1px 1px 2px rgb(245,245,245);
+	background:#fff;
+	padding:0px 40px;
+	margin-top:20px;
+}
+.bestAnswer{
+	font-size:24px;
+	color:#EC7837;
+	margin:0 30px 0 20px;
+}
+.bestAnswer1{
+	color:#999;
+}
+.bestImg{
+	margin-top:4px;
+}
+.docName{
+	font-size:16px;
+}
+.docTip{
+	color:#666;
+	margin:0 20px;
+}
+.docHos{
+	color:#666;
+}
+.docgood{
+	color:#999;
+	margin-top:12px;
+}
+.docContent{
+	padding-left:17px;
+}
+.docAsking{
+	width:71px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	font-size:16px;
+	background:#009FA8;
+	color:#fff;
+	border-radius:2px;
+	cursor:pointer;
+	margin-top:8px;
+}
+.docIntro{
+	padding:18px 0 16px 0;
+}
+.docIntro1{
+	line-height:23px;
+	text-align:justify;
+}
+.mainLeft3{
+	width:100%;
+	height:641px;
+	border:1px solid #dcdcdc;
+	box-shadow:1px 1px 2px rgb(245,245,245);
+	background:#fff;
+	padding:0px 40px;
+	margin-top:20px;
+}
+.anotherAns{
+	font-size:24px;
+}
+.anotherIntro{
+	padding-bottom:25px;
+	border-bottom:1px solid #dcdcdc;
+}
+.anotherIntro:last-child{
+	border:none;
+}
+.mainLeft4{
+	width:100%;
+	height:311px;
+	border:1px solid #dcdcdc;
+	box-shadow:1px 1px 2px rgb(245,245,245);
+	background:#fff;
+	padding:0px 40px;
+	margin-top:20px;
+}
+.mainLeft4Title{
+	color:#009FA8;
+	font-size:18px;
+	line-height:60px;
+}
+.textareaBox{
+	width:730px;
+	height:231px;
+	border:1px solid #dcdcdc;
+}
+.textareaBox textarea{
+	width:100%;
+	height:176px;
+	font-size:16px;
+	padding:8px 10px;
+	line-height:22px;
+	resize:none;
+	border:none;
+}
+.textareaBox button{
+	width:65px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	background:#009FA8;
+	color:#fff;
+	font-size:16px;
+	border:none;
+	cursor:pointer;
+	margin-right:20px;
+}
+.mainRight{
+	width:410px;
+}
+.mainRight1{
+	width:100%;
+	height:227px;
+	border:1px solid #dcdcdc;
+	box-shadow:1px 1px 2px rgb(245,245,245);
+	background:#fff;
+	padding:0px 25px;
+}
+.main1_title3{
+	width:100%;
+	height:58px;
+	line-height:58px;
+	font-size:18px;
+	border-bottom:1px solid #dcdcdc;
+}
+.main2TwoList {
+	height:20px;
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+.main2TwoList1 {
+	width:300px;
+	height:20px;
+	display:inline-block;
+    font-size: 16px;
+    color: #666;
+}
+.main2TwoList2 {
+    color: #999;
+}
+.main2TwoList:hover .main2TwoList1{
+	cursor:pointer;
+	color:#009FA8;
+}
+.mainRight2{
+	width:100%;
+	height:404px;
+	border:1px solid #dcdcdc;
+	box-shadow:1px 1px 2px rgb(245,245,245);
+	background:#fff;
+	padding:0px 25px;	
+	margin-top:20px;
+}
+.shareBox img {
+    width: 82px;
+    height: 82px;
+}
+.shareBoxName1 {
+    width: 265px;
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.shareBoxName2 {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+.shareBoxName {
+    padding-left: 8px;
+}
+.shareBox {
+    width: 100%;
+    height: 115px;
+    border-top: 1px solid #dcdcdc;
+    padding-top: 16px;
+    cursor: pointer;
+}
+.mainRight3{
+	width:100%;
+	height:350px;
+	border:1px solid #dcdcdc;
+	box-shadow:1px 1px 2px rgb(245,245,245);
+	background:#fff;
+	padding:0px 25px;	
+	margin-top:20px;
+}
+.mainRight3BoxCon{
+	width:100%;
+	height:92px;
+	border-top:1px solid #dcdcdc;
+	padding-top:19px;
+	cursor:pointer;
+}
+.mainRight3BoxR{
+	margin-left:12px;
+}
+.mainRight3BoxRLi1{
+	font-size:18px;
+	margin-top:3px;
+	margin-bottom:5px;
+}
+.mainRight3BoxRLi2{
+	font-size:16px;
+	color:#666;
+}
+.mainRight4{
+	width:100%;
+	height:274px;
+	border:1px solid #dcdcdc;
+	box-shadow:1px 1px 2px rgb(245,245,245);
+	background:#fff;
+	padding:0px 25px;	
+	margin-top:20px;
+}
+.medicName {
+    width: 171px;
+    height: auto;
+}
+.medicPicImg {
+    display: none;
+}
+.medicPicImg_1 {
+    display: block;
+}
+.medicNameLi {
+    font-size: 16px;
+    color: #666;
+    margin-top: 7px;
+    margin-left: 20px;
+}
+.medicNameLi:hover{
+	cursor:pointer;
+	color:#009FA8;
+}
+.moreHos{
+	margin-top:21px;
+	position:relative;
+}
+.mainRight5{
+	width:100%;
+	height:326px;
+	border:1px solid #dcdcdc;
+	box-shadow:1px 1px 2px rgb(245,245,245);
+	background:#fff;
+	padding:0px 25px;	
+	margin-top:20px;
+}
+.mainRight5Banner {
+    width: 320px;
+    height: 200px;
+    margin: 0 auto;
+}
+.caseBanner {
+    width: 320px;
+    height: 200px;
+    position: relative;
+}
+.lb_left {
+    width: 40px;
+    position: absolute;
+    top: 104px;
+    left: 0px;
+    cursor: pointer;
+}
+.lb_right {
+    width: 40px;
+    position: absolute;
+    top: 104px;
+    right: -20px;
+    cursor: pointer;
+}
+.lbcon img {
+    width: 20px;
+}
+.caseBannerText {
+    font-size: 16px;
+    height: 52px;
+    color: #fff;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    line-height: 68px;
+    text-align: center;
+    background: -moz-linear-gradient(top, rgba(255,255,255,0.1), rgba(0, 0, 0, 0.6));
+    background: -o-linear-gradient(top, rgba(255,255,255,0.1), rgba(0, 0, 0, 0.6));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0.1), rgba(0, 0, 0, 0.6));
+    background: linear-gradient(top, rgba(255,255,255,0.1), rgba(0, 0, 0, 0.6));
+}

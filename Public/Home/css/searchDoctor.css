@@ -1,0 +1,80 @@
+.mainleft-list-con img{
+	width:120px;
+	height:120px;
+	margin:0;
+}
+.mainleft-list{
+	height:160px;
+}
+.doctorName{
+	font-size:14px;
+	color:#666;
+	margin-bottom:10px;
+}
+.mainleft-list-con-r{
+	width:630px;
+	margin-left:20px;
+}
+.doctorName-name{
+	font-size:18px;
+	color:#009FA8;
+	margin-right:8px;
+}
+.doctorName-name:hover{
+	color:#EC7837;
+	cursor:pointer;
+}
+.doctorName-tip li{
+	color:#666;
+}
+.doctorName-good{
+	color:#999;
+	margin-top:10px;
+}
+.mainleft-list-con{
+	position:relative;
+}
+.doctorName-appoint{
+	width:88px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	color:#fff;
+	background:#EC7837;
+	border-radius: 2px;
+	position:absolute;
+	right:42px;
+	top:45px;
+	cursor:pointer;
+}
+.mainBox3Right2{
+	height:315px;
+}
+.mainBox3Right1Tilte{
+	margin-bottom:10px;
+	border-bottom:1px solid #dcdcdc;
+}
+.medicineImg{
+	height:81px;
+	border-bottom:1px solid #dcdcdc;
+	padding-top:11px;
+	cursor:pointer;
+}
+.medicineImg:last-child{
+	border:none;
+}
+.medicineImg img{
+	width:60px;
+	height:60px;
+}
+.medicine-name{
+	padding-left:12px;
+	padding-top:5px;
+}
+.medicine-hos{
+	margin-top:10px;
+}
+.medicine-hos span{
+	color:#666;
+	margin-right:25px;
+}

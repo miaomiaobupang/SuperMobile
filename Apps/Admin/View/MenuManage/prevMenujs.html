@@ -1,0 +1,112 @@
+<script>
+	//菜单模式显示
+	$('.menuModel').click(function(){
+		var value = $(this).val();
+		//将上述值赋值到隐藏的type
+		$("#HiddenType").val(value);
+		//清空上一个选项卡信息
+		$('.publicContenttwo').css({'display':'none'});
+		//添加当前选项卡内容
+		if(value == 1){
+			$('.publicContentone1').css({'display':'block'});	
+		}else if(value == 2){
+			$('.publicContentone2').css({'display':'block'});	
+		
+		}else if(value == 3){
+			$('.publicContentone3').css({'display':'block'});	
+			
+		}
+	});
+	//方法中选择是否为菜单
+	$('.ismenuFunc').click(function(){
+		var value = $(this).val();
+		//将上述值赋值到隐藏的type
+		$("#HiddenIsMenu").val(value);
+	});
+	//选择模块对象
+	$('.modelClass').click(function(){
+		var modelID = $(this).data('id');
+		var type = $("#HiddenType").val();
+		if(type == 2){
+			$('#HiddenModelId').val(modelID);
+		}else if(type == 3){
+			$('#HiddenFuncId').val(modelID);
+		}
+		//清空所有样式
+		$('.modelClass').css({'font-weight':'normal','color':'white'});
+		$(this).css({'font-weight':'bold','color':'#1ccdaa'});
+	});
+	//提交按钮
+	$("form").submit(function(e){
+		var type = $("#HiddenType").val();
+		if(type == 1){
+			var level = 1;
+			var name = $('#mnameone').val();
+			var pathname = $('#pnameone').val();
+			if(name == '' || typeof(name) == 'undefined'){
+				alert('中文名称不能为空')
+				return false;
+			}
+			if(pathname == '' || typeof(pathname) == 'undefined'){
+				alert('英文名称不能为空')
+				return false;
+			}
+			
+		}else if(type == 2){
+			var signID = $('#HiddenModelId').val();
+			var level = 2;
+			var name = $('#mnametwo').val();
+			var pathname = $('#pnametwo').val();
+			if(name == '' || typeof(name) == 'undefined'){
+				alert('中文名称不能为空')
+				return false;
+			}
+			if(pathname == '' || typeof(pathname) == 'undefined'){
+				alert('英文名称不能为空')
+				return false;
+			}
+		}else if(type == 3){
+			var signID = $('#HiddenFuncId').val();
+			var level = 3;
+			var name = $('#mnamethree').val();
+			var pathname = $('#pnamethree').val();
+			var is_menu = $('#HiddenIsMenu').val();
+			if(name == '' || typeof(name) == 'undefined'){
+				alert('中文名称不能为空')
+				return false;
+			}
+			if(pathname == '' || typeof(pathname) == 'undefined'){
+				alert('英文名称不能为空')
+				return false;
+			}
+			if(signID == ''){
+				alert('请选择所属控制器')
+				return false;
+			}
+		}
+		return true;
+	});
+	
+	//激活左侧菜单展开收起事件
+	leftMenuFunc('twoTrStyle');
+	leftMenuFunc('oneTrStyle');
+	//左侧菜单点击事件
+	function leftMenuFunc(menu){
+		var menuFuncObj = $('.'+menu);
+		menuFuncObj.click(function(){
+			var thisId = $(this).data('id');
+			var thisState = $(this).data('state');
+			//收起当前节点下元素
+			if(thisState == 1){
+				$('.'+menu+'_'+thisId).css({'display':'none'});
+				$(this).data('state',2);
+			}else if(thisState == 2){
+				$('.'+menu+'_'+thisId).css({'display':'block'});
+				$(this).data('state',1);
+			}
+			
+		});
+	}
+	//点击作为首页的菜单查看其广告以及关联信息
+	
+</script>

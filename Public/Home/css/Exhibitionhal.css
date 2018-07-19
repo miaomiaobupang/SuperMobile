@@ -1,0 +1,660 @@
+/* 公共样式 */
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {
+  border: 0 none;
+  font-family: tahoma,arial,"Hiragino Sans GB","宋体",sans-serif;
+  font-feature-settings: inherit;
+  font-kerning: inherit;
+  font-language-override: inherit;
+  font-size: inherit;
+  font-size-adjust: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-synthesis: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+ul li{
+	list-style:none;
+}
+.box{
+	width:100%;
+	height:100%;
+	background:#fff;
+}
+/* 右浮动侧栏样式 */
+.rightNavigation{
+	width:35px;
+	height:100%;
+	right:0px;
+	position:fixed;
+	background:#e6e9e9;
+	cursor:pointer;
+}
+.rightNav{
+	margin-top:400px;
+}
+.Icon{
+	width:35px;
+	height:30px;
+	margin-top:21px;
+}
+.return{
+	background:url("../images/returnB.png") no-repeat center;
+}
+.weChat{
+	background:url("../images/weChatB.png") no-repeat center;
+}
+.perservice{
+	background:url("../images/perserviceB.png") no-repeat center;
+}
+.feedBack{
+	background:url("../images/feedBackB.png") no-repeat center;
+}
+
+ 
+ /* 导航 */
+.nav{
+	width:100%;
+	height:30px;
+	background:#f2f2f2;
+	box-shadow:0px 1px 2px 0px rgba(64,64,64,0.25);
+}
+.navContent{
+	width:1200px;
+	height:30px;
+	margin:0px auto;
+	font-size:14px;
+	line-height:30px;
+	color:#7d7d7d;
+	cursor:default;
+}
+
+.navLeft{
+	float:left;
+}
+
+.navLeftContent{
+	float:left;
+	margin-right:20px;
+ }
+.navRight{
+	float:right;
+}
+.navRightContent{
+	float:left;
+	margin-left:20px;
+}
+.webNav{
+	margin-top:-2px;
+}
+/* logo头部 */
+.headTitle{
+	width:1200px;
+	height:135px;
+	margin:0px auto;
+}
+/* logo图片样式 */
+.headTitleLeft{
+	width:190px;
+	float:left;
+}
+.headTitlelogo{
+	width:190px;
+	margin-top:40px;
+}
+.headTitlelogoPic{
+	width:262px;
+	height:39px;
+}
+
+/* logo下面文字样式 */
+.headTitlelogoText{
+	font-size:12px;
+	color:#7d7d7d;
+	margin-top:25px;
+}
+.headTitlelogoText a{
+	color:#7d7d7d;
+}
+.headTitlelogoTextConference a{
+	color:#7d7d7d;
+}
+.headTitlelogoTextConference a:hover{
+	color:#276ca3;
+	text-decoration:none;
+}
+.headTitlelogoTextCurrent{
+	float:left;
+}
+.headTitlelogoTextSymbol{
+	float:left;
+	margin-left:5px;	
+}
+.headTitlelogoTextConference{
+	margin-left:5px;
+	float:left;
+}
+/* .headTitlelogoTextConference a{
+	color:#7d7d7d;
+}
+.headTitlelogoTextConference a:hover{
+	text-decoration:none;
+} */
+/* 搜索框的样式 */
+.headTitleRight{
+	width:435px;
+	float:right;
+	margin-top:40px;
+}
+.inputFrame{
+	width:200px;
+	height:40px;
+	border:2px solid #4d8692;
+	border-top-left-radius:4px;
+	border-bottom-left-radius:4px;
+	padding-left:10px;
+	
+}
+/* 搜索按钮样式 */
+/* 搜索框样式开始 */
+.searchInputs{
+	clear: none;
+	float: left;
+	position: relative;
+	z-index: 297;
+}
+.searchInputSpanL{
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	background: #fff none repeat scroll 0 0;
+	border-color: #b8b8b8 transparent #ccc #b8b8b8;
+	border-image: none;
+	border-style: solid;
+	border-width: 1px 0 1px 1px;
+	display: inline-block;
+	margin-right: -3px;
+	overflow: hidden;
+	vertical-align: top;
+	width: 339px;
+	height: 34px;
+	*height: 32px;/*IE7支持 */
+	position: relative;
+}
+.searchInputSpanLipt{
+	position: relative;
+	width: 300px;
+	background: transparent none repeat scroll 0 0;
+	border: 0 none;
+	font: 16px/18px arial;
+	margin-left: 10px;
+	margin-top: 7px;
+	outline: 0 none;
+	padding: 0;
+	box-sizing: border-box;
+}
+.searchInputSpanBtn{
+	background-image: none;
+	border-bottom: 1px solid transparent;
+	height: auto;
+	width: auto;
+	background-position: -120px -48px;
+	display: inline-block;
+	vertical-align: top;
+	z-index: 0;
+	font-size: 12px;
+	font-family: arial;
+	color: #333;
+}
+.searchInputBtn{
+	background-image: none;
+	background: #21689b none repeat scroll 0 0;
+	border-bottom: 1px solid #2d78f4;
+	color: white;
+	height: 34px;
+	*line-height: 36px;/*IE7支持 */
+	letter-spacing: 1px;
+	outline: medium none;
+	width: 100px;
+	border: 0 none;
+	cursor: pointer;
+	font-size: 14px;
+	padding: 0;
+	width: 95px;
+	box-sizing: border-box;
+	font-family: arial;
+}
+.searchInputsClose {
+  color: #999;
+  font-size: 20px;
+  cursor:pointer;
+}
+.searchInputsClose:hover{
+	color:#000;
+}
+::-ms-clear{display: none;}
+/* 搜索框样式结束 */
+/* 会员快捷菜单开始 */
+.memberKUL {
+	float: left;
+	position: relative;
+}
+.memberKUL a {
+	text-decoration: none;
+}
+.memberKULName{
+	padding-left:5px;
+	padding-right:5px;
+}
+.memberKUL > ul {
+	background-color: #fff;
+	box-shadow: 0 2px 2px 0 rgba(64, 64, 64, 0.25);
+	display: none;
+	height: auto;
+	left: 0;
+	position: absolute;
+	text-align: center;
+	top: 30px;
+	width: 100%;
+	z-index: 20;
+}
+.memberKUL:hover{
+	background-color: #fff;
+}
+.memberKUL:hover > ul {
+	display: block;
+}
+.memberKUL li {
+	color: #212121;
+	font-size: 12px;
+	cursor:pointer;
+}
+.memberKUL li:hover {
+	background-color: #276ca3;
+	color: #fff;
+}
+.navContent{
+	font-size:12px;
+}
+.navContent a{
+	color:#7d7d7d;
+}
+.navContent a:hover{
+	color:#276ca3;
+}
+/* 会员快捷菜单结束 */
+.inputFramebut{
+	width:100px;
+	height:40px;
+	float:right;
+	background:#4d8692;
+	border:2px solid #4d8692;
+	font-size:18px;
+	color:#fff;
+	text-align:center;
+	line-height:40px;
+	border-top-right-radius:4px;
+	border-bottom-right-radius:4px;
+	cursor:pointer;
+}
+/* 展馆样式 */
+/* 头部样式 */
+.ExhibitionhallHead{
+	width:100%;
+	background:#e6e9e9;
+}
+.ExhibitionhallHeadPic{
+	width:1200px;
+	height:300px;
+	margin:0px auto;
+}
+.ExhibitionhallPic{
+	width:1200px;
+	height:300px;
+}
+/* 主体样式 */
+/* 主体整个样式 */
+.main_body{
+	width:1200px;
+	background:#fff;
+	margin:0px auto;
+	margin-bottom:80px;
+}
+/* 展馆信息样式 */
+.main_bodyInformation{
+	width:1200px;
+	min-height:200px;
+	margin-top:40px;
+}
+.main_bodyInformation.Calendar{
+	width:1200px;
+	height:320px;
+}
+
+/* 左边圆形整体样式 */
+.informationType{
+	width:150px;
+	height:150px;
+	background:#e6e9e9;
+	border-radius:50%;
+	margin-top:25px;
+	font-size:18px;
+	color:#625a5c;
+	text-align:center;
+	line-height:150px;
+	box-shadow:2px 3px 5px 0px rgba(126,133,138,0.75);
+	float:left;
+	cursor:default;
+}
+/* 左边第二个样式 */
+.informationType.Calendar{
+	background:#4d8692;
+	color:#fff;
+}
+/* 左边第四个的样式 */
+.informationType.route{
+	background:#4d8692;
+	color:#fff;
+}
+/* 右边的整体样式 */
+.informationTypeContent{
+	width:900px;
+	float:left;
+	min-height:200px;
+	margin-left:114px;
+	box-shadow:2px 3px 5px 0px rgba(126,133,138,0.75);
+	border-radius:10px;
+	background:#e6e9e9;
+	font-size:14px;
+	color:#625a5c;
+	cursor:default;
+	
+}
+.informationTypeMouthContent{
+	padding-left: 40px;
+    padding-right: 100px;
+    padding-top: 20px;
+}
+.informationTypeMouthContent a{
+	color:#3c6076;
+	clear: both;
+	display: block;
+}
+.informationTypeMouthContentT{
+	float:right;
+}
+.informationTypeContentText{
+	margin-top:8px;
+}
+.informationTypeContentWidth{
+	width:820px;
+	margin-left:40px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.informationTypeContentText{
+	line-height:20px;
+}
+/* 展馆日历样式 */
+
+.exhibitionHallDate{
+	width:900px;
+	height:120px;
+	float:left;
+	margin-left:114px;
+}
+.date{
+	width:900px;
+	font-size:18px;
+	color:#3c6076;
+	margin-top:-5px;
+}
+
+.informationTypeContentLText{
+	width:490px;
+	float:left;
+}
+/* 月份样式 */
+.timeBable{
+	width:900px;
+	float:left;
+	position: relative;
+}
+.icon-chevron-left.directionBtn{
+	left: 0;
+}
+.icon-chevron-right.directionBtn{
+	right: 0;
+}
+.directionBtn {
+	color: #ccc;
+	font-size: 40px;
+	top: 0;
+	line-height: 96px;
+	position: absolute;
+	cursor:pointer;
+}
+.directionBtn:hover{
+	color:#3c6076;
+}
+.timeLeft{
+	float:left;
+	margin-top:5px;
+	display:block;
+}
+.monthContent{
+	width:1416px;
+	left: 0px;
+    position: absolute;
+}
+.monthShow{
+    height: 96px;
+    margin-left: 44px;
+    overflow: hidden;
+    position: relative;
+    width: 812px;
+}
+.month{
+	width:80px;
+	height:80px;
+	border-radius:10px;
+	background:#e6e9e9;
+	font-size:18px;
+	color:#3c6076;
+	text-align:center;
+	line-height:80px;
+	box-shadow:2px 3px 5px 0px rgba(126,133,138,0.75);
+	float:left;
+	margin-left:18px;
+	margin-right:18px;
+	position:relative;
+	margin-top:8px;
+	opacity:0.3;
+	cursor:not-allowed;
+}
+.monthYes{
+	opacity:1;
+	cursor:pointer;
+}
+.month.january{
+	margin-left:30px;
+}
+
+.month .monthNum{
+	width:16px;
+	height:16px;
+	border-radius:50%;
+	background:#c17e82;
+	font-size:10px;
+	color:#fff;
+	text-align:center;
+	line-height:16px;
+	margin-left:64px;
+	position:absolute;
+	right:-8px;
+	top:-8px;
+	opacity:0;
+}
+.month.monthYes .monthNum{
+	opacity:1;
+}
+/* 右边箭头样式 */
+.timeLeft.right{
+	float:right;
+}
+
+/* 乘车路线样式 */
+.informationTypeContentCar{
+	margin-top:78px;
+	margin-left:40px;
+	float:left;
+}
+.busRoute{
+	width:720px;
+	margin-left:10px;
+	margin-top:82px;
+	float:left;
+	font-size:14px;
+	color:#3c6076;
+	cursor:default;
+}
+
+/* 展馆照片 */
+.iconPicLeft{
+	float:left;
+	margin-top:62px;
+	cursor:pointer;
+}
+.exhPic{
+	display:block;
+	float:left;
+	margin-left:80px;
+}
+.exhPic1{
+	width:240px;
+	height:165px;
+	margin-left:80px;
+}
+.iconPic{
+	display:block;
+	float:right;
+	right:0px;
+	margin-top:62px;
+	cursor:pointer;
+}
+
+/* 底部 */
+.footerDiv{
+	width:100%;
+	height:150px;
+	background:#e5e8ea;
+	margin-top:50px;
+}
+.footer{
+	width:1200px;
+	height:150px;
+	background:#e5e8ea;
+	margin:0px auto;
+}
+.footerLeft{
+	width:60px;
+	margin-top:40px;
+	float:left;
+}
+.footerLeftPic{
+	width:60px;
+	height:53px;
+}
+.footerPic{
+	width:60px;
+}
+.footerLeftMiddle{
+	width:400px;
+	height:150px;
+	margin-left:30px;
+	float:left;
+}
+.footerLeftText{
+	margin-top:25px;
+	font-size:10px;
+	cursor:default;
+}
+.footerLeftTextLiFist{
+	font-size:12px;
+}
+.footerLeftTextLi{
+	margin-top:10px;
+	color:#aaa;
+}
+.footerRightMiddle{
+	float:right;
+	margin-right:30px;
+	line-height:20px;
+	font-size:12px;
+	margin-top:45px;
+	color:#aaa;
+	text-align:right;
+	cursor:default;
+}
+.footerRightMiddleUlfist{
+	font-size:10px;
+}
+
+.footerRightPic{
+	float:right;
+	margin-top:35px;
+}
+.weixinPic{
+	width:80px;
+	height:80px;
+}
+
+
+.footerRightMiddlePic{
+	float:right;
+}
+
+.footerRightMiddlePic ul li{
+	width:36px;
+	float:right;
+}
+.footerRightMiddlePicli{
+		margin-right:10px;
+}
+/* 展会信息提供者信息开始 */
+.bodyInfos {
+	color: #818181;
+	font-size: 13px;
+	height: 60px;
+	line-height: 60px;
+	margin: 0 auto;
+	width: 1200px;
+}
+.bodyInfosText {
+	float: left;
+	padding-left: 305px;
+	width: 1055px;
+	overflow:hidden;
+}
+.bodyInfosText > span {
+	margin-right: 40px;
+}
+.bodyInfosItool span{
+	cursor:pointer;
+}
+.bodyInfosItool span:hover{
+	color:#338de6;
+}
+.bodyInfosItool a{
+	color:#818181;
+	text-decoration:none;
+}
+.bodyInfosItool a:hover{
+	color:#338de6;
+}
+/* 展会信息提供者信息结束 */

@@ -1,0 +1,265 @@
+/* 公共样式 */
+body,div,ul,li,img,form,input{
+	margin:0px;
+	padding:0px;
+	font-family:"黑体";
+}
+ul li{
+	list-style:none;
+}
+
+/* Bootstrap样式冲突继承修改开始 */
+img {
+    vertical-align: inherit;
+}
+* {
+    box-sizing: inherit;
+}
+/* Bootstrap样式冲突继承修改结束 */
+
+/* 整体样式 */
+.box{
+	width:100%;
+	background:#eff2f5;
+}
+/* 头部样式 */
+.head{
+	width:100%;
+	height:80px;
+	background:#fff;
+	
+}
+.head_content{
+	width:1200px;
+	height:80px;
+	margin:0px auto;
+	line-height:80px;
+}
+
+.head_contentLi{
+	float:left;
+	font-size:14px;
+	color:#2c3a5d;
+	cursor:default;
+}
+.liPic{
+	width:162px;
+	height:37px;
+	margin-top:20px;
+	padding-right:25px;
+}
+.head_content li:nth-child(2){
+	font-size:24px;
+	line-height:38px;
+	border-left:2px solid #aaa;
+	margin-top:21px;
+	padding-left:25px;
+}
+.head_contentIndex{
+	margin-left:757px;
+}
+
+.head_contentIndex a{
+	color:#2c3a5d;
+	text-decoration:none
+}
+.head_contentLast a{
+	color:#2c3a5d;
+	text-decoration:none
+}
+/* 主体设置样式 */
+/* 最外面的大的DIV样式 */
+.main_body{
+	width:800px;
+	height:500px;
+	margin:0px auto;
+	background:#fff;
+	margin-top:25px;
+}
+/* 上面提示文字 */
+.main_bodyTop{
+	padding-top:80px;
+	padding-left:158px;
+}
+.main_bodyTopPic{
+	width:34px;
+	height:25px;
+	float:left;
+}
+.main_bodyTopText{
+	width:500px;
+	font-size:18px;
+	color:#3e9cec;
+	line-height:25px;
+	margin-left:30px;
+	float:left;
+	cursor:default;
+}
+/* 表单样式 */
+.main_bodyInput{
+	margin-top:74px;
+	margin-left:158px;
+}
+.inputDiv{
+	float:left;
+	position: relative;
+	width:100%;
+}
+.inputDiv.inputDivValue{
+	margin-top:20px;
+}
+.inputText{
+	width:100px;
+	height:40px;
+	float:left;
+	font-size:14px;
+	color:#2c3a5d;
+	line-height:40px;
+	cursor:default;
+}
+.inputValue{
+	width:270px;
+	float:left;
+}
+.formFrame{
+	width:260px;
+	height:40px;
+	border: 1px solid #aaa;
+	padding-left:10px;
+}
+
+.agreement a {
+    color: #9d932c;
+    text-decoration: none;
+}
+.inputDiv.inputValueAgr{
+	margin-top:60px;
+	color:##2c3a5d;
+}
+
+.formFrameReg.btn{
+	padding:0px;
+	font-size: 18px;
+	line-height:40px;
+	margin-top:20px;
+}
+.inputValue.inputValue2{
+	padding-top:40px;
+}
+
+.inputTitle{
+	background-color: #eff2f5;
+	border: 1px solid #aaa;
+	float: left;
+	font-size: 10px;
+	line-height: 20px;
+	margin-left: 20px;
+	padding-left: 20px;
+	width: 160px;
+	display:none;
+	height:40px;
+}
+
+.inputError{
+	background-color: #ffebeb;
+	border: 1px solid #ff0000;
+	color: #f00;
+	font-size: 10px;
+	line-height: 20px;
+	margin-left: 10px;
+	padding-left: 20px;
+	width: 160px;
+	display:none;
+	height:40px;
+	position: absolute;
+	top:0px;
+	right:70px;
+}
+
+/* 底部 */
+.footerDiv{
+	width:100%;
+	height:150px;
+	margin-top:30px;
+	background:#e5e8ea;
+}
+.footer{
+	width:1200px;
+	height:150px;
+	background:#e5e8ea;
+	margin:0px auto;
+}
+.footerLeft{
+	width:60px;
+	margin-top:40px;
+	float:left;
+}
+.footerLeftPic{
+	width:60px;
+	height:53px;
+	
+}
+.footerPic{
+	width:60px;
+}
+.footerLeftMiddle{
+	width:400px;
+	height:150px;
+	margin-left:30px;
+	float:left;
+}
+.footerLeftText{
+	margin-top:25px;
+	font-size:10px;
+	cursor:default;
+}
+.footerLeftTextLiFist{
+	font-size:12px;
+}
+.footerLeftTextLi{
+	margin-top:10px;
+	color:#aaa;
+}
+.footerRightMiddle{
+	float:right;
+	margin-right:30px;
+	font-size:12px;
+	text-align:right;
+	line-height:20px;
+	margin-top:45px;
+	color:#aaa;
+	cursor:default;
+}
+
+.footerRightMiddleUlfist{
+	font-size:10px;
+} 
+
+.footerRightPic{
+	float:right;
+	margin-top:35px;
+}
+.weixinPic{
+	width:80px;
+	height:80px;
+}
+
+
+.footerRightMiddlePic{
+	float:right;
+}
+
+.footerRightMiddlePic ul li{
+	width:36px;
+	float:right;
+}
+.footerRightMiddlePicli{
+		margin-right:10px;
+}
+.findPass{
+	width:222px;
+	margin-top:120px;
+	font-size:14px;
+	color:#fff;
+	text-align:right;
+}

@@ -1,0 +1,111 @@
+<style>
+.hiddens{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-lightbulb" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">选择图标API </b> 
+		<span>- DEMO</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+           <div class="tile-header">
+					<h1>
+						<strong>选择图标API </strong> DEMO
+					</h1>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+           <!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body nopadding">
+					<form class="form-horizontal " action="__MODULE__/ClassManage/insert" method="post" role="form" id="DepartmentAdd">
+						<div class="row">
+							<div class="form-group col-md-6 col-sm-12">
+								<label for="principal" class="col-sm-4 control-label">
+									<span class="DepartmentType">选择</span>图标
+								</label>
+								<div class="col-sm-2">
+									<h4><span id="IcoSelectResult"></span></h4>
+									<input type="hidden" class="form-control" name="ico" id="IcoSelectResultName"  >
+								</div>
+								<div class="col-sm-6">
+									<a href="#ICOSelect" role="button" class="btn btn-red" data-toggle="modal"><span class="icon-hand-up"></span> 选择图标</a>
+								</div>
+							</div>
+						</div>
+                    </form>
+				</div>
+				<!-- /tile body -->
+				<!-- 选择图标层开始 -->
+				<div class="modal fade" id="ICOSelect" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true">
+					<div class="modal-dialog" >
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">关闭</button>
+								<div class="row">
+									<div class="col-lg-8">
+										<h3 class="modal-title" id="modalConfirmLabel"><strong>选择图标API </strong> DEMO</h3>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1 col-md-offset-1 text-right" style="padding-top:115px;" id="IcoDataLeft">
+									<h1 id="IcoDataLeftH"><span class="hand icon-chevron-left"></span></h1>
+								</div>
+								<div class="col-md-8">
+									<table class='table' id="icodata">
+									</table>
+								</div>
+								<div class="col-md-1 text-left" style="padding-top:115px;" id="IcoDataRight">
+									<h1 id="IcoDataRightH"><span class="hand icon-chevron-right"></span></h1>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-red" data-dismiss="modal" aria-hidden="true">取消</button>
+								<a state="close" role="button" class="btn btn-green" disabled="disabled" id="IcoDataSure" onclick="IcoSelectedSure()" data-dismiss="modal" aria-hidden="true">确定</a>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->  
+				<!-- 选择图标层结束结束 -->
+			</section>
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+
+
+
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

@@ -1,0 +1,314 @@
+<script type="text/javascript">
+//****展开菜单功能实现开始****
+function Telescopic(id){
+	if($(".fatherico"+id).attr("menu")=="close"){
+		$(".child"+id).removeClass("child");
+		$(".fatherico"+id).attr("menu","show");
+		$(".fatherico"+id).removeClass("icon-plus");
+		$(".fatherico"+id).addClass("icon-minus");
+	}else{
+		$(".child"+id).addClass("child");
+		$(".fatherico"+id).attr("menu","close");
+		$(".fatherico"+id).removeClass("icon-minus");
+		$(".fatherico"+id).addClass("icon-plus");
+	}
+
+	
+}
+//修改菜单
+function MenuData(id){
+	//清除右侧内容
+	$(".MenuFrom").remove();
+	//使用Ajax加载菜单数据
+	$.ajax({
+		url:"__MODULE__/MenuManage/MenuDataEcho/id/"+id,		
+		type:'post',
+		dataType:'json',
+		success:function(data){	//	成功回调函数
+			var info="";
+			if(data){
+				//头部信息
+				info +="<div class='tile-header MenuFrom'><h1><strong>修改菜单</strong></h1><div class='pull-right'><a href='__MODULE__/MenuManage/MenuDataDel/id/"+data.id+"' role='button' class='btn btn-red' data-toggle='modal'><span class='icon-trash'></span> 删除菜单</a></div><div class='controls'><a href='#' class='refresh'><i class='fa fa-refresh'></i></a><a href='#' class='remove'><i class='fa fa-times'></i></a></div></div>";				
+				//判断菜单模式
+				if(data.model == 1){	//顶级菜单
+					//表单头部
+					info +="<div class='tile-body MenuFrom'><form class='form-horizontal' role='form' action='__MODULE__/MenuManage/MenuDataSubmit/type/1/id/"+data.id+"' method='post'>";
+					//菜单名称
+					info +="<div class='form-group col-md-6 col-sm-12'><label for='name' class='col-sm-4 control-label'>菜单名称</label><div class='col-sm-8'><input type='text' class='form-control' name='name' id='name' value='"+data.name+"' ></div></div>";
+					//菜单排序
+					info +="<div class='form-group col-md-6 col-sm-12'><label for='num' class='col-sm-4 control-label'>菜单排序</label><div class='col-sm-8'><input type='text' class='form-control' name='num' id='num' value='"+data.num+"' ></div></div>";
+					//菜单状态
+					if(data.state == 1){	//开启
+						info +="<div class='form-group col-md-6 col-sm-12'><label for='state' class='col-sm-4 control-label'>菜单状态</label><div class='col-sm-8'><ul class='nolisttypes inlineSelect inline'><li><div class='radio radio-transparent'><input type='radio' value='1' id='state1' name='state' checked><label for='state1'>启用</label></div></li><li><div class='radio radio-transparent'><input type='radio' value='2' id='state2' name='state'><label for='state2'>禁用</label></div></li></ul></div></div>";	
+					}else{	//禁用
+						info +="<div class='form-group col-md-6 col-sm-12'><label for='state' class='col-sm-4 control-label'>菜单状态</label><div class='col-sm-8'><ul class='nolisttypes inlineSelect inline'><li><div class='radio radio-transparent'><input type='radio' value='1' id='state1' name='state'><label for='state1'>启用</label></div></li><li><div class='radio radio-transparent'><input type='radio' value='2' id='state2' name='state' checked><label for='state2'>禁用</label></div></li></ul></div></div>";	
+					}			
+					//菜单图标
+					info +="<div class='form-group col-md-6 col-sm-12'><label for='principal' class='col-sm-4 control-label'><span class='DepartmentType'>选择</span>图标</label><div class='col-sm-2 col-sm-offset-1'><h4><span id='IcoSelectResult' class='"+data.ico+"'></span></h4><input type='hidden' class='form-control' name='ico' id='IcoSelectResultName'  ></div><div class='col-sm-5'><a href='#ICOSelect' role='button' class='btn btn-red' data-toggle='modal'><span class='icon-hand-up'></span> 选择图标</a></div></div>";
+					//表单提交
+					info +="<div class='form-group'><div class='col-sm-offset-4 col-sm-4'><button type='submit' class='btn btn-greensea btn-block'>提交</button></div></div>";
+				}else{
+					//表单头部
+					info +="<div class='tile-body MenuFrom'><form class='form-horizontal' role='form' action='__MODULE__/MenuManage/MenuDataSubmit/type/2/id/"+data.id+"' method='post'>";
+					//菜单状态
+					if(data.state == 1){	//开启
+						info +="<div class='form-group col-md-6 col-sm-12'><label for='state' class='col-sm-4 control-label'>菜单状态</label><div class='col-sm-8'><ul class='nolisttypes inlineSelect inline'><li><div class='radio radio-transparent'><input type='radio' value='1' id='state1' name='state' checked><label for='state1'>启用</label></div></li><li><div class='radio radio-transparent'><input type='radio' value='2' id='state2' name='state'><label for='state2'>禁用</label></div></li></ul></div></div>";	
+					}else{	//禁用
+						info +="<div class='form-group col-md-6 col-sm-12'><label for='state' class='col-sm-4 control-label'>菜单状态</label><div class='col-sm-8'><ul class='nolisttypes inlineSelect inline'><li><div class='radio radio-transparent'><input type='radio' value='1' id='state1' name='state'><label for='state1'>启用</label></div></li><li><div class='radio radio-transparent'><input type='radio' value='2' id='state2' name='state' checked><label for='state2'>禁用</label></div></li></ul></div></div>";	
+					}
+					//菜单名称
+					info +="<div class='form-group col-md-6 col-sm-12'><label for='name' class='col-sm-4 control-label'>菜单名称</label><div class='col-sm-8'><input type='text' class='form-control' name='name' id='name' value='"+data.name+"' ></div></div>";
+					//菜单排序
+					info +="<div class='form-group col-md-6 col-sm-12'><label for='num' class='col-sm-4 control-label'>菜单排序</label><div class='col-sm-8'><input type='text' class='form-control' name='num' id='num' value='"+data.num+"' ></div></div>";
+					//菜单模块
+					info +="<div class='form-group col-md-6 col-sm-12' id='SelectModel'><label for='principal' class='col-sm-4 control-label'><span class='DepartmentType'>选择</span>模块</label><div class='col-sm-8'><div class='input-group'><input type='hidden' class='form-control' name='mid' id='ModuleIdSelect' value='"+data.mid+"' readonly><input type='text' class='form-control' id='ModuleIdSelectlName' readonly><div class='input-group-btn'><a href='#ModulesSelects' class='btn btn-greensea dropdown-toggle' role='button' data-toggle='modal'><i class='icon-cogs'></i></a><ul class='dropdown-menu pull-right'><li><div id='event-colorpalette' data-return-color='#principal'></div></li></ul></div></div></div></div>";			
+					//菜单图标
+					info +="<div class='form-group col-md-6 col-sm-12'><label for='principal' class='col-sm-4 control-label'><span class='DepartmentType'>选择</span>图标</label><div class='col-sm-2 col-sm-offset-1'><h4><span id='IcoSelectResult' class='"+data.ico+"'></span></h4><input type='hidden' class='form-control' name='ico' id='IcoSelectResultName'  ></div><div class='col-sm-5'><a href='#ICOSelect' role='button' class='btn btn-red' data-toggle='modal'><span class='icon-hand-up'></span> 选择图标</a></div></div>";
+					//菜单地址
+					info +="<div class='form-group' id='MenuAddress'><div class='form-group col-md-12 col-sm-12'><label for='address' class='col-md-2 col-sm-4 control-label'>菜单地址</label><div class='col-md-10 col-sm-8'><input type='text' class='form-control' name='adress' id='address'  value='"+data.adress+"'  ></div></div></div>";
+					//表单提交
+					info +="<div class='form-group'><div class='col-sm-offset-4 col-sm-4'><button type='submit' class='btn btn-greensea btn-block'>提交</button></div></div>";
+				}
+				//表单底部
+				info +="</form></div>";	
+				$("#MenuData").prepend(info);
+			}else{
+				info ="<tr class='nodata'><td class='text-center' colspan='13'> 暂 无 数 据 </td></tr>";
+				$("#MenuData").append(info);
+			}
+		}
+	});
+}
+//****选择部门功能实现结束****
+//修改菜单提交 type提交方式 1 顶级菜单修改提交 2二级菜单修改提交
+//function MenuDataSubmit(type){
+//	if(type == 1){		//顶级菜单修改提交
+		
+//	}else{
+	
+//	}
+//}
+//菜单模式显示
+function MenuModel(ob){
+	if(ob.value ==1){	//顶级菜单
+		$("#pidsMenus").addClass("child");
+		$("#SelectModel").addClass("child");
+		$("#MenuAddress").addClass("child");
+		$("#MenuLinkType").addClass("child");
+	}else{		//二级菜单
+		$("#pidsMenus").removeClass("child");
+		$("#SelectModel").removeClass("child");
+		$("#MenuAddress").removeClass("child");
+		$("#MenuLinkType").removeClass("child");
+	}
+}
+//菜单链接模式显示
+function MenuLinkType(ob){
+	if(ob.value ==1){	//内置
+		$("#SelectModel").removeClass("child");		
+	}else{		//外链
+		$("#SelectModel").addClass("child");
+	}
+}
+//*****选择模块功能实现开始*****
+//记录模块ID
+var RecordMid = 0;
+//记录模块名
+var RecordMname = null;
+//记录方法ID
+var RecordFid = 0;
+//记录方法名
+var RecordFname = null;
+//记录控制器名
+var RecordController = null;
+//记录方法名
+var RecordMethod = null;
+//加载模块数据
+$.ajax({
+	url:"__MODULE__/Modules/ModuleDataEcho",		
+	type:'post',
+	dataType:'json',
+	success:function(data){	//	成功回调函数
+		for(var i=0;i<data.length;i++){
+			var info = "<tr class='hand' menu='close' id='houses"+data[i].id+"' onclick='Method(this,"+data[i].id+",\""+data[i].Controller+"\",\""+data[i].name+"\")'><td>"+data[i].name+"</td></tr>";
+			$('#ModulesSelect').append(info);
+		}
+		
+	}
+});
+//加载方法信息
+//传送本身，模块ID，模块名
+function Method(ob,id,Controller,name){
+	$(".Method").remove();
+	$(".nodata").remove();
+	//初始化方法ID信息为0
+	RecordFid = 0;
+	//监测确认按钮状态
+	ModuleSureMonitor();
+	//记录选择的模块ID和名字
+	RecordMid = id;
+	RecordMname = name;
+	//记录控制器名
+	RecordController = Controller;
+	//更新状态栏状态
+	ModuleSelectAlert(1);
+	//使用Ajax加载楼宇数据
+	$.ajax({
+		url:"__MODULE__/Modules/ModuleIDMethodEcho/id/"+id,				
+		type:'post',
+		dataType:'json',
+		success:function(data){	//	成功回调函数
+			var info="";
+			if(data){
+				//定义一行显示方法条数(由于宽度有限建议小于6)
+					var j = 5;
+					for(var i=0;i<data.length;i++){
+						if(i%j ==0){
+							info +="<tr class='Method Module"+id+"'>";
+							info +="<td class='hand Methodtd text-center' onclick='MethodSelected(this,"+data[i].id+",\""+data[i].Method+"\",\""+data[i].name+"\")' id='room"+data[i].id+"'>"+data[i].name+"</td>";
+						}else if((i+1)%j==0){						
+							info +="<td class='hand Methodtd text-center' onclick='MethodSelected(this,"+data[i].id+",\""+data[i].Method+"\",\""+data[i].name+"\")' id='room"+data[i].id+"'>"+data[i].name+"</td>";
+							info +="</tr>";
+						}else{
+							info +="<td class='hand Methodtd text-center' onclick='MethodSelected(this,"+data[i].id+",\""+data[i].Method+"\",\""+data[i].name+"\")' id='room"+data[i].id+"'>"+data[i].name+"</td>";
+						}						
+					}
+					$("#MethodData").append(info);
+			}else{
+					info ="<tr class='nodata'><td class='text-center'> 暂 无 数 据 </td></tr>";
+					$("#MethodData").append(info);
+			}
+		}
+	});
+	$(ob).attr("menu","show");
+	
+}
+
+//方法选中
+function MethodSelected(ob,id,Method,name){
+	$(".Methodtd").removeClass("bg-danger");
+	$(ob).addClass("bg-danger");
+	//记录选择的方法ID和名字
+	RecordFid = id;
+	RecordFname = name;
+	//记录方法名
+	RecordMethod = Method;
+	//监测确认按钮状态	
+	ModuleSureMonitor();
+	//更新状态栏状态
+	ModuleSelectAlert(2);
+}
+//模块选择确认按钮状态监测
+function ModuleSureMonitor(){
+	//如果没有选择方法则确认按钮不可用
+	if(RecordFid ==0 && $("#ModuleSure").attr("state") == "show"){
+		$("#ModuleSure").attr("disabled","disabled");
+		$("#ModuleSure").attr("state","close");		
+	}else if(RecordFid !=0 && $("#ModuleSure").attr("state") == "close"){
+		$("#ModuleSure").removeAttr("disabled");
+		$("#ModuleSure").attr("state","show");	
+	}
+}
+//方法选择确认
+function ModuleSure(){
+	$("#ModuleIdSelect").val(RecordFid);
+	$("#ModuleIdSelectlName").val(RecordMname+"#"+RecordFname);	
+	$("#address").val(RecordController+"/"+RecordMethod);	
+}
+//状态栏显示
+function ModuleSelectAlert(type){
+	//type显示 1选择楼盘 2选择楼宇 3选择单元 4选择房间
+	$("#ModuleSelectAlert").attr("class","alert alert-success");
+	if(type == 1){
+		$("#ModuleSelectAlert").html("您已选择 "+RecordMname+"（模块），请选择相应的方法！");
+	}else if(type == 2){
+		$("#ModuleSelectAlert").html("您已选择 "+RecordMname+"（模块） <span class='icon-arrow-right'></span> "+RecordFname+"（方法） ，请单击确定按钮完成模块选择！");
+	}
+}
+//*****选择模块功能实现结束*****
+
+//*****选择图标功能实现开始*****
+//声明页码
+var Page =0;
+//获取最大页数
+var MaxPage;
+//声明储存上一次页码
+var lastPage =null;
+//声明ICO名称
+var icoName;
+//加载所有图标数据
+$.ajax({
+	url:"__MODULE__/Ico/IcoPageShowData/num/20",		
+	type:'post',
+	dataType:'json',
+	success:function(data){	//	成功回调函数
+		var info;
+		for(var i=0;i<data.length;i++){
+			for( var j=0;j<data[i].length;j++){
+				if(j%5 == 0){
+					info +="<tr class='IcoPage IcoPage"+i+" hiddens'>";
+					info +="<td icodata='"+data[i][j]+"' onclick='IcoSelected(this)' class='IcoData hand text-center'><h2><span class='"+data[i][j]+"'></span></h2></td>";
+				}else if((j+1)%5 == 0){					
+					info +="<td icodata='"+data[i][j]+"' onclick='IcoSelected(this)' class='IcoData hand text-center'><h2><span class='"+data[i][j]+"'></span></h2></td>";
+					info +="</tr>";
+				}else{
+					info +="<td icodata='"+data[i][j]+"' onclick='IcoSelected(this)' class='IcoData hand text-center'><h2><span class='"+data[i][j]+"'></span></h2></td>";
+				}
+			}		
+		}
+		MaxPage = data.length;
+		$('#icodata').append(info);	
+		IcoDataPage(Page);
+	}
+});
+//分屏显示数据
+function IcoDataPage(pages){
+	$(".IcoPage"+lastPage).addClass("hiddens");
+	$(".IcoPage"+pages).removeClass("hiddens");
+	if(Page ==0){
+		$("#IcoDataLeftH").addClass("hiddens");
+	}else{
+		$("#IcoDataLeftH").removeClass("hiddens");
+	}
+	if(Page == MaxPage-1){
+		$("#IcoDataRightH").addClass("hiddens");
+	}else{
+		$("#IcoDataRightH").removeClass("hiddens");
+	}
+}
+
+//监测左箭头点击
+$("#IcoDataLeft").click(function(){
+	if(Page ==0){
+		Page =0;
+	}else{
+		lastPage = Page;
+		Page = Page-1;
+	}
+	IcoDataPage(Page);
+});
+//监测右箭头点击
+$("#IcoDataRight").click(function(){
+	if(Page == MaxPage-1){
+		Page = MaxPage-1;
+	}else{
+		lastPage = Page;
+		Page = Page +1;
+	}
+	IcoDataPage(Page);
+});
+
+//图标选中状态监测
+function IcoSelected(ob){
+	$(".IcoData").removeClass("bg-danger");
+	$(ob).addClass("bg-danger");
+	icoName = $(ob).attr("icodata");
+	$("#IcoDataSure").removeAttr("disabled");
+}
+//图标选中确认
+function IcoSelectedSure(){
+	$("#IcoSelectResult").attr("class",icoName);
+	$("#IcoSelectResultName").val(icoName);
+}
+//*****选择图标功能实现结束*****
+</script>

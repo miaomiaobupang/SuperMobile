@@ -1,0 +1,189 @@
+<style>
+.child{
+	display:none;
+}
+body #content .dataTables_wrapper{
+    font-size: 14px;
+}
+body #content .dataTables_filter{
+    margin-left:150px;
+}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-sitemap" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">规章制度</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+           <div class="tile-header">
+					<h1>
+						<strong>制度</strong>列表
+					</h1>
+					<div class="pull-right">
+						<a href="#moduleAdd" role="button" class="btn btn-red" data-toggle="modal"><span class="icon-plus"></span> 增加单位名录</a>
+					</div>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+           <!-- /tile header -->
+				<!-- tile body -->
+           <div class="tile-body nopadding">
+					<table class="table" id="basicDataTable">
+						<thead>
+							<tr>
+							  <th class="text-center">标题</th>
+							  <th class="text-center hidden-xs">文号</th>
+                              <th class="text-center hidden-xs">发文单位</th>
+							  <th class="text-center hidden-xs">类型</th>
+							  <th class="text-center hidden-xs">状态</th>
+                              <th class="text-center hidden-xs">创建时间</th>							
+                              <th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<volist name="list" id="vo" empty="暂时没有数据">
+									<td class="text-center">{$vo.title}</td>
+									<td class="text-center ">{$vo.mark}</td>
+                                    <td class="text-center ">{$vo.classManageId}</td>
+									<td class="text-center ">{$vo.customId}</td>
+									<td class="text-center"><if condition='$vo.state == 1'>发布
+                                            <else />停止</if></td>
+                                    <td class="text-center ">{$vo.time}</td>
+									<td class="text-right">
+										<div class="btn-group" role="group" aria-label="...">
+											<a class="btn btn-default" role="button" href="__MODULE__/System/edit/id/{$vo.id}">修改</a>
+                                            <a class="btn btn-default" role="button" href="__MODULE__/System/dostate/id/{$vo.id}/state/1">发布</a>
+                                            <a class="btn btn-default" role="button" href="__MODULE__/System/dostate/id/{$vo.id}/state/2">停止</a>
+											<a class="btn btn-default" role="button" href="__MODULE__/System/del/id/{$vo.id}">删除</a>
+										
+										</div>
+									</td>
+								</tr>
+							</volist>
+						</tbody>
+              </table>
+				</div>
+           <!-- /tile body -->
+				<!-- 模块增加表单开始 -->
+				<div class="modal fade" id="moduleAdd" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">关闭</button>
+								<h3 class="modal-title" id="modalConfirmLabel"><strong>规章制度</strong> 增加</h3>
+							</div>
+							<form class="form-horizontal" role="form" action="__MODULE__/System/insert" method="post">
+								<div class="modal-body">								
+									<div class="form-group">
+										<label for="typeId" class="col-sm-4 control-label ">类型</label>
+										<div class="col-sm-8">
+											<select class="chosen-select chosen-transparent form-control" id="typeId" name="typeId">
+												<volist name='getType' id='vi'>
+                                                <option value='{$vi.id}'>{$vi.typeName}</option>
+                                                </volist>
+											</select>
+                                             
+										</div>
+									</div>
+                                    <div class="form-group">
+										<label for="customId" class="col-sm-4 control-label "></label>
+										<div class="col-sm-8">
+											<select class="chosen-select chosen-transparent form-control" id="customId" name="customId">
+                                                <volist name='getCustom' id='vi'>
+                                                <option value='{$vi.id}'>{$vi.typeName}</option>
+                                                </volist>
+                                            </select><br />  
+                                             
+										</div>
+									</div>
+                                    
+									<div class="form-group">
+										<label for="title" class="col-sm-4 control-label">标题</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" id="title" name="title">
+										</div>
+									</div>
+                                   
+									
+									<div class="form-group">
+										<label for="word" class="col-sm-4 control-label ">主题词</label>
+										<div class="col-sm-8">
+											
+											<input type="text" class="form-control" id="word" name="word">	
+										
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="classManageId" class="col-sm-4 control-label">发文单位</label>
+										<div class="col-sm-8">
+                                            <select class="chosen-select chosen-transparent form-control" id="classManageId" name="classManageId">
+                                                <volist name='getClassManage' id='vi'>
+                                                <option value='{$vi.id}'>{$vi.className}</option>
+                                                </volist>
+                                            </select><br />   
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="mark" class="col-sm-4 control-label">文号</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" id="mark" name="mark">
+										</div>
+									</div>
+									
+									
+									<div class="form-group">
+										<label for="content" class="col-sm-4 control-label">内容</label>
+										<div class="col-sm-8">
+											<textarea class="form-control" id="content" rows="6" name="content"></textarea>
+										</div>
+									</div>
+									
+									
+
+								</div>						
+								<div class="modal-footer">
+									<button class="btn btn-red" data-dismiss="modal" aria-hidden="true">取消</button>
+									<input class="btn btn-green" type="submit" value="添加">
+								</div>
+							</form>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->  
+				<!-- 模块增加表单结束 -->
+			</section>
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+
+
+
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

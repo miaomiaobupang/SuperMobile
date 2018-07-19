@@ -1,0 +1,40 @@
+/*========public style============*/
+body, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form,p,a,input,label,select,textArea { margin: 0px 0px; padding: 0px;font-family:"微软雅黑"; color:#333;}
+body{ font-size:12px;  word-break:break-all;}
+div{ margin:0 auto;}
+table { border-collapse: collapse; border-spacing: 0; margin: 0px auto;  font-size:12px;}
+h1, h2, h3, h4, h5, h6{ font-weight:normal;}
+img { border: 0px; margin: 0px; padding: 0px; vertical-align:top; }
+li { list-style: none; }
+a { color: #3B5998; text-decoration: none; }
+a:hover { color: #FF5A00; text-decoration:none;}
+/*黑白滤镜*/
+.grayColor { filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); }
+/*清除浮动*/
+.clearfix { display: block; zoom: 1; }
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; font-size:0; }
+/*左右浮动*/
+.fl { float: left; }
+.fr { float: right; }
+/*对齐方式*/
+.tal { text-align: left; }
+.tac { text-align: center; }
+.tar { text-align: right; }
+
+.mobanBody{ overflow:hidden; padding-bottom:60px;}
+.mobanBody li{ float:left; width:19.9%; text-align:center; margin-top:20px; zoom:1;}
+.mobanBody .mobanBox{ width:170px;height: 383px; background:url(images/radio_iphone0.png) no-repeat; cursor:pointer;}
+.mobanBody .mbtip{ display:none; width: 134px; padding:8px; background:#000; color:#fff; line-height:20px; border-radius:10px; position:absolute; right:-148px; top:60px;}
+.mobanBody li .img{ text-align:center; padding-top:68px; padding-bottom:58px;}
+.mobanBody li.active .mobanBox{ position:relative; background:url(images/radio_iphone.png) no-repeat;}
+.mobanBody li.active .mbtip{ display:block;}
+.mobanBody .rad{ padding-top:10px;}
+.mobanBody .rad input{ vertical-align:bottom; margin-right:5px;}
+
+/*图标*/
+.icon_select{ width:62px; position:relative; height:42px;}
+.icon_select .icon_current{ display:block; width:60px; height:36px; line-height:36px; margin:0; font-size:30px; color:#999; border:solid 1px #ddd; background:#fff; overflow:hidden; text-align:center;}
+.icon_select .icon_box{ width:60px; padding:10px 0px; overflow:hidden; overflow-y:auto; height:300px; border:solid 1px #ddd; background:#F5F5F5; position:absolute; left:0px; top:37px; text-align:center; display:none;}
+.icon_select i{ display:block; height:30px; line-height:30px; font-size:20px; color:#999; overflow:hidden; text-align:center;}
+.icon_select i:hover{ color:#c00;}
+.icon_select .icon_current i{ height:36px; line-height:36px; font-size:30px;}

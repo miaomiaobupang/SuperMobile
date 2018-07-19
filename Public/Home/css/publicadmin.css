@@ -1,0 +1,135 @@
+/* 公共样式 */
+body,div,ul,li,img,span,a{
+	margin:0px;
+	padding:0px;
+	font-family:"黑体";
+}
+ul li{
+	list-style:none;
+}
+.box{
+	width:100%;
+	background:#ececec;
+}
+/* 头部 */
+.header{
+	width:100%;
+	background:#fff;
+}
+.headerContent{
+	width:1200px;
+	height:70px;
+	margin:0px auto;
+}
+.headerLogo{
+	width:190px;
+	height:42px;
+	margin-top:14px;
+	float:left;
+	
+}
+
+.headerText{
+	height:70px;
+	float:right;
+	cursor:default;
+}
+
+.headerTextContent{
+	line-height:70px;
+	font-size:14px;
+	float:left;
+	color:#2c3a5d;
+}
+.headerTextContent.fsit{
+	margin-right:60px;
+}
+.headerTextContent.second{
+	margin-right:20px;
+}
+
+/* 主体 */
+.main_body{
+	width:1200px;
+	margin:0px auto;
+}
+
+
+
+/* 底部 */
+.footerDiv{
+	width:100%;
+	height:150px;
+	background:#e5e8ea;
+}
+.footer{
+	width:1200px;
+	height:150px;
+	background:#e5e8ea;
+	margin:0px auto;
+}
+.footerLeft{
+	width:60px;
+	margin-top:40px;
+	float:left;
+}
+.footerLeftPic{
+	width:60px;
+	height:53px;
+}
+.footerPic{
+	width:60px;
+}
+.footerLeftMiddle{
+	width:400px;
+	height:150px;
+	margin-left:30px;
+	float:left;
+}
+.footerLeftText{
+	margin-top:25px;
+	font-size:10px;
+	cursor:default;
+}
+.footerLeftTextLiFist{
+	font-size:12px;
+}
+.footerLeftTextLi{
+	margin-top:10px;
+	color:#aaa;
+}
+.footerRightMiddle{
+	float:right;
+	margin-right:30px;
+	line-height:20px;
+	font-size:12px;
+	margin-top:45px;
+	color:#aaa;
+	text-align:right;
+	cursor:default;
+}
+.footerRightMiddleUlfist{
+	font-size:10px;
+}
+
+.footerRightPic{
+	float:right;
+	margin-top:35px;
+}
+.weixinPic{
+	width:80px;
+	height:80px;
+}
+
+
+.footerRightMiddlePic{
+	float:right;
+}
+
+.footerRightMiddlePic ul li{
+	width:36px;
+	float:right;
+}
+.footerRightMiddlePicli{
+		margin-right:10px;
+}

@@ -1,0 +1,272 @@
+<style>
+	#header{
+		width:100%;
+		height:100px;
+		background:#fff;
+	}
+	.headerCont{
+		width:1240px;
+		height:100px;
+		margin:0 auto;
+	}
+	.logoText{
+		font-size:36px;
+		color:#009FA8;
+		line-height:100px;
+	}
+	.logoText2{
+		font-size:18px;
+		margin-left:20px;
+		line-height:100px;
+	}
+	.inputDiv{
+		width:412px;
+		height:40px;
+		margin-left:116px;
+		border-radius:2px;
+		margin-top:30px;
+		margin-right:10px;
+	}
+	#searchInput{
+		width:344px;
+		height:40px;
+		border:2px solid #009FA8;
+		padding:5px 12px;
+		font-size:14px;
+		border-radius:2px 0 0 2px;
+	}
+	#searchBtn{
+		width:68px;
+		height:40px;
+		background:#009FA8;
+		font-size:16px;
+		color:#fff;
+		border:none;
+		cursor:pointer;
+		border-radius:0 2px 2px 0;
+	}
+	.headerHot{
+		color:#999;
+		font-size:14px;
+		margin-left:10px;
+		line-height:100px;
+		cursor:pointer;
+	}
+	#nav{
+		width:100%;
+		height:60px;
+		background:#009FA8;
+	}
+	.navCont{
+		width:1240px;
+		height:60px;
+		margin:0 auto;
+		padding:5px 35px;
+	}
+	.navList{
+		font-size:16px;
+		color:#fff;
+		line-height:50px;
+		margin-right:25px;
+		display:inline-block;
+		cursor:pointer;
+	}
+	.navListNow{
+		border-bottom:2px solid #fff;
+	}
+	.login,.register{
+		font-size:16px;
+		color:#fff;
+		line-height:50px;
+		cursor:pointer;
+	}
+	.line{
+		font-size:16px;
+		color:#fff;
+		line-height:50px;
+		margin:0 10px;
+	}
+	.QuestionBut{
+		width:60px;
+		height:60px;
+		line-height:60px;
+		background:#009FA8;
+		text-align:center;
+		border-radius:5px;
+		margin-bottom:5px;
+	}
+	.QuestionBut:hover{
+		
+	}
+	.rightPublicDiv{
+		width:60px;
+		height:250px;
+		position:fixed;
+		right:0px;
+		top:300px;
+	}
+	.telephoneView{
+		z-index:10;
+	}
+	.phoneTextStyle{
+		width:250px;
+		height:60px;
+		line-height:60px;
+		background:#009FA8;
+		color:white;
+		font-size:24px;
+		font-weight:bold;
+		margin-top:-35px;
+		z-index:9;
+		position:absolute;
+		left:60px;
+		border-radius:5px;
+	}
+	.headFixedDivStyle{
+		width:100%;
+		height:60px;
+		background:white;
+		margin:0px auto;
+		position:fixed;
+		top:0px;
+		z-index:100;
+		display:none;
+		box-shadow:0px 0px 5px #009FA8;
+	}
+	.navLists{
+		color:black;
+		font-size:16px;
+		height:60px;
+		line-height:60px;
+		margin-right:25px;
+		display:inline-block;
+		cursor:pointer;
+		top:-20px;
+	}
+	.navTwiceStyle{
+		width:auto;
+		height:100%;
+		float:left;
+	}
+	.navTwicePhone{
+		width:300px;
+		height:50px;
+		line-height:50px;
+		text-align:center;
+		float:right;
+		border-radius:30px;
+		margin-top:5px;	
+		background:#009FA8;
+	}
+	.navTwicePhone img{
+		-o-transform:rotate(100deg); 
+		transform:rotate(100deg);
+		-ms-transform:rotate(100deg); 	/* IE 9 */
+		-moz-transform:rotate(100deg); 	/* Firefox */
+		-webkit-transform:rotate(100deg); /* Safari 和 Chrome */
+		margin-top:8px;
+		margin-right:20px;
+	}
+	.navTwicePhones{
+		width:auto;
+		float:left;
+		height:50px;
+		color:white;
+	}
+	.headerHot{
+		font-size:24px;
+		color:#009FA8;
+		float:left;
+		margin-left:10px;
+	}
+</style>
+<div id="header">
+	<div class="headerCont">
+		<span class="logoText fl">超级医生</span>
+		<span class="logoText2 fl">前沿重疾解决方案提供平台</span>
+		<div class="inputDiv fl">
+			<input type="text" placeholder="请在此输入您想查询的重疾信息" id="searchInput" class="fl">
+			<button id="searchBtn" class="fl">搜索</button>
+		</div>
+		<div class="fl" style="float:right;">
+			<div class="headerHot"><img src="__IMG__/20180606154942hhhhhh.png" style="margin-top:38px;"></div>
+			<div class="headerHot">400-661-1156</div>
+		</div>
+		<div id="backTop" name="backTop" class="cl"></div>
+	</div>
+</div>
+<div id="nav">
+	<div class="navCont">
+		<span class="navList navListNow">首页</span>      
+		<span class="navList">疾病</span>      
+		<span class="navList">互动问答</span>     
+		<span class="navList">前沿咨讯</span>      
+		<span class="navList">最新临床</span>      
+		<span class="navList">超级专家</span>      
+		<span class="navList">顶级医院</span>   
+		<span class="navList">海外医疗</span>
+		<div class="fr">
+			<span class="login">登录</span> 
+			<span class="line">|</span> 
+			<span class="register">注册</span>
+		</div>
+	</div>
+</div>
+<div class="rightPublicDiv">
+	<a href="__URL__/Interlocution/questions" target="_blank">
+		<div class="QuestionBut">
+			<div style="color:white;width:100%;height:20px;"><img src="__IMG__/20180511onlineTalk.png" style="width:25px;"></div>
+			<div style="color:white;width:100%;height:20px;margin-top:-5px;font-size:14px;font-weight:bold;">问医生</div>
+		</div>
+	</a>
+	<a href="__URL__/Interlocution/questions" target="_blank">
+		<div class="QuestionBut telephoneView">
+			<div style="color:white;width:100%;height:20px;"><img src="__IMG__/20180606105430phone.png" style="width:25px;"></div>
+			<div style="color:white;width:100%;height:20px;margin-top:-5px;font-size:14px;font-weight:bold;">电话</div>
+		</div>
+	</a>
+	<div class="phoneTextStyle">400-661-1156</div>
+	<a href="#backTop">
+		<div class="QuestionBut">
+			<div style="color:white;width:100%;height:20px;"><img src="__IMG__/20180606105416top.png" style="width:25px;"></div>
+			<div style="color:white;width:100%;height:20px;margin-top:-5px;font-size:14px;font-weight:bold;">回顶部</div>
+		</div>
+	</a>
+</div>
+<div class="headFixedDivStyle">
+	<div style="width:1245px;height:100%;line-height:100%;margin:0px auto;">
+		<div class="navTwiceStyle"><img src="__IMG__/20180414chaojiyishenglogo.png" style="margin-top:15px;margin-right:50px;"></div>
+		<div class="navTwiceStyle">
+			<a href="__URL__"><span class="navLists" data-type="1">首页</span></a>      
+			<a href="__URL__/Entry"><span class="navLists" data-type="2">疾病</span></a>      
+			<a href="__WENDA__"><span class="navLists" data-type="3">互动问答</span></a>     
+			<a href="__NEWSURL__"><span class="navLists" data-type="4">前沿咨讯</span></a>  
+			<a href="__YOYUAN__"><span class="navLists" data-type="5">权威医院</span></a>      
+			<a href="__YISHENG__"><span class="navLists" data-type="6">超级专家</span></a>      
+		</div>
+		<div class="navTwiceStyle navTwicePhone">
+			<div class="navTwicePhones"><img src="__IMG__/20180606105430phone.png" style="margin-top:13px;margin-left:40px;"></div>
+			<div class="navTwicePhones" style="font-size:24px;font-weight:bold;">400-661-1156</div>
+		</div>
+	</div>
+</div>	
+<script>
+	$('.telephoneView').hover(
+		function(){  
+			$('.phoneTextStyle').animate({left:"-240px"},"slow");  
+		} ,  
+		function(){  
+			$('.phoneTextStyle').animate({left:'+60px'},"slow");  
+		}   
+	);
+	//------------------------固定头部导航开始---------------------------
+	$(window).scroll(function(){
+		var scrollTo = $(window).scrollTop();
+		if(scrollTo >= 160){
+			$('.headFixedDivStyle').css({"display":"block"});
+		}else if(scrollTo < 160){
+			$('.headFixedDivStyle').css({"display":"none"});
+		}
+	}).trigger('scroll');
+	//------------------------固定头部导航结束---------------------------
+</script>

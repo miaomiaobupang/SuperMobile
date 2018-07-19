@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>超级医生-问答提问</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1">
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<link rel="stylesheet" href="__CSS__/public.css">
+	<link rel="stylesheet" href="__CSS__/idangerous.swiper.css">
+	<link rel="stylesheet" href="__CSS__/question.css">
+	<script src="__JS__/jquery.min.js"></script>
+	<script src="__JS__/idangerous.swiper.min.js"></script>
+</head>
+<body>
+	<div class="box">
+		<!-- header -->
+		<include file="Public/cjysHeader" />
+		<div class="mainBox">
+			<div class="main">
+				<img src="__IMG__/20180316cjys15.png" alt="" class="imgBanner">
+				<div class="question-cont">
+					<p class="header-msg mb-30">疾病/症状</p>
+					<input type="text" class="question-msg" placeholder="头晕恶心怎么办？">
+					<div class="radio-cont" data-n="2">
+						<img src="__IMG__/20180331_1a.png" alt="" data-src="20180331_1">
+						<span class="qType-msg">疾病</span>
+					</div>
+					<div class="radio-cont" data-n="1">
+						<img src="__IMG__/20180331_1.png" alt="" data-src="20180331_1">
+						<span class="qType-msg">药物</span>
+					</div>
+					<div class="radio-cont" data-n="1">
+						<img src="__IMG__/20180331_1.png" alt="" data-src="20180331_1">
+						<span class="qType-msg">医生</span>
+					</div>
+					<div class="radio-cont" data-n="1">
+						<img src="__IMG__/20180331_1.png" alt="" data-src="20180331_1">
+						<span class="qType-msg">医院</span>
+					</div>
+					<div class="radio-cont" data-n="1">
+						<img src="__IMG__/20180331_1.png" alt="" data-src="20180331_1">
+						<span class="qType-msg">其他</span>
+					</div>
+					<p class="header-msg mb-30 mt-40">详细描述您的病情及疑问</p>
+					<div class="describe-box">
+						<span class="prompt-msg">描述不少于20字</span>
+						<textarea placeholder="请描述您的症状，治疗经过，检查情况，用药，疾病治疗史等"></textarea>
+					</div>
+					<div class="uploadBox">
+						<div class="upload fl">上传病症部位或检查报告</div>
+						<span class="uploadTip">可上传病症部位，检查报告，只有您和医生可以看到</span>
+					</div>
+					<div class="patientMess">患者信息</div>
+					<div class="patientAge">
+						<div class="patientInput fl">
+							<input type="text" placeholder="请填写年龄">岁
+						</div>
+						<div class="patientChick fl"><img src="__IMG__/20180331_1a.png" alt="" data-src="20180331_1">男</div>
+						<div class="patientChick fl"><img src="__IMG__/20180331_1.png" alt="" data-src="20180331_1">女</div>
+					</div>
+					<div class="subQues">提交问题</div>
+				</div>
+				<div class="cl"></div>
+			</div>
+		</div>
+		<!-- footer -->
+		<include file="Public/cjysFooter" />
+	</div>
+	<script>
+		var IMG="__IMG__/";
+		// 疾病/症状
+		$('body').on('click','.radio-cont',function(){
+			var n=$(this).data('n');
+			var src=$(this).find('img').data('src');
+			if(n==1){
+				$(this).find('img').attr('src',IMG+src+'a.png');
+				$(this).data('n','2');
+			}else{
+				$(this).find('img').attr('src',IMG+src+'.png');
+				$(this).data('n','1');
+			}
+		});
+		// 性别 
+		$('body').on('click','.patientChick',function(){
+			var src=$(this).find('img').data('src');
+			$('.patientChick').find('img').attr('src',IMG+src+'.png');
+			$(this).find('img').attr('src',IMG+src+'a.png');
+
+		});
+	
+
+	
+	</script>
+</body>
+</html> 

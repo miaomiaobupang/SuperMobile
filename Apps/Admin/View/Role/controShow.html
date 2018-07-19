@@ -1,0 +1,248 @@
+<style>
+.content{
+	width:1006px;
+	margin-left:80px;
+	font-size:16px;
+}
+.contents{
+	width:1006px;
+	margin-top:30px;
+}
+.textCont{
+	min-width:65px;
+	margin-left:20px;
+	float:left;
+}
+.textConts{
+	min-width:180px;
+	margin-top:-24px;
+	margin-left:20px;
+}
+.content_down{
+	width:978px;
+	margin-left:28px;
+	display:none;
+}
+.titleName{
+	width:237px;
+	float:left;
+	margin-top:10px;
+}
+.clear{
+	clear:both;
+}
+.buttonAll{
+	width:20px;
+	height:16px;
+	border-radius:2px;
+	background:#233c4b;
+	margin-left:10px;
+    margin-top:3px;
+	font-weight:400;
+	font-size:23px;
+	line-height:16px;
+	text-align:center;
+	float:left;
+	margin-top:-2px;
+	cursor:pointer;
+}
+.content_top{
+	float:left;
+}
+.subDiv{
+	width:720px;
+	margin: 65px 215px;
+}
+.subtract{
+	display:none;
+}
+.buttonAll:hover{
+	color:#5b87b3;
+}
+.backButton{
+	width:60px;
+	height:30px;
+	line-height:25px;
+}
+.contents span{
+	font-size:17px;
+}
+</style>
+<script src="__PUBLIC__/Theme/Fashion/assets/js/jquery.min.js"></script>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">菜单权限添加</b> 
+		<span>- role add</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+
+<script>
+
+</script>
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+    <div class="row">
+		<!-- col 12 -->
+        <div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>控制器</strong>管理
+					</h1>
+					<div class="pull-right">
+						<a href="__MODULE__/Role/showRole" role="button" class="btn btn-red backButton" style="background:#1bceab;"> 返 回 </a>
+					</div>
+              <div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+              </div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body form-group form-footer">
+					<form action="__MODULE__/Role/controAction" method="post">
+						<input type="hidden" name="id" value="{$id}">
+						<input type="hidden" name="duty[]" value="193,192,">
+						<div class="content">
+							<foreach name="result" item="row" key='k'>
+								<input name="duty[]" class="Checkbox-menu_{$k} formCheckbox_{$row.id}" type="hidden" value="{$row.idStr}"/>
+								<div class="contents">
+									<div class="content_top">
+										<span class="formCheckboxSelect formCheckboxSelect_{$row.id} formCheckbox-menu_{$k} icon-check-empty" data-star="0" data-num="{$row.secondNum}" data-id="{$row.id}" style="float:left;" data-state="2" data-name="menu_{$k}"></span>
+										<div class="textCont">
+											<div style="float:left;margin-top:-5px;">{$row.name}</div>
+											<div class="buttonAll plus plus_{$row.id}" data-id="{$row.id}">+</div>
+											<div class="buttonAll subtract subtract_{$row.id}" data-id="{$row.id}">-</div>
+										</div>
+									</div>
+									<div style='clear:both'></div>
+									<div class="content_down content_down_{$row.id}">
+										<foreach name="row.second" item="rew">
+											<div class="titleName">
+												<span class="formCheckbox box_{$rew.pid} formCheckbox-menu_{$k} icon-check-empty"  data-pid="{$rew.pid}" data-id="{$rew.id}" data-state="2" data-name="menu_{$k}"></span>
+												<div class="textConts">{$rew.name}</div>
+											</div>
+										</foreach>
+										<div class="clear"></div> 
+									</div>
+								</div>
+							</foreach>
+							<span style="display:none;" class="length">{$len}</span>
+						</div>
+						<div class="subDiv"><input type="submit" value="提交" class="btn btn-greensea btn-block"></div>
+					</form>
+				</div>
+                
+                <!-- /tile body -->
+			</section>
+            <!-- /tile -->
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<script>
+$('.plus').click(function(){
+	var id=$(this).data('id');
+	//展开菜单样式
+	$('.plus_'+id).css({'display':'none'});
+	$('.subtract_'+id).css({'display':'block'});
+	$(".content_down_"+id).slideDown();
+});
+$('.subtract').click(function(){
+	var id=$(this).data('id');
+	//关闭菜单样式
+	$('.plus_'+id).css({'display':'block'});
+	$('.subtract_'+id).css({'display':'none'});
+	$(".content_down_"+id).slideUp();
+});
+
+//执行复选框初始化
+$('.fairsoformJS').ready(function(){
+	var length=$('.length').text();
+	var num=-1;
+	for(i=0;i<length;i++){
+		num=num+1;
+		formCheckboxStar('menu_'+num);
+	}
+	$('.formCheckbox').click(function(){
+		var pid=$(this).data('pid');
+		var state=$(this).data('state');
+		var nums=$('.formCheckboxSelect_'+pid).data('num');
+		if(state==1){
+			//选中
+			nums=eval(nums+1);
+		}else{
+			//取消选中
+			nums=eval(nums-1);
+		}
+		$('.formCheckboxSelect_'+pid).data('num',nums);
+		if(nums<1){
+			//取消父亲选中
+			//去除选中样式
+			$('.formCheckboxSelect_'+pid).removeClass("icon-check");
+			//增加未选中样式
+			$('.formCheckboxSelect_'+pid).addClass("icon-check-empty");
+			//更新缓存状态
+			$('.formCheckboxSelect_'+pid).data('state',2);
+			$('.formCheckbox_'+pid).val('');
+		}else{
+			//校验父亲是否被选中
+			if($('.formCheckboxSelect_'+pid).data('state')==2){
+				//未被选中执行选中操作
+				//去除未选中样式
+				$('.formCheckboxSelect_'+pid).removeClass("icon-check-empty");
+				//增加选中样式
+				$('.formCheckboxSelect_'+pid).addClass("icon-check");
+				//更新缓存状态
+				$('.formCheckboxSelect_'+pid).data('state',1);
+				var inputNew=$('.formCheckbox_'+pid).val()+pid+',';
+				$('.formCheckbox_'+pid).val(inputNew);
+			}
+		}
+	});
+	//点击父亲执行全选/全不选和展开菜单样式
+	$('.formCheckboxSelect').click(function(){
+		var id=$(this).data('id');
+		var state=$(this).data('state');
+		if(state==1){
+			//执行全选操作
+			var nums=0;
+			$('.box_'+id).each(function(){
+				if($(this).data('state')==1){
+					nums=eval(nums+1);
+				}else{
+					nums=eval(nums-1);
+				}
+			});
+			$(this).data('num',nums);
+			//展开菜单样式
+			$('.plus_'+id).css({'display':'none'});
+			$('.subtract_'+id).css({'display':'block'});
+			$(".content_down_"+id).slideDown();
+		}else{
+			//执行全不选操作
+			$(this).data('num',0);
+		}
+	});
+});
+</script>
+
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

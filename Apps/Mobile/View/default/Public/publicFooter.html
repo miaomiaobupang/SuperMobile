@@ -1,0 +1,103 @@
+	<div class="mobilePublicFot">
+		<div class="fotDiv fotDivBorder fotDivBorderNav" data-n="1">
+			<div class="fotDivFirst"><img src="__IMG__/20180614daohang.png" class="firstImg"></div>
+			<div class="fotDivTwo">导航</div>
+		</div>
+		<div class="fotDiv fotDivBorder">
+			<div class="fotDivFirst"><img src="__IMG__/20180614dianhuazixun.png" class="firstImg"></div>
+			<div class="fotDivTwo">电话咨询</div>
+		</div>
+		<div class="fotDiv fotDivBorder">
+			<div class="fotDivFirst"><img src="__IMG__/20180614zaixianzixun.png" class="firstImg"></div>
+			<div class="fotDivTwo">在线咨询</div>
+		</div>
+		<div class="fotDiv">
+			<div class="fotDivFirst"><img src="__IMG__/20180614liuyan.png" class="firstImg"></div>
+			<div class="fotDivTwo">立即留言</div>
+		</div>
+	</div>
+	<div class="mobilePublicFotNav">
+		<div class="mobilePublicFotNavTwo">
+			<a href="http://192.168.1.21/Mobile/index.php/Mobile/Index/index"><div class="fotNavList">首页</div></a>
+			<a href="http://192.168.1.21/Mobile/index.php/Mobile/Index/questionIndex"><div class="fotNavList">互动问答</div></a>
+			<a href="http://192.168.1.21/Mobile/index.php/Mobile/Index/newMessages"><div class="fotNavList">前沿资讯</div></a>
+			<a href="http://192.168.1.21/Mobile/index.php/Mobile/Index/diseaseIndex"><div class="fotNavList">疾病知识</div></a>
+			<a href="http://192.168.1.21/Mobile/index.php/Mobile/Index/hospitalIndex"><div class="fotNavList">权威医院</div></a>
+			<a href="http://192.168.1.21/Mobile/index.php/Mobile/Index/expertIndex"><div class="fotNavList">超级专家</div></a>
+		</div>
+	</div>
+	<script>
+		var height = $(window).height()/12-2;
+		$('.mobilePublicFotNav').css({'height':height+'rem','top':'12.2rem'});
+		//点击展开导航
+		$('.fotDivBorderNav').click(function(){
+			var n = $(this).data('n');
+			if(n==1){
+				$('.mobilePublicFotNav').slideDown('fast');
+				$(this).css({'backgroundColor':'#008c95'});
+				$(this).data('n',2);
+			}else if(n==2){
+				$(this).css({'backgroundColor':'#009FA8'});
+				$('.mobilePublicFotNav').slideUp('fast');
+				$(this).data('n',1);
+			}
+		});
+		$('.mobilePublicFotNav').on("click",function(){
+			$('.mobilePublicFotNav').slideUp('fast');
+			$('.fotDivBorderNav').css({'backgroundColor':'#009FA8'});
+			$('.fotDivBorderNav').data('n',1);
+		});
+		//定时刷新页面
+		setInterval(function(){
+			<!-- window.location.reload() -->
+		},5000);
+		$('.oneNavDiv').click(function(){
+			var n = $(this).data('n');
+			if(n==2){
+				//返回上个页面
+				window.location.href=document.referrer;
+			}
+		});
+		//透明导航栏
+		var publicN = $('.oneNavDiv').data('n');
+		$(window).scroll(function(){
+			var bodyScrollTop = $(window).scrollTop();
+			if(bodyScrollTop > 100){
+				$('.mobilePublicNav').css({'background':'#fff'});
+				$('.twoNavDiv').css({'color':'#999'});
+				<!-- alert(publicN); -->
+				if(publicN == 2){
+					$('.oneNavDiv').html('<img src="__IMG__/20180627newreback.png">');
+				}else{
+					$('.oneNavDiv').html('<img src="__IMG__/20180627newlogo.png">');
+				}
+				$('.threeNavDiv').html('<img src="__IMG__/20180627newsearch.png" style="margin-right:2rem;">');
+				$('.mobilePublicNav').css({'box-shadow':'0rem 0rem 4rem rgba(220,220,220,1)'});
+			}else{
+				$('.mobilePublicNav').css({'background':'#009FA8'});
+				$('.twoNavDiv').css({'color':'#fff'});
+				if(publicN == 2){
+					$('.oneNavDiv').html('<img src="__IMG__/20180627reback.png">');
+				}else{
+					$('.oneNavDiv').html('<img src="__IMG__/20180614logo.png">');
+				}
+				$('.threeNavDiv').html('<img src="__IMG__/20180614search.png" style="margin-right:2rem;">');
+				
+			}
+		});
+		//公共登录框
+		$(function(){
+			var loginTop = ($(window).height()/12-70)/2;
+			$('.loginPublicModelOne').css({'margin-top':loginTop+'rem','margin-left':'8%'});
+			$('.loginPublicModelOne').on('click',function(e){
+				e.stopPropagation();
+			});
+			$('.fotNavList').on('click',function(e){
+				e.stopPropagation();
+			});
+			$('.loginPublicModel').on('click',function(){
+				$('.loginPublicModel').css({'display':'none'});
+			});
+		});
+	</script>
+</html>

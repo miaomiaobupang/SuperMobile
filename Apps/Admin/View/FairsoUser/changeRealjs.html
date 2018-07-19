@@ -1,0 +1,75 @@
+<script type="text/javascript">
+var WEBURL="__WEBURL__";
+
+//检索企业
+$('.realname').keyup(function(){
+	var value=$(this).val();
+	if(!value || value==' ' || value==undefined){
+		return false;
+	}
+	var name={'name':value};
+	$('.checkDiv').hide();
+	$.post(WEBURL+"/FairsoUser/checkReal",name,function(data){
+		if(data.state==1){
+			$('.checkDiv').show();
+			$('.checkDiv thead').html("");
+			var num=data.data;
+			for(var i in num){
+				$('.checkDiv thead').append("<tr><td><div data-name='"+num[i].name+"' data-id='"+num[i].id+"' data-statecode='"+num[i].statecode+"' class='table_text'>"+num[i].names+"</div></td></tr>");								
+			}
+		}else{
+			$('.checkDiv').hide();
+		}
+	},'json');
+});
+//选中企业
+$('body').on('click','.table_text',function(){
+	var cid=$(this).data('id');
+	var name=$(this).data('name');
+	var statecode=$(this).data('statecode');
+	var codeName=new Array();
+	codeName[1]="审核成功";
+	codeName[2]="审核中";
+	codeName[3]="审核失败";
+	codeName[4]="未认领";
+	codeName[5]="等待个人审核";
+	codeName[6]="渠道待认领";
+	$('.tablelss tbody').html("");
+	$('.tablelss tbody').append("<tr><td>"+name+"</td><td>"+codeName[statecode]+"</td></tr>");
+	$('.cid').val(cid);
+	$('.realShow').show();
+	$('.checkDiv').hide();
+});
+//提交
+$('body').on('click','.tjButton',function(){
+	var uid=$('.uid').val();
+	var ycid=$('.ycid').val();
+	var cids=$('.cid').val();
+	if(!uid || uid==' ' || uid==undefined){
+		return false;
+	}
+	if(!ycid || ycid==' ' || ycid==undefined){
+		return false;
+	}
+	if(!cids || cids==' ' || cids==undefined){
+		return false;
+	}
+	//获取屏幕宽度高度
+	var height=($(window).height())/2;
+	var width=($(".tile-body").width())/2;
+	$('.loader').css({'display':'block','top':height+'px','left':width+200+'px'});
+	$('.tjButtons').removeClass('tjButton');
+	
+	var values={'uid':uid,'ycid':ycid,'cid':cids};
+	$.post(WEBURL+"/FairsoUser/changeRealDo",values,function(data){
+		if(data.state==1){
+			alert('成功');
+			$('.loader').css({'display':'none'});
+			location.reload(true);
+		}else{
+			alert(data.content);
+			$('.loader').css({'display':'none'});
+		}
+	},'json');
+});
+</script>

@@ -1,0 +1,333 @@
+
+<meta charset='utf-8' />
+----------------------------------------------厚朴方舟项目33一期接口文档-----------------------------------------------------------------------------------
+<br>----------------------------------------------内部公共接口-----------------------------------------------------------------------------------
+<br>1.1：邮件发送(已测试)<br>
+函数：sendMail($to, $title, $content)
+参数：'to'=>发送地址,'title'=>邮件标题,'content'=>邮件内容（支持HTML）<br/>
+返回：无<br/>
+<br/><br/><br/>
+<br>1.2：短信发送(已测试)<br>
+函数：sendSms($mobile,$content)
+参数：'mobile'=>发送手机号,'content'=>短信内容（内容需要先到短息平台报备）<br/>
+返回：无<br/>
+<br/><br/><br/>
+<br>1.3：身份证查询(已测试)<br>
+函数：find_idcard_info($idcard)
+参数：'idcard'=>待查身份证号<br/>
+返回：<br/>
+<pre>
+        {
+             'errNum'=>状态码,
+             'retMsg'=>状态提示,
+             'retData'=array(
+                 'address'=>地区,
+                 'sex'=>性别,（M：男性；F：女性）,
+                 'birthday'=>出生年月,
+                )    
+         }  
+
+errNum = {
+        0：信息获取成功；
+        -1：身份证号码不合法；
+    }
+</pre>
+<br/><br/><br/>
+<br>1.4：IP信息查询(已测试)<br>
+函数：find_idcard_info($idcard)
+参数：'idcard'=>待查身份证号<br/>
+返回：<br/>
+<pre>
+        {
+             'errNum'=>状态码,
+             'retMsg'=>状态提示,
+             'retData'=array(
+                 'ip'=>IP,
+                 'country'=>国家,（为空None）,
+                 'province'=>省份,（为空None）,
+                 'city'=>城市,（为空None）,
+                 'district'=>区域,（为空None）,
+                 'carrier'=>运营商,（为空None）,
+                )    
+         }  
+
+errNum = {
+        0：信息获取成功；
+        1：无效的IP地址；
+        200201：IP地址为空；
+    }
+</pre>
+<br/><br/><br/>
+----------------------------------------------公共接口-----------------------------------------------------------------------------------
+<br>2.1：图形验证码生成(已测试)<br>
+URL：http://test.bjsilkroad.com/index.php/Common/verifyCreate<br/>
+<pre>
+接收数据格式 
+		必传：'sign'=>验证码图形标识码
+		选传：'fontSize'=>字体（默认为30）,'length'=>长度（默认为4）,'useNoise'=>杂点开关（默认为关闭）,
+返回数据格式 png图形
+</pre>
+<br/><br/><br/>
+<br>2.2：纯数字短信验证码生成并发送(已测试)<br>
+URL：http://test.bjsilkroad.com/index.php/Common/verifySMSCreateSend<br/>
+参数：'sign'=>短信验证码标识码,'phone'=>待发送手机号<br/>
+返回：<br/>
+<pre>
+	{
+		'status'=>状态,
+		'message'=>提示信息
+	} 
+	status = {
+		1：发送成功；
+		2：缺少标识号；
+		3：缺少手机号；
+	}
+</pre>
+<br/><br/><br/>
+<br>2.3：验证码校验(已测试)<br>
+URL：http://test.bjsilkroad.com/index.php/Common/verifyCheck<br/>
+参数：'sign'=>验证码标识符,'verify'=>验证码<br/>
+返回：<br/>
+<pre>
+	{
+		'status'=>状态,
+		'message'=>提示信息
+	} 
+	status = {
+		1：验证码正确；
+		2：缺少标识号；
+		3：缺少验证码；
+		4：验证码错误；
+	}     
+</pre>
+<br/><br/><br/>
+----------------------------------------------用户接口-----------------------------------------------------------------------------------
+<br>3.1：【展示】注册用户展示页(已测试)<br>
+URL：http://test.bjsilkroad.com/index.php/User/registerUserShow<br/>
+参数：无<br/>
+返回：页面<br/>
+<br/><br/><br/>
+<br>3.2：用户唯一校验(已测试)<br>
+URL：http://test.bjsilkroad.com/index.php/User/registerUserOnly<br/>
+参数：'value'=>待校验值,'type'=>校验类型（1用户名 2手机号 3邮箱 4用户名和手机号 5用户名和邮箱 6手机号和邮箱 7用户名，手机号和邮箱）<br/>
+返回：<br/>
+<pre>
+	{
+		'status'=>状态,
+		'message'=>提示信息
+	} 
+	status = {
+		1：用户存在；
+		2：缺少待校验值；
+		3：缺少校验类型；
+		4：校验类型非法；
+		5：用户不存在；
+	}     
+</pre>
+<br/><br/><br/>
+<br>3.3：手机用户注册并直接登录(已测试)<br>
+URL：http://test.bjsilkroad.com/index.php/User/registerPhone<br/>
+参数：'phone'=>注册手机号,'pass'=>注册密码<br/>
+返回：<br/>
+<pre>
+	{
+		'status'=>状态,
+		'message'=>提示信息
+	} 
+	status = {
+		1：注册成功并登录成功；
+		2：缺少手机号；
+		3：缺少密码；
+		4：手机号非法；
+		5：超出验证码有效期，请重新获取；
+		6：手机号验证未通过；
+		7：该手机号已注册；
+	}     
+</pre>
+<br/><br/><br/>
+<br>3.4：【展示】邮件验证码(MD5)校验，并显示设置密码页(已测试)<br>
+URL：http://test.bjsilkroad.com/index.php/User/registerEamilCheck<br/>
+参数：<br/>1、校验验证码：'email'=>邮箱,'verify'=>验证码<br/>2、设置密码：'email'=>邮箱,'password'=>密码<br/>
+返回：页面<br/>
+<br/><br/><br/>
+<br>3.5 用户登陆(已测试)<br/>
+URL：http://test.bjsilkroad.com/index.php/User/login<br/>
+接收数据格式  'name'=>用户名/手机号/邮箱,'password'=>登录密码<br/>
+返回数据格式<br/>
+<pre>
+        {
+             'status'=>状态,
+             'message'=>提示信息,
+             'info'=array(
+				'uid'=>用户ID,
+				'uname'=>用户名,
+				'uphone'=>用户手机号,
+				'uemail'=>用户邮箱,
+				'nickname'=>用户昵称,
+				'headimg'=>用户头像,
+				'address'=>地址,
+				'sex'=>性别（1男 2女 3保密）,
+				'birthday'=>出生年月日,
+				'birthdaymonthday'=>出生月日,
+				'score'=>用户积分,
+				'user_ispush'=>是否接受推送（1接受 2不接受）
+				'ctime'=>创建时间
+				'ctype'=>性别 1男 2女
+				'isphone'=>手机认证（1认证通过 2认证未通过）,
+				'isemail'=>邮箱认证（1认证通过 2认证未通过）,
+				'isname'=>实名认证（1认证通过 2认证未通过 3审核中）,
+				'role'=>角色（1游客 2普通会员 3商家用户 4后台管理员）,
+				'state'=>状态 1正常 2停用,
+        }  
+        status = {
+            1：登陆成功；
+			2：缺少登录名（用户名或手机号或邮箱）；
+			3：缺少登录密码；
+			4：用户不存在；
+			5：用户密码错误；
+        }
+</pre>
+<br/><br/><br/>
+<br>3.6：用户退出(已测试)<br>
+URL：http://test.bjsilkroad.com/index.php/User/logout<br/>
+参数：无<br/>
+返回：<br/>
+<pre>
+	{
+		'status'=>状态,
+		'message'=>提示信息
+	} 
+	status = {
+		1：退出成功；
+		2：用户暂未登录；
+	}     
+</pre>
+<br/><br/><br/>
+<br>3.7 获取当前用户SESSION（登录）信息(已测试)<br/>
+URL：http://test.bjsilkroad.com/index.php/User/getUserSessionInfo<br/>
+接收数据格式  无<br/>
+返回数据格式<br/>
+<pre>
+        {
+             'status'=>状态,
+             'message'=>提示信息,
+             'info'=array(
+				'uid'=>用户ID,
+				'uname'=>用户名,
+				'uphone'=>用户手机号,
+				'uemail'=>用户邮箱,
+				'nickname'=>用户昵称,
+				'headimg'=>用户头像,
+				'address'=>地址,
+				'sex'=>性别（1男 2女 3保密）,
+				'birthday'=>出生年月日,
+				'birthdaymonthday'=>出生月日,
+				'score'=>用户积分,
+				'user_ispush'=>是否接受推送（1接受 2不接受）
+				'ctime'=>创建时间
+				'ctype'=>性别 1男 2女
+				'isphone'=>手机认证（1认证通过 2认证未通过）,
+				'isemail'=>邮箱认证（1认证通过 2认证未通过）,
+				'isname'=>实名认证（1认证通过 2认证未通过 3审核中）,
+				'role'=>角色（1游客 2普通会员 3商家用户 4后台管理员）,
+				'state'=>状态 1正常 2停用,
+        }  
+        status = {
+			1：获取成功；
+			2：用户暂未登录；
+        }
+</pre>
+<br/><br/><br/>
+<br>3.8：用户名绑定(已测试)<br>
+URL：http://test.bjsilkroad.com/index.php/User/bindUname<br/>
+参数：'name'=>待绑定用户名<br/>
+返回：<br/>
+<pre>
+	{
+		'status'=>状态,
+		'message'=>提示信息
+	} 
+	status = {
+		1：用户名绑定成功；
+		2：缺少待绑定用户名；
+		3：用户暂未登录；
+		4：用户名重复；
+		5：用户名绑定失败；
+	}     
+</pre>
+<br/><br/><br/>
+<br>3.9：忘记密码发送验证邮件(已测试)<br>
+URL：http://test.bjsilkroad.com/index.php/User/findPassEamilSend<br/>
+参数：'email'=>注册邮箱<br/>
+返回：<br/>
+<pre>
+	{
+		'status'=>状态,
+		'message'=>提示信息
+	} 
+	status = {
+		1：发送成功；
+		2：缺少邮箱账户；
+		3：该用户不存在；
+	}     
+</pre>
+<br/><br/><br/>
+<br>3.9：忘记密码发送验证短信(已测试)<br>
+URL：http://test.bjsilkroad.com/index.php/User/findPassPhoneSend<br/>
+参数：'phone'=>手机号码br/>
+返回：<br/>
+<pre>
+	{
+		'status'=>状态,
+		'message'=>提示信息
+	} 
+	status = {
+		1：发送成功；
+		2：缺少手机号；
+		3：该用户不存在；
+	}     
+</pre>
+<br/><br/><br/>
+<br>3.10：忘记密码发送验证邮件(已测试)<br>
+URL：http://test.bjsilkroad.com/index.php/User/findPassEamilSend<br/>
+参数：'email'=>注册邮箱<br/>
+返回：<br/>
+<pre>
+	{
+		'status'=>状态,
+		'message'=>提示信息
+	} 
+	status = {
+		1：发送成功；
+		2：缺少邮箱账户；
+		3：该用户不存在；
+	}     
+</pre>
+<br/><br/><br/>
+<br>3.11：忘记密码找回验证(已测试)<br>
+URL：http://test.bjsilkroad.com/index.php/User/findPass<br/>
+参数：'type'=>找回类型（1手机 2邮箱）,'key'=>手机号或邮箱账户,'verify'=>验证码,'pass'=>密码<br/>
+备注：验证验证码时不用传'pass'参数，重置密码必传'pass'参数<br/>
+返回：<br/>
+<pre>
+	{
+		'status'=>状态,
+		'message'=>提示信息
+	} 
+	status = {
+		1：验证码正确；
+		1：密码重置成功；
+		2：找回类型（1手机 2邮箱）；
+		3：缺少手机号或邮箱；
+		4：用户名重复；
+		5：验证码错误；
+		6：手机号或邮箱账号非法操作；
+		7：超出验证码有效期，请重新获取；
+		8：手机号或邮箱验证未通过；
+		9：用户不存在；
+		10：密码重置失败；
+	}     
+</pre>
+<br/><br/><br/><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

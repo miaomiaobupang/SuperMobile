@@ -1,0 +1,24 @@
+<script type="text/javascript">
+//弹层
+$('.fairsoformJS').ready(function(){
+	popupLayer('WorkPopup');
+});
+$('.superPass').click(function(){
+	popupLayerShow('WorkPopup');
+	var id=$(this).data('id');
+	$('.PopupFooterTrue').data('ids',id);
+});
+//修改超级密码
+$('.PopupFooterTrue').click(function(){
+	var id=$(this).data('ids');
+	var realid='id='+id;
+	$.get('__CONTROLLER__/realPass',realid,function(data){
+		if(data.status==1){
+			alert('密码修改成功！');
+		}else if(data.status==2){
+			alert('密码修改失败！');
+		}
+	},'json');
+});
+//======================================================
+</script>

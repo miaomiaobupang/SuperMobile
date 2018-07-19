@@ -1,0 +1,168 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".form-horizontal").submit(function(){
+		//用户名
+		var uname = $("#uname").val();
+		if(uname == ''){
+			$("#uname").attr("placeholder","不可为空或已存在！");
+			return false;
+		}else{
+			var unameVal="uname="+uname+"&type=1";
+			$.get("__CONTROLLER__/userVerify",unameVal,function(data){
+				if(data.status==4){
+					$('#uname').val("");
+					$('#uname').attr("placeholder",data.message);
+					return false;
+				}
+			},'json');
+		}
+		//姓名
+		var tname = $("#tname").val();
+		if(tname == ''){
+			$("#tname").attr("placeholder","必填,不可以为空！");
+			return false;
+		}
+		
+		//密码
+		var upassOne = $("#upassOne").val();
+		if(upassOne == ''){
+			$("#upassOne").attr("placeholder","密码不可以为空！");
+			return false;
+		}
+		//密码
+		var upassTwo = $("#upassTwo").val();
+		if(upassTwo == ''){
+			$("#upassTwo").attr("placeholder","两次密码不一致！");
+			return false;
+		}
+		//真实姓名
+		var tname = $("#tname").val();
+		if(tname == ''){
+			$("#tname").attr("placeholder","必填,不可以为空!");
+			return false;
+		}
+	});
+	$('#upassTwo').blur(function(){
+		var upassTwo=$(this).val();
+		var upassOne = $("#upassOne").val();
+		if(upassTwo!=upassOne){
+			$(this).val("");
+			$(this).attr("placeholder","两次密码不一致！");
+		}
+	});
+	$('#tname').blur(function(){
+		var tname=$(this).val();
+		if(tname==""){
+			$(this).attr("placeholder","必填,不可以为空!");
+		}
+	});
+	//失去焦点验证用户名
+	$('#uname').blur(function(){
+		var uname=$(this).val();
+		var unameVal="uname="+uname+"&type=1";
+		if(uname==""){
+			$(this).attr("placeholder","不可为空或已存在！");
+		}else{
+			$.get("__CONTROLLER__/userVerify",unameVal,function(data){
+				if(data.status==4){
+					$('#uname').val("");
+					$('#uname').attr("placeholder",data.message);
+				}
+			},'json');
+		}
+	});
+//+++++++++++++++修改开始+++++++++++
+	$(".form-horizontals").submit(function(){
+		//用户名
+		var unames = $("#unames").val();
+		var uid = $("#unames").data("uid");
+		if(unames == ''){
+			$("#unames").attr("placeholder","不可以空或已存在！");
+			return false;
+		}else{
+			var unameVal="uname="+unames+"&type=1&uid="+uid;
+			$.get("__CONTROLLER__/userVerify",unameVal,function(data){
+				if(data.status==4){
+					$('#unames').val("");
+					$('#unames').attr("placeholder",data.message);
+					return false;
+				}
+			},'json');
+		}
+		//姓名
+		var tnames = $("#tnames").val();
+		if(tnames == ''){
+			$("#tnames").attr("placeholder","必填,不可以为空！");
+			return false;
+		}
+		//真实姓名
+		var tnames = $("#tnames").val();
+		if(tnames == ''){
+			$("#tnames").attr("placeholder","必填,不可以为空!");
+			return false;
+		}
+	});
+	//+++++++++++++++修改密码开始+++++++++++
+	$(".form-horizontalss").submit(function(){
+		//密码
+		var upassOnes = $("#upassOnes").val();
+		if(upassOnes == ''){
+			$("#upassOnes").attr("placeholder","密码不可以为空！");
+			return false;
+		}
+		//密码
+		var upassTwo = $("#upassTwos").val();
+		if(upassTwo == ''){
+			$("#upassTwos").attr("placeholder","两次密码不一致！");
+			return false;
+		}
+	});
+	//失去焦点验证确认密码
+	$('#upassTwos').blur(function(){
+		var upassTwos=$(this).val();
+		var upassOnes = $("#upassOnes").val();
+		if(upassTwos!=upassOnes){
+			$(this).val("");
+			$(this).attr("placeholder","两次密码不一致！");
+		}
+	});
+	$('#tnames').blur(function(){
+		var tnames=$(this).val();
+		if(tnames==""){
+			$(this).attr("placeholder","必填,不可以为空!");
+		}
+	});
+	//失去焦点验证用户名
+	$('#unames').blur(function(){
+		var uid=$(this).data("uid");
+		var unames=$(this).val();
+		var unameVal="uname="+unames+"&type=1&uid="+uid;
+		if(unames==""){
+			$(this).attr("placeholder","不可为空或已存在！");
+		}else{
+			$.get("__CONTROLLER__/userVerify",unameVal,function(data){
+				if(data.status==4){
+					$('#unames').val("");
+					$('#unames').attr("placeholder",data.message);
+				}
+			},'json');
+		}
+	});
+});
+//点击修改赋值
+$('.unamemMod,.passMod').click(function(){
+	var uid=$(this).data('uid');
+	$('#unames').data("uid",uid);
+	$('#uidModalPass').data("uid",uid);
+	var value="uid="+uid;
+	$.get("__CONTROLLER__/userMod",value,function(data){
+		if(data.status==1){
+			$('#uidModal').val(data.row.uid);
+			$('#unames').val(data.row.uname);
+			$('.unameText').html(data.row.uname);
+			$('#tnames').val(data.row.tname);
+			$('.tnameText').html(data.row.tname);
+		}
+	},'json')
+});
+</script>

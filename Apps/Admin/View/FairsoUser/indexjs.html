@@ -1,0 +1,65 @@
+<script type="text/javascript">
+//=============通过手机号/邮箱获取昵称======================
+//输入电话失去焦点得到昵称
+	$("#uphone").blur(function(){
+		$uphoneData = $("#uphone").val();
+		if($uphoneData !== ''){
+			$strData = $uphoneData+'@phone';
+			$("#nickname").val($strData);
+		}else{
+			$("#nickname").val("");
+		}
+		
+	});
+	
+	//输入邮箱失去焦点得到昵称
+	$("#uemail").blur(function(){
+		//判断手机号是否存在
+		$uphoneData = $("#uphone").val();
+		$uemailData = $("#uemail").val();
+		//判断手机号是否为空
+		if($uphoneData == '') {
+			//判断邮箱是否为空
+			if ($uemailData !== '') {
+				$strData = $uemailData + '@Email';
+				$("#nickname").val($strData);
+			}else {
+				$("#nickname").val("");
+			}
+		}else{
+			$strData = $uphoneData+'@phone';
+			$("#nickname").val($strData);
+		}
+	});
+//======================================================
+$('body').on('click', '.content',function() {
+	$(this).removeClass("content");
+	$(this).addClass("contents");
+});
+$('body').on('click', '.contents',function() {
+	$(this).addClass("content");
+	$(this).removeClass("contents");
+});
+//检索默认
+$('.fairsoformJS').ready(function(){
+	var member=$('.members').html();
+	$('.payment').each(function(){
+		$(this).css({'background':'#327ab7'});
+	});
+	if(member==1){
+		$('.payment4').css({'background':'#286091'});
+	}else if(member==2){
+		$('.payment1').css({'background':'#286091'});
+	}else if(member==3){
+		$('.payment3').css({'background':'#286091'});
+	}else if(member==4){
+		$('.payment6').css({'background':'#286091'});
+	}else if(member==5){
+		$('.payment5').css({'background':'#286091'});
+	}else if(member==''){
+		$('.payment').each(function(){
+			$(this).css({'background':'#327ab7'});
+		});
+	}
+});
+</script>

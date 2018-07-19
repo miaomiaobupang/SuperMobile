@@ -1,0 +1,544 @@
+<style>
+.child{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+body #content .dataTables_wrapper{
+    font-size: 14px;
+}
+body #content .dataTables_filter{
+    margin-left:150px;
+}
+.tile-header h1 strong{
+	margin-left:54px;
+}
+.tile-header{
+	font-size:28px;
+}
+.tile-body{
+	.height:970px;
+}
+.col-md-6{
+	width:52%;
+}
+.sign_data{
+	margin-left:70px;
+}
+.get{
+	width:410px;
+	height:38px;
+	font-size:20px;
+	background:#1bceab;
+	border-radius:4px;
+	line-height:20px;
+	margin-top:100px;
+}
+.set{
+	width:410px;
+	height:38px;
+	font-size:20px;
+	background:#1bceab;
+	border-radius:4px;
+	line-height:20px;
+	margin-top:100px;
+	margin-left:96px;
+	margin-right:100px;
+}
+.over_text{
+	margin-left:-150px;
+}
+.form-control{
+	width:300px;
+	height:50px;
+	margin-top:-28px;
+	margin-left:120px;
+}
+.form-rea{
+	width:300px;
+	margin-top:-25px;
+	margin-left:120px;
+}
+.over_rea{
+	margin-left:-114px;
+	margin-top:30px;
+}
+.success{
+	text-align:center;
+	font-size:30px;
+	font-weight:bold;
+	margin-top:50px;
+}
+#WorkPopup1{
+	background-color: #FFFFFF;
+    border-radius: 10px 10px 20px 20px;
+    width:730px;
+	position: absolute;
+	margin-left:120px;
+	.margin-top:-90px;
+}
+#WorkPopup1 .PopupBody{
+	background-color:#E6E9E9;
+	border-radius: 10px 10px 0px 0px;
+	margin:10px 10px 0px 10px;
+	text-align:center;
+}
+#WorkPopup1 .PopupBody p{
+	margin:0px;
+	line-height:130px;
+	font-size:30px;
+	color:#668db8;
+}
+#WorkPopup1 .PopupHead{
+	font-size: 30px;
+    left: 20px;
+    position: absolute;
+    top: -50px;
+	color:#fff;
+}
+#WorkPopup1 .PopupFooter{
+	width:100%;
+	line-height:70px;
+	height:70px;
+	text-align:center;
+	font-size:30px;
+	border-radius: 0 0 20px 20px;
+	cursor:pointer;
+}
+
+#WorkPopup1 .PopupFooter span{
+	display:block;
+	width:50%;
+	text-align:center;
+	float:left;	
+}
+#WorkPopup1 .PopupFooter .PopupFooterBack{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 0 20px;
+}
+#WorkPopup1 .PopupFooter .PopupFooterTrue{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 20px 0;
+}
+#WorkPopup1 .PopupFooter span:hover{
+	color:#FFFFFF;
+	background-color: #668db8;
+}
+#WorkPopup{
+	background-color: #FFFFFF;
+    border-radius: 10px 10px 20px 20px;
+    width:730px;
+	position: absolute;
+	margin-left:125px;
+}
+#WorkPopup .PopupBody{
+	background-color:#E6E9E9;
+	border-radius: 10px 10px 0px 0px;
+	margin:10px 10px 0px 10px;
+	text-align:center;
+}
+#WorkPopup .PopupBody p{
+	margin:0px;
+	line-height:320px;
+	font-size:24px;
+	color:#668db8;
+}
+#WorkPopup .PopupHead{
+	font-size: 30px;
+    left: 20px;
+    position: absolute;
+    top: -50px;
+	color:#fff;
+}
+#WorkPopup .PopupFooter{
+	width:100%;
+	line-height:70px;
+	height:70px;
+	text-align:center;
+	font-size:30px;
+	border-radius: 0 0 20px 20px;
+	cursor:pointer;
+}
+
+#WorkPopup .PopupFooter span{
+	display:block;
+	width:50%;
+	text-align:center;
+	float:left;	
+}
+#WorkPopup .PopupFooter .PopupFooterBack{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 0 20px;
+}
+#WorkPopup .PopupFooter .PopupFooterTrue{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 20px 0;
+}
+#WorkPopup .PopupFooter span:hover{
+	color:#FFFFFF;
+	background-color: #668db8;
+}
+.divNull{
+	width:200px;
+	height:45px;
+}
+.topContent{
+	margin-left:115px;
+	border-bottom:1px dashed #fff;
+	height:200px;
+	width:920px;
+}
+.divHeader{
+	width:138px;
+	height:138px;
+	border:2px solid #fff;
+	border-radius:69px;
+}
+.topRight{
+	margin-left:196px;
+	margin-top:-83px;
+	font-size:16px;
+}
+.uname{
+	margin-top:-22px;
+	margin-left:88px;
+}
+.divnickname{
+	margin-left:247px;
+	margin-top:-20px;
+}
+.nickname{
+	margin-left:332px;
+	margin-top:-24px;
+	height:22px;
+}
+.divctime{
+	margin-left:547px;
+	margin-top:-20px;
+}
+.ctime{
+	margin-left:637px;
+	margin-top:-22px;
+}
+.divSecond{
+	margin-top:20px;
+}
+.divScore{
+	margin-left:30px;
+	margin-top:15px;
+	font-size:16px;
+	color:#dcdf01;
+	font-weight:600;
+}
+.score{
+	margin-top:-22px;
+	margin-left:60px;
+}
+.downContent{
+	width:922px;
+	min-height:460px;
+	margin-top:42px;
+	margin-left:115px;
+	font-size:16px;
+	padding-bottom:30px;
+}
+.downLeft{
+	width:460px;
+	min-height:460px;
+	float:left;
+}
+.downRight{
+	width:460px;
+	min-height:460px;
+	float:right;
+}
+.divBorder{
+	height:25px;
+	margin-top:20px;
+}
+.name{
+	margin-top:-23px;
+	margin-left:129px;
+}
+.stime{
+	margin-left:128px;
+	margin-top:-22px;
+}
+.divCardimgu{
+	width:208px;
+	height:142px;
+	background:#fff;
+	margin-left:250px;
+	border-radius:10px;
+	margin-top:25px;
+}
+.topDown{
+	margin-top:129px;
+}
+.behaviorContent{
+	width:920px;
+	margin-left:115px;
+	margin-top:40px;
+	padding-bottom:50px;
+}
+.behavior_top{
+	width:920px;
+	height:35px;
+}
+.behavior_top1{
+	width:280px;
+	height:30px;
+	float:left;
+}
+.searchBut{
+	width:50px;
+	height:30px;
+	border-radius:0px;
+	margin-left:230px;
+	margin-top:-53px;
+}
+.behavior_down{
+	width:920px;
+	border-radius:4px;
+	margin-top:14px;
+	border:1px dashed #fff;
+}
+.table{
+	font-size:15px;
+}
+.table tr th{
+	text-align:center;
+}
+.table tr td{
+	text-align:center;
+}
+.behavior_top2{
+	width:638px;
+	height:35px;
+	float:right;
+}
+.pagination > li > a, .pagination > li > span{
+	padding:3px 10px;
+}
+.realmoon a{
+	text-decoration:none;
+	color:#54affc;
+}
+.realmoon a:hover{
+	color:#0289fc;
+}
+</style>
+
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">非速搜用户管理</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>用户详情</strong>
+					</h1>
+					<div class="pull-right">
+						<a href="javascript:history.back(-1);" role="button" class="btn btn-default" data-toggle="modal" style="margin-right:55px;margin-left:-8px;border-radius:4px;width:70px;"> 返&nbsp;&nbsp;回</a>
+					</div>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<div class="tile-body form-group form-footer">
+					<div class="divNull"></div>
+					<div class="topContent">
+						<div class="divHeader">
+							<div><img style="width:135px;height:135px;border-radius:67px;" src="{$user.headimg}"/></div>
+							<div class="divScore">
+								<div>积分：</div>
+								<div class="score">{$user.score}</div>
+							</div>
+						</div>
+						<div class="topRight">
+							<div>
+								<div>用户名称：</div><div class="uname">{$user.uname}</div>
+								<div class="divnickname">用户昵称：</div><div class="nickname" style="word-break:break-all;width:170px;">{$user.nickname}</div>
+								<div class="divctime">创建时间：</div><div class="ctime">{$user.ctime}</div>
+							</div>
+							<div class="divSecond">
+								<div>身份类型：</div><div class="uname">
+									<if condition="$user.role eq 1">游客</if>
+									<if condition="$user.role eq 2">普通会员</if>
+									<if condition="$user.role eq 3">商家用户</if>
+									<if condition="$user.role eq 4">后台管理员</if>
+								</div>
+								<div class="divnickname">创建类型：</div><div class="nickname">
+									<if condition="$user.ctype eq 1">手机号码</if>
+									<if condition="$user.ctype eq 2">邮箱</if>
+									<if condition="$user.ctype eq 3">QQ</if>
+									<if condition="$user.ctype eq 4">微信</if>
+								</div>
+								<if condition="$user.ctype eq 1">
+									<div class="divctime">手机认证：</div><div class="ctime">
+										<if condition="$user.isphone eq 1">认证通过</if>
+										<if condition="$user.isphone eq 2">认证未通过</if>	
+									</div>
+								</if>
+								<if condition="$user.ctype eq 2">
+									<div class="divctime">邮箱认证：</div><div class="ctime">
+										<if condition="$user.isemail eq 1">认证通过</if>
+										<if condition="$user.isemail eq 2">认证未通过</if>	
+									</div>
+								</if>
+								<if condition="$user.ctype eq 3">
+									<div class="divctime">QQ认证：</div><div class="ctime">
+										<if condition="$user.isphone eq 1">认证通过</if>
+										<if condition="$user.isphone eq 2">认证未通过</if>	
+									</div>
+								</if>
+								<if condition="$user.ctype eq 4">
+									<div class="divctime">微信认证：</div><div class="ctime">
+										<if condition="$user.isphone eq 1">认证通过</if>
+										<if condition="$user.isphone eq 2">认证未通过</if>	
+									</div>
+								</if>
+							</div>
+						</div>
+					</div>
+					<div class="downContent">
+						<div class="downLeft">
+							<div class="divBorder">
+								<div>用户真实姓名：</div>
+								<div class="name">{$realName.name}</div>
+							</div>
+							<if condition="$user.role eq 3">
+								<div class="divBorder">
+									<div>企业名称：</div>
+									<div class="name realmoon"><a href="__WEBURL__/Real/real_detail/id/{$user.realid}" target="_blank">{$user.real}</a></div>
+								</div>
+							</if>
+							<div class="divBorder">
+								<div>用户性别：</div>
+								<div class="name">
+									<if condition="$user.sex eq 1">男</if>
+									<if condition="$user.sex eq 2">女</if>
+									<if condition="$user.sex eq 3">保密</if>
+								</div>
+							</div>
+							<div class="divBorder">
+								<div>出生日期：</div>
+								<div class="name">{$user.birthday}</div>
+							</div>
+							<div class="divBorder">
+								<div>用户电话：</div>
+								<div class="name">{$user.uphone}</div>
+							</div>
+							<div class="divBorder">
+								<div>用户邮箱：</div>
+								<div class="name">{$user.uemail}</div>
+							</div>
+							<div class="divBorder">
+								<div>身份证号：</div>
+								<div class="name">{$realName.idcard}</div>
+							</div>
+							<div class="divBorder">
+								<div>身份证有效期：</div>
+								<div class="name">
+									<if condition="($realName.statecode eq 1) || ($realName.statecode eq 3)"><if condition="$num neq 1">{$realName.stime} 至 {$realName.etime}<else/>长期有效</if></if>
+								</div>
+							</div>
+							<div class="divBorder">
+								<div>是否接受推送：</div>
+								<div class="name">
+									<if condition="$user.user_ispush eq 1">是<else/>否</if>
+								</div>
+							</div>
+							<div class="divBorder">
+								<div>所在区域：</div>
+								<div class="name" style="white-space:normal;width:500px;">{$user.areaName}</div>
+							</div>
+							<div class="divBorder">
+								<div>详细地址：</div>
+								<div class="name" style="white-space:normal;width:500px;">{$user.address}</div>
+							</div>
+						</div>
+						<div class="downRight">
+							<div class="divCardimgu">
+								<img id="cardimguId" style="width:208px;height:142px;border-radius:10px;cursor:pointer;" src="{$realName.cardimgu}"/>
+							</div>
+							<div class="divCardimgu topDown">
+								<img id="cardimgdId" style="width:208px;height:142px;border-radius:10px;cursor:pointer;" src="{$realName.cardimgd}"/>
+							</div>
+						</div>
+						<div style="clear:both;"></div>
+					</div>
+					<!-- <div class="behaviorContent">
+						<div class="behavior_top">
+							<div class="behavior_top1">
+								<form action="__CONTROLLER__/userDetail" method="post">
+									<input type="hidden" name="uid" value="{$user.uid}"/>
+									<select style="width:230px;height:30px;color:#000;text-align:center;" name="dateVal">
+										<option value="0">全部</option>
+										<option value="1">昨天</option>
+										<option value="2">本周</option>
+										<option value="3">本月</option>
+										<option value="4">本季度</option>
+									</select>
+									<button class="btn btn-primary searchBut" type="submit"/>搜索</button>
+								</form>
+							</div>
+							<div class="behavior_top2"><span style="float:right;margin-top:-20px;">{$row}</span></div>
+						</div>
+						<div class="behavior_down">
+							<table class="table" border="1">
+								<tr>
+									<th style="width:350px;">操作内容</th>
+									<th style="width:300px;">发生时间</th>
+									<th style="width:270px;">操作人员</th>
+								</tr>
+								<foreach name="record" item="cord">
+									<tr>
+										<td>{$cord.action}</td>
+										<td>{$cord.ctime}</td>
+										<td>{$cord.user}</td>
+									</tr>
+								</foreach>
+							</table>
+						</div>
+					</div> -->
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+
+	<!-- /row -->
+<!-- /content container -->
+<script>
+
+</script>

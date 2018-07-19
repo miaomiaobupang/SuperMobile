@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>前沿资讯-更多资讯-超级医生</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1">
+	<link rel="icon" href="__IMG__/20180414chaojiyishengico.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="__IMG__/20180414chaojiyishengico.ico" type="image/x-icon" />
+	<meta name="keywords" content="{$entry_type_name}"/>
+	<meta name="description" content="{$entry_type_name},心血管疾病等重疾百科信息,并提供国内外最新医疗资讯如癌症新药,知名医生,权威医院等信息"/>
+	<link rel="stylesheet" href="__CSS__/public.css">
+	<link rel="stylesheet" href="__CSS__/pagination.css">
+	<link rel="stylesheet" href="__CSS__/searchComprehensive.css">
+	<script src="__JS__/jquery.min.js"></script>
+	<!-- <script src="__JS__/pagination.min.js"></script> -->
+	<style>
+		.mainBox3Right1Tilte{
+			border-bottom:1px solid #dcdcdc;
+		}
+		.mainBox3Right2{
+			height:254px;
+		}
+		.diseaseList{
+			padding-top:25px;
+		}
+		.diseaseListli{
+			font-size:12px;
+			color:#666;
+			padding:6px 11px;
+			background:rgba(0,159,168,0.1);
+			margin-bottom:10px;
+			float:left;
+			margin-right:10px;
+			cursor:pointer;
+		}
+		#pagination{
+			margin-top:50px;
+			text-align:center;
+		}
+		.mainleft-list-con-r{
+			width: 680px;
+			margin-left: 16px;
+			margin-top: -5px;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 3;
+			overflow: hidden;
+		}
+		.hotMessList{
+			width:100%;
+			height:30px;
+			line-height:30px;
+		}
+		.pClass{
+			position:fixed;
+		}
+		.headType{
+			width:auto;
+			height:40px;
+			line-height:40px;
+			float:left;
+			margin-right:15px;
+			font-size:14px;
+		}
+		#header{
+			width:100%;
+			height:100px;
+			background:#fff;
+		}
+		.headerCont{
+			width:1240px;
+			height:100px;
+			margin:0 auto;
+		}
+		.logoText{
+			font-size:36px;
+			color:#009FA8;
+			line-height:100px;
+		}
+		.logoText2{
+			font-size:18px;
+			margin-left:20px;
+			line-height:100px;
+		}
+		.inputDiv{
+			width:412px;
+			height:40px;
+			margin-left:116px;
+			border-radius:2px;
+			margin-top:30px;
+			margin-right:10px;
+		}
+		#searchInput{
+			width:344px;
+			height:40px;
+			border:2px solid #009FA8;
+			padding:5px 12px;
+			font-size:14px;
+			border-radius:2px 0 0 2px;
+		}
+		#searchBtn{
+			width:68px;
+			height:40px;
+			background:#009FA8;
+			font-size:16px;
+			color:#fff;
+			border:none;
+			cursor:pointer;
+			border-radius:0 2px 2px 0;
+		}
+		.headerHot{
+			color:#999;
+			font-size:14px;
+			margin-left:10px;
+			line-height:100px;
+			cursor:pointer;
+		}
+		#nav{
+			width:100%;
+			height:60px;
+		}
+		.opacitys{
+			opacity:0.9;
+			background:#009FA8;
+		}
+		.positions{
+			position:fixed;
+			background:white;
+			opacity:1;
+			box-shadow:0px 0px 5px #dcdcdc;
+		}
+		.navCont{
+			width:1240px;
+			height:60px;
+			margin:0 auto;
+			padding:5px 35px;
+		}
+		.navList{
+			font-size:16px;
+			line-height:50px;
+			margin-right:25px;
+			display:inline-block;
+			cursor:pointer;
+		}
+		.navListNow{
+			border-bottom:1px solid #fff;
+		}
+		.login,.register{
+			font-size:16px;
+			color:#fff;
+			line-height:50px;
+			cursor:pointer;
+		}
+		.line{
+			font-size:16px;
+			color:#fff;
+			line-height:50px;
+			margin:0 10px;
+		}
+		#navs{
+			width:100%;
+			height:60px;
+			background:#f5f5f5;
+		}
+		.navConts{
+			width:1240px;
+			height:45px;
+			line-height:45px;
+			margin:0 auto;
+			padding:2px 35px;
+			background:#009FA8;
+		}
+		.positionss{
+			position:fixed;
+			opacity:0.9;
+			box-shadow:0px 0px 5px #dcdcdc;
+			top:60px;
+		}
+		.navLists{
+			font-size:16px;
+			color:#fff;
+			line-height:42px;
+			margin-right:25px;
+			display:inline-block;
+			cursor:pointer;
+		}
+		<!-- /*main*/ -->
+		.keywordBox{
+			padding-top:15px;
+			height:77px;
+			overflow:hidden;
+		}
+		.keyContentB{
+			width:950px;
+		}
+		.keyAll{
+			font-size:16px;
+			padding:5px 12px;
+			color:rgba(0, 159, 168, 1);
+		}
+		.keyAll:hover{
+			background:rgba(0, 159, 168, 1);
+			color:#fff;
+			cursor:pointer;
+		}
+		.keyList{
+			font-size:16px;
+			padding:5px 12px;
+		}
+		.keyLine{
+			font-size:16px;
+			padding:5px;
+			color:rgb(220,220,220);
+		}
+		.keywords{
+			font-size:16px;
+			padding:5px 12px;
+			display:inline-block;
+		}
+		.keywords:hover{
+			background:rgba(0, 159, 168, 1);
+			color:#fff;
+			cursor:pointer;
+		}
+		.keyContR{
+			width:850px;
+			text-align:justify;
+		}
+		.moreKeys{
+			padding-bottom:15px;
+			margin-right:200px;
+			cursor:pointer;
+		}
+		.moreKeys span{
+			color:rgba(0, 159, 168, 1);
+		}	
+		.moreKeys img{
+			width:12px;
+			margin-left:3px;
+			margin-top:7px;
+			transition:transform 0.2s ease-in;
+			transform-origin:50% 30%;
+		}
+		.boxShow{
+			width:100%;
+			box-shadow:1px 2px 5px rgba(238,238,238,1);
+			margin-bottom:5px;
+		}
+		.selectedKey{
+			background:#009FA8;
+			color:white;
+		}
+		.QuestionBut{
+			width:60px;
+			height:60px;
+			line-height:60px;
+			background:#009FA8;
+			text-align:center;
+			border-radius:5px;
+			margin-bottom:5px;
+		}
+		.rightPublicDiv{
+			width:60px;
+			height:250px;
+			position:fixed;
+			right:0px;
+			top:300px;
+		}
+		.telephoneView{
+			z-index:10;
+		}
+		.phoneTextStyle{
+			width:250px;
+			height:60px;
+			line-height:60px;
+			background:#009FA8;
+			color:white;
+			font-size:24px;
+			font-weight:bold;
+			margin-top:-35px;
+			z-index:9;
+			position:absolute;
+			left:60px;
+			border-radius:5px;
+		}
+		.navTwicePhone{
+			width:280px;
+			height:45px;
+			line-height:45px;
+			text-align:center;
+			float:right;
+			border-radius:30px;
+			margin-top:4px;	
+			background:#009FA8;
+		}
+		.navTwicePhone img{
+			-o-transform:rotate(100deg); 
+			transform:rotate(100deg);
+			-ms-transform:rotate(100deg); 	/* IE 9 */
+			-moz-transform:rotate(100deg); 	/* Firefox */
+			-webkit-transform:rotate(100deg); /* Safari 和 Chrome */
+			margin-top:8px;
+			margin-right:20px;
+		}
+		.navTwicePhones{
+			width:auto;
+			float:left;
+			height:50px;
+			color:white;
+		}
+		.headerHot{
+			font-size:24px;
+			color:#009FA8;
+			float:left;
+			margin-left:10px;
+		}
+		.navTwiceStyle{
+			display:none;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<!-- header -->
+		<div id="nav" class="opacitys">
+			<div class="navCont">
+				<a href="__URL__"><span class="navList navListFirst" data-type="1">首页</span></a>      
+				<a href="__URL__/Entry"><span class="navList" data-type="2">疾病</span></a>      
+				<a href="__WENDA__"><span class="navList" data-type="3">互动问答</span></a>     
+				<a href="__NEWSURL__"><span class="navList" data-type="4">前沿咨讯</span></a>    
+				<a href="__YOYUAN__"><span class="navList" data-type="5">权威医院</span></a>     
+				<a href="__YISHENG__"><span class="navList" data-type="6">超级专家</span></a>   
+				<div class="fr loginRegist">
+					<span class="login">登录</span> 
+					<span class="line">|</span> 
+					<span class="register">注册</span>
+				</div>
+				<div class="navTwiceStyle navTwicePhone">
+					<div class="navTwicePhones"><img src="__IMG__/20180606105430phone.png" style="margin-top:10px;margin-left:30px;"></div>
+					<div class="navTwicePhones" style="font-size:24px;font-weight:bold;">400-661-1156</div>
+				</div>
+			</div>
+		</div>
+		<div class="rightPublicDiv">
+			<a href="__URL__/Interlocution/questions" target="_blank">
+				<div class="QuestionBut">
+					<div style="color:white;width:100%;height:20px;"><img src="__IMG__/20180511onlineTalk.png" style="width:25px;"></div>
+					<div style="color:white;width:100%;height:20px;margin-top:-5px;font-size:14px;font-weight:bold;">问医生</div>
+				</div>
+			</a>
+			<a href="__URL__/Interlocution/questions" target="_blank">
+				<div class="QuestionBut telephoneView">
+					<div style="color:white;width:100%;height:20px;"><img src="__IMG__/20180606105430phone.png" style="width:25px;"></div>
+					<div style="color:white;width:100%;height:20px;margin-top:-5px;font-size:14px;font-weight:bold;">电话</div>
+					<div class="phoneTextStyle">400-661-1156</div>
+				</div>
+			</a>
+			<a href="#backTop">
+				<div class="QuestionBut">
+					<div style="color:white;width:100%;height:20px;"><img src="__IMG__/20180606105416top.png" style="width:25px;"></div>
+					<div style="color:white;width:100%;height:20px;margin-top:-5px;font-size:14px;font-weight:bold;">回顶部</div>
+				</div>
+			</a>
+		</div>
+		<div id="header">
+			<div class="headerCont">
+				<a href="__URL__"><span class="logoText fl"><img src="__IMG__/20180414chaojiyishenglogo.png"></span></a>
+				<span class="logoText2 fl">前沿重疾解决方案提供平台</span>
+				<div class="inputDiv fl">
+					<input type="text" placeholder="请在此输入您想查询的重疾信息" id="searchInput" class="fl">
+					<button id="searchBtn" class="fl">搜索</button>
+				</div>
+				<div class="fl" style="margin-left:20px;">
+					<div class="headerHot"><img src="__IMG__/20180606154942hhhhhh.png" style="margin-top:-5px;"></div>
+					<div class="headerHot">400-661-1156</div>
+				</div>
+				<div id="backTop" name="backTop" class="cl"></div>
+			</div>
+		</div>
+		<div id="navs">
+			<div class="navConts">
+				<a href="__WEBURL__/Message/messList"><span class="navLists headType" data-type="0">全部</span></a>     
+				<a href="__WEBURL__/Message/messList?type=1"><span class="navLists headType" data-type="1">医疗前沿</span></a>      
+				<a href="__WEBURL__/Message/messList?type=2"><span class="navLists headType" data-type="2">最新案例</span></a>     
+				<a href="__WEBURL__/Message/messList?type=3"><span class="navLists headType" data-type="3">公益</span></a>      
+				<a href="__WEBURL__/Message/messList?type=4"><span class="navLists headType" data-type="4">海外医疗</span></a>      
+				<a href="__WEBURL__/Message/messList?type=5"><span class="navLists headType" data-type="5">世界大师中国行</span></a>      
+				<a href="__WEBURL__/Message/messList?type=6"><span class="navLists headType" data-type="6">专家资讯</span></a>   
+				<a href="__WEBURL__/Message/messList?type=7"><span class="navLists headType" data-type="7">医院新闻</span></a>
+				<div class="fr">
+				</div>
+			</div>
+		</div>
+		<div style="100%;height:auto;margin:0 auto;background:#f5f5f5;">
+			<div style="width:1240px;margin:0 auto;background:white;">
+				<if condition="$type eq 1 || $type eq 4 || $type eq 6">
+					<div class="keywordBox">
+						<div class="fl"><a href='__WEBURL__/Message/messList?type={$type}'><span class="keyAll fl">不限</span></a></div>
+						<div class="keyContentB fl">
+							<foreach name="data" item="data">
+								<div class="keyContent">
+									<span class="keyList fl">{$data.name}</span>
+									<span class="fl keyLine">|</span>
+									<div class="keyContR fl">
+										{$data.listHtml}
+									</div>
+									<div class="cl"></div>
+								</div>
+							</foreach>
+						</div>
+						<div class="cl"></div>
+					</div>
+					<div class="moreKeys fr" data-n="1">
+						<span class="fl">更多</span>
+						<img src="__IMG__/20180316cjys3.png" alt="" class="fl">
+					</div>
+					<div class="cl"></div>
+				<elseif condition="$type eq 2"/>
+					<style>
+						.keyContR {
+							width: 1245px;
+							background: white;
+							margin-bottom: 20px;
+						}
+					</style>
+					<div class="keyContR fl">{$data}</div>
+				<elseif condition="$type eq 7"/>
+					<style>
+						.keyContR {
+							width: 1245px;
+							background: white;
+							margin-bottom: 20px;
+						}
+					</style>
+					<div class="keyContR fl">{$data}</div>
+				</if>
+			</div>
+		</div>
+		<script>
+			$('body').on('click','.moreKeys',function(){
+				var n=$(this).data('n');
+				if(n==1){
+					$('.keywordBox').css('height','auto');
+					$(this).find('span').html('收起');
+					$(this).find('img').css('transform','rotate(180deg)');
+					$(this).data('n','2');
+				}else{
+					$('.keywordBox').css('height','77px');
+					$(this).find('span').html('更多');
+					$(this).find('img').css('transform','rotate(0deg)');
+					$(this).data('n','1');
+				}
+			});
+			$('.navList').each(function(){
+				if($(this).data('type') == 4){
+					$(this).addClass('navListNow');
+				}
+			});
+		</script>
+		<div class="main">
+			<div class="mainBox">
+				<div class="mainBoxLeft fl">
+					<div>
+					<if condition="$list eq null">
+						<div style="width:100%;height:100px;line-height:100px;text-align:center;font-size:18px;">暂无数据...</div>
+					<else />
+						<foreach name="list" item="NewEntry">
+							<div class="mainleft-list">
+								<div class="mainleft-list-title">
+									<span class="titlebox">
+										<a href="__NEWSURL__/{$NewEntry.id}.html" target="_blank"><span class="title">{$NewEntry.cname}</span>【资讯】</a>
+									</span>
+								</div>
+								<div class="mainleft-list-con">
+									<img src="{$NewEntry.img}" alt="" class="fl">
+									<div class="mainleft-list-con mainleft-list-con-r fl">
+										<span class="title">慢性胃炎</span>{$NewEntry.abstract}<span class="tip">
+											<a href="__NEWSURL__/{$NewEntry.id}.html" target="_blank">[详细]</a>
+										</span>
+									</div>
+								</div>
+							</div>
+						</foreach>
+					</if>
+					</div>
+					<!-- 分页 -->
+					<div id="pagination">{$show}</div>
+				</div>
+				<div class="mainBoxRight fr">
+					<div class="mainBox3Right2">
+						<div class="mainBox3Right1Tilte">热门资讯</div>
+						<div class="diseaseList">
+							<foreach name="hotMessage" item="hotMessage">
+								<a href="__NEWSURL__/{$hotMessage.id}.html" target="_blank"><div class="hotMessList">{$hotMessage.cname}</div></a>
+							</foreach>
+						</div>
+					</div>
+				</div>
+				<div class="cl"></div>
+			</div>
+		</div>
+		<!-- footer -->
+		<include file="Public/cjysFooter" />
+	</div>
+	<script>
+		$('.telephoneView').hover(
+			function(){  
+				$('.phoneTextStyle').animate({left:"-240px"},"slow");  
+			} ,  
+			function(){  
+				$('.phoneTextStyle').animate({left:'+60px'},"slow");  
+			}   
+		);
+		$(window).scroll(function(){
+			var scrollTo = $(window).scrollTop();
+			var lefted = ($(window).width()-820-400-20)/2+820+20
+			if(scrollTo >= 200){
+				$('.mainBoxRight').css({"left":lefted+'px',"top":"120px"});
+				$('.mainBoxRight').addClass('pClass');
+			}else if(scrollTo < 200){
+				$('.mainBoxRight').removeClass('pClass');
+			}
+			if(scrollTo >= 100){
+				$('#nav').addClass('positions');
+				$('#nav').removeClass('opacitys');
+				$('#navs').addClass('positionss');
+				$('#navs').css({'background':'#009FA8','height':'40px'});
+				$('.navConts').css({'height':'40px','line-height':'40px'});
+				$('.headType').css({'height':'30px','line-height':'30px'});
+				$('.navConts').addClass('opacitys');
+				$('.navList').css({'color':'black'});
+				$('.navListFirst').html('<img src="__IMG__/20180414chaojiyishenglogo.png">');
+				$('.navListFirst').css({'position':'relative','top':'10px'});
+				$('.loginRegist').css({'display':'none'});
+				$('.navTwiceStyle').css({'display':'block'});
+			}else{
+				$('#nav').removeClass('positions');
+				$('#nav').addClass('opacitys');
+				$('#navs').removeClass('positionss');
+				$('#navs').css({'background':'#f5f5f5','height':'60px'});
+				$('.navConts').removeClass('opacitys');
+				$('.navConts').css({'height':'45px','line-height':'45px'});
+				$('.headType').css({'height':'40px','line-height':'40px'});
+				$('.navList').css({'color':'#FFF'});
+				$('.navListFirst').html('首页');
+				$('.navListFirst').css({'position':'relative','top':'0px'});
+				$('.loginRegist').css({'display':'block'});
+				$('.navTwiceStyle').css({'display':'none'});
+			}
+		}).trigger('scroll');
+		$('.headType').each(function(){
+			if($(this).data('type') == {$type}){
+				$(this).addClass('navListNow');
+			}
+		});
+	</script>
+</body>
+</html> 

@@ -1,0 +1,184 @@
+<style>
+.child{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+body #content .dataTables_wrapper{
+    font-size: 14px;
+}
+body #content .dataTables_filter{
+    margin-left:150px;
+}
+.radioStyle{
+	background-color:#aaa;
+	opacity:0.5;
+	width:140px;
+	height:35px;
+	margin-left:14px;
+	border-radius:5px;
+}
+.btn-red{
+	width:80px;
+	margin-right:-10px;
+}
+.pull-right{
+	margin-right:10px;
+}
+.tableTitle{
+	margin-top:auto;
+	font-size:18px;
+}
+.userName a{
+	text-decoration:none;
+	color:#fff;
+}
+.userName a:hover{
+	color:#97f2ff;
+}
+.mainUserName a{
+	color:#ed6c6c;
+	font-size:17px;
+	font-weight:bold;
+	font-family:'宋体';
+}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">非速搜企业管理</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>企业用户组列表</strong>
+					</h1>
+					<div class="pull-right">
+						<!-- <a href="__CONTROLLER__/real_add" role="button" class="btn btn-red" data-toggle="modal"><span class="icon-plus"></span> 添加企业</a> -->
+						<a href="__WEBURL__/Real/index?p={$page}&name={$jname}" role="button" class="btn btn-danger btn-red" data-toggle="modal"> 返回列表</a>
+					</div>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body form-group form-footer">
+					<table class="table" id="basicDataTable">
+						<thead>
+							<tr>
+								<td class="text-center tableTitle" colspan="7">{$list}</td>
+							</tr>
+							<tr>
+							  <th class="text-center">用户昵称</th>
+							  <th class="text-center">用户组</th>
+							  <th class="text-center">状态码</th>
+							  <th class="text-center hidden-xs">创建时间</th>
+							  <th class="text-center">状态</th>
+							  <th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="text-center userName mainUserName">
+									<a target='_blank' href="__APP__/FairsoUser/userDetail/uid/{$main.uid}">{$main.userName}</a>
+								</td>
+								<td class="text-center hidden-xs">创建者</td>
+								<td class="text-center">
+									<if condition="$main.statecode eq 1">已邀请</if>
+									<if condition="$main.statecode eq 2">已申请</if>
+									<if condition="$main.statecode eq 3">用户确认</if>
+									<if condition="$main.statecode eq 4">商家确认</if>
+									<if condition="$main.statecode eq 5">已绑定</if>
+									<if condition="$main.statecode eq 6">已解绑</if>
+									<if condition="$main.statecode eq 7">已冻结</if>
+									<if condition="$main.statecode eq 8">已拒绝</if>
+								</td>
+								<td class="text-center hidden-xs">{$main.ctime}</td>
+								<td class="text-center">
+									<if condition="$main.state eq 1"><span class="icon-ok" title="正常"></span></if>
+									<if condition="$main.state eq 2"><span class="icon-remove" title="禁用"></span></if>
+								</td>
+								<td class="text-right">
+									<div class="btn-group" role="group" aria-label="...">
+										<if condition="$main.state eq 2">	
+											<a class="btn btn-default" role="button" href="__CONTROLLER__/enterprise_del/id/{$main.id}/type/1/pid/{$id}/p/{$p}">启用</a>
+										<else />	
+											<a class="btn btn-default" role="button" href="__CONTROLLER__/enterprise_del/id/{$main.id}/type/2/pid/{$id}/p/{$p}">禁用</a>
+										</if>
+									</div>
+								</td>
+							</tr>
+							<foreach name="data" item="da">
+								<tr>
+									<td class="text-center userName">
+										<a target='_blank' href="__APP__/FairsoUser/userDetail/uid/{$da.uid}">{$da.userName}</a>
+									</td>
+									<td class="text-center hidden-xs">{$da.group}</td>
+									<td class="text-center">
+										<if condition="$da.statecode eq 1">已邀请</if>
+										<if condition="$da.statecode eq 2">已申请</if>
+										<if condition="$da.statecode eq 3">用户确认</if>
+										<if condition="$da.statecode eq 4">商家确认</if>
+										<if condition="$da.statecode eq 5">已绑定</if>
+										<if condition="$da.statecode eq 6">已解绑</if>
+										<if condition="$da.statecode eq 7">已冻结</if>
+										<if condition="$da.statecode eq 8">已拒绝</if>
+									</td>
+									<td class="text-center hidden-xs">{$da.ctime}</td>
+									<td class="text-center">
+										<if condition="$da.state eq 1"><span class="icon-ok" title="正常"></span></if>
+										<if condition="$da.state eq 2"><span class="icon-remove" title="禁用"></span></if>
+									</td>
+									<td class="text-right">
+										<div class="btn-group" role="group" aria-label="...">
+											<if condition="$da.state eq 2">	
+												<a class="btn btn-default" role="button" href="__CONTROLLER__/enterprise_del/id/{$da.id}/type/1/pid/{$id}/p/{$p}">启用</a>
+											<else />	
+												<a class="btn btn-default" role="button" href="__CONTROLLER__/enterprise_del/id/{$da.id}/type/2/pid/{$id}/p/{$p}">禁用</a>
+											</if>
+										</div>
+									</td>
+								</tr>
+							</foreach>
+							<tr style="text-align:center">
+								<td colspan="6">{$row}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+           <!-- /tile body -->
+				
+			</section>
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container --><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

@@ -1,0 +1,1824 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+use Home\Model\UploadFileModel as UploadFile;
+
+// +----------------------------------------------------------------------
+// | 爱能社  校长管理 活动相册接口
+// +----------------------------------------------------------------------
+// | Copyright (c) 2006-2015 http://langyue.org All rights reserved.
+// +----------------------------------------------------------------------
+// | 用户 
+// +----------------------------------------------------------------------
+// | Author: 李红生 <549940183@qq.com>
+// +----------------------------------------------------------------------
+class SchoolMasterController extends LimitController {
+        
+		private $obj_activity;
+		private $showMessage;
+		private $photos;
+		private $photos_photo;
+		private $comment;
+		private $praise;
+		private $user;
+		private $school;
+		private $appconfig;
+
+		/**
+		*
+		*
+		*/
+		public function __construct() {
+		    parent::__construct();
+		    $this->obj_activity = M('school_activity');
+		    //实例化相册表
+			$this->photos     = D('photos');
+			 //实例化相册照片表
+			$this->photos_photo     = D('photos_photo');
+			 //实例化评论表
+			$this->comment     = D('comment');
+			//实例化点赞表
+			$this->praise     = D('praise');
+			//实例化用户表
+			$this->user     = D('user');
+			//实例化学校表
+			$this->school     = D('school');
+			$this->appconfig     = D('appconfig');
+			
+		}
+		
+		
+		/**
+        *强制输出 JSON数据
+        *
+        */
+        protected function returnAjax($status,$message,$arr = array()) {
+            $this->showMessage['status'] = $status;
+            $this->showMessage['message'] = $message;
+            foreach($arr as $k=>$v) {
+               $this->showMessage[$k] = $v;
+            }
+            ajaxReturn($this->showMessage);
+        
+        }
+        
+        
+        /**
+        *格式化图片地址
+        *
+        */
+        protected function formatImg($imgpath) {
+            return substr($imgpath,0,4) == "http" ? $imgpath : SRC_URL.__ROOT__.$imgpath;
+        
+        }
+		
+		
+		/*
+		* 学校信息修改
+		* 接收数据格式  
+				fid=学校ID,adress=学校地址,phone=联系电话,descs=学校描述
+		* 返回数据格式
+			{
+				'status'=>状态,
+				'message'=>提示信息
+			} 
+		status = {
+			1：修改成功；
+			2：缺少学校ID；
+			3：缺少学校地址；
+			4：缺少联系电话；
+			5：缺少学校描述；
+			6：修改失败；
+		}
+		*/
+		public function schoolEdit(){
+			$fid = I('fid','');
+			$adress = I('adress','');
+			$phone = I('phone','');
+			$descs = I('descs','');
+			//判断照片ID为空
+			if(empty($fid)){
+				$output = array(
+					'status' 	=>'2',
+					'message'	=>'缺少学校ID'
+				);
+				$this->ajaxReturn($output);
+			}
+			if(empty($adress)){
+				$output = array(
+					'status' 	=>'3',
+					'message'	=>'缺少学校地址'
+				);
+				$this->ajaxReturn($output);
+			}
+			if(empty($phone)){
+				$output = array(
+					'status' 	=>'4',
+					'message'	=>'缺少联系电话'
+				);
+				$this->ajaxReturn($output);
+			}
+			if(empty($descs)){
+				$output = array(
+					'status' 	=>'5',
+					'message'	=>'缺少学校描述'
+				);
+				$this->ajaxReturn($output);
+			}
+			$data=null;
+			$data['adress']=I('adress');
+			$data['phone']=I('phone');
+			$data['descs']=I('descs');
+			$State=$this->school->where('cid='.$fid)->save($data);
+			if($State){
+				$output = array(
+					'status' 	=>'1',
+					'message'	=>'修改成功'
+				);
+			}else{
+				$output = array(
+					'status' 	=>'6',
+					'message'	=>'信息一致，修改失败'
+				);
+			}
+			$this->ajaxReturn($output);
+		}
+		
+		/**
+		*我的活动 已有活动
+		*传入数据fid=学校ID，page=默认1，size=默认是10,status= 状态值，1未开始|2正在进行|3结束
+		*返回数据 {
+                status  = 状态码
+                message = 信息提示
+                info    = [{
+                          title   = 消息标题
+                          cover   =  背景图
+                          praise  = 点赞数
+						  share   = 分享数
+						  comment = 评论数
+						  collect = 收藏数
+						  adress  = 活动地址
+						  people  = 活动名额
+						  descs   = 活动内容
+						  onpeople= 已报名
+						  stime   = 活动开始时间
+						  etime   = 活动结束时间
+                          status   = 1未开始|2正在进行|3结束
+                        },{},{}]                
+    
+              }
+         status={-1=无学校ID，0=无数据，1=成功}
+		*/
+		public function index() {
+		
+		    $fid    = I('fid','');
+			$status = I('status',''); 
+			if(!$fid)    $this->returnAjax('-1','无学校ID');
+			$status = $status ? $status : '2';
+			
+			$page  = intval(I('page')) ? intval(I('page')) : 1;
+            $size  = intval(I('size')) ? intval(I('size')) : 10; //每页显示记录数量
+			$where['statecode']=$status;
+			$where['state']=1;
+			$where['fid']=$fid;
+			
+		    $list  = $this->obj_activity->where($where)->field('cid,fid,title,cover,people,descs,praise,share,comment,collect,adress,stime,etime')->page($page,$size)->order('cid DESC')->select();
+			
+		    if(!$list) {
+			    $this->returnAjax('0','无数据');
+			} else {
+
+			    //状态设置
+			    foreach($list as $k=>$v) {
+				   /* $nowTime = time();
+				    if($nowTime > $list[$k]['etime']) {
+					    $list[$k]['status'] = 3;//已经结束
+					} elseif($nowTime < $list[$k]['etime']) {
+					    $list[$k]['status'] = 2;//正在进行中
+					
+					} elseif($nowTime < $list[$k]['stime']) {
+					    
+					    $list[$k]['status'] = 1;//即将开始
+					}*/
+					$list[$k]['status'] = $status; 
+				    $list[$k]['stime']  = date('Y-m-d',$list[$k]['stime']);
+				    $list[$k]['etime']  = date('Y-m-d',$list[$k]['etime']);
+					$list[$k]['onpeople']  = 0;
+					$list[$k]['cover'] = $this->formatImg($list[$k]['cover']);
+				}
+
+			}
+			$this->returnAjax('1','成功',array('info'=>$list));
+		}
+		
+		/**
+		*已发布活动列表
+		传入数据fid=学校ID，page=默认1，size=默认是10
+		*返回数据 {
+                status  = 状态码
+                message = 信息提示
+                info    = [{
+                          title   = 消息标题
+                          cover   =  背景图
+                          praise  = 点赞数
+						  share   = 分享数
+						  comment = 评论数
+						  collect = 收藏数
+						  adress = 活动地址
+						  people  = 活动名额
+						  descs   = 活动内容
+						  onpeople= 已报名
+						  stime   = 活动开始时间
+						  etime   = 活动结束时间
+                          status   = 1未开始|2正在进行|3结束
+                        },{},{}]               
+    
+              }
+         status={-1=无学校ID，0=无数据，1=成功}
+		*/
+		public function listAct() {
+		    $fid    = I('fid','');
+			if(!$fid)    $this->returnAjax('-1','无学校ID');
+			
+			$page  = intval(I('page')) ? intval(I('page')) : 1;
+            $size  = intval(I('size')) ? intval(I('size')) : 10; //每页显示记录数量
+		    $list  = M('school_activity')->field('cid,fid,title,cover,people,descs,praise,share,comment,collect,adress,stime,etime')->where('fid='.$fid)->page($page,$size)->order('cid DESC')->select();
+			
+		
+			
+		    if(!$list) {
+			    $this->returnAjax('0','无数据');
+			} else {
+
+			    //状态设置
+			    foreach($list as $k=>$v) {
+				    $nowTime = time();
+				    if($nowTime > $list[$k]['etime']) {
+					    $list[$k]['status'] = 3;//已经结束
+					} elseif($nowTime < $list[$k]['etime']) {
+					    $list[$k]['status'] = 2;//正在进行中
+					
+					} elseif($nowTime < $list[$k]['stime']) {
+					    
+					    $list[$k]['status'] = 1;//即将开始
+					}
+					//$list[$k]['status'] = $status; 
+				    $list[$k]['stime']  = date('Y-m-d',$list[$k]['stime']);
+				    $list[$k]['etime']  = date('Y-m-d',$list[$k]['etime']);
+					$list[$k]['onpeople']  = 0;
+					$list[$k]['cover'] = $this->formatImg($list[$k]['cover']);
+				}
+
+			}
+			$this->returnAjax('1','成功',array('info'=>$list));
+		
+		}
+		
+		
+		/**
+		*添加活动
+		*传入数据{
+		           title   = 活动标题
+				   stime   = 开始时间 2014-05-01 格式
+                   etime   = 结束时间 2014-05-01 格式
+				   adress = 活动地址
+				   teacher = 主讲人
+				   phone   = 电话
+				   people  = 活动名额
+				   thumb   = 图片上传名(封面图)
+				   descs   = 活动内容
+				   
+				   
+		           fid     = 学校ID
+                   coord   = 活动经纬度 如:116.385081,39.941162	
+                   cityid  = 区县ID
+                  			   
+		         }
+				 
+		 返回数据 status = {
+		            1=上传成功
+					0=上传失败
+					-1=缺少活动标题
+					-2=缺少开始时间
+		            -3=缺少结束时间
+					-4=缺少活动地址
+					-5=缺少活动电话
+					-6=缺少活动名额
+					-7=上传图片出错
+					-8=缺少活动内容
+					-9=缺少学校ID
+					-10=缺少经纬度
+					-11=缺少区县ID
+					}
+		*/
+		
+		public function add() {
+		    $data['title'] = I('title',''); if(!$data['title']) {$this->returnAjax('-1','缺少活动标题');}
+			$data['stime'] = I('stime',''); if(!$data['stime']) {$this->returnAjax('-2','缺少开始时间');}
+		    $data['etime'] = I('etime',''); if(!$data['etime']) {$this->returnAjax('-3','缺少结束时间');}
+		   // $data['']
+		}
+		
+		
+		/**
+		*删除活动接口
+		*传入数据 cid = 活动ID
+		*返回数据 {
+		           status = 状态码
+				   message=提示信息
+		          }
+		status = {-1=缺少活动ID,0=删除失败,1=删除成功}
+		*/
+		
+		public function del() {
+		    $cid = I('cid','');
+			if(!$cid) $this->returnAjax('-1','缺少活动ID');
+			if($this->obj_activity->where('cid='.$cid)->delete()) {
+			    $this->returnAjax('1','删除成功');
+			} else {
+			    $this->returnAjax('0','删除失败');
+			}
+		}
+		
+		
+		
+		/*
+		* 校长创建活动
+		* 接收数据格式  
+				sid=学校ID,title=活动标题,cityid=区县ID,adress=活动地址,phone=联系电话,descs=活动描述,teacher=活动主讲人,people=活动人数,stime=活动开始时间（2014-01-05）,etime=活动结束时间（2014-01-05）,cover=图片上传
+		* 返回数据格式
+			{
+				'status'=>状态,
+				'message'=>提示信息
+			} 
+		status = {
+			1：活动创建成功；
+			2：缺少学校ID；
+			3：缺少标题；
+			4：缺少区县ID；
+			5：缺少地址；
+			6：缺少联系电话；
+			7：缺少描述；
+			8：缺少主讲人；
+			9：缺少活动人数；
+			10：缺少开始时间；
+			11：缺少结束时间；
+			12：缺少上传图片；
+			13：图片上传失败；
+			14：活动创建失败；
+		}
+		*/
+		public function activityAdd(){
+			$fid = I('sid','');
+			$title = I('title','');
+			$cityid = I('cityid','');
+			$adress = I('adress','');
+			$phone = I('phone','');
+			$descs = I('descs','');
+			$teacher = I('teacher','');
+			$people = I('people','');
+			$stime = I('stime','');
+			$etime = I('etime','');
+			//判断照片ID为空
+			if(empty($fid)){
+				$output = array(
+					'status' 	=>'2',
+					'message'	=>'缺少学校ID'
+				);
+				$this->ajaxReturn($output);
+			}
+			if(empty($title)){
+				$output = array(
+					'status' 	=>'3',
+					'message'	=>'缺少标题'
+				);
+				$this->ajaxReturn($output);
+			}
+			if(empty($cityid)){
+				$output = array(
+					'status' 	=>'4',
+					'message'	=>'缺少区县ID'
+				);
+				$this->ajaxReturn($output);
+			}
+			if(empty($adress)){
+				$output = array(
+					'status' 	=>'5',
+					'message'	=>'缺少地址'
+				);
+				$this->ajaxReturn($output);
+			}
+			if(empty($phone)){
+				$output = array(
+					'status' 	=>'6',
+					'message'	=>'缺少联系电话'
+				);
+				$this->ajaxReturn($output);
+			}
+			if(empty($descs)){
+				$output = array(
+					'status' 	=>'7',
+					'message'	=>'缺少描述'
+				);
+				$this->ajaxReturn($output);
+			}
+			if(empty($teacher)){
+				$output = array(
+					'status' 	=>'8',
+					'message'	=>'缺少主讲人'
+				);
+				$this->ajaxReturn($output);
+			}
+			if(empty($people)){
+				$output = array(
+					'status' 	=>'9',
+					'message'	=>'缺少活动人数'
+				);
+				$this->ajaxReturn($output);
+			}
+			if(empty($stime)){
+				$output = array(
+					'status' 	=>'10',
+					'message'	=>'缺少开始时间'
+				);
+				$this->ajaxReturn($output);
+			}
+			if(empty($etime)){
+				$output = array(
+					'status' 	=>'11',
+					'message'	=>'缺少结束时间'
+				);
+				$this->ajaxReturn($output);
+			}
+			$data=null;
+			$data['title']=$title;
+			$data['cityid']=$cityid;
+			$data['fid']=$fid;
+			$data['adress']=$adress;
+			$data['phone']=$phone;
+			$data['descs']=$descs;
+			$data['teacher']=$teacher;
+			$data['people']=$people;
+			$data['stime']=strtotime($stime);
+			$data['etime']=strtotime($etime);
+			$data['ctime']=time();
+			if($data['etime']>time() and $data['stime']<time()){
+				$data['statecode']=2;
+			}else if($data['stime']>time()){
+				$data['statecode']=1;
+			}else if($data['etime']<time()){
+				$data['statecode']=3;
+			}
+			if($_FILES['cover']['error']!=4){
+				$myUpload = new UploadFile();
+				$imgpath = $myUpload->upload("cover");//图片路径
+				if($imgpath){
+					$data['cover']=$imgpath;
+				}else{
+					$output = array(
+						'status' 	=>'13',
+						'message'	=>'图片上传失败'.$myUpload->error
+					);
+					$this->ajaxReturn($output);
+				}
+			}else{
+				$output = array(
+					'status' 	=>'12',
+					'message'	=>'缺少上传图片'
+				);
+				$this->ajaxReturn($output);
+			}
+			$State=$this->obj_activity->add($data);
+			if($State){
+				$output = array(
+					'status' 	=>'1',
+					'message'	=>'活动创建成功'
+				);
+			}else{
+				$output = array(
+					'status' 	=>'14',
+					'message'	=>'活动创建失败'
+				);
+			}
+			$this->ajaxReturn($output);
+		}
+		
+		/*
+		* 学校主页最新9张照片列表
+		* 接收数据格式  
+				sid=学校ID
+		* 返回数据格式
+			{
+				'status'=>状态,
+				'message'=>提示信息
+				'info'=照片列表=array(
+					'id'=>照片ID,
+					'inputtime'=>相册添加时间,
+					'remark'=>相册描述,
+					'sid'=>所属学校ID,
+					'pid'=>相册ID,
+					'praise'=>点赞数,
+					'comment'=>评论数,
+					'path'=>图片路径,
+					'title'=>相册标题,
+				),
+			} 
+		status = {
+			1：照片评论列表获取成功；
+			2：缺少学校ID；
+			3：学校不存在；
+			4：获取失败（无数据）；
+		}
+		*/
+		public function newPhotosPhoto(){
+			$cid = I('sid','');
+			//判断照片ID为空
+			if(empty($cid)){
+				$output = array(
+					'status' 	=>'2',
+					'message'	=>'缺少学校ID'
+				);
+				$this->ajaxReturn($output);
+			}
+			//校验学校是否存在
+			$School=$this->school->where('cid='.$cid.' and state=1')->find();
+			if($School){
+				//获取学校最新9张照片
+				$photoList=$this->photos_photo->where('state=1 and sid='.$cid)->field('cid,fid,sid,url,praise,comment,ctime')->order('ctime desc')->limit(9)->select();
+				if($photoList){
+					$photoListNum=count($photoList);
+					for($i=0;$i<$photoListNum;$i++){
+						//获取相册描述和标签
+						$photosInfo=null;
+						$photosInfo=$this->photos->where('state=1 and cid='.$photoList[$i]['fid'])->field('name,descs')->find();
+						//相册标题
+						if($photosInfo['name']){
+							$photoList[$i]['title']=$photosInfo['name'];
+						}else{
+							$photoList[$i]['title']="";
+						}
+						//描述
+						if($photosInfo['descs']){
+							$photoList[$i]['remark']=$photosInfo['descs'];
+						}else{
+							$photoList[$i]['remark']="";
+						}
+						//补全图片路径
+						$photoList[$i]['path']='http://'.$_SERVER['HTTP_HOST'].__ROOT__.$photoList[$i]['url'];
+						//处理时间格式
+						$photoList[$i]['inputtime']=date('Y-m-d H:i',$photoList[$i]['ctime']);
+						$photoList[$i]['id']=$photoList[$i]['cid'];
+						$photoList[$i]['pid']=$photoList[$i]['fid'];
+						unset($photoList[$i]['cid']);
+						unset($photoList[$i]['fid']);
+						unset($photoList[$i]['url']);
+						unset($photoList[$i]['ctime']);
+						$output = array(
+							'status' 	=>'1',
+							'message'	=>'获取成功',
+							'info'	=>$photoList
+						);
+					}
+				}else{
+					$output = array(
+						'status' 	=>'4',
+						'message'	=>'无数据'
+					);
+				}
+			}else{
+				$output = array(
+					'status' 	=>'3',
+					'message'	=>'学校不存在'
+				);	
+			}
+			$this->ajaxReturn($output);
+		}
+		
+		
+		/**
+		*我的校长首页相册最新图片接口
+		*传入数据sid=学校ID,page=页数默认1,size=每页显示数默认10
+		返回数据 {
+		           status = 状态值
+				   message=提示信息
+				   info   ={
+				            
+				            id       = 图片ID
+							inputtime=相册添加时间
+							remark   = 相册描述
+							sid      =所属学校ID
+							pid      = 相册ID
+							praise   = 点赞数
+							comment  = 评论数
+							path     = 图片路径
+							title    = 相册标题
+				           }
+		
+		         }
+		status = {-1=缺少学校ID,0=无数据,1=成功}
+		*/
+		public function photo() {
+		    $page  = intval(I('page')) ? intval(I('page')) : 1;
+            $size  = intval(I('size')) ? intval(I('size')) : 10; //每页显示记录数量
+		    $sid = I('sid','');
+			if(!$sid) $this->returnAjax('-1','无学校ID');
+		    $list = M('photo_data')->field('ly_photo_data.*,ly_photo.title')->where('ly_photo_data.sid='.$sid)->join(' LEFT JOIN ly_photo ON ly_photo.id=ly_photo_data.pid')->order('ly_photo_data.inputtime DESC')->page($page,$sie)->select();
+		    
+			if(!$list) {
+			    $this->returnAjax('0','无数据');
+			} else {
+			    foreach($list as $k=>$v) {
+				    $list[$k]['path'] = $this->formatImg($list[$k]['path']);
+				}
+			    $this->returnAjax('1','成功',array('info'=>$list));
+			}
+		}
+		
+		
+		/**
+		*相册列表接口
+		*传入数据 sid=学校ID,page=页数默认1,size=每页显示数默认10
+		*返回数据 {
+		            status  = 状态值
+					message = 提示信息
+                    info = [{
+					         title    = 相册标题
+					         id       = 相册ID
+							 sid      = 学校ID
+							 thumb    = 相册封面图
+					         num      = 相册相片数
+							 remark   =  相册描述 
+							 inputtime=更新时间
+							 label    = {'','',''}
+					        },{},{},{}]				
+		          }
+		状态码status={
+		              -1=无学校ID,
+					  0=占时无相册
+					  1=成功
+		             }
+		*/
+		public function listPhoto() {
+		    $page  = intval(I('page')) ? intval(I('page')) : 1;
+            $size  = intval(I('size')) ? intval(I('size')) : 10; //每页显示记录数量
+		    $sid = I('sid','');
+			if(!$sid) $this->returnAjax('-1','无学校ID');
+			$list = M('photo')->where('sid='.$sid)->field('id,sid,title,thumb,num,inputtime')->page($page,$size)->order('inputtime DESC')->select();
+			if(!$list) {
+			   $this->returnAjax('0','占时无相册');
+			} else {
+			    foreach($list as $k=>$v) {
+			       $list[$k]['thumb'] = $this->formatImg($list[$k]['thumb']);
+			       $list[$k]['label'] = explode(',',$list[$k]['label']);
+				   $list[$k]['inputtime'] = date('Y-m-d',$list[$k]['inputtime']);
+			    }
+               $this->returnAjax('1','成功',array('info'=>$list));
+			}
+			
+		}
+		
+		
+		/**
+		*相册详情  需分组统计每天的上传照片
+		*传入数据 pid=相册ID
+		*返回数据 {
+		            status  = 状态值
+					message = 提示信息
+					info    = [ {
+					               'time'  = 时间  
+								   'images'=[{
+								   path=图片路径
+								   remark=图片描述
+								   inputtime=图片发布时间
+								   praise = 点赞数
+								   comment = 评论数
+								   id      = 图片ID
+								   title   = 相册title
+								   pid     = 所属相册ID
+						
+						
+						
+								   },{},{},{}]
+							   },{},{}]
+		 
+		 
+		          }
+		status = {-1=缺少相册ID,0=无数据,1=成功}
+		*/
+		
+		public function showPhoto() {
+		    $pid = I('pid','');
+			if(!$pid) $this->returnAjax('-1','缺少相册ID');
+		    $group = M('photo_data')->field('datetimes')->where('pid='.$pid)->group('datetimes')->order('datetimes DESC')->select();
+		    if(!$group) $this->returnAjax('0','无数据');
+			$data = array();
+			$nowtime = strtotime(date('Y-m-d',time())); //活的今天的凌晨时间
+			
+			
+			foreach($group as $k=>$v) {
+			    $data[$k]['time']   = $nowtime == $v['datetimes'] ? '今天' : date('m月d日',time());
+				
+			    $list =  M('photo_data')->field('id,pid,remark,path,praise,comment,inputtime')->where('pid='.$pid.' AND datetimes='.$v['datetimes'])->order('datetimes DESC')->select();
+				
+				foreach( $list as $key=>$value) {
+				   $list[$key]['inputtime'] = date('Y-m-d H:i',$list[$key]['inputtime']);
+				   $list[$key]['path']      = $this->formatImg($list[$key]['path']);
+				   
+				}
+				
+				$data[$k]['images'] = $list;
+				
+			}
+			$this->returnAjax('1','成功',array('info'=>$data));
+			
+		}
+		
+		/**
+		*照片评论接口
+		*传入数据 id=图片ID,page=页数,size=每页显示数据
+		*返回数据 {
+		           status = 状态码
+				   message=提示信息
+				   info   = [{
+				            nickname      = 评论人名
+							head_img  = 评论人头像
+                            content   =  评论内容
+                            inputtime = 评论时间
+				            },{},{},{}]
+		
+		          }
+			status = {-1=无图片ID，0=无数据,1=成功}
+		*/
+		public function imageComment() {
+		    $id = I('id','');
+			if(!$id) $this->returnAjax('-1','无图片ID');
+			$page  = intval(I('page')) ? intval(I('page')) : 1;
+            $size  = intval(I('size')) ? intval(I('size')) : 10; //每页显示记录数量
+			$list = M('photo_comment')->field('ly_photo_comment.content,ly_photo_comment.inputtime,ly_user.head_img,ly_user.nickname')->where('imgid='.$id)->join('LEFT JOIN ly_user ON ly_user.uid=ly_photo_comment.uid')->order('inputtime DESC')->page($page,$size)->select();
+			if(!$list) {
+			   $this->returnAjax('0','无数据');
+			} else {
+			    foreach($list as $k=>$v) {
+			        $list[$k]['head_img']  = $this->formatImg($list[$k]['head_img']);
+			        $list[$k]['inputtime'] = $this->formatTime($list[$k]['inputtime']);//date('Y-m-d',$list[$k]['inputtime']);
+			    }
+			   $this->returnAjax('1','成功',array('info'=>$list));
+			}
+		
+		}
+		
+		/*
+		* 照片评论列表
+		* 接收数据格式  
+				id=照片ID,page=页数,size=每页显示数据
+		* 返回数据格式
+			{
+				'status'=>状态,
+				'message'=>提示信息
+				'info'=评论列表=array(
+					'cid'=>评论ID,
+					'content'=>评论内容,
+					'inputtime'=>评论时间,
+					'nickname'=>评论用户,
+					'head_img'=>用户头像,
+				),
+			} 
+		status = {
+			1：照片评论列表获取成功；
+			2：缺少照片ID；
+			3：照片不存在；
+			4：照片评论列表获取失败（无数据）；
+		}
+		*/
+		public function contmentPhotosPhotoIndex(){
+			$cid = I('id','');
+			//判断照片ID为空
+			if(empty($cid)){
+				$output = array(
+					'status' 	=>'2',
+					'message'	=>'缺少照片ID'
+				);
+				$this->ajaxReturn($output);
+			}
+			$page  = intval(I('page')) ? intval(I('page')) : 1;
+            $size  = intval(I('size')) ? intval(I('size')) : 10; //每页显示记录数量
+			//校验照片是否存在
+			$photosPhoto=$this->photos_photo->where('cid='.$cid.' and state=1')->find();
+			if($photosPhoto){
+				//准备活动评论列表
+				$commentList=$this->comment->where('fid='.$cid.' and type=2 and state')->field('cid,uid,contment,ctime')->order('ctime desc')->page($page,$size)->select();
+				if($commentList){
+					$commentListNum=count($commentList);
+					for($i=0;$i<$commentListNum;$i++){
+						$commentList[$i]['content']=$commentList[$i]['contment'];
+						$commentList[$i]['nickname']=$this->user->getFieldByUid($commentList[$i]['uid'],'nickname');
+						$commentList[$i]['head_img']=$this->user->getFieldByUid($commentList[$i]['uid'],'head_img');
+						$commentList[$i]['head_img']='http://'.$_SERVER['HTTP_HOST'].__ROOT__.$commentList[$i]['head_img'];
+						//格式化时间
+						$commentList[$i]['inputtime']=$this->formatTime($commentList[$i]['ctime']);//date('Y-m-d',$commentList[$i]['ctime']);
+						unset($commentList[$i]['uid']);
+						unset($commentList[$i]['ctime']);
+						unset($commentList[$i]['contment']);
+					}
+					$output = array(
+						'status' 	=>'1',
+						'message'	=>'照片评论列表获取成功',
+						'info'	=>$commentList
+					);
+				}else{
+					$output = array(
+						'status' 	=>'4',
+						'message'	=>'照片评论列表获取失败（无数据）'
+					);
+				}
+			}else{
+				$output = array(
+					'status' 	=>'3',
+					'message'	=>'照片不存在'
+				);
+			}
+			$this->ajaxReturn($output);
+		}
+		
+		//评论时间
+        private function formatTime($time) {
+		    $nowTime = strtotime(date('Y-m-d',time()));
+		    $date = $time - $nowTime;
+			$str = '';
+			if($date > 0){
+			   $str  = ceil($date/(60*60*1000)); 
+			   $str .= '小时前';
+			} else if($date < 0) {
+			   $str = date('Y-m-d',$time);
+			}
+			return $str;
+		}
+		
+		/*
+		* 照片点赞
+		* 接收数据格式  
+				'id'图片ID,'uid'用户ID
+		* 返回数据格式
+			{
+				'status'=>状态,
+				'message'=>提示信息,
+			} 
+		status = {
+			1：点赞成功；
+			2：缺少照片ID；
+			3：缺少用户ID；
+			4：照片不存在；
+			5：该用户已点赞；
+			6：点赞记录新增失败；
+			7：照片点赞自增失败；
+		}
+		*/
+		public function praisePhotosPhoto(){
+			$cid = I('id','');
+			$uid = I('uid','');
+			//判断照片ID为空
+			if(empty($cid)){
+				$output = array(
+					'status' 	=>'2',
+					'message'	=>'缺少照片ID'
+				);
+				$this->ajaxReturn($output);
+			}
+			//判断用户ID为空
+			if(empty($uid)){
+				$output = array(
+					'status' 	=>'2',
+					'message'	=>'缺少用户ID'
+				);
+				$this->ajaxReturn($output);
+			}
+			//校验照片是否存在
+			$photosPhoto=$this->photos_photo->where('cid='.$cid.' and state=1')->find();
+			if($photosPhoto){
+				//校验该照片该用户是否已点赞，
+				$praise=$this->praise->where('fid='.$cid.' and uid='.$uid.' and type=3 and state=1')->find();
+				if(!$praise){
+					//创建点赞记录
+					$data=null;
+					$data['fid']=$cid;
+					$data['uid']=$uid;
+					//点赞源类型 1代表最In课程 2代表少年 3代表图片 4代表活动 5代表公开课
+					$data['type']=3;
+					$praiseId=$this->praise->add($data);
+					if($praiseId){
+						//新增照片点赞数
+						$photosPhotoState=$this->photos_photo->where('cid='.$cid.' and state=1')->setInc('praise'); // 照片的点赞数自增1
+						if($photosPhotoState){
+							$output = array(
+								'status' 	=>'1',
+								'message'	=>'点赞成功'
+							);
+						}else{
+							$output = array(
+								'status' 	=>'7',
+								'message'	=>'照片点赞自增失败'
+							);	
+						}
+					}else{
+						$output = array(
+							'status' 	=>'6',
+							'message'	=>'点赞记录新增失败'
+						);	
+					}
+				}else{
+					$output = array(
+						'status' 	=>'5',
+						'message'	=>'该用户已点赞'
+					);
+				}
+				
+			}else{
+				$output = array(
+					'status' 	=>'4',
+					'message'	=>'照片不存在'
+				);	
+			}
+			$this->ajaxReturn($output);
+		}
+		
+		
+		/*
+		* 照片评论
+		* 接收数据格式  
+				'id'照片ID,'uid'用户ID,'comment'评论内容
+		* 返回数据格式
+			{
+				'status'=>状态,
+				'message'=>提示信息
+			} 
+		status = {
+			1：评论成功；
+			2：缺少照片ID；
+			3：缺少用户ID；
+			4：缺少评论内容；
+			5：照片不存在；
+			6：照片评论新增失败；
+			7：照片评论数自增失败；
+		}
+		*/
+		public function contmentPhotosPhoto(){
+			$cid = I('id','');
+			$uid = I('uid','');
+			$contment = I('comment','');
+			//判断公开课ID为空
+			if(empty($cid)){
+				$output = array(
+					'status' 	=>'2',
+					'message'	=>'缺少照片ID'
+				);
+				$this->ajaxReturn($output);
+			}
+			//判断用户ID为空
+			if(empty($uid)){
+				$output = array(
+					'status' 	=>'3',
+					'message'	=>'缺少用户ID'
+				);
+				$this->ajaxReturn($output);
+			}
+			//判断评论内容为空
+			if(empty($contment)){
+				$output = array(
+					'status' 	=>'4',
+					'message'	=>'缺少评论内容'
+				);
+				$this->ajaxReturn($output);
+			}
+			//校验照片是否存在
+			$photosPhoto=$this->photos_photo->where('cid='.$cid.' and state=1')->find();
+			if($photosPhoto){
+				//新增评论
+				$data=null;
+				$data['fid']=$cid;
+				$data['uid']=$uid;
+				$data['contment']=$contment;
+				//点赞源类型 1代表最In课程 2代表图片 3代表活动 4代表公开课
+				$data['type']=2;
+				$data['ctime']=time();
+				$commentId=$this->comment->add($data);
+				if($commentId){
+					//公开课评论数自增
+					$photosPhotoState=$this->photos_photo->where('cid='.$cid.' and state=1')->setInc('comment');  // 公开课的评论数自增1
+					if($photosPhotoState){
+						$output = array(
+							'status' 	=>'1',
+							'message'	=>'评论成功'
+						);
+					}else{
+						$output = array(
+							'status' 	=>'7',
+							'message'	=>'照片评论数自增失败'
+						);	
+					}
+				}else{
+					$output = array(
+						'status' 	=>'6',
+						'message'	=>'评论新增失败'
+					);	
+				}
+			}else{
+				$output = array(
+					'status' 	=>'5',
+					'message'	=>'照片不存在'
+				);	
+			}
+			$this->ajaxReturn($output);
+		}
+	
+	
+		/** delivery
+		*相片点赞接口
+		*传数据 id=图片ID,uid=用户ID
+		*返回数据 {
+		           status  = 状态码
+		           message = 提示信息
+		          }
+		 status = {-2=缺少用户ID,-1=缺少图片ID,0=点赞失败,1=点赞成功}
+		*/
+		public function praiseImg() {
+		    $id  = I('id','');
+			$uid = I('uid','');
+			if(!$id) $this->returnAjax('-1','缺少图片ID');
+			if(!$uid) $this->returnAjax('-2','缺少用户ID');
+			$saveData = array('praise'=>array('exp','praise+1'));
+		    M('photo_data')->where('id='.$id)->save($saveData);
+			//写入点赞统计表
+			$addData = array(
+			           'cid'=>null,
+					   'fid'=>$id,
+					   'uid'=>$uid,
+					   'type'=>3,
+					   'state'=>1
+			          );
+			M('praise')->add($addData);
+			$this->returnAjax('1','成功');
+		}
+		
+		/**
+		*图片评论接口
+		*传入数据 uid=用户ID，id=图片ID,comment=评论内容
+		*返回数据 {
+		           status  = 状态码
+				   message = 提示信息
+		          }
+		status = {-1缺少用户ID,-2缺少图片ID,-3缺少评论内容,0=评论失败,1=评论成功}
+		*/
+		
+		public function commentImg() {
+		    $uid     = I('uid','');
+			$id      = I('id','');
+			$comment = I('comment',''); 
+			if(!$uid) $this->returnAjax('-1','缺少用户ID');
+			if(!$id) $this->returnAjax('-2','缺少图片ID');
+		    if(!$comment) $this->returnAjax('-3','缺少评论内容');
+		    $data = array(
+			        'uid'=>$uid,
+					'imgid'=>$id,
+					'content'=>$comment,
+					'inputtime'=>time(),
+					'id'       =>null,
+			       );
+		    $insert   = M('photo_comment')->add($data);
+			$saveData = array('comment'=>array('exp','comment+1'));
+			M('photo_data')->save($saveData);
+			
+			if($insert) {
+			    
+				$this->returnAjax('1','评论成功');
+			} else {
+			    $this->returnAjax('0','评论失败');
+			}
+		}
+		
+		
+		
+		/**
+		*新建相册接口
+		*传入数据 {
+		            title = 相册名称
+                    remark= 相册描述
+                    label = 相册标签
+                    thumb = 相册封面图				
+		            sid   = 学校ID
+		          }
+		返回数据 {
+		          status  = 状态值
+		          message = 提示信息
+		         }
+		status = {
+		          -1=缺少相册名称
+				  -2=缺少相册描述
+				  -3=缺少相册标签
+				  -4=图片上传失败
+				  -5=缺少学校ID
+				  0 =添加失败
+				  1 =添加成功
+		         }
+		*
+		*/
+		public function addPhoto() {
+		    $data['title']  = I('title',''); if(!$data['title']) {$this->returnAjax('-1','缺少相册名称');}
+		    $data['remark'] = I('remark',''); if(!$data['remark']) {$this->returnAjax('-2','缺少相册描述');}
+		    $data['label'] = I('label',''); if(!$data['label']) {$this->returnAjax('-3','缺少相册标签');}
+			$data['sid'] = I('sid',''); if(!$data['sid']) {$this->returnAjax('-5','学校ID');}
+		    $up = new UploadFile();
+			$image = $up->upload();
+			if(!$image) {$this->returnAjax('-4',$up->error);}
+			$data['thumb'] = $image;
+			if(M('photo')->add($data)) {
+			   $this->returnAjax('1','添加成功');
+			} else {
+			   $this->returnAjax('0','添加失败');
+			}
+		
+		}
+		
+		
+		/**
+		*修改相册
+		*传入数据 传入数据 {
+		            title = 相册名称
+                    remark= 相册描述
+                    label = 相册标签
+                    thumb = 相册封面图				
+		            pid   = 相册ID
+		          }
+		返回数据 {
+		          status  = 状态值
+		          message = 提示信息
+		         }
+		status = {
+		          -1=缺少相册名称
+				  -2=缺少相册描述
+				  -3=缺少相册标签
+				  -4=图片上传失败
+				  -5=缺少相册ID
+				  0 =修改失败
+				  1 =修改成功
+		         }
+		*
+		*/
+		public function editPhoto() {
+		    $data['title']  = I('title',''); if(!$data['title']) {$this->returnAjax('-1','缺少相册名称');}
+		    $data['remark'] = I('remark',''); if(!$data['remark']) {$this->returnAjax('-2','缺少相册描述');}
+		    $data['label'] = I('label',''); if(!$data['label']) {$this->returnAjax('-3','缺少相册标签');}
+			$pid = I('pid',''); if(!$pid) {$this->returnAjax('-5','无相册ID');}
+		    $up = new UploadFile();
+			$image = $up->upload();
+			if(!$image) {$this->returnAjax('-4',$up->error);}
+			$data['thumb'] = $image;
+			if(M('photo')->where('id='.$pid)->save($data)) {
+			    $this->returnAjax('1','添加成功');
+			} else {
+			    $this->returnAjax('0','添加失败');
+			}
+		
+		}
+		
+		
+		/**
+		*删除相册
+		*传入数据 pid=相册ID
+		*返回数据 {
+		          status  = 状态值
+				  message = 提示信息
+		          }
+	    status = {-1缺少相册ID,0=删除失败,1=删除成功}
+		*/
+		
+		public function delPhoto() {
+		    $pid = I('pid','');
+			if(!$pid) $this->returnAjax('-1','缺少相册ID');
+			$suc = M('photo')->where('id='.$pid)->delete();
+			M('photo_data')->where('pid='.$pid)->delete();
+			if($suc) {
+			    
+				$this->returnAjax('1','成功');
+			} else {
+			     $this->returnAjax('0','失败');
+			}
+			
+		}
+		
+		
+		
+		
+		/**
+		*添加图片接口
+		*传入数据 pid=相册ID,thumb=图片表单名,remark=图片描述
+		*返回数据 {
+		             status  = 状态码
+					 message = 提示信息
+		          }
+		status = {
+		         -1=缺少相册ID
+                 -2=上传失败
+                 -3=缺少图片描述				 
+		         0 = 添加失败
+				 1 = 添加成功
+		         }
+		*/
+		
+		public function addImg() {
+		    $data['pid']    = I('pid','');    if(!$data['pid']) {$this->returnAjax('-1','缺少相册ID');}
+			$data['remark'] = I('remark',''); if(!$data['remark']) {$this->returnAjax('-3','缺少图片描述');}
+			$up = new UploadFile();
+			$image = $up->upload();
+			if(!$image) {$this->returnAjax('-2',$up->error);}
+			
+			$data['path'] = $image;
+			$data['praise'] = 0;
+			$data['comment'] = 0;
+			$data['inputtime'] = time();
+			$data['datetimes']   = strtotime(date('Y-m-d',time()));
+		    $data['id']    = null;
+			if(M('photo_data')->add($data)) {
+			    $this->returnAjax('1','成功');
+			
+			} else {
+			   $this->returnAjax('0','失败');
+			
+			}
+		
+		
+		}
+		
+		
+		/**
+		*删除 图片
+		*传入 id=图片ID
+		*返回数据 {
+		            status  = 状态码
+					message = 提示信息 
+		         }
+		status = {-1=无图片ID,0=删除失败,1=删除成功}
+		*
+		*/
+		
+		public function delImg() {
+		    $id = I('id','');
+		    if(!$id) {$this->returnAjax('-1','无图片ID');}
+		    if(M('photo_data')->where('id='.$id)->delete()) {
+			    $this->returnAjax('1','删除成功');
+			} else {
+			    $this->returnAjax('0','删除失败');
+			}
+		
+		}
+		
+		
+		
+		
+		/**
+		*相册详情接口
+		*传入数据 id=图片ID
+		*返回数据 
+		          {
+		         
+		
+		
+		          }
+		*/
+
+	/*
+	* 相册列表
+	* 接收数据格式  
+			'cid'所属学校ID,'page'=>页数（默认为1）,'size'=>每页条数（默认为10条）
+	* 返回数据格式
+		{
+			'status'=>状态,
+			'message'=>提示信息,
+			'photosList'=学校相册列表=array(
+				每条相册数据=array(
+					'cid'=>学校相册ID,
+					'name'=>相册名称,
+					'cover'=>相册封面,
+					'utime'=>相册更新时间,
+					'descs'=>相册描述,
+					'num'=>照片数量,
+				)
+			)
+		} 
+	status = {
+		1：获取相册列表成功；
+		2：缺少所属学校ID；
+		3：获取相册列表失败（无数据）；
+	}
+	*/
+	public function photosIndex(){
+		$cid = I('cid','');
+		//判断所属学校ID为空
+		if(empty($cid)){
+			$output = array(
+				'status' 	=>'2',
+				'message'	=>'缺少所属学校ID'
+			);
+			$this->ajaxReturn($output);
+		}
+		//准备分页
+		$page   = intval(I('page')) ? intval(I('page')) : 1;
+	    $size   =  intval(I('size')) ? intval(I('size')) : 10;
+		//获取学校相册列表
+		$photosList=$this->photos->where('fid='.$cid.' and state=1')->field('cid,name,cover,utime,descs,num')->order('ctime desc')->page($page,$size)->select();
+		if($photosList){
+			$photosListNum=count($photosList);
+			for($i=0;$i<$photosListNum;$i++){
+				if($photosList[$i]['cover']){
+					$photosList[$i]['cover']=$this->photos_photo->getFieldByCid($photosList[$i]['cover'],'url');
+					if(!$photosList[$i]['cover']){
+						$photosList[$i]['cover']=$this->appconfig->getFieldByCid("4",'value');
+					}
+				}else{
+					$photosList[$i]['cover']=$this->appconfig->getFieldByCid("4",'value');
+				}
+				//补全地址
+				$photosList[$i]['cover']='http://'.$_SERVER['HTTP_HOST'].__ROOT__.$photosList[$i]['cover'];
+				//格式化时间
+				$photosList[$i]['utime']=date('Y/m/d',$photosList[$i]['utime']);
+			}
+			$output = array(
+				'status' 	=>'1',
+				'message'	=>'获取相册列表成功',
+				'photosList'	=>$photosList
+			);
+		}else{
+			$output = array(
+				'status' 	=>'3',
+				'message'	=>'获取相册列表失败（无数据）'
+			);
+		}
+		$this->ajaxReturn($output);
+	}
+
+	
+	/*
+	* 新建相册
+	* 接收数据格式  
+			'cid'所属学校ID,'name'相册名称','descs'相册描述,'label'相册标签'
+	* 返回数据格式
+		{
+			'status'=>状态,
+			'message'=>提示信息,
+		} 
+	status = {
+		1：新建成功；
+		2：缺少所属学校ID；
+		3：缺少相册名称；
+		4：缺少相册描述；
+		5：新建失败；
+	}
+	*/
+	public function addPhotos(){
+		$cid = I('cid','');
+		$name = I('name','');
+		$descs = I('descs','');
+		//判断所属学校ID为空
+		if(empty($cid)){
+			$output = array(
+				'status' 	=>'2',
+				'message'	=>'缺少所属学校ID'
+			);
+			$this->ajaxReturn($output);
+		}
+		//判断相册名称为空
+		if(empty($name)){
+			$output = array(
+				'status' 	=>'3',
+				'message'	=>'缺少相册名称'
+			);
+			$this->ajaxReturn($output);
+		}
+		//判断相册描述为空
+		if(empty($descs)){
+			$output = array(
+				'status' 	=>'4',
+				'message'	=>'缺少相册描述'
+			);
+			$this->ajaxReturn($output);
+		}
+		$data=null;
+		$data['fid']=$cid;
+		$data['name']=$name;
+		$data['descs']=$descs;
+		$data['utime']=time();
+		$data['ctime']=time();
+		$photosId=$this->photos->add($data);
+		if($photosId){
+			$output = array(
+				'status' 	=>'1',
+				'message'	=>'新建成功'
+			);
+		}else{
+			$output = array(
+				'status' 	=>'5',
+				'message'	=>'新建失败'
+			);
+		}
+		$this->ajaxReturn($output);
+	}
+	
+	
+	/*
+	* 修改相册
+	* 接收数据格式  
+			'cid'相册ID,'name'相册名称','descs'相册描述,'cover'相册封面ID'
+	* 返回数据格式
+		{
+			'status'=>状态,
+			'message'=>提示信息,
+		} 
+	status = {
+		1：修改成功；
+		2：缺少相册ID；
+		3：缺少修改内容；
+		4：修改失败；
+	}
+	*/
+	public function editPhotos(){
+		$cid = I('cid','');
+		$name = I('name','');
+		$descs = I('descs','');
+		$cover = I('cover','');
+		//判断相册ID为空
+		if(empty($cid)){
+			$output = array(
+				'status' 	=>'2',
+				'message'	=>'缺少相册ID'
+			);
+			$this->ajaxReturn($output);
+		}
+		if($name or $descs or $label or $cover){
+			$data=null;
+			if($name){
+				$data['name']=$name;
+			}
+			if($descs){
+				$data['descs']=$descs;
+			}
+			if($cover){
+				$data['cover']=$cover;
+			}
+			$state=$this->photos->where('cid='.$cid)->save($data);
+			if($state){
+				$output = array(
+					'status' 	=>'1',
+					'message'	=>'修改成功'
+				);
+			}else{
+				$output = array(
+					'status' 	=>'4',
+					'message'	=>'修改失败'
+				);
+			}
+		}else{
+			$output = array(
+				'status' 	=>'3',
+				'message'	=>'缺少修改内容'
+			);	
+		}
+		$this->ajaxReturn($output);
+	}
+	
+	
+	/*
+	* 删除相册
+	* 接收数据格式  
+			'cid'相册ID
+	* 返回数据格式
+		{
+			'status'=>状态,
+			'message'=>提示信息,
+		} 
+	status = {
+		1：删除成功；
+		2：缺少相册ID；
+		3：相册不存在；
+	}
+	*/
+	public function delPhotos(){
+		$cid = I('cid','');
+		//判断相册ID为空
+		if(empty($cid)){
+			$output = array(
+				'status' 	=>'2',
+				'message'	=>'缺少相册ID'
+			);
+			$this->ajaxReturn($output);
+		}
+		//判断相册是否存在
+		$photosInfo=$this->photos->where('cid='.$cid)->find();
+		if($photosInfo){
+			//相册存在
+				//执行删除相册所有图片
+				$this->photos_photo->where('fid='.$photosInfo['cid'])->delete();
+				//执行删除相册
+				$this->photos->where('cid='.$photosInfo['cid'])->delete();
+				//相册不存在
+				$output = array(
+					'status' 	=>'1',
+					'message'	=>'删除成功'
+				);
+		}else{
+			//相册不存在
+			$output = array(
+				'status' 	=>'3',
+				'message'	=>'相册不存在'
+			);
+		}
+		$this->ajaxReturn($output);
+	}
+	
+	
+	/*
+	* 相册详情
+	* 接收数据格式  
+			'cid'相册ID
+	* 返回数据格式
+		{
+			'status'=>状态,
+			'message'=>提示信息,
+			'photosList'=照片列表=array(
+				'time'=>日期,
+				'images'=日期照片列表=array(
+					每条照片数据=array(
+						'id'=>照片ID,
+						'path'=>照片地址,
+						'praise'=>照片点赞数,
+						'comment'=>照片评论数,
+						'cdate'=>创建日期,
+						'inputtime'=>创建时间,
+					)
+				)
+			)
+		} 
+	status = {
+		1：获取照片列表成功；
+		2：缺少相册ID；
+		3：获取照片列表失败（无数据）；
+	}
+	*/
+	public function showPhotos(){
+		$cid = I('cid','');
+		//判断相册ID为空
+		if(empty($cid)){
+			$output = array(
+				'status' 	=>'2',
+				'message'	=>'缺少相册ID'
+			);
+			$this->ajaxReturn($output);
+		}
+		//获取相册照片列表信息
+		$photoList=$this->photos_photo->where('fid='.$cid.' and state=1')->field('cid,url,praise,comment,ctime,cdate')->order('ctime desc')->select();
+		if($photoList){
+			$photoListNum=count($photoList);
+			$photoListY=null;
+			for($i=0;$i<$photoListNum;$i++){
+				//补全地址
+				$photoList[$i]['path']='http://'.$_SERVER['HTTP_HOST'].__ROOT__.$photoList[$i]['url'];
+				unset($photoList[$i]['url']);
+				$photoList[$i]['id']=$photoList[$i]['cid'];
+				unset($photoList[$i]['cid']);
+				$photoList[$i]['inputtime']=$photoList[$i]['ctime'];
+				$photoList[$i]['inputtime']=date('Y-m-d H:i',$photoList[$i]['inputtime']);
+				unset($photoList[$i]['ctime']);
+				if($photoList[$i]['cdate']==strtotime(date('Y-m-d',time()))){
+					$photoList[$i]['cdate']="今天";
+				}else{
+					$photoList[$i]['cdate']=date('m月d日',$photoList[$i]['cdate']);
+				}
+				$photoListY[$photoList[$i]['cdate']][]=$photoList[$i];
+			}
+			
+			$photoListYs = $photoListY;
+			$photoListY  = array();
+			foreach($photoListYs as $k=>$v) {
+				$array = array(
+				       'time'=>$k,
+					   'images'=>$v,
+				);
+				$photoListY[]   = $array;		
+			}
+			$output = array(
+				'status' 	=>'1',
+				'message'	=>'获取照片列表成功',
+				'photoListY'	=>$photoListY
+			);
+		}else{
+			$output = array(
+				'status' 	=>'3',
+				'message'	=>'获取照片列表失败（无数据）'
+			);
+		}
+		$this->ajaxReturn($output);
+	}
+	
+	/*
+	* 新增照片
+	* 接收数据格式  
+			'cid'相册ID,'fid'学校ID,'url'图片文件
+	* 返回数据格式
+		{
+			'status'=>状态,
+			'message'=>提示信息,
+		} 
+	status = {
+		1：新增成功；
+		2：缺少相册ID；
+		3：缺少所属学校ID；
+		4：相册不存在或已被禁用；
+		5：照片上传失败；
+		6：新增失败；
+		7：相册更新时间失败；
+		8：更新相册数量失败；
+	}
+	*/
+	public function addPhotosPhoto(){
+		$fid = I('cid','');
+		$sid = I('fid','');
+		//判断相册ID为空
+		if(empty($fid)){
+			$output = array(
+				'status' 	=>'2',
+				'message'	=>'缺少相册ID'
+			);
+			$this->ajaxReturn($output);
+		}
+		//判断所属学校ID为空
+		if(empty($sid)){
+			$output = array(
+				'status' 	=>'3',
+				'message'	=>'缺少所属学校ID'
+			);
+			$this->ajaxReturn($output);
+		}
+		//判断相册是否存在
+		$photosInfo=$this->photos->where('cid='.$fid.' and state=1')->field('cid')->find();
+		if(!$photosInfo){
+			$output = array(
+				'status' 	=>'4',
+				'message'	=>'相册不存在或已被禁用'
+			);
+			$this->ajaxReturn($output);
+		}
+		$myUpload = new UploadFile();
+		$imgpath = $myUpload->upload("url");//图片路径
+		if(!$imgpath){
+			$output = array(
+				'status' 	=>'5',
+				'message'	=>'照片上传失败'.$myUpload->error,
+				'head_img'	=>'http://'.$_SERVER['HTTP_HOST'].__ROOT__.$imgpath
+			);
+			$this->ajaxReturn($output);
+		}
+		//准备数据创建
+		$data=null;
+		$data['fid']=$fid;
+		$data['sid']=$sid;
+		$data['url']=$imgpath;
+		$data['ctime']=time();
+		$data['cdate']=strtotime(date('Y-m-d',time()));
+		$photoId=$this->photos_photo ->add($data);
+		if($photoId){
+			//新增成功后更新相册的更新时间和数量
+			$timeState=$this->photos-> where('cid='.$fid)->setField('utime',time());
+			//更新相册数量
+			$numState=$this->photos-> where('cid='.$fid)->setInc('num');
+			$output = array(
+				'status' 	=>'1',
+				'message'	=>'新增成功'
+			);
+		}else{
+			$output = array(
+					'status' 	=>'6',
+					'message'	=>'新增失败'
+			);
+		}
+		$this->ajaxReturn($output);
+	}
+	
+	
+	/*
+	* 删除照片
+	* 接收数据格式  
+			'cid'照片ID或照片ID集,'fid'相册ID,'type'删除类型 1单张删除 2多张删除
+	* 返回数据格式
+		{
+			'status'=>状态,
+			'message'=>提示信息,
+			'photosList'=照片列表=array(
+				'time'=>日期,
+				'images'=日期照片列表=array(
+					每条照片数据=array(
+						'id'=>照片ID,
+						'path'=>照片地址,
+						'praise'=>照片点赞数,
+						'comment'=>照片评论数,
+						'cdate'=>创建日期,
+					)
+				)
+			)
+		} 
+	status = {
+		1：删除成功，获取照片列表成功；
+		2：缺少照片ID'；
+		3：缺少相册ID；
+		4：缺少删除类型；
+		5：删除失败；
+		6：删除成功，获取照片列表失败（无数据）；
+	}
+	*/
+	public function delPhotosPhoto(){
+		$cid = I('cid','');
+		$fid = I('fid','');
+		$type = I('type','');
+		//判断照片ID为空
+		if(empty($cid)){
+			$output = array(
+				'status' 	=>'2',
+				'message'	=>'缺少照片ID'
+			);
+			$this->ajaxReturn($output);
+		}
+		//判断相册ID为空
+		if(empty($fid)){
+			$output = array(
+				'status' 	=>'3',
+				'message'	=>'缺少相册ID'
+			);
+			$this->ajaxReturn($output);
+		}
+		//判断类型为空
+		if(empty($type)){
+			$output = array(
+				'status' 	=>'4',
+				'message'	=>'缺少删除类型'
+			);
+			$this->ajaxReturn($output);
+		}
+		//执行删除
+		if($type==1){
+			//单个删除
+			$where['cid']  = $cid;
+		}else{
+			//多个删除
+			$where['cid']  = array('in',$cid);
+		}
+		$state=$this->photos_photo->where($where)->delete();
+		if($state){			
+			//删除成功获取数据列表
+			$photoList=$this->photos_photo->where('fid='.$fid.' and state=1')->field('cid,url,praise,comment,cdate')->order('ctime desc')->select();
+			if($photoList){
+				$photoListNum=count($photoList);
+				//同步图片数量
+				$this->photos->where('cid='.$fid)->setField('num',$photoListNum);
+				$photoListY=null;
+				for($i=0;$i<$photoListNum;$i++){
+					//补全地址
+					$photoList[$i]['path']='http://'.$_SERVER['HTTP_HOST'].__ROOT__.$photoList[$i]['url'];
+					unset($photoList[$i]['url']);
+					$photoList[$i]['id']=$photoList[$i]['cid'];
+					unset($photoList[$i]['cid']);
+					if($photoList[$i]['cdate']==strtotime(date('Y-m-d',time()))){
+						$photoList[$i]['cdate']="今天";
+					}else{
+						$photoList[$i]['cdate']=date('m月d日',$photoList[$i]['cdate']);
+					}
+					$photoListY[$photoList[$i]['cdate']][]=$photoList[$i];
+				}
+				
+				$photoListYs = $photoListY;
+				$photoListY  = array();
+				foreach($photoListYs as $k=>$v) {
+					$array = array(
+						   'time'=>$k,
+						   'images'=>$v,
+					);
+					$photoListY[]   = $array;		
+				}
+				$output = array(
+					'status' 	=>'1',
+					'message'	=>'删除成功，获取照片列表成功',
+					'photoListY'	=>$photoListY
+				);
+			}else{
+				//同步图片数量
+				$this->photos->where('cid='.$fid)->setField('num',0);
+				$output = array(
+					'status' 	=>'6',
+					'message'	=>'删除成功，获取照片列表失败（无数据）'
+				);
+			}
+		}else{
+			$output = array(
+				'status' 	=>'5',
+				'message'	=>'删除失败'
+			);
+		}
+		$this->ajaxReturn($output);
+	}
+}

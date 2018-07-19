@@ -1,0 +1,41 @@
+*{ azimuth:0; padding:0px;}
+.clearfix {*zoom: 1}
+.clearfix:after {display: table;line-height: 0;content: "";clear: both;}
+/*登录*/
+.bgColor{ background:#AB5805 url(images/bg_bg.gif) repeat-x;}
+.loginBody{ width:580px; padding-top:187px; background:url(images/bg_login.gif) no-repeat center 104px; margin:0 auto;}
+.loginBody .loginBox{ width:560px; padding-bottom:25px;  background:#fff; border:solid 10px #7F4000;}
+.loginBody h1{ font-size:16px; color:#7f4000; font-family:"微软雅黑"; font-weight:normal; width:280px; margin:0 auto; padding:30px 0px 20px;}
+.loginBody .eBox{ width:280px; margin:0 auto; margin-bottom:20px;}
+.loginBody .eBox label{ float:left; width:43px; padding-right:13px; text-align:right; line-height:30px; font-size:14px; color:#999999;}
+.loginBody .eBox .rightInput{ float:left; width:218px; height:28px; border:solid 1px #D5D5D5; border-radius:4px; position:relative;}
+.loginBody .eBox h3{ float:left; position:relative; width:30px; font-size:12px; height:28px; background:#fff; border-right:solid 1px #D5D5D5; position:relative; margin:0;}
+.loginBody .eBox i{ display:block; width:14px; height:15px; overflow:hidden; background:url(images/icon.gif) no-repeat; position:absolute; left:7px; top:6px;}
+.loginBody .eBox span{ display:block; width:6px; height:9px; overflow:hidden; background:url(images/bg_arr.gif) no-repeat; position:absolute; right:-6px; top:10px;}
+.loginBody .eBox .txtInput{ float:left; width:175px; height:18px; line-height:18px; padding:5px 6px; border:none; background:none;}
+.loginBody .eBox i.tips{ width:16px; height:15px; background-position:0px -25px;}
+.loginBody .eBox .yzmInput{ float:left; width:100px; text-align:center; height:18px; line-height:18px; padding:5px 0px; background:#fff; border:solid 1px #D5D5D5; margin-right:5px;} 
+.loginBody .eBox img{ float:left; width:113px; height:30px; overflow:hidden;}
+.loginBody .bnBox{ width:224px; margin:0 auto; padding-left:56px;}
+.loginBody .bn_login{ display:inline-block; vertical-align:middle; width:68px; height:30px; background:url(images/bn_login.png) no-repeat; border:none; cursor:pointer;}
+.loginBody .bnBox a{ display:inline-block; line-height:30px; text-decoration:underline; font-size:12px; margin-left:10px; color:#7F4000;}
+/*忘记密码*/
+.wjmmBox .eBox{ width:310px;}
+.wjmmBox .eBox label{ width:77px;}
+.wjmmBox .bnBox{ padding-left:90px;}
+.wjmmBox .bn_login{ width:86px; background:url(images/bn_qdzh.png) no-repeat;}
+.wjmmBox h1{ width:310px;}
+/*重置密码*/
+.wjmmBox .eBox .newpassword{ width:200px; padding:5px; text-align:left;} 
+.wjmmBox .bn_chongzhi{ background:url(images/bn_chongzhi.png) no-repeat;}
+.wjmmBox .btTips{ margin:0px 10px; border-top:solid 1px #d1d1d1; color:#8e8e8e; padding-top:15px; padding-left:60px; font-size:12px; margin-top:20px;}
+.wjmmBox .btTips a{ color:#395b98; text-decoration:underline;}
+/*找回密码*/
+.zhmmBox{ margin:0px 10px; padding:20px 0px 10px 75px; border-bottom:solid 1px #d1d1d1;}
+.zhmmBox h2{ font-size:16px; color:#7f4000; font-family:"微软雅黑"; font-weight:normal; padding-bottom:0px;}
+.zhmmBox p{ line-height:24px; font-size:14px; color:#666;}
+.zhmmBox p a, .czmmBox p a{color:#395b98; text-decoration:underline;}
+/*重置密码成功*/
+.czmmBox{ text-align:center; padding:90px 0px 85px;}
+.czmmBox h2{ font-size:22px; color:#7f4000; font-family:"微软雅黑"; font-weight:normal; }
+.czmmBox p{ font-size:12px; color:#8e8e8e;}

@@ -1,0 +1,122 @@
+<style>
+.child{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">选择模块API </b> 
+		<span>- DEMO</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+           <div class="tile-header">
+					<h1>
+						<strong>选择模块API </strong> DEMO
+					</h1>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+           <!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body nopadding">
+					<form class="form-horizontal " action="__MODULE__/ClassManage/insert" method="post" role="form" id="DepartmentAdd">
+						<div class="form-group col-md-6 col-sm-12">
+							<label for="principal" class="col-sm-4 control-label">
+								<span class="DepartmentType">选择</span>模块
+							</label>
+							<div class="col-sm-8">
+								<div class="input-group">
+									<input type="hidden" class="form-control" name="roomid" id="ModuleIdSelect" readonly>
+									<input type="text" class="form-control" id="ModuleIdSelectlName" readonly>
+									<div class="input-group-btn">
+										<a href="#ModulesSelects" class="btn btn-greensea dropdown-toggle" role="button" data-toggle="modal"><i class="icon-cogs"></i></a>
+										<ul class="dropdown-menu pull-right">
+											<li>
+												<div id="event-colorpalette" data-return-color="#principal"></div>
+											</li>
+										</ul>
+									</div><!-- /btn-group -->
+								</div><!-- /input-group -->
+							</div>
+						</div>
+						<div class="row">
+							<a href="#ModulesSelects" role="button" class="btn btn-red" data-toggle="modal"><span class="icon-hand-up"></span> 选择模块</a>
+						</div>
+						
+                    </form>
+				</div>
+				<!-- /tile body -->
+				<!-- 选择模块层开始 -->
+				<div class="modal fade" id="ModulesSelects" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true">
+					<div class="modal-dialog" >
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">关闭</button>
+								<h3 class="modal-title" id="modalConfirmLabel"><strong>选择模块API </strong> DEMO</h3>
+							</div>
+							<div class="row">
+								<div class="col-md-10 col-md-offset-1">
+									<div class="alert alert-danger" role="alert" id="ModuleSelectAlert">请选择模块</div>
+								</div>
+							</div>
+							<div class="row">							
+								<div class="col-md-5 col-md-offset-1">
+									<table class='table' id="ModulesSelect">
+									</table>
+								</div>
+								<div class="col-md-5">
+									<table class="table">
+										<tbody id="MethodData">
+											<tr class="nodata"><td class="text-center" colspan="13"> 暂 无 数 据 </td></tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-red" data-dismiss="modal" aria-hidden="true">取消</button>
+								<a state="close" role="button" class="btn btn-green" disabled="disabled" id="ModuleSure" onclick="ModuleSure()" data-dismiss="modal" aria-hidden="true">确定</a>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->  
+				<!-- 选择模块层结束结束 -->
+			</section>
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+
+
+
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

@@ -1,0 +1,49 @@
+<script type="text/javascript">
+//登录验证
+
+$('#username').focus();
+$('#su').bind('click',function(){
+    var username = $('#username').val();
+    var password = $('#password').val();
+    if(username == ''){
+        $('#username').next().html('用户名不能为空');
+        $('#username').focus();
+        return false;
+    }
+    if(password == ''){
+        $('#password').next().html('密码不能为空');
+        $('#password').focus();
+        return false;
+    }
+    $.ajax({
+        url:'__MODULE__/Login/check',
+        type:'post',
+        dataType:'json',
+        data:{"username":username,"password":password},
+        beforeSend:function(){
+            $('#before').html('登陆中.....');
+        },
+        success:function(data){
+            if(data == 1){
+                $('#before').html('登陆成功');
+                window.location.href="__MODULE__/Index/index";
+            }else{
+                $('#before').remove();
+               $('#error').html('登陆失败');
+               return false;
+            }
+        }
+    })
+});
+//用户退出
+$('#out').bind('click',function(){
+    $.ajax({
+        url:'__MODULE__/Login/loginOut',
+        dataType:'json',
+        success:function(data){
+           $('#out').next().html('再见');
+        }
+    })
+});
+
+</script>

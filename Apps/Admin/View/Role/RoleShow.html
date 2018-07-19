@@ -1,0 +1,84 @@
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">角色管理</b> 
+		<span>- Role manage</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+           <div class="tile-header">
+					<h1>
+						<strong>角色</strong>列表
+					</h1>
+					<div class="pull-right">
+						<a href="__MODULE__/Role/RoleAdd" role="button" class="btn btn-red" data-toggle="modal"><span class="icon-plus"></span> 增加角色</a>
+					</div>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+           <!-- /tile header -->
+				<!-- tile body -->
+           <div class="tile-body nopadding">
+					<table class="table">
+						<thead>
+							<tr>
+							  <th class="text-center">名称</th>
+							  <th class="text-center hidden-xs">描述</th>
+							  <th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<volist name="role" id="vo" empty="暂时没有数据">
+								<tr>
+									<td class="text-center">{$vo.name}</td>
+									<td class="hidden-xs text-center">{$vo.describe}</td>
+									<td class="text-right">
+										<div class="btn-group" role="group" aria-label="...">
+											<a class="btn btn-default" role="button" href="__MODULE__/Role/edit/id/{$vo.id}">修改</a>
+											<a class="btn btn-default" role="button" href="__MODULE__/Role/del/id/{$vo.id}">删除</a>
+											<a class="btn btn-default" role="button" href="__MODULE__/Role/showUser" target="_blank">查看</a>
+											<a class="btn btn-default" role="button" href="__MODULE__/Role/menuShow/id/{$vo.id}">管理菜单</a>
+											<a class="btn btn-default" role="button" href="__MODULE__/role/controlShow/id/{$vo.id}">管理控制</a>
+										</div>
+									</td>
+								</tr>
+							</volist>
+						</tbody>
+              </table>
+				</div>
+           <!-- /tile body -->
+			</section>
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+
+
+
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

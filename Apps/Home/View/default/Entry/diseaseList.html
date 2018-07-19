@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>超级医生-疾病列表</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1">
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<link rel="stylesheet" href="__CSS__/public.css">
+	<link rel="stylesheet" href="__CSS__/idangerous.swiper.css">
+	<link rel="stylesheet" href="__CSS__/diseaseList.css">
+	<script src="__JS__/jquery.min.js"></script>
+	<script src="__JS__/idangerous.swiper.min.js"></script>
+	<style>
+		.mainBox3Left2Disease li{
+			float:left;
+			font-size: 16px;
+			padding-left: 40px;
+		}
+		.mainBox3Left2Disease{
+			width:400px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<!-- header -->
+		<include file="Public/cjysHeader" />
+		<div class="main">
+			<div class="mainBox1">
+				<div class="mainBox1Banner swiper-container fl">
+		            <div class="swiper-wrapper">
+		                <div class="swiper-slide">
+		                 	<img src="__IMG__/1511920180749.png" alt="" class="mainBox1BannerImg">
+		                </div>
+		                <div class="swiper-slide">
+		                 	<img src="__IMG__/1511920180749.png" alt="" class="mainBox1BannerImg">
+		                </div>
+		                <div class="swiper-slide">
+		                 	<img src="__IMG__/1511920180749.png" alt="" class="mainBox1BannerImg">
+		                </div>
+		            </div>
+		            <div class="my-pagination"></div>
+				</div>
+				<script>
+			        var mySwiper1 = new Swiper('.mainBox1Banner',{
+			            loop: true,
+			            autoplay: 5000,
+			            pagination:'.my-pagination',
+			            paginationClickable :true
+			        });
+			    </script>
+			    <div class="mainBox1Right fr">
+			    	<div class="diseaseTitle">最热疾病词条</div>
+			    	<div class="diseaseBox">
+						<foreach name="hotDease" item="hot">
+							<a href="__WEBURL__/Entry/detail?id={$hot.id}" target="_blank"><span class="diseaseTip" data-id="{$hot.id}">{$hot.cname}</span></a>
+						</foreach>
+			    	</div>
+			    </div>
+			    <div class="cl"></div>
+			</div>
+			<div class="mainBox2">
+				<div class="diseaseTitle">常见疾病</div>
+				<div class="mainBox2Banner swiper-container">
+					<div class="swiper-wrapper">
+		                <div class="swiper-slide">
+		                	<div class="mainBox2BannerInner">
+		                		<div class="mainBox2InnerImg"></div>
+		                		<div class="mainBox2InnerText">肺部疾病</div>
+		                	</div>
+		                </div>
+		                <div class="swiper-slide">
+		                	<div class="mainBox2BannerInner">
+		                		<div class="mainBox2InnerImg"></div>
+		                		<div class="mainBox2InnerText">肺部疾病</div>
+		                	</div>
+		                </div>
+		                <div class="swiper-slide">
+		                	<div class="mainBox2BannerInner">
+		                		<div class="mainBox2InnerImg"></div>
+		                		<div class="mainBox2InnerText">肺部疾病</div>
+		                	</div>
+		                </div>
+		                <div class="swiper-slide">
+		                	<div class="mainBox2BannerInner">
+		                		<div class="mainBox2InnerImg"></div>
+		                		<div class="mainBox2InnerText">肺部疾病</div>
+		                	</div>
+		                </div>
+		                <div class="swiper-slide">
+		                	<div class="mainBox2BannerInner">
+		                		<div class="mainBox2InnerImg"></div>
+		                		<div class="mainBox2InnerText">肺部疾病</div>
+		                	</div>
+		                </div>
+		                <div class="swiper-slide">
+		                	<div class="mainBox2BannerInner">
+		                		<div class="mainBox2InnerImg"></div>
+		                		<div class="mainBox2InnerText">肺部疾病</div>
+		                	</div>
+		                </div>
+		                <div class="swiper-slide">
+		                	<div class="mainBox2BannerInner">
+		                		<div class="mainBox2InnerImg"></div>
+		                		<div class="mainBox2InnerText">肺部疾病</div>
+		                	</div>
+		                </div>
+		                <div class="swiper-slide">
+		                	<div class="mainBox2BannerInner">
+		                		<div class="mainBox2InnerImg"></div>
+		                		<div class="mainBox2InnerText">肺部疾病</div>
+		                	</div>
+		                </div>
+		            </div>
+				</div>
+				<div class="lbcon">
+				      <span class="lb_left"><img src="__IMG__/20180316cjys23.png" alt=""></span>
+				      <span class="lb_right"><img src="__IMG__/20180316cjys24.png" alt=""></span>
+			    </div>
+				<script>
+					var mySwiper2 = new Swiper('.mainBox2Banner',{
+			            loop: true,
+			            autoplay: 5000,
+			            slidesPerView: 8
+			        });
+			        $('body').on('click','.lb_left',function(){
+				      mySwiper2.swipePrev();
+				    })
+				    $('body').on('click','.lb_right',function(){
+				      mySwiper2.swipeNext();
+				    })
+				</script>
+			</div>
+			<div class="mainBox3">
+				<!-- 更多疾病 -->
+				<div class="mainBox3Left fl">
+					<div class="mainBox3LeftTilte">更多疾病</div>
+					<div class="mainBox3Left1 fl">
+						<div class="mainBox3Left1_title">按人体部位分</div>
+						<div class="mainBox3Left1Pic">
+							<foreach name="moreDease" item="info" key="k">
+							<if condition="$k eq 0">
+								<div class="bodyPic bodyPic_{$info.id} bodyPicThis" data-n="{$info.id}">
+							<else />
+								<div class="bodyPic bodyPic_{$info.id}" data-n="{$info.id}" data-id="{$info.id}">
+							</if>
+									<span class="bodyPicText">{$info.name}</span>
+								</div>
+							</foreach>
+						</div>
+						<div class="mainBox3Left1_tip">注：所标部位对应症状不分男女老少</div>
+					</div>
+					<div class="mainBox3Left2 fr mainBox3Left2_1">
+						<div class="mainBox3Left2_title"><span>头颈部</span> 常见疾病</div>
+						<div class="mainBox3Left2Disease fl">
+							<foreach name="headDisease" item="twoInfo">
+								<li id="{$twoInfo.id}">{$twoInfo.name}</li>
+							</foreach>	
+						</div>
+					</div>
+					<div class="mainBox3Left2 fr mainBox3Left2_2">
+						<div class="mainBox3Left2_title"><span></span>常见疾病</div>
+					</div>
+					<div class="mainBox3Left2 fr mainBox3Left2_3">
+						<div class="mainBox3Left2_title"><span></span>常见疾病</div>
+					</div>
+					<div class="mainBox3Left2 fr mainBox3Left2_4">
+						<div class="mainBox3Left2_title"><span></span>常见疾病</div>
+					</div>
+					<div class="mainBox3Left2 fr mainBox3Left2_5">
+						<div class="mainBox3Left2_title"><span></span>常见疾病</div>
+					</div>
+					<div class="mainBox3Left2 fr mainBox3Left2_6">
+						<div class="mainBox3Left2_title"><span></span>常见疾病</div>
+					</div>
+				</div>
+				<!-- 季节高发病 -->
+				<div class="mainBox3Right fr">
+					<div class="mainBox3Right1">
+						<div class="mainBox3Right1Tilte">季节高发病</div>
+						<div class="mainBox3Left2Disease fl">
+							<li>脑瘤</li>
+							<li>鼻咽癌</li>
+							<li>口腔癌</li>
+							<li>眼部肿瘤</li>
+							<li>舌癌</li>
+							<li>牙龈癌</li>
+							<li>颊癌</li>
+						</div>
+						<div class="mainBox3Left2Disease fl">
+							<li>脑瘤</li>
+							<li>鼻咽癌</li>
+							<li>口腔癌</li>
+							<li>眼部肿瘤</li>
+							<li>舌癌</li>
+							<li>牙龈癌</li>
+						</div>
+					</div>
+					<div class="mainBox3Right2">
+						<div class="mainBox3Right1Tilte">我要提问</div>
+						<div class="questions">
+							<textarea name="" id="" onKeyUp="if(this.value.length > 30){this.value=this.value.substr(0,30)}">头疼，头晕，出虚汗怎么回事？</textarea>
+							<div class="questionsTip">
+								<span>字数限制5-30个字</span>
+								<button>提交问题</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cl"></div>
+			</div>
+			<div class="mainBox4">
+				<img src="__IMG__/1511920180748.png" alt="">
+			</div>
+			<div class="mainBox5">
+				<span>友情链接：</span>
+				<a href=""><span class="mainBox5Link">百度</span></a>
+				<a href=""><span class="mainBox5Link">好医生</span></a>
+				<a href=""><span class="mainBox5Link">今日头条</span></a>
+			</div>
+		</div>
+		<!-- footer -->
+		<include file="Public/cjysFooter" />
+	</div>
+	<script>
+		// 更多疾病，切换
+		$('body').on('click','.bodyPic',function(){
+			var n=$(this).data('n');
+			$('.bodyPic').removeClass('bodyPicThis');
+			$(this).addClass('bodyPicThis');
+			var value=$(this).find('.bodyPicText').html();
+			$('.mainBox3Left2_'+n).find('.mainBox3Left2_title span').html(value);
+			$('.mainBox3Left2').hide();
+			$('.mainBox3Left2_'+n).find('.mainBox3Left2_title').next().remove();
+			$.ajax({
+				url:'__URLS__/Common/DiseaseList',
+				type:'post',
+				dataType:'json',
+				data:'fid='+n+'&level=2&type=2',
+				success:function(data){
+					if(data.status == 1){
+						var twoDivHTML = '';
+						twoDivHTML += '<div class="mainBox3Left2Disease fl">';
+						for(var i in data.data){
+							twoDivHTML += '<li>'+data.data[i]['name']+'</li>';
+						}
+						twoDivHTML += '</div>';
+						$('.mainBox3Left2_'+n).find('.mainBox3Left2_title').after(twoDivHTML);
+						$('.mainBox3Left2_'+n).show();
+					}else{
+						alert(data.message)
+					}
+				}
+			});
+		});
+	</script>
+</body>
+</html> 

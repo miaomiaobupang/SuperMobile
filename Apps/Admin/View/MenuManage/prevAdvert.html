@@ -1,0 +1,170 @@
+<style>
+.child{
+	display:none;
+}
+.hiddens{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+.modelClass{
+	cursor:pointer;
+}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-book" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">菜单及广告管理</b> 
+		<span>- Menu Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-3">
+			<section class="tile color transparent-black col-md-12">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h3>
+						<strong>请选择菜单</strong>
+					</h3>
+					<div class="pull-right">
+						<a href="__MODULE__/MenuManage/prevMenu" role="button" class="btn btn-red" data-toggle="modal">&nbsp;<span class="icon-plus">菜单</span>&nbsp;</a>
+						<a href="__MODULE__/MenuManage/prevAdvert" role="button" class="btn btn-red" data-toggle="modal">&nbsp;<span class="icon-plus">广告</span>&nbsp;</a>
+					</div>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body nopadding col-md-10 col-md-offset-1">
+
+						<table class='table'>
+							<foreach name="data" item="list" empty="暂时没有数据">
+								<tr class="oneTrStyle" data-id="{$list.id}" data-state="1">
+									<td>{$list.nbsp}
+										<if condition="$list.level eq 1">
+											<span menu="close" class="hand icon-plus fatherico{$list.id}"></span>&nbsp;&nbsp;
+											<else />
+											&nbsp;&nbsp;&nbsp;&nbsp;
+										</if>
+										<span class="hand"><span class="{$list.ico}"></span> {$list.name}</span>
+									</td>
+								<tr>
+								<foreach name="list.two" item="two" empty="暂时没有数据">
+									<tr class="oneTrStyle_{$list.id} twoTrStyle hand" data-id="{$two.id}" data-state="1">
+										<td>
+											<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$two.name}</span>
+										</td>
+									</tr>
+									<foreach name="two.three" item="three" empty="暂时没有数据">
+										<tr class="oneTrStyle_{$list.id} twoTrStyle_{$two.id}">
+											<td>
+												<if condition="$three.is_menu eq 1">
+													<span class="hand menuSpanStyle" style="color:red;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  {$three.name}</span>
+												<else />
+													<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  {$three.name}</span>
+												</if>
+											</td>
+										</tr>
+									</foreach>
+								</foreach>
+							</foreach>
+						</table>
+
+					<div class="Prompt">
+						
+					</div>
+				</div>
+				<!-- /tile body -->
+			</section>
+		</div>
+		<div class="col-md-9">
+			<!-- tile -->
+			<section class="tile color transparent-black" id="MenuData">
+				<!-- tile header -->
+				<div class="tile-header MenuFrom">
+					<h1>
+						<strong>新增广告</strong>
+					</h1>
+					<div class="pull-right">
+						<!-- <a href="#moduleAdd" role="button" class="btn btn-red" data-toggle="modal"><span class="icon-plus"></span> 添加用户</a> -->
+					</div>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<!-- tile body -->
+				<div class="tile-body MenuFrom">
+					<form class="form-horizontal " action="__MODULE__/MenuManage/insertTwo" method="post" role="form">
+						<input type="hidden" name="type" id="HiddenType" value="1"/>
+						<div class="form-group publicContentone">
+							<label for="properties" class="col-sm-2 control-label">
+								菜单模式
+							</label>
+							<div class="col-sm-10">
+								<ul class="nolisttypes inlineSelect inline">
+									<li>
+										<div class="radio radio-transparent">
+											{$indexData}
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="form-group publicContenttwo publicContentone1" style="margin-left:0px;">	
+							<div class="form-group">
+								<label for="properties" class="col-sm-2 control-label">全部模块</label>
+								<div class="col-sm-2">{$list.name}</div>
+							</div>
+							<div class="form-group">
+								<label for="properties" class="col-sm-2 control-label">
+									模块名称
+								</label>
+								<div class="col-sm-3">
+									<input name="mnameone" id="mnameone" type="text" value="" placeholder="中文名称">
+								</div>
+								<div class="col-sm-3">
+									<input name="pnameone" id="pnameone" type="text" value="" placeholder="英文名称">
+								</div>
+							</div>	
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-4 col-sm-4">
+								<button type="submit" class="btn btn-greensea btn-block" data-type="1">提交</button>
+							</div>
+						</div>
+                    </form>
+				</div>
+				<!-- /tile body -->
+				<!-- 选择模块层开始 -->
+				
+				<!-- 选择图标层结束结束 -->
+			</section>
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+

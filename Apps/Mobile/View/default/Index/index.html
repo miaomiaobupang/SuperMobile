@@ -1,0 +1,451 @@
+<include file="Public/publicHeader" />
+<script src="__JS__/zepto.min.js"></script>
+<script src="__JS__/swiper-4.3.3.min.js"></script>
+<link rel="stylesheet" href="__CSS__/swiper-4.3.3.min.css">
+	<style>
+		/*主体部分开始*/
+		.mainBox{
+			width:102%;
+			height:auto;
+			margin-left:-0.8rem;
+			background:#f0f0f0;
+			position:absolute;
+		}
+		.quiclyNav{
+			width:100%;
+			height:48rem;
+			background:#fff;
+			margin-top:14rem;
+		}
+		.sixModels{
+			width:33.33%;
+			height:22rem;
+			float:left;
+		}
+		.sixModelsImg{
+			height:50%;
+			margin-left:38%;
+			margin-top:2rem;
+		}
+		.sixModelsImgs{
+			margin-top:3rem;
+			width:8rem;
+		}
+		.sixModelsWord{
+			height:9rem;
+			line-height:9rem;
+			font-size:4rem;
+			color:#333;
+			text-align:center;
+		}
+		.nomalDisease{
+			width:100%;
+			height:8rem;
+			margin-top:2rem;
+			background:#fff;
+		}
+		.publicDisaeseDiv{
+			width:26%;
+			height:8rem;
+			float:left;
+		}
+		.publicDisaeseDivs{
+			width:auto;
+			height:8rem;
+			line-height:8rem;
+			padding:0 2rem;
+			font-size:4rem;
+			float:left;
+			text-align:center;
+		}
+		.publicDisaese{
+			margin-left:3rem;
+			margin-top:2rem;
+			float:left;
+		}
+		.publicDisaeses{
+			height:8rem;
+			line-height:8rem;
+			font-size:4rem;
+			float:left;
+			margin-left:1rem;
+		}
+		.swiperBanners{
+			margin-top:2rem;
+		}
+		.autoBanner{
+			width:100%;
+		}
+		.doctorRecommend{
+			margin-top:2rem;
+			width:100%;
+			height:auto;
+		}
+		.doctorRecommendOne{
+			width:100%;
+			height:9rem;
+			background:#fff;
+			border-bottom:0.2rem solid rgba(220,220,220,1);
+		}
+		.doctorRecommendLine{
+			width:20rem;
+			height:9rem;
+			line-height:9rem;
+			font-size:4rem;
+			text-align:center;
+			float:left;
+		}
+		.doctorRecommendTwo{
+			width:100%;
+			height:40rem;
+			background:#fff;
+		}
+		.doctorRecommendList{
+			width:33.33%;
+			height:100%;
+			float:left;
+		}
+		.doctorRecommendDiv{
+			position:relative;
+		}
+		.doctorRecommendImg{
+			width:18rem;
+			height:18rem;
+			border-radius:50%;
+			margin-left:21.5%;
+			margin-top:3rem;
+		}
+		.doctorRecommendName{
+			width:100%;
+			height:7rem;
+			line-height:7rem;
+			font-size:4rem;
+			font-weight:bold;
+			text-align:center;
+		}
+		.doctorRecommendAbstract{
+			width:80%;
+			margin-left:10%;
+			height:10rem;
+			line-height:5rem;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+			font-size:3.5rem;
+			overflow: hidden;
+			color:#666;
+		}
+		.specialCircle{
+			position:absolute;
+			width:6rem;
+			height:6rem;
+			line-height:6rem;
+			text-align:center;
+			font-size:2rem;
+			background:orange;
+			color:#fff;
+			top:5%;
+			right:20%;
+			border-radius:50%;
+		}
+		.hospitalRecommendTwo{
+			width:100%;
+			height:50rem;
+			background:#fff;
+		}
+		.hospitalRecommendList{
+			width:50%;
+			height:100%;
+			float:left;
+		}
+		.hospitalRecommendImg{
+			width:90%;
+			margin-left:5%;
+			margin-top:2rem;
+		}
+		.hospitalRecommendName{
+			width:90%;
+			margin-left:5%;
+			height:auto;
+			line-height:7.5rem;
+			font-size:4rem;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+			font-size:4rem;
+			overflow: hidden;
+		}
+		.hospitalRecommendAbstract{
+			width:90%;
+			margin-left:5%;
+			height:10rem;
+			line-height:5rem;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+			font-size:3.5rem;
+			overflow: hidden;
+			color:#666;
+		}
+		.QuestionRecommendList{
+			width:96%;
+			height:8rem;
+			margin-left:2%;
+		}
+		.QuestionRecommendListLeft{
+			width:91%;
+			height:8rem;
+			line-height:8rem;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 1;
+			font-size:4rem;
+			overflow: hidden;
+			float:left;
+		}
+		.QuestionRecommendListRight{
+			width:9%;
+			height:8rem;
+			line-height:8rem;
+			text-align:center;
+			font-size:3rem;
+			float:left;
+		}
+		.MessagePreList{
+			width:96%;
+			height:auto;
+			margin-left:2%;
+			border-bottom:0.2rem solid rgba(220,220,220,1);
+		}
+		.MessagePreListLeft{
+			width:30%;
+			height:20rem;
+			float:left;
+		}
+		.MessagePreListRight{
+			width:67%;
+			margin-left:2rem;
+			height:20rem;
+			float:left;
+		}
+		.MessagePreListRightU{
+			height:5rem;
+			line-height:5rem;
+			font-size:4rem;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+			overflow: hidden;
+		}
+		.MessagePreListRightB{
+			font-size:3.5rem;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+			overflow: hidden;
+			color:#666666;
+			margin-top:2rem;
+		}
+		.clickViewMoreImg{
+			width:100%;
+			height:5rem;
+			line-height:5rem;
+			text-align:center;
+			background:#fff;
+		}
+		.clickViewMore{
+			width:100%;
+			height:10rem;
+			line-height:10rem;
+			text-align:center;
+			font-size:4rem;
+			background:#fff;
+		}
+	</style>
+	<div class="mainBox">
+		<div class="quiclyNav">
+			<div class="sixModels">
+				<div class="sixModelsImg"><img class="sixModelsImgs" src="__IMG__/20180615jibingzhishi.png"></div>
+				<div class="sixModelsWord">疾病知识</div>
+			</div>
+			<div class="sixModels">
+				<div class="sixModelsImg"><img class="sixModelsImgs" src="__IMG__/20180615zhuanjia.png"></div>
+				<a href="http://192.168.1.21/Mobile/index.php/Mobile/Index/expertIndex"><div class="sixModelsWord">超级专家</div></a>
+			</div>
+			<div class="sixModels">
+				<div class="sixModelsImg"><img class="sixModelsImgs" src="__IMG__/20180615yiyuan.png"></div>
+				<a href="http://192.168.1.21/Mobile/index.php/Mobile/Index/hospitalIndex"><div class="sixModelsWord">权威医院</div></a>
+			</div>
+			<div class="sixModels">
+				<div class="sixModelsImg"><img class="sixModelsImgs" src="__IMG__/20180615zixun.png"></div>
+				<div class="sixModelsWord">前沿资讯</div>
+			</div>
+			<div class="sixModels">
+				<div class="sixModelsImg"><img class="sixModelsImgs" src="__IMG__/20180615wenda.png"></div>
+				<div class="sixModelsWord">互动问答</div>
+			</div>
+			<div class="sixModels">
+				<div class="sixModelsImg"><img class="sixModelsImgs" src="__IMG__/20180615wenyisheng.png"></div>
+				<div class="sixModelsWord">问医生</div>
+			</div>
+			<div class="cl"></div>
+		</div>
+		<div class="nomalDisease">
+			<div class="publicDisaeseDiv"><div class="publicDisaese"><img src="__IMG__/20180615changjianzhongji.png"></div><div class="publicDisaeses">常见重疾:</div></div>
+			<div class="publicDisaeseDivs">肺癌</div>
+			<div class="publicDisaeseDivs">肝癌</div>
+			<div class="publicDisaeseDivs">胃癌</div>
+			<div class="publicDisaeseDivs">乳腺癌</div>
+			<div class="publicDisaeseDivs">卵巢癌</div>
+		</div>
+		<div class="swiperBanners"> 
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<a href=""><img class="autoBanner" src="__IMG__/20180615banner1.jpg"></a>
+					</div>
+					<div class="swiper-slide">
+						<a href=""><img class="autoBanner" src="__IMG__/20180615banner2.jpg"></a>
+					</div>
+					<div class="swiper-slide">
+						<a href=""><img class="autoBanner" src="__IMG__/20180615banner3.jpg"></a>
+					</div>
+				</div>
+			</div>
+		</div> 
+		<script>
+			var mySwiper = new Swiper('.swiper-container',{
+					autoplay: true,
+				});
+		</script>
+		<div class="doctorRecommend">
+			<div class="doctorRecommendOne">
+				<div class="doctorRecommendLine" style="margin-left:2rem;color:#009FA8;font-size:5rem;">医生推荐</div>
+				<div class="doctorRecommendLine" style="float:right;color:#999;font-size:3.5rem;text-align:right;">更多<img style="position:relative;top:-0.3rem;margin-left:1rem;" src="__IMG__/20180615right.png"> &nbsp;&nbsp;</div>
+			</div>
+			<div class="doctorRecommendTwo">
+				<div class="doctorRecommendList">
+					<div class="doctorRecommendDiv"><img class="doctorRecommendImg" src="__IMG__/20180615banner1.jpg"><div class="specialCircle">签约</div></div>
+					<div class="doctorRecommendName">幕内雅敏</div>
+					<div class="doctorRecommendAbstract">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+				</div>
+				<div class="doctorRecommendList">
+					<div class="doctorRecommendDiv"><img class="doctorRecommendImg" src="__IMG__/20180615banner2.jpg"><div class="specialCircle">独家</div></div>
+					<div class="doctorRecommendName">幕内晴朗</div>
+					<div class="doctorRecommendAbstract">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+				</div>
+				<div class="doctorRecommendList">
+					<div class="doctorRecommendDiv"><img class="doctorRecommendImg" src="__IMG__/20180615banner3.jpg"><div class="specialCircle">独家</div></div>
+					<div class="doctorRecommendName">川崎</div>
+					<div class="doctorRecommendAbstract">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+				</div>
+			</div>
+		</div>
+		<div class="doctorRecommend">
+			<div class="doctorRecommendOne">
+				<div class="doctorRecommendLine" style="margin-left:2rem;color:#009FA8;font-size:5rem;">医院推荐</div>
+				<div class="doctorRecommendLine" style="float:right;color:#999;font-size:3.5rem;text-align:right;">更多<img style="position:relative;top:-0.3rem;margin-left:1rem;" src="__IMG__/20180615right.png"> &nbsp;&nbsp;</div>
+			</div>
+			<div class="hospitalRecommendTwo">
+				<div class="hospitalRecommendList">
+					<div class="hospitalRecommendDiv"><img class="hospitalRecommendImg" src="__IMG__/20180615banner1.jpg"></div>
+					<div class="hospitalRecommendName">幕内雅敏</div>
+					<div class="hospitalRecommendAbstract">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+				</div>
+				<div class="hospitalRecommendList">
+					<div class="hospitalRecommendDiv"><img class="hospitalRecommendImg" src="__IMG__/20180615banner1.jpg"></div>
+					<div class="hospitalRecommendName">幕内雅敏</div>
+					<div class="hospitalRecommendAbstract">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+				</div>
+			</div>
+		</div> 
+		<div class="doctorRecommend">
+			<div class="doctorRecommendOne">
+				<div class="doctorRecommendLine" style="margin-left:2rem;color:#009FA8;font-size:5rem;">推荐问答</div>
+				<div class="doctorRecommendLine" style="float:right;color:#999;font-size:3.5rem;text-align:right;">更多<img style="position:relative;top:-0.3rem;margin-left:1rem;" src="__IMG__/20180615right.png"> &nbsp;&nbsp;</div>
+			</div>
+			<div class="hospitalRecommendTwo" style="height:42rem;">
+				<div class="QuestionRecommendList">
+					<div class="QuestionRecommendListLeft">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+					<div class="QuestionRecommendListRight">5回答</div>
+				</div>
+				<div class="QuestionRecommendList">
+					<div class="QuestionRecommendListLeft">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+					<div class="QuestionRecommendListRight">5回答</div>
+				</div>
+				<div class="QuestionRecommendList">
+					<div class="QuestionRecommendListLeft">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+					<div class="QuestionRecommendListRight">5回答</div>
+				</div>
+				<div class="QuestionRecommendList">
+					<div class="QuestionRecommendListLeft">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+					<div class="QuestionRecommendListRight">5回答</div>
+				</div>
+				<div class="QuestionRecommendList">
+					<div class="QuestionRecommendListLeft">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+					<div class="QuestionRecommendListRight">5回答</div>
+				</div>
+			</div>
+		</div>
+		<div class="doctorRecommend">
+			<div class="doctorRecommendOne">
+				<div class="doctorRecommendLine" style="margin-left:2rem;color:#009FA8;font-size:5rem;">前沿资讯</div>
+				<div class="doctorRecommendLine" style="float:right;color:#999;font-size:3.5rem;text-align:right;">更多<img style="position:relative;top:-0.3rem;margin-left:1rem;" src="__IMG__/20180615right.png"> &nbsp;&nbsp;</div>
+			</div>  
+			<div class="hospitalRecommendTwo" style="height:115rem;"> 
+				<div style="width:100%;height:2rem;"></div>
+				<div class="MessagePreList">
+					<div class="MessagePreListLeft"><img style="width:100%;" src="__IMG__/20180615banner2.jpg"></div>
+					<div class="MessagePreListRight">
+						<div class="MessagePreListRightU">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+						<div class="MessagePreListRightB">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+					</div>
+					<div class="cl"></div>
+				</div> 
+				<div style="width:100%;height:2rem;"></div>
+				<div class="MessagePreList">
+					<div class="MessagePreListLeft"><img style="width:100%;" src="__IMG__/20180615banner3.jpg"></div>
+					<div class="MessagePreListRight">
+						<div class="MessagePreListRightU">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+						<div class="MessagePreListRightB">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+					</div>
+					<div class="cl"></div>
+				</div> 
+				<div style="width:100%;height:2rem;"></div>
+				<div class="MessagePreList">
+					<div class="MessagePreListLeft"><img style="width:100%;" src="__IMG__/20180615banner1.jpg"></div>
+					<div class="MessagePreListRight">
+						<div class="MessagePreListRightU">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+						<div class="MessagePreListRightB">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+					</div>
+					<div class="cl"></div>
+				</div> 
+				<div style="width:100%;height:2rem;"></div>
+				<div class="MessagePreList">
+					<div class="MessagePreListLeft"><img style="width:100%;" src="__IMG__/20180615banner2.jpg"></div>
+					<div class="MessagePreListRight">
+						<div class="MessagePreListRightU">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+						<div class="MessagePreListRightB">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+					</div>
+					<div class="cl"></div>
+				</div> 
+				<div style="width:100%;height:2rem;"></div>
+				<div class="MessagePreList">
+					<div class="MessagePreListLeft"><img style="width:100%;" src="__IMG__/20180615banner3.jpg"></div>
+					<div class="MessagePreListRight">
+						<div class="MessagePreListRightU">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+						<div class="MessagePreListRightB">幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏幕内雅敏</div>
+					</div>
+					<div class="cl"></div>
+				</div>
+			</div>   
+			<div class="clickViewMore">
+				<div class="clickViewMoreImg"><img src="__IMG__/20180619viewmore.png"></div>
+				<div class="clickViewMore">点击查看更多</div>
+			</div>   
+			   
+			<div style="width:100%;height:30rem;"></div>   
+		</div>   
+	</div>
+<include file="Public/publicFooter"/>
+	

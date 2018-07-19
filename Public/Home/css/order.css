@@ -1,0 +1,391 @@
+/* 公共样式 */
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {
+  border: 0 none;
+  font-family: tahoma,arial,"Hiragino Sans GB","宋体",sans-serif;
+  font-feature-settings: inherit;
+  font-kerning: inherit;
+  font-language-override: inherit;
+  font-size: inherit;
+  font-size-adjust: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-synthesis: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+ul li{
+	list-style:none;
+}
+.box{
+	width:100%;
+	background:#ececec;
+}
+/* 头部 */
+.header{
+	width:100%;
+	background:#fff;
+}
+.headerContent{
+	width:1200px;
+	height:70px;
+	margin:0px auto;
+}
+.headerLogo{
+	width:190px;
+	height:42px;
+	margin-top:14px;
+	float:left;
+	
+}
+
+.headerText{
+	height:70px;
+	float:right;
+	cursor:default;
+}
+
+.headerTextContent{
+	line-height:70px;
+	font-size:14px;
+	float:left;
+	color:#2c3a5d;
+}
+.headerTextContent.fsit{
+	margin-right:60px;
+}
+.headerTextContent.second{
+	margin-right:20px;
+}
+
+/* 主体 */
+.main_body{
+	width:1200px;
+	margin:0px auto;
+}
+
+.main_bodyHead{
+	width:1200px;
+	height:160px;
+	margin-top:90px;
+	background:#3b6276;
+}
+.main_bodyHeadPic{
+	width:165px;
+	height:160px;
+	float:left;
+	margin-top:-62px;
+}
+.headPic{
+	width:122px;
+	height:122px;
+	border-radius:50%;
+	border:4px solid #fff;
+	margin-left:30px;
+}
+.headPicText{
+	float:left;
+	margin-top:-40px;
+	margin-left:-15px;
+	font-size:18px;
+	color:#2c3a5d;
+	cursor:default;
+}
+.headPicTextPic{
+	margin-left:10px;
+	width:18px;
+}
+/* 图标样式 */
+.main_bodynavContent{
+	width:980px;
+	height:160px;
+	float:left;
+}
+.main_bodynavContentPic{
+	width:140px;
+	float:left;
+	margin-top:40px;
+}
+
+.main_bodynavContentText{
+	margin-top:25px;
+	text-align:center;
+	font-size:18px;
+	color:#fff;
+	cursor:pointer;
+}
+.main_bodynavContentText.index{
+	color:#c5e0fe;
+}
+.btnPics{
+	width:20px;
+	height:160px;
+	float:left;
+	margin-top:8px;
+}
+.buttonPic{
+	width:20px;
+	display:block;
+	margin-top:40px;
+}
+
+/* 订单详情 */
+/* 上部分 */
+.order{
+	width:1200px;
+	height:60px;
+	border-bottom:1px dashed #5384a0;
+	
+}
+/* 文字样式 */
+.orderText{
+	width:100px;
+	float:left;
+	font-size:18px;
+	line-height:40px;
+	
+}
+.orderText  a{
+	color:#3b6276;
+}
+.indexText{
+	width:60px;
+}
+
+/* 订单流程 */
+.orderProcess{
+	width:1200px;
+	height:185px;
+	border-bottom:1px dashed #3b6276;
+	cursor:default;
+}
+.orderProcessText{
+	width:100px;
+	float:left;
+	font-size:18px;
+	color:#3b6276;
+	padding-top:20px;
+}
+
+.orderProcessPic{
+	float:left;
+	margin-left:70px;
+	margin-top:40px;
+	
+}
+
+/* 订单详情样式 */
+/* 外面总的样式 */
+.main_bodyBottom{
+	width:1200px;
+	height:800px;
+}
+.orderDetails{
+	width:1200px;
+	height:500px;
+	margin-top:15px;
+}
+/* 订单详情左边样式 */
+.orderDetailsLeft{
+	width:240px;
+	height:500px;
+	background:#fff;
+	border-radius:10px;
+	float:left;
+	box-shadow:0px 1px 5px 1px rgba(59,98,118,0.8);
+	cursor:default;
+}
+.orderDetailsLeftTop{
+	width:240px;
+	height:30px;
+	background:#81b0cd;
+	margin-top:30px;
+	font-size:14px;
+	color:#fff;
+	line-height:30px;
+	text-align:center;
+}
+.orderDetailsLeftinfor{
+	margin-top:20px;
+	margin-left:20px;
+	font-size:14px;
+	color:#2c3a5d;
+}
+.orderDetailsLeftText{
+	padding-top:10px;
+}
+.orderDetailsLeftBottom{
+	height:100px;
+	margin-top:70px;
+	background:#3b6276;
+	font-size:14px;
+	color:#fff;
+	padding-top:10px;
+	
+}
+.orderDetailsLeftBottomText{
+	margin-left:20px;
+	float:left;
+}
+
+.orderDetailsLeftBottomTextRight{
+	width:130px;
+	float:right;
+	margin-left:10px;
+}
+.orderDetailsRight{
+	width:945px;
+	height:500px;
+	margin-left:15px;
+	float:left;
+	background:#fff;
+	border-radius:10px;
+	box-shadow:0px 1px 5px 1px rgba(59,98,118,0.8);
+}
+/* 订单右边样式 */
+.orderDetailsRightText{
+	width:945px;
+	margin-top:40px;
+	margin-left:35px;
+	font-size:14px;
+	color:#2c3a5d;
+	cursor:default;
+}
+.orderDetailsRightPic{
+	width:460px;
+	height:100px;
+	margin:0px auto;
+	margin-top:135px;
+	cursor:default;
+}
+
+.orderDetailsRightPicd{
+	width:70px;
+	height:70px;
+	float:left;
+	opacity: 0.8;
+}
+.orderDetailsRightPicT{
+	font-size:18px;
+	color:#2c3a5d;
+	float:left;
+	margin-left:40px;
+}
+
+.orderDetailsRightPicT.text{
+	margin-top:-40px;
+	font-size:14px;
+	color:#2c3a5d;
+	float:left;
+	padding-left:70px;
+}
+.orderDetailsRightPicText{
+	font-size:12px;
+	
+}
+.orderDetailsRightPicT.rightPicText{
+	font-size:12px;
+	color:#2c3a5d;
+	float:left;
+	padding-left:70px;
+	margin-top:-15px;
+}
+.confirmInput{
+	width:62px;
+	height:34px;
+	margin:0px auto;
+}
+.confirmBtn{
+	width:60px;
+	height:30px;
+	background:#ececec;
+	font-size:14px;
+	color:#2c3a5d;
+	border:1px solid #dcdada;
+}
+.confirmBtn:hover{
+	border:1px solid #dedede;
+	background:#dfdfdf;
+	color:#2c3a5d;
+}
+
+/* 底部 */
+.footerDiv{
+	width:100%;
+	height:150px;
+	background:#e5e8ea;
+}
+.footer{
+	width:1200px;
+	height:150px;
+	background:#e5e8ea;
+	margin:0px auto;
+}
+.footerLeft{
+	width:60px;
+	margin-top:40px;
+	float:left;
+}
+.footerLeftPic{
+	width:60px;
+	height:53px;
+}
+.footerPic{
+	width:60px;
+}
+.footerLeftMiddle{
+	width:400px;
+	height:150px;
+	margin-left:30px;
+	float:left;
+}
+.footerLeftText{
+	margin-top:25px;
+	font-size:10px;
+	cursor:default;
+}
+.footerLeftTextLiFist{
+	font-size:12px;
+}
+.footerLeftTextLi{
+	margin-top:10px;
+	color:#aaa;
+}
+.footerRightMiddle{
+	float:right;
+	margin-right:30px;
+	line-height:20px;
+	font-size:12px;
+	margin-top:45px;
+	color:#aaa;
+	text-align:right;
+	cursor:default;
+}
+.footerRightMiddleUlfist{
+	font-size:10px;
+}
+
+.footerRightPic{
+	float:right;
+	margin-top:35px;
+}
+.weixinPic{
+	width:80px;
+	height:80px;
+}
+
+
+.footerRightMiddlePic{
+	float:right;
+}
+
+.footerRightMiddlePic ul li{
+	width:36px;
+	float:right;
+}
+.footerRightMiddlePicli{
+		margin-right:10px;
+}

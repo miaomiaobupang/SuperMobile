@@ -1,0 +1,23 @@
+<script type="text/javascript">
+function Category(ob){	
+	if(ob.value==1){
+		$("#pidsMenus").css("display","block");
+		$(".ModulesType").html("模块");
+		$("#pidsMenus").css("display","none");
+		$("#ControllerDIV").css("display","block");
+		$("#MethodDIV").css("display","none");
+	}else if(ob.value==2){
+		$("#pidsMenus").css("display","block");		
+		$(".ModulesType").html("权限");
+		$("#ControllerDIV").css("display","none");
+		$("#MethodDIV").css("display","block");
+	}else{
+		//普通部门
+		$(".DepartmentType").html("部门");
+		$(".DepartmentTypen").css("display","none");
+		$(".DepartmentTypeb").css("display","block");
+		//当“部门类型”切换为“普通部门”时，上级部门的值自动获取为原选择
+		$("#pid").val(pids);
+	}	
+}
+</script>

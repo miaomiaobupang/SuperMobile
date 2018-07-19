@@ -1,0 +1,113 @@
+.headerContent{
+	height:105px;
+}
+.headerTextContent{
+	font-size:16px;
+	line-height:105px;
+}
+.headerLogo {
+	float: left;
+    height: 39px;
+    margin-top: 31px;
+    width: 322px;
+}
+.headerTitle{
+	border-left: 2px solid #AAAAAA;
+	display: block;
+	float: left;
+	font-size: 26px;
+	height: 41px;
+	line-height: 41px;
+	margin-left: 20px;
+	margin-top: 32px;
+	padding-left: 20px;
+}
+.box {
+	background-color:#fff;
+}
+.main_body{
+	margin-bottom:50px;
+}
+.main_body_left{
+	background-color: #658EB7;
+	border-radius: 10px;
+	padding-top: 40px;
+	width: 320px;
+	padding-bottom:40px;
+}
+.heagimg{
+	border: 5px solid #FFFFFF;
+	border-radius: 360px;
+	display: block;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100px;
+}
+.main_body_left .menuUserName{
+	font-size:20px;
+	color:#fff;
+	padding-top:30px;
+	text-align:center;
+}
+.main_body_left .welcome{
+	color:#fff;
+	padding-top:10px;
+	text-align:center;
+	font-size:16px;
+	padding-bottom:50px;
+}
+.LeftMenuOneTitle{
+	height:48px;
+	line-height:48px;
+	color:#fff;
+	font-size:18px;
+	padding-left:30px;
+	cursor: pointer;
+}
+.LeftMenuTwo{
+	background: url("../images/smalil489456445.png") no-repeat scroll 34px -2px #E6E9E9;
+	display:none;
+}
+.LeftMenuTwoTitle{
+	height:48px;
+	line-height:48px;
+	color:#909192;
+	font-size:16px;
+	padding-left:56px;
+	cursor: pointer;
+	display:block;
+}
+.LeftMenuTwoTitle:hover{
+	color:#276ca3;
+	text-decoration: none;
+}
+.main_body_right{
+	width:860px;
+	float:right;
+	background-color:#e6e9e9;
+	padding-top: 80px;
+	padding-bottom:40px;
+	border-radius: 10px;
+	position: relative;
+}
+.main_body_right_content{
+	width:590px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.main_body_right_title{
+	background: url("../images/blue4564564778.png") no-repeat scroll 0 0 ;
+	height: 94px;
+	line-height:94px;
+	color:#fff;
+	font-size:18px;
+	text-align:center;
+	left: 124px;
+	position: absolute;
+	top: -10px;
+	width: 109px;
+}
+.pointer{
+	cursor: pointer;
+}

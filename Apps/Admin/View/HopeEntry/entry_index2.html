@@ -1,0 +1,278 @@
+			
+	<!-- 表单校验类 -->
+
+	<!-- <link rel="stylesheet" href="__CSS__/business3.css"> -->
+	<!-- <link rel="stylesheet" href="__CSS__/business3.css"> -->
+
+	<style>
+	.DepartmentTypen{
+		display:none;
+	}
+	.DepartmentTypeb{
+		display:block;
+	}
+	.inputStyle{
+		width:312px;
+		height:37px;
+		background:#253b4d;
+		border:0px;
+		text-align:center;
+		border-radius:4px;
+	}
+	.entryDivOne{
+		width:100%;
+	}
+	.divStyleLine{
+		width:100%;
+		height:auto;
+	}
+	.text_cname{
+		width:10%;
+		height:55px;
+		line-height:55px;
+		float:left;
+		text-align:center;
+	}
+	.entry_type_example_one{
+		width:10%;
+		height:150;
+		line-height:55px;
+		float:left;
+		text-align:center;
+	}
+	.entry_type_example_two{
+		width:90%;
+		height:110px;
+		float:left;
+	}
+	.entry_name_div{
+		width:90%;
+		height:55px;
+		line-height:55px;
+		float:left;
+	}
+	.input{
+		width:90%;
+		height:55px;
+		line-height:50px;
+	}
+	.formCheckbox{
+		margin-left:50px;
+		margin-right:5px;
+	}
+	.entry_type_name{
+		margin-left:-50px;
+	}
+	button, input, optgroup, select, textarea{
+		color:black;
+	}
+	#zSelectName{
+		margin-left:50px;
+	}
+	#zSelectName{
+		visibility:hidden;
+	}
+	.abstractStyle{
+		margin-left:50px;
+		width:90%;
+		height:200px;
+	}
+	.entryContentDiv{
+		width:81%;
+		<!-- border:1px solid red; -->
+		height:800px;
+		margin-right:9%;
+		float:right;
+		border:3px dashed white;
+	}
+	.entryContentDivLeft{
+		width:90%;
+		height:auto;
+		float:left;
+	}
+	.entryContentDivRight{
+		width:9%;
+		<!-- border:1px solid red; -->
+		height:auto;
+		float:left;
+		margin-left:5px;
+		margin-top:10px;
+	}
+	.entryContentDivOne{
+		width:100%;
+		height:50px;
+		line-height:50px;
+		margin-bottom:10px;
+		margin-top:10px;
+	}
+	.catalog{
+		width:100%;
+		height:40px;
+		line-height:40px;
+		float:left;
+		margin-top:2px;
+		text-align:center;
+		cursor:pointer;
+	}
+	.catalog:hover{
+		font-weight:bold;
+		color:black;
+	}
+	.catalogOne{
+		background:#0373e4;
+		position: fixed;
+		width: 200px;
+		z-index: 10000;
+		height: 50px;
+		text-align:center;
+		font-size:18px;
+	}
+	.catalogTwo{
+		background:#009fa8;
+	}
+	.catalogHidden{
+		background:green;
+	}
+	.entry_edit_div_line{
+		width:100%;
+	}
+	.subStyle{
+		width:300px;
+		height:50px;
+		line-height:50px;
+		margin-top:20px;
+		margin-left:30%;
+		background:green;
+		color:white;
+		border:0 solid green;
+	}
+	.butExamineStyle{
+		position:fixed;
+		width:600px;
+		height:100px;
+		z-index:110;
+		font-size:18px;
+	}
+	</style>
+	<!-- 页面头部开始 -->
+	<script src="__PUBLIC__/Theme/Fashion/assets/js/jquery.min.js"></script>
+	<div class="pageheader">
+		<h2>
+			<i class="icon-folder-open-alt" style="line-height: 48px;padding-left: 1px;"></i> 
+			<b class="chineseBlack">超级医生</b> 
+			<span>- Department Management</span>
+		</h2>
+		<!-- 小面包屑导航开始 -->
+		<div class="breadcrumbs">
+			<ol class="breadcrumb">
+				<li>You are here</li>
+				<li><a href="index.html">Minimal</a></li>
+				<li><a href="form-elements.html">Forms</a></li>
+				<li class="active">Form Elements</li>
+			</ol>
+		</div>
+	</div>
+	<!-- 页面头部结束 -->
+	<!-- content main container -->
+	<div class="main">
+		<!-- row -->
+		<div class="row">
+			<!-- col 12 -->
+			<div class="col-md-12">
+				<!-- tile -->
+				<section class="tile color transparent-black">
+					<!-- tile header -->
+					<div class="tile-header">
+						<h1>
+							<strong>超级医生-创建词条</strong>
+						</h1>
+						<div class="pull-right">
+							<a href="__CONTROLLER__/entry_list" role="button" class="btn btn-red"> 返回词条列表</a>
+						</div>
+						<div class="controlsStyle">
+								<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+								<a href="#" class="remove"><i class="fa fa-times"></i></a>
+						</div>
+					</div>
+						<!-- /tile header -->
+						<!-- tile body -->
+					<div class="tile-body form-group form-footer">
+					<form action="__WEBURL__/HopeEntry/entry_add" method="post" role="form" enctype='multipart/form-data'>
+						<div class="entryDivOne">
+							<div class="divStyleLine">
+								<div class="entry_type_example_one">词条名称</div>
+								<div class="entry_type_example_two">
+									<input type="text" id="EntryCname" class="input" name="cname" placeholder="中文" value="" style="margin-top:10px;"/>
+									<input type="text" id="EntryEname" class="input" name="ename" placeholder="英文" value="" style="margin-top:10px;"/>
+								</div>
+							</div>
+							<div class="divStyleLine">
+								<div class="text_cname entry_type" data-num="{$entry_type_num}">词条类型</div>
+								<div class="entry_name_div entry_type_name">
+									<input name="entry_id" class="CheckboxValue" type="hidden" value=""/>
+									<foreach name="entry_type" item="type">
+										<input name="" class="Checkbox Checkbox-demo{$type.id} " type="hidden" value=""/>
+										<span class="formCheckbox formCheckbox-demo{$type.id} icon-check-empty" data-id="{$type.id}" data-state="2" data-name="demo{$type.id}"></span>{$type.name}
+									</foreach>
+								</div>
+							</div>
+							<div class="divStyleLine">
+								<div class="text_cname">疾病类型</div>
+								<input name="desease_fid" class="deseaseFtype" type="hidden" value=""/>
+								<input name="desease_zid" class="deseaseZtype" type="hidden" value=""/>
+								<div class="entry_name_div">
+									<select id="fSelectName">
+										<option>请选择疾病一级类型</option>
+										<foreach name="disease_type" item="fname">
+											<if condition="$fname.level eq 1">
+												<option value ="头颈部" class="fOption" data-id="{$fname.id}"  data-state="1">{$fname.name}</option>
+											</if>
+										</foreach>
+									</select>
+									<select id="zSelectName">
+									</select>
+								</div>
+							</div>
+							<div class="divStyleLine">
+								<div class="text_cname">词条摘要</div>
+								<div class="entry_name_div entry_type_name">
+									<textarea class="abstractStyle" id="abstractName" placeholder="摘要" name="abstract"></textarea>
+								</div>
+							</div>
+							<div class="divStyleLine">
+								<div class="entry_type_example_one">参考资料</div>
+								<div class="entry_type_example_two">
+									<input type="text" id="FileCname" class="input" name="dataname" placeholder="名称" value="" style="margin-top:10px;"/>
+									<input type="text" id="FileEname" class="input" name="dataurl" placeholder="网址" value="" style="margin-top:10px;"/>
+								</div>
+							</div>
+							<div class="divStyleLine specialdivStyleLine" style="height:auto;">
+								<div class="text_cname special_cname">词条内容</div>
+								<div class="entry_edit_div entryContentDiv" data-height="820">
+									<div class="entry_edit_div_line">
+										<div class="entryContentDivLeft">
+											<input type="text" name="catalogOne_abstract_0_0" value="" class="entryContentDivOne" placeholder="一级目录内容">
+											<script id="editor" type="text/plain" name="catalogTwo_entrycontent_0_0" style="width:100%;height:auto;"></script>
+										</div>
+										<div class="entryContentDivRight">
+											<div class="catalog catalogOne catalogOneFixed" data-twonum="0"  data-onenum="0" data-old="0" data-type="1">+ 一级目录</div>
+											<div class="catalog catalogTwo" data-type="2">+ 二级目录</div>
+											<input type="hidden" name="catalogName[]" value="0_0">
+											<div class="catalog catalogHidden">收起目录</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="butExamineStyle">
+								<input type="submit" class="subStyle" name="" value="提交">
+							</div>
+						</div>
+					<!-- /tile body -->
+				</section>
+			</div>
+			<!-- /col 6 -->
+		</div>
+		<!-- /row -->
+	</div>
+	<!-- 表单校验类 -->
+

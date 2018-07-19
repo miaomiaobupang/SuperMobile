@@ -1,0 +1,353 @@
+<script type="text/javascript">
+$('.form_datetime').datetimepicker({
+	//language:  'fr',
+	weekStart: 1,
+	todayBtn:  1,
+	autoclose: 1,
+	todayHighlight: 1,
+	startView: 2,
+	forceParse: 0,
+	showMeridian: 1,
+	language:  'zh-CN',
+	minView: 2,
+	format: 'yyyy-mm-dd'
+});
+//结束时间在开始时间之后判断(搜索)
+$('#personStimeIdStop').datetimepicker('setStartDate', $("#personStimeIdStart input").val());
+$("#personStimeIdStart").change(function(){
+	var data=$("#personStimeIdStart input").val();
+	$('#personStimeIdStop input').val(data);
+	$('#personStimeIdStop').datetimepicker('setStartDate', $("#personStimeIdStart input").val());
+	
+});
+//开始时间在结束时间之前判断(搜索)
+//$('#personStimeIdStart').datetimepicker('setEndDate', $("#personStimeIdStop input").val());
+$("#personStimeIdStop").change(function(){
+	$('#personStimeIdStart').datetimepicker('setEndDate', $("#personStimeIdStop input").val());
+});
+//++++++++++++++++++++++++++++++++必填结束++++++++++++++++++++++++++++++++++//
+$(document).ready(function(){
+
+	//$(".exhibitionSub").submit(function(){
+		//标题
+		//var titleId = $(".titleId").val();
+		//if(titleId == ''){
+			//$(".titleId").attr("placeholder","必填,不可以为空！");
+			//return false;
+		//}
+	//});
+	//
+	$('body').on('click', '.choseValid', function(){
+		var state=$(this).data("state");
+		var stimes=$('.stimes').html();
+		var etimes=$('.etimes').html();
+		if(state==1){
+			$('.glyphicon').css({'visibility':'visible'});
+			$(this).data("state",2);
+			//清空日历
+			$('#ExhibitionStime').val("");
+			$('#ExhibitionEtime').val("");
+			$('#ExhibitionStime').css({'background':'#d7d7d7'});
+			$('#ExhibitionEtime').css({'background':'#d7d7d7'});
+			$('.date').css('pointer-events','none');
+		}else if(state==2){
+			$('.glyphicon').css({'visibility':'hidden'});
+			$(this).data("state",1);
+			//恢复日历
+			$('#ExhibitionStime').val(stimes);
+			$('#ExhibitionEtime').val(etimes);
+			$('#ExhibitionStime').css({'background':'#fff'});
+			$('#ExhibitionEtime').css({'background':'#fff'});
+			$('.date').css('pointer-events','auto');
+		}
+	});
+	var state=$('.choseValids').data("state");
+	if(state==2){
+		$('.glyphicons').css({'visibility':'visible'});
+		//清空日历
+		$('#ExhibitionStime').val("");
+		$('#ExhibitionEtime').val("");
+		$('#ExhibitionStime').css({'background':'#d7d7d7'});
+		$('#ExhibitionEtime').css({'background':'#d7d7d7'});
+		$('.date').css('pointer-events','none');
+	}
+	$('body').on('click', '.choseValids', function(){
+		var state=$(this).data("state");
+		if(state==2){
+			$('.glyphicons').css({'visibility':'hidden'});
+			$(this).data("state","");
+			//恢复日历
+			$('#ExhibitionStime').css({'background':'#fff'});
+			$('#ExhibitionEtime').css({'background':'#fff'});
+			$('.date').css('pointer-events','auto');
+		}else{
+			$('.glyphicons').css({'visibility':'visible'});
+			$(this).data("state",2);
+			//清空日历
+			$('#ExhibitionStime').val("");
+			$('#ExhibitionEtime').val("");
+			$('#ExhibitionStime').css({'background':'#d7d7d7'});
+			$('#ExhibitionEtime').css({'background':'#d7d7d7'});
+			$('.date').css('pointer-events','none');
+		}
+	});
+	
+	//====================百度地图API功能开始=========================
+	var longitude=$('.coor_input').val();
+
+	var strs= new Array();
+	strs=longitude.split(",");
+	var map = new BMap.Map("allmap");
+	map.clearOverlays();
+	if(longitude != ""){
+		var point = new BMap.Point(strs[0], strs[1]);
+	}else{
+		var point= new BMap.Point(116.416649,39.910573);
+	}
+	map.enableScrollWheelZoom(true);
+	map.centerAndZoom(point, 11);
+	var marker = new BMap.Marker(point);  // 创建标注
+		map.addOverlay(marker);            // 将标注添加到地图中
+		marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+		
+	//====================百度地图API功能结束=========================
+	//====================百度地图API功能开始=========================
+	var maps = new BMap.Map("allmaps");
+	maps.clearOverlays();
+	if(longitude != ""){
+		var points = new BMap.Point(strs[0],strs[1]);
+	}else{
+		var points= new BMap.Point(116.416649,39.910573);
+	} 
+	maps.enableScrollWheelZoom(true);
+	maps.centerAndZoom(points,10);
+	var marker = new BMap.Marker(points);  // 创建标注
+		maps.addOverlay(marker);               // 将标注添加到地图中
+		marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+	//单击获取点击的经纬度
+	maps.addEventListener("click",function(e){
+		maps.clearOverlays(); 
+		$('.coords').val( e.point.lng+','+e.point.lat);
+		var point = new BMap.Point(e.point.lng, e.point.lat);
+		var marker = new BMap.Marker(point);  // 创建标注
+		maps.addOverlay(marker);               // 将标注添加到地图中
+		marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+	});
+	//====================百度地图API功能结束=========================
+});
+//===========================================
+$('body').on('click', '#allmap', function(){
+	//获取屏幕宽度高度
+	var height=($(window).height()-560)/2;
+	var width=($(window).width()-480)/2;
+	$('.monolayer').css({display:'inline',top:height+'px',left:width+'px'});
+	
+});
+//取消弹层
+$('.guanbisss_1').mouseover(function(){
+	$(this).css({display:'none'});
+	$('.guanbisss_2').css({display:'block'});
+});
+$('.guanbisss_2').mouseout(function(){
+	$(this).css({display:'none'});
+	$('.guanbisss_1').css({display:'block'});
+});
+$('.guanbisss_2').click(function(){
+	$('.monolayer').css({display:'none'});
+});
+$('.coordsBtn').click(function(){
+	var coords=$('.coords').val();
+	$('.coord_input').val(coords);
+	$('.coor_input').val(coords);
+	
+	var strss= new Array();
+	strss=coords.split(",");
+	var map = new BMap.Map("allmap");
+	map.clearOverlays();
+	if(coords != ""){
+		var pointss = new BMap.Point(strss[0], strss[1]);
+	}else{
+		var pointss= new BMap.Point(116.416649,39.910573);
+	}
+	map.enableScrollWheelZoom(true);
+	map.centerAndZoom(pointss, 11);
+	var marker = new BMap.Marker(pointss);  // 创建标注
+	map.addOverlay(marker);               // 将标注添加到地图中
+	marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+	
+	$('.monolayer').css({display:'none'});
+});
+//=====================================================
+///---------------------------行业搜索-------------------
+	$('.sou_btn').click(function(){
+		$('.group_li').css({color:'#515151'})
+		sou = $('.sou_js').val();
+		var change_li = $("li[name='"+sou+"']");
+		if(change_li.position() == undefined){
+			$('.error_div').html('无搜索结果,请输入精确名称');
+		}else{
+			$('.error_div').html('');
+		
+			change_li.css({color:'red'});
+			var left=$('.list_trade').data('left');	
+			//alert(left);
+			if(left > -1933){
+				var left = left - change_li.position().left;
+			}
+			
+			//按钮影藏
+			if(left < 0){
+				$('.left_png').css({'display':'inline'});
+			}else{
+				$('.left_png').css({'display':'none'});
+			}
+			if(left > -1932){
+				$('.right_png').css({'display':'inline'});
+			}else{
+				$('.right_png').css({'display':'none'});
+			}
+			//---
+			var nleft;
+			if( left < -1932){
+				nleft = -1932;
+			}
+			if(-1932< left ){
+				if( left< -1288){
+				nleft = -1288;
+				}
+			}
+			if(-1288< left){
+				if( left < -644){
+				nleft = -644;
+				}
+			}
+			if(-644 < left){
+				nleft =0;
+			}
+			if(left > 0){
+				left = 0;
+			}
+			//alert(nleft);
+			$(".list_trade").data('left',nleft);
+			$(".list_trade").animate({marginLeft:left}, 500);
+		}
+	})
+//搜索回车键的使用
+	function keydownLogin(evt){
+	  evt = (evt) ? evt : ((window.event) ? window.event : "");
+	  keyCode = evt.keyCode ? evt.keyCode : (evt.which ? evt.which : evt.charCode);
+		if(keyCode ==13){
+			$('.group_li').css({color:'#515151'})
+			sou = $('.sou_js').val();
+			var change_li = $("li[name='"+sou+"']");
+			//alert(change_li);
+			//无结果告知
+			if(change_li.position() == undefined){
+				$('.error_div').html('无搜索结果,请输入精确名称');
+			}else{
+				$('.error_div').html('');
+			
+				change_li.css({color:'red'});
+				var left=$('.list_trade').data('left');	
+				//alert(left);
+				if(left > -1933){
+					var left = left - change_li.position().left;
+				}
+				
+				//按钮影藏
+				if(left < 0){
+					$('.left_png').css({'display':'inline'});
+				}else{
+					$('.left_png').css({'display':'none'});
+				}
+				if(left > -1932){
+					$('.right_png').css({'display':'inline'});
+				}else{
+					$('.right_png').css({'display':'none'});
+				}
+				//---
+				var nleft;
+				if( left < -1932){
+					nleft = -1932;
+				}
+				if(-1932< left ){
+					if( left< -1288){
+					nleft = -1288;
+					}
+				}
+				if(-1288< left){
+					if( left < -644){
+					nleft = -644;
+					}
+				}
+				if(-644 < left){
+					nleft =0;
+				}
+				if(left > 0){
+					left = 0;
+				}
+				//alert(nleft);
+				$(".list_trade").data('left',nleft);
+				$(".list_trade").animate({marginLeft:left}, 500);
+
+			}
+		}
+	}
+//实现行业的输入框可视
+$('.list_js').click(
+  function () {
+  var val = $('.text_div').val();
+	var name = $(this).date("name");
+	alert(name);
+	$('.text_div').val(val+';'+name);
+  }
+);
+//实现行业的滑动效果
+$('.directionBtn').click(function(){
+	var type=$(this).data('type');
+	var left=$('.list_trade').data('left');		
+	if(type==1){
+		//左执行
+		
+		if(left < 0){
+			var left = left+644;
+		}	
+		
+	}else{
+		//右执行
+		if(left > -1932){
+			var left = left-644;
+		}
+	}
+	if(left > -1932){
+		$('.right_png').css({'display':'inline'});
+	}else{
+		$('.right_png').css({'display':'none'});
+	}
+	
+	if(left < 0){
+		$('.left_png').css({'display':'inline'});
+	}else{
+		$('.left_png').css({'display':'none'});
+	}
+	$(".list_trade").data('left',left);
+	$(".list_trade").animate({marginLeft:left}, 1000 );
+});
+
+$('.fairsoformJS').ready(function(){
+	popupLayer('tradePopup');
+	//复选框初始化生成
+	formCheckboxStar('targe','text_div');
+	
+});
+$('body').on('click', '.tagsBtn', function(){
+	popupLayerShow('tradePopup');
+	$('.PopupLayerClose').html("");
+});
+$('.submit_div').click(function(){
+	var text=$('.Checkboxtext-text_div').val();
+	$('.tagsText_sub').html("");
+	$('.tagsText_sub').html(text);
+});
+//====================================
+</script>

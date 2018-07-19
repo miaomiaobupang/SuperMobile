@@ -1,0 +1,90 @@
+<style>
+.child{
+	display:none;
+}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-building" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">控制器管理</b> 
+		<span>- role select</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-3">
+			<section class="tile color transparent-black col-md-12">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>请选择角色</strong>
+					</h1>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body nopadding col-md-10 col-md-offset-1">
+
+						<select class="chosen-select chosen-transparent form-control"  name="role" id="role">
+							<option value="">请选择</option>
+                            <volist name="role" id="vo">
+                            <option value="{$vo.id}">{$vo.name}</option>
+                            </volist>
+						</select>
+				</div>
+				<!-- /tile body -->
+			</section>
+		</div>
+		<div class="col-md-9">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+           <div class="tile-header">
+					<h1>
+						<strong>查询</strong>列表
+					</h1>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+           <!-- /tile header -->
+				<!-- tile body -->
+           <div class="tile-body nopadding">
+					<table class="table" id="tableX">
+						<tr class='InfoHouses'><td>权限名称</td><td>状态</td></tr>
+                    </table>
+				</div>
+           <!-- /tile body -->
+				
+			</section>
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+
+
+
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

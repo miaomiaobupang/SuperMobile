@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>超级医生-登录</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1">
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<link rel="stylesheet" href="__CSS__/public.css">
+	<link rel="stylesheet" href="__CSS__/idangerous.swiper.css">
+	<link rel="stylesheet" href="__CSS__/login.css">
+	<script src="__JS__/jquery.min.js"></script>
+	<script src="__JS__/idangerous.swiper.min.js"></script>
+</head>
+<body>
+	<div class="box">
+		<!-- header -->
+		<include file="Public/cjysHeader" />
+		<div class="mainBox">
+			<div class="main main1">
+				<div class="login_title">请先登录</div>
+				<div class="register_box">
+					<div class="title"><span>请输入手机号或邮箱</span></div>
+					<input type="text" class="inputBox input_phone" placeholder="手机号或邮箱" data-p="手机号或邮箱">
+					<div class="wrong"><span>账号格式错误</span></div>
+				</div>
+				<div class="register_box">
+					<div class="title"><span>请输入密码</span></div>
+					<input type="text" class="inputBox input_phone" placeholder="密码" data-p="密码">
+					<div class="wrong"><span>请输入密码</span></div>
+				</div>
+				<div>
+					<span class="fl changeLog" data-n="2">手机验证码登录</span>
+					<span class="fr forgetPass">忘记密码？</span>
+					<div class="cl"></div>
+				</div>
+				<div class="login">登录</div>
+				<div class="other_log">
+					<span>第三方登录</span>
+					<img src="" alt="" class="fl">
+					<img src="" alt="" class="fl">
+					<img src="" alt="" class="fl">
+				</div>
+				<div class="toRegister">没有账号？<span>注册</span></div>
+			</div>
+			<div class="main main2"  style="display:block">
+				<div class="login_title">请先登录</div>
+				<div class="register_box">
+					<div class="title"><span>请输入手机号</span></div>
+					<input type="text" class="inputBox input_phone" placeholder="手机号" data-p="手机号">
+					<div class="wrong"><span>手机号错误</span></div>
+				</div>
+				<div class="register_box">
+					<div class="title"><span>请输入验证码</span></div>
+					<input type="text" class="inputBox input_phone" placeholder="验证码" data-p="验证码">
+					<span class="yzm">获取验证码</span>
+					<div class="wrong"><span>请输入验证码</span></div>
+				</div>
+				<div>
+					<span class="fl changeLog" data-n="1">账号密码登录</span>
+					<span class="fr forgetPass">忘记密码？</span>
+					<div class="cl"></div>
+				</div>
+				<div class="login">登录</div>
+				<div class="other_log">
+					<span>第三方登录</span>
+					<img src="" alt="" class="fl">
+					<img src="" alt="" class="fl">
+					<img src="" alt="" class="fl">
+				</div>
+				<div class="toRegister">没有账号？<span>注册</span></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$('body').on('click','.changeLog',function(){
+			var n=$(this).data('n');
+			$('.main').hide();
+			$('.main'+n).show();
+		});
+		$('body').on('focus','input',function(){
+			$(this).attr('placeholder','');
+			$(this).prev('.title').find('span').show();
+			$(this).css('border-bottom','1px solid #009FA8');
+		});
+		$('body').on('blur','input',function(){
+			var p=$(this).data('p');
+			$(this).attr('placeholder',p);
+			$(this).prev('.title').find('span').hide();
+			$(this).css('border-bottom','1px solid #dcdcdc');
+		});
+	</script>
+</body>
+</html> 

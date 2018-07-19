@@ -1,0 +1,381 @@
+/* 公共样式 */
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {
+  border: 0 none;
+  font-family: tahoma,arial,"Hiragino Sans GB","宋体",sans-serif;
+  font-feature-settings: inherit;
+  font-kerning: inherit;
+  font-language-override: inherit;
+  font-size: inherit;
+  font-size-adjust: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-synthesis: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+ul li{
+	list-style:none;
+ }
+.box{
+	width:100%;
+	height:100%;
+	background:#f0f3f5;
+ }
+ /* 导航 */
+.nav{
+	width:100%;
+	height:30px;
+	background:#fff;
+ }
+.navContent{
+	width:1200px;
+	height:30px;
+	margin:0px auto;
+	font-size:12px;
+	line-height:30px;
+	color:#7d7d7d;
+	cursor:default;
+ }
+.navContent a{
+	color:#7d7d7d;
+}
+.navContent a:hover{
+	color:#276ca3;
+	text-decoration:none;
+}
+.navLeft{
+	float:left;
+	
+ }
+.navLeftContent{
+	float:left;
+	margin-right:20px;
+ }
+.navRight{
+	float:right;
+ }
+.navRightContent{
+	float:left;
+	margin-left:20px;
+ }
+ /* logo样式 */
+.logoPic{
+	width:1200px;
+	height:110px;
+	margin:0px auto;
+ }
+.pic{
+	width:322px;
+	height:39px;
+	margin-top:30px;
+ }
+ /* 主体form表单样式 */
+ /* form表单头样式 */
+.main_body{
+	width:1200px;
+	height:450px;
+	margin:0px auto;
+	background:#fff;
+ }
+.main_bodyText{
+	width:1200px;
+	height:60px;
+	line-height:60px;
+	font-size:18px;
+	color:#2c3a5d;
+	padding-left:110px;
+	opacity:0;
+ }
+.main_bodyPic{
+	width:1200px;
+	height:45px;
+	margin:0px auto;
+ }
+.picStep{
+	margin-left:206px;
+ }
+ /* 主体表单的样式 */
+ /* 验证第一步的大边框样式 */
+.main_bodyForm{
+	width:360px;
+	margin:0px auto;
+	margin-top:40px;
+}
+/* 验证第二步的大边框样式 */
+.main_bodyForm.main_bodyFormTheway{
+	width:420px;
+}
+
+/* 第三部表单的样式 */
+.main_bodyFormtheer{
+	width:550px;
+	margin:0px auto;
+	margin-top:40px;
+}
+
+/* 验证form表单的第一步文字 */
+.inputText{
+	width:90px;
+	height:40px;
+	font-size:14px;
+	color:#2c3a5d;
+	float:left;
+	line-height:40px;
+}
+/* 验证form表单的第二步文字 */
+.inputText.inputTextTheway{
+	width:145px;
+	height:40px;
+	font-size:14px;
+	color:#2c3a5d;
+	float:left;
+	line-height:40px;
+}
+/* 验证form表单的第三步文字*/
+.inputText.inputTextNewpassd{
+	width:110px;
+	height:40px;
+	float:left;
+	font-size:14px;
+	color:#2c3a5d;
+	line-height:40px;
+}
+.inputDiv{
+	width:550px;
+	height:40px;
+	margin:0px auto;
+	font-size:14px;
+}
+.inputValue{
+	width:270px;
+	height:40px;
+	float:left;
+	line-height:40px;
+ }
+.formFrame{
+	width:270px;
+	height:40px;
+	padding-left:10px;
+	line-height:40px;
+	float:left;
+ }
+.inputDiv.inputValueFrame{
+	margin-top:20px;
+	float:left;
+}
+.Verification{
+	width:135px;
+	height:40px;
+	float:left;
+	padding-left:10px;
+}
+.getVerificationCodeLast{
+	width:106px;
+	height:40px;
+	float:right;
+}
+.getVerificationCodeLast .btn-default{
+    background-color: #3d9fea;
+    border-color: #3d9fea;
+    color: #fff;
+}
+.getVerificationCodeLast .btn-default:hover{
+    background-color: #0279d4;
+    border-color: #0279d4;
+    color: #fff;
+}
+.verificationPic{
+	width:106px;
+	height:40px;
+}
+.formFrameReg{
+	width:270px;
+	height:40px;
+	background:#3d9eea;
+	border:1px solid #3993db;
+}
+.dividingLine{
+	border:1px solid #dde0e2;
+	margin-top:60px;
+}
+/* 第二步下拉菜单样式 */
+.selectFrame{
+	width:270px;
+	height:40px;
+}
+.smsVerification{
+	width:110px;
+	height:40px;
+	float:right;
+	text-align:center;
+	font-size:12px;
+	color:#727474;
+}
+
+ 
+/* 第三步输入框提示 */
+.formFramePrompt{
+	width:160px;
+	height:40px;
+	background:#ededed;
+	float:right;
+	font-size:10px;
+	color:#727474;
+	line-height:20px;
+	padding-left:10px;
+}
+.formFrameAgainPrompt{
+	width:160px;
+	height:40px;
+	background:#ededed;
+	float:right;
+	font-size:10px;
+	color:#727474;
+	line-height:40px;
+	padding-left:10px;
+}
+/*第四步登录成功页面样式*/
+.main_bodyFormleft{
+	width:70px;
+	float:left;
+	margin-top:40px;
+}
+
+.successPic{
+	width:70px;
+}
+.main_bodyFormRight{
+	width:240px;
+	float:left;
+	margin-left:30px;
+	margin-top:50px;
+}
+
+.main_bodyFormRightText{
+	font-size:18px;
+	color:#2c3a5d;
+}
+
+.main_bodyFormRightTextsmall{
+	color:#2c3a5d;
+	font-size:14px;
+}
+
+/*邮箱验证成功*/
+.main_bodyPrompt{
+	width:480px;
+	margin:0px auto;
+	margin-top:40px;
+	
+	
+}
+
+.main_bodyFormleftPic{
+	width:70px;
+	float:left;
+	margin-top:100px;
+}
+.main_bodyFormRightPrompt{
+	width:340px;
+	float:left;
+	margin-left:60px;
+	margin-top:180px;
+	font-size:18px;
+	color:#3c9ce9;
+}
+/* 底部 */
+.footerDiv{
+	width:100%;
+	height:150px;
+	margin-top:10px;
+}
+.footer{
+	width:1200px;
+	height:150px;
+	margin:0px auto;
+}
+.footerLeft{
+	width:60px;
+	margin-top:40px;
+	float:left;
+}
+.footerLeftPic{
+	width:60px;
+	height:53px;
+	
+}
+.footerPic{
+	width:60px;
+}
+.footerLeftMiddle{
+	width:400px;
+	height:150px;
+	margin-left:30px;
+	float:left;
+}
+.footerLeftText{
+	margin-top:25px;
+	font-size:10px;
+	cursor:default;
+}
+.footerLeftTextLiFist{
+	font-size:12px;
+}
+.footerLeftTextLi{
+	margin-top:10px;
+	color:#aaa;
+}
+.footerRightMiddle{
+	float:right;
+	margin-right:30px;
+	font-size:12px;
+	text-align:right;
+	line-height:20px;
+	margin-top:45px;
+	color:#aaa;
+	cursor:default;
+}
+
+.footerRightMiddleUlfist{
+	font-size:10px;
+} 
+
+.footerRightPic{
+	float:right;
+	margin-top:35px;
+}
+.weixinPic{
+	width:80px;
+	height:80px;
+}
+
+
+.footerRightMiddlePic{
+	float:right;
+}
+
+.footerRightMiddlePic ul li{
+	width:36px;
+	float:right;
+}
+.footerRightMiddlePicli{
+		margin-right:10px;
+}
+.findPass{
+	width:222px;
+	margin-top:120px;
+	font-size:14px;
+	color:#fff;
+	text-align:right;
+}
+ 
+.inputDiv.inputValueFrame .btn-primary:hover{
+	background-color:#358CD2;
+	border:1px solid #3485c7;
+}
+
+ 

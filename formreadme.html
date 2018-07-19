@@ -1,0 +1,267 @@
+<meta charset="utf8">
+<style>
+.important{
+	font-weight:bold;
+	color:red;
+}
+</style>
+<h1>Fairso 通用表单校验文档</h1>
+<h3>依赖：BootsTrap、Jquery,预先加载</h3>
+<TEXTAREA  rows=8 cols=150>
+<!-- 公共加载 -->
+<link rel="stylesheet" href="__CSS__/bootstrap.min.css">
+<script src="__JS__/jquery.min.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<link rel="stylesheet" href="__CSS__/font-awesome.css">
+<!-- 表单校验类 -->
+<link rel="stylesheet" href="__CSS__/fairsoform.css">
+<script>var WEBURL = '__WEBURL__';var URL = '__URL__';</script>
+<script class="fairsoformJS" src="__JS__/fairsoform.js"></script>
+</TEXTAREA><br/>
+<h4>1.标准输入框校验类=======================================================================================================</h4>
+条件 在HOME目录下，input输入框有“<span class="important">inputTxt</span>”类名执行<br/>
+<span class="important">注意：该校验使用data缓存传值校验</span><br/>
+通用DIV，样式不符，请在页面继承自调样式<br/>
+<TEXTAREA  rows=25 cols=150>
+<!-- 标准DIV -->
+<div class="inputDiv">
+	<!-- 标题 -->
+	<div class="inputText">
+		<span>手机号：</span>
+	</div>
+	<!-- 输入框 -->
+	<div class="inputValue inputValue-1">
+		<input class="formFrame inputTxt" type="text" data-id="1" data-state="2">
+	</div>
+	<!-- 提示框 -->
+	<div class="formPrompt formPrompt-1">
+		<div class="alert alert-success" role="alert">
+			<span class="icon-info-sign promptIco"></span><span class="promptText-1">请输入11位手机号码</span>
+		</div>
+	</div>
+	<!-- 错误框 -->
+	<div class="formError formError-1">
+		<div class="alert alert-danger" role="alert">
+			<span class="icon-remove-sign errorIco"></span><span class="errorText-1">密码不能为空</span>
+		</div>
+	</div>
+</div>
+</TEXTAREA><br/>
+校验参数：<br/>
+<span class="important">id</span>【表单项ID】<br/>
+<span class="important">state</span>【表单状态 1正确 2未操作（默认） 3错误】<br/>			
+<span class="important">title</span>【表单文本】<br/>
+<span class="important">ischeck</span>【是否启用校验 1启用 2不启用】<br/>
+<span class="important">checktype</span>【1手机号 2邮箱 3验证数字 4验证n位的数字（依赖length参数） 5验证至少n位数字（依赖length参数）6验证m-n位的数字（依赖slength、olength参数） 7验证有两位小数的正实数 8验证用户唯一 9验证密码 10验证重复密码 11校验验证码】<br/>
+<span class="important">slength</span>【校验长度开始数（checktype为6、9时起作用，选其他忽略）】<br/>
+<span class="important">olength</span>【校验长度结束数 （checktype为6、9时起作用，选其他忽略）】<br/>
+<span class="important">length</span>【校验长度 （checktype为4、5时起作用，选其他忽略）】<br/>
+<span class="important">useronly</span>【校验用户存在类型（checktype为8时起作用，选其他忽略） 1校验用户是否存在（不存在报错） 2校验用户是否不存在（存在报错）<span class="important">注意：依赖地址接口，请保证地址接口畅通</span>】<br/>
+<span class="important">userchecktype</span>【用户校验类型（checktype为8时起作用，选其他忽略） 1用户名 2手机号 3邮箱 4用户名和手机号 5用户名和邮箱 6手机号和邮箱 7用户名，手机号和邮箱】<br/>
+<span class="important">passid</span>【密码框的ID名（<span class="important">请保证页面唯一</span>）】<br/>
+<h4>2.图像验证码类=======================================================================================================</h4><br/>
+<span class="important">注意：100110303是验证码标示，各验证码标示请对应验证码标示表</span>
+<TEXTAREA  rows=1 cols=150>
+<img class="verificationPic" title="看不清？换一张" src="__WEBURL__/Common/verifyCreate/sign/100110303" data-sign="100110303">
+</TEXTAREA><br/>
+参数：<br/>
+<span class="important">sign</span>【验证码标示，各验证码标示请对应验证码标示表】<br/>
+说明：<br/>
+点击图片即可获取新的验证码图片<br/>
+<h4>3.发送短信验证码类=======================================================================================================</h4><br/>
+标准短信验证码<br/>
+<TEXTAREA  rows=22 cols=150>
+<!-- 标准DIV -->
+<div class="inputDiv inputValueFrame">
+	<!-- 标题 -->
+	<div class="inputText inputTextTheway">
+		<span>短信验证码：</span>
+	</div>
+	<div class="inputValue">
+		<!-- 验证码输入框 -->
+		<input class="formFrame verificationCode inputTxt" type="text" data-id="1" data-state="2" name="verify">
+		<!-- 获取验证码按钮 -->
+		<div class="getVerificationCodeLast">
+			<input class="smsVerification btn btn-default PhoneSmsVerifyBtn" type="buttom" value="获取短信验证码"  data-sign="100110102" data-phoneid="regPhone" data-inputdataid="1" data-time="60">
+		</div>
+	</div>
+	<!-- 报错 -->
+	<div class="formError formError-1">
+		<div class="alert alert-danger" role="alert">
+			<span class="icon-remove-sign errorIco"></span><span class="errorText-1">短信验证码错误！</span>
+		</div>
+	</div>
+</div>
+</TEXTAREA><br/>
+参数：<br/>
+<span class="important">sign</span>【验证码标示，各验证码标示请对应验证码标示表】<br/>
+<span class="important">phoneid</span>【手机号输入框ID】<br/>
+<span class="important">inputdataid</span>【验证码输入框表单项ID】<br/>
+<span class="important">time</span>【验证码获取间隔时间】<br/>
+<h4>4.提交校验类=======================================================================================================</h4><br/>
+JS校验函数<span class="important">inputsubmit()</span>"
+说明：校验页面所有"<span class="important">inputTxt</span>"所有的input表单项是否输入正确，所有项输入正确返回<span class="important">true</span>，反之返回<span class="important">false</span><br/>
+如<br/>
+<TEXTAREA  rows=7 cols=150>
+<script>
+	$('.nextBtnOne').click(function(){
+		var state = inputsubmit();
+		if(state){
+			location.href=WEBURL+"/Login/findpass/type/2/name/"+$(".username").val();
+		}
+	});
+</script>
+</TEXTAREA><br/>
+<h4>5.省市区三级联动=======================================================================================================</h4><br/>
+HTML部分<br/>
+<TEXTAREA  rows=7 cols=150>
+<select class="inputStyle" id="provinceSelect" data-id="{$data.provinceId}"><option>--请选择省份--</option></select>省
+<select class="inputStyle" id="citySelect" data-id="{$data.cityId}"><option>--请选择城市--</option></select>市
+<select class="inputStyle" id="areaSelect" data-id="{$data.area}" name="area" value=""><option>--请选择区域--</option></select>区
+<!-- 以上SELECT均可修改，但下面这个B标签用于储存上面下拉菜单的ID数据，格式不能修改，只可换参数！ -->
+<b id="bLink" data-pid="provinceSelect" data-cid="citySelect" data-aid="areaSelect" style="display:none"></b>
+</TEXTAREA><br/>
+SELECT参数：<br/>
+<span class="important">id</span>【下拉菜单默认值（多用于修改项对原值的读取）（<span class="important">选传</span>）】<br/>
+B标签参数：<br/>
+<span class="important">pid</span>【省份SELECT下拉菜单的ID】<br/>
+<span class="important">cid</span>【城市SELECT下拉菜单的ID】<br/>
+<span class="important">aid</span>【区县SELECT下拉菜单的ID】<br/>
+<h4>6.复选框=======================================================================================================</h4><br/>
+<TEXTAREA  rows=9 cols=150>
+<span class="formCheckbox formCheckbox-复选框组名 icon-check-empty" data-id="复选框ID" data-state="2" data-name="复选框组名"></span>复选框说明
+<span class="formCheckboxSelect icon-check-empty" data-state="2" data-name="复选框组名" title="全选"></span>
+<input class="Checkbox-复选框组名" type="text" value="复选框默认选中值（ID组）">
+<b class="formCheckboxReverseSelect" data-name="复选框组名">反选</b>
+<script>
+	$('.fairsoformJS').ready(function(){
+		//执行复选框初始化
+		formCheckboxStar('复选框组名');
+	});
+</script>
+</TEXTAREA><br/>
+示例：<br/>
+<TEXTAREA  rows=15 cols=150>
+<span class="formCheckbox formCheckbox-demo icon-check-empty" data-id="5" data-state="2" data-name="demo"></span>A
+<span class="formCheckbox formCheckbox-demo icon-check-empty" data-id="6" data-state="2" data-name="demo"></span>B
+<span class="formCheckbox formCheckbox-demo icon-check-empty" data-id="7" data-state="2" data-name="demo"></span>C
+<span class="formCheckbox formCheckbox-demo icon-check-empty" data-id="8" data-state="2" data-name="demo"></span>D
+<span class="formCheckboxSelect icon-check-empty" data-state="2" data-name="demo" title="全选"></span>
+<input class="Checkbox-demo" type="text" value="7">
+<b class="formCheckboxReverseSelect" data-name="demo">反选</b>
+<script>
+//执行复选框初始化
+$('.fairsoformJS').ready(function(){
+	formCheckboxStar('demo');
+});
+</script>
+</TEXTAREA><br/>
+<h4>7.警告弹层=======================================================================================================</h4><br/>
+JS函数：ErrorPopupLayer($content)<br/>
+参数：$content	错误内容<br/>
+示例：<br/>
+<TEXTAREA  rows=1 cols=150>ErrorPopupLayer('出错了')</TEXTAREA><br/>
+<h4>8.图片弹层=======================================================================================================</h4><br/>
+JS函数：popupLayerIMG($imgSrc)<br/>
+参数：$imgSrc	图片地址<br/>
+示例：<br/>
+<TEXTAREA  rows=1 cols=150>popupLayerIMG('https://www.baidu.com/img/bd_logo1.png')</TEXTAREA><br/>
+<h4>9.自定义弹层=======================================================================================================</h4><br/>
+创建弹层函数：popupLayer($popupId)<br/>
+展示弹层函数：popupLayerShow($popupId)<br/>
+参数：$popupId	待处理弹层DIV的ID<br/>
+说明：可以自己定义DIV的样式，元素组成<br/>
+示例：<br/>
+1.自定义一个DIV<br/>
+<TEXTAREA  rows=10 cols=150>
+<div class="GeneralPopup" id="WorkPopup">
+	<div class="PopupHead">
+		<span style="padding-left:10px;">邮箱绑定</span>
+	</div>
+	<div class="PopupBody">
+		<p><span class="icon-ok" style="color:#4CAE4C;padding-right:30px;font-size:40px"></span>验证邮件发送成功！赶快去邮箱验证吧！</p>
+	</div>
+	<div class="PopupFooter">
+		<span class="PopupFooterBack" data-id="WorkPopup">返回</span>
+		<span class="PopupFooterTrue cooperationSure">前往邮箱</span>
+	</div>
+</div>
+</TEXTAREA><br/>
+2.自定义DIV的样式<br/>
+<TEXTAREA  rows=15 cols=150>
+<style>
+#WorkPopup{
+	background-color: #FFFFFF;
+    border-radius: 10px 10px 20px 20px;
+    width: 1200px;
+	position: absolute;
+}
+#WorkPopup .PopupBody{
+	background-color:#E6E9E9;
+	border-radius: 10px 10px 0px 0px;
+	margin:10px 10px 0px 10px;
+	text-align:center;
+}
+#WorkPopup .PopupBody p{
+	margin:0px;
+	line-height:320px;
+	font-size:24px;
+	color:#668db8;
+}
+#WorkPopup .PopupHead{
+	font-size: 30px;
+    left: 20px;
+    position: absolute;
+    top: -50px;
+	color:#fff;
+}
+#WorkPopup .PopupFooter{
+	width:100%;
+	line-height:70px;
+	height:70px;
+	text-align:center;
+	font-size:30px;
+	
+	border-radius: 0 0 20px 20px;
+	cursor:pointer;
+}
+#WorkPopup .PopupFooter span{
+	display:block;
+	width:50%;
+	text-align:center;
+	float:left;	
+}
+#WorkPopup .PopupFooter .PopupFooterBack{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 0 20px;
+}
+#WorkPopup .PopupFooter .PopupFooterTrue{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 20px 0;
+}
+#WorkPopup .PopupFooter span:hover{
+	color:#FFFFFF;
+	background-color: #668db8;
+}
+</style>
+</TEXTAREA><br/>
+3.自定义好的DIV创建为弹层<br/>
+<TEXTAREA  rows=4 cols=150>
+<script>
+$('.fairsoformJS').ready(function(){
+	popupLayer('WorkPopup');
+});
+</script>
+</TEXTAREA><br/>
+4.触发并展示弹层<br/>
+<TEXTAREA  rows=4 cols=150>
+<script>
+$('.test123').click(function(){
+	popupLayerShow('WorkPopup');
+});
+</script>
+</TEXTAREA><br/><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

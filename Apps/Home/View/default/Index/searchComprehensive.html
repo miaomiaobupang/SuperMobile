@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>超级医生-搜索综合</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1">
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<link rel="stylesheet" href="__CSS__/public.css">
+	<link rel="stylesheet" href="__CSS__/pagination.css">
+	<link rel="stylesheet" href="__CSS__/searchComprehensive.css">
+	<script src="__JS__/jquery.min.js"></script>
+	<script src="__JS__/pagination.min.js"></script>
+</head>
+<body>
+	<div class="box">
+		<!-- header -->
+		<include file="Public/cjysHeaderSearch" />
+		<div class="main">
+			<div class="mainBox">
+				<div class="mainBoxLeft fl">
+					<div>
+						<div class="mainleft-list">
+							<div class="mainleft-list-title">
+								<span class="title">慢性胃炎</span>
+								<span class="tip">
+									<span>症状</span>  |  <span>病因</span>  |  <span>治疗</span>  |  <span>饮食</span>
+								</span>
+							</div>
+							<div class="mainleft-list-con">
+								<span class="title">慢性胃炎</span>(chronic gestritis)系指不同病因引起的胃粘膜的慢性炎症或萎缩性病变，其实质是胃粘膜上皮遭受反复损害后，由于粘膜特异的再生能力，以致粘膜发生改建，且最终导致不可逆的固有胃腺体的萎缩...<span class="tip">[详细]</span>
+							</div>
+						</div>
+						<div class="mainleft-list">
+							<div class="mainleft-list-title">
+								<span class="titlebox"><span class="title">慢性胃炎</span>能吃它吗？</span>
+								<span class="fr">3回答</span>
+							</div>
+							<div class="mainleft-list-con">
+								<span class="title">慢性胃炎</span>(chronic gestritis)系指不同病因引起的胃粘膜的慢性炎症或萎缩性病变，其实质是胃粘膜上皮遭受反复损害后，由于粘膜特异的再生能力，以致粘膜发生改建，且最终导致不可逆的固有胃腺体的萎缩...<span class="tip">[详细]</span>
+							</div>
+						</div>
+						<div class="mainleft-list">
+							<div class="mainleft-list-title">
+								<span class="titlebox"><span class="title">慢性胃炎</span>治疗专家</span>
+							</div>
+							<div class="mainleft-list-con">
+								<img src="__IMG__/20180316cjys13.png" alt="" class="fl">
+								<div class="mainleft-list-con mainleft-list-con-r fl">
+									<span class="title">慢性胃炎</span>(chronic gestritis)系指不同病因引起的胃粘膜的慢性炎症或萎缩性病变，其实质是胃粘膜上皮遭受反复损害后，由于粘膜特异的再生能力，以致粘膜发生改建，且最终导致不可逆的固有胃腺体的萎缩...<span class="tip">[详细]</span>
+								</div>
+							</div>
+						</div>
+						<div class="mainleft-list">
+							<div class="mainleft-list-title">
+								<span class="titlebox"><span class="title">慢性胃炎</span>治疗医院</span>
+							</div>
+							<div class="mainleft-list-con">
+								<img src="__IMG__/20180316cjys10.png" alt="" class="fl">
+								<div class="mainleft-list-con mainleft-list-con-r fl">
+									<span class="title">慢性胃炎</span>(chronic gestritis)系指不同病因引起的胃粘膜的慢性炎症或萎缩性病变，其实质是胃粘膜上皮遭受反复损害后，由于粘膜特异的再生能力，以致粘膜发生改建，且最终导致不可逆的固有胃腺体的萎缩...<span class="tip">[详细]</span>
+								</div>
+							</div>
+						</div>
+						<div class="mainleft-list">
+							<div class="mainleft-list-title">
+								<span class="titlebox"><span class="title">慢性胃炎</span>治疗药物</span>
+							</div>
+							<div class="mainleft-list-con">
+								<span class="title">三九胃泰治疗药物</span>(chronic gestritis)系指不同病因引起的胃粘膜的慢性炎症或萎缩性病变，其实质是胃粘膜上皮遭受反复损害后，由于粘膜特异的再生能力，以致粘膜发生改建，且最终导致不可逆的固有胃腺体的萎缩...<span class="tip">[详细]</span>
+							</div>
+						</div>
+					</div>
+					<!-- 分页 -->
+					<div id="pagination"></div>
+				</div>
+				<div class="mainBoxRight fr">
+					<div class="mainBox3Right2">
+						<div class="mainBox3Right1Tilte">提问</div>
+						<div class="questions">
+							<textarea name="" id="" onKeyUp="if(this.value.length > 30){this.value=this.value.substr(0,30)}">头疼，头晕，出虚汗怎么回事？</textarea>
+							<div class="questionsTip">
+								<span>字数限制5-30个字</span>
+								<button>提交问题</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cl"></div>
+			</div>
+		</div>
+		<!-- footer -->
+		<include file="Public/cjysFooter" />
+	</div>
+	<script>
+		// ***分页***
+	    $("#pagination").whjPaging({
+		  	//设为true时，ajax里的success函数必须调用setPage方法，否则分页插件显示保持不变
+		  	// isResetPage: true,
+		  	css: 'css-1',
+	        //可选，展示页码数量6条
+				showPageNum: 6,
+				// 总共18页
+	        totalPage: 18,
+	        //可选，是否展示每页N条下拉框，默认true
+			isShowPageSizeOpt: false,
+			//可选，是否展示跳到指定页数，默认true
+			isShowSkip: false,
+			//可选，是否展示刷新，默认true
+			isShowRefresh: false,
+			//可选，是否展示共{}页，默认true
+			isShowTotalPage: false,
+			// 返回参数：第一个参数为页码，第二个参数为每页显示N条
+	        callBack: function (currPage, pageSize) {
+	            console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+	        }
+		});
+		/*
+		function loadData(currPage, pageSize) {
+			$.ajax({
+			    //其它参数选项请自填
+			    success: function(res) {
+				    
+			    }
+			});
+		}
+		loadData(1, 8);
+		*/
+	</script>
+</body>
+</html> 

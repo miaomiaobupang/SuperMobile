@@ -1,0 +1,132 @@
+<style>
+	#header{
+		width:100%;
+		height:100px;
+		background:#fff;
+	}
+	.headerCont{
+		width:1240px;
+		height:100px;
+		margin:0 auto;
+	}
+	.logoText{
+		font-size:36px;
+		color:#009FA8;
+		line-height:100px;
+	}
+	.logoText2{
+		font-size:18px;
+		margin-left:20px;
+		line-height:100px;
+	}
+	.inputDiv{
+		width:412px;
+		height:40px;
+		margin-left:116px;
+		border-radius:2px;
+		margin-top:30px;
+		margin-right:10px;
+	}
+	#searchInput{
+		width:344px;
+		height:40px;
+		border:2px solid #009FA8;
+		padding:5px 12px;
+		font-size:14px;
+		border-radius:2px 0 0 2px;
+	}
+	#searchBtn{
+		width:68px;
+		height:40px;
+		background:#009FA8;
+		font-size:16px;
+		color:#fff;
+		border:none;
+		cursor:pointer;
+		border-radius:0 2px 2px 0;
+	}
+	.headerHot{
+		color:#999;
+		font-size:14px;
+		margin-left:10px;
+		line-height:100px;
+		cursor:pointer;
+	}
+	#nav{
+		width:100%;
+		height:60px;
+		background:#DCDCDC;
+	}
+	.navCont{
+		width:1240px;
+		height:60px;
+		margin:0 auto;
+		padding:5px 35px;
+	}
+	.navList{
+		font-size:16px;
+		color:black;
+		line-height:50px;
+		margin-right:25px;
+		display:inline-block;
+		cursor:pointer;
+	}
+	.navListNow{
+		border-bottom:2px solid #009FA8;
+		color:#009FA8;
+	}
+	.login,.register{
+		font-size:16px;
+		color:#fff;
+		line-height:50px;
+		cursor:pointer;
+	}
+	.line{
+		font-size:16px;
+		color:#fff;
+		line-height:50px;
+		margin:0 10px;
+	}
+</style>
+<div id="header">
+	<div class="headerCont">
+		<span class="logoText fl">超级医生</span>
+		<span class="logoText2 fl">前沿重疾解决方案提供平台</span>
+		<div class="inputDiv fl">
+			<input type="text" placeholder="请在此输入您想查询的重疾信息" id="searchInput" class="fl">
+			<button id="searchBtn" class="fl">搜索</button>
+		</div>
+		<div class="fl">
+			<span class="headerHot">食道癌</span>
+			<span class="headerHot">食道癌</span>
+			<span class="headerHot">食道癌</span>
+			<span class="headerHot">食道癌</span>
+			<span class="headerHot">食道癌</span>
+		</div>
+		<div class="cl"></div>
+	</div>
+</div>
+<div id="nav">
+	<div class="navCont">
+		<span class="navList navListNow" data-type="1">综合</span>      
+		<span class="navList" data-type="2">疾病</span>      
+		<span class="navList" data-type="3">医生</span>     
+		<span class="navList" data-type="4">医院</span>      
+		<span class="navList" data-type="5">药物</span>      
+		<span class="navList" data-type="6">问答</span>      
+		<span class="navList" data-type="7">其他</span>   
+		<div class="fr">
+			<span class="login">登录</span> 
+			<span class="line">|</span> 
+			<span class="register">注册</span>
+		</div>
+	</div>
+</div>
+<script>
+    var type = $types;
+	$('.navList').each(function(){
+		if($(this).data('type') == type){
+			$(this).addClass('navListNow');
+		}
+	});
+</script>

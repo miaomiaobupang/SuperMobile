@@ -1,0 +1,159 @@
+<script>
+	var ue = UE.getEditor('editor');
+	function getContent() {
+		var arr = [];
+		arr.push(UE.getEditor('editor').getContent());
+	};
+	//提交按钮的位置
+	$('.subStyleDiv').css({'bottom':'20px'});
+	
+	//初始化所有词条类型
+	var entryType = {$info['type']};
+	$('.selected').hide(1000);
+	if(entryType == 1 || entryType == 4 || entryType == 6){
+		$('.selectedOne').show(1000);
+		$('.selectedThree').show(1000);
+	}else if(entryType == 2){
+		$('.selectedOne').show(1000);
+		$('.selectedTwo').show(1000);
+	}else if(entryType == 7){
+		$('.selectedOne').show(1000);
+		$('.selectedFive').show(1000);
+	}
+	
+	//选择资讯类型
+	$('.selectPro').click(function(){
+		var type = $(this).data('type');
+		if(type == 1){
+			//初始化所有选项
+			$('.selected').hide(1000);
+			//给当前资讯类型赋值
+			var value = $(this).val();
+			if(value == 1 || value == 4 || value == 6){
+				$('.selectedOne').show(1000);
+				$('.selectedThree').show(1000);
+			}else if(value == 2){
+				$('.selectedOne').show(1000);
+				$('.selectedTwo').show(1000);
+			}else if(value == 7){
+				$('.selectedOne').show(1000);
+				$('.selectedFive').show(1000);
+			}
+		}
+	});
+	
+	//****************************两级疾病筛选****************************
+	$('.publicSpanOne').click(function(){
+		var Pid = $(this).data('pid');
+		var Mid = $(this).data('mid');
+		var state = $(this).data('state');
+		var clic = $(this).data('clic');
+		var publicSpanOneOBJ = $(this);
+		if(state == 1){
+			$('.publicSpanOne').css({'background':'white','color':'black'});
+			$(this).css({'background':'green','color':'white'});
+			$('.publicSpanOne').each(function(){
+				$(this).data('state',1);
+			});
+			$(this).data('state',2);
+		}else if(state == 2){
+			alert(234)
+			$('.tempDisease-'+Pid).remove();
+		}
+		$.ajax({
+			url:URLS+'/Common/DiseaseList',
+			data:'type=4&level=2&pid='+Pid+'&mid='+Mid+'&ptype=2',
+			dataType:'json',
+			success:function(data){
+				if(data.status == 1){
+					if(clic == 1){
+						publicSpanOneOBJ.data('clic',2);
+						$('.publicSpanTwo').css({'display':'none'});
+						var publicSpanTwoHTML = '';
+						publicSpanTwoHTML += '<div class="col-sm-11 publicSpanTwo publicSpanOne'+Pid+'" style="float:right;margin-top:10px;padding-left:-6px;">';
+						
+						publicSpanTwoHTML += data.data;
+						
+						publicSpanTwoHTML += '<div style="clear:both"></div>';
+						publicSpanTwoHTML += '</div>';
+						$('.publicSpanOneDiv').after(publicSpanTwoHTML);
+						$('.publicSpanOne'+Pid).css({'display':'block'});
+					}else if(clic == 2){
+						$('.publicSpanTwo').css({'display':'none'});
+						$('.publicSpanOne'+Pid).css({'display':'block'});
+					}
+					twoDiseaseSelect('publicSpan');
+				}
+			}
+		});
+	});
+	//****************************两级疾病筛选****************************
+	
+	/*************************科室、疾病选项**************************/
+	twoDiseaseSelect('publicSpan')
+	//多选二级疾病类型
+	function twoDiseaseSelect(publicSpan){
+		var twoDiseaseSelectObj = $('.'+publicSpan);
+		twoDiseaseSelectObj.click(function(){
+			var state = $(this).data('state');
+			var id = $(this).data('id');
+			//多选的类型
+			var type = $(this).data('type');
+			if(type==3){
+				//疾病
+				var typeName = 'disease_id';
+			}else if(type==4){
+				//科室
+				var typeName = 'department_id';
+			}else if(type==5){
+				//科室
+				var typeName = 'kind_id';
+			}
+			if(state == 1){
+				//放弃选中状态
+				$(this).data('state',2);
+				$(this).css({'background':'white','color':'black'});
+				//移除二级疾病选中值
+				$(this).next().remove();
+			}else if(state == 2){
+				//添加选中状态
+				$(this).data('state',1);
+				$(this).css({'background':'red','color':'white'});
+				//添加二级疾病选中值
+				var selectHTML ='<input name="'+typeName+'[]" value="'+id+'" type="hidden">';
+				$(this).after(selectHTML);
+			}
+		});
+	}
+	/*************************科室、疾病选项**************************/
+	
+	//提交并添加资讯信息
+	$("form").submit(function(e){
+		
+		//获取资讯标题
+		var messageTitle = $('#messageTitle').val();
+		if(messageTitle == '' || typeof(messageTitle) == 'undefined'){
+			alert('请选输入资讯标题')
+			return false;
+		}
+		//获取资讯内容
+		var editor = $('#editor').html();
+		if(editor == '' || typeof(editor) == 'undefined'){
+			alert('请选输入资讯内容')
+			return false;
+		}
+		return true;
+	});
+	
+	
+	//页面高度
+	var entryContentDivHeight = $('#editor').height();
+	var entryContentDivHeightALL = entryContentDivHeight+1300+'px';
+	$('.tile-body').css({'height':entryContentDivHeightALL});
+	
+	//****************************初始化上传图片***********************************开始
+	fileUploadBody('uploadDivs');
+	//给文件ID赋值
+	var fileID = "{$info['file_id']}";
+	$('.uploadDivs11').val(fileID);
+</script>

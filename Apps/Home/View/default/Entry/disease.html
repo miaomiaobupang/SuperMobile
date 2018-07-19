@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>超级医生-疾病列表</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1">
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<link rel="stylesheet" href="__CSS__/public.css">
+	<link rel="stylesheet" href="__CSS__/idangerous.swiper.css">
+	<link rel="stylesheet" href="__CSS__/index.css">
+	<link rel="stylesheet" href="__CSS__/disease.css">
+	<script src="__JS__/jquery.min.js"></script>
+	<script src="__JS__/idangerous.swiper.min.js"></script>
+	<script src="__JS__/disease.js"></script>
+</head>
+<body>
+	<div class="box">
+		<a name="top" id="top"></a>
+		<!-- header -->
+		<include file="Public/cjysHeader" />
+		<!-- main -->
+		<div class="main">
+			<div class="mainTitle">
+				<img src="__IMG__/20180316cjys33.png" alt="" class="fl">
+				<a href="">首页</a>><a href="">癌症</a>><a href="">{$data.cname}</a>
+			</div>
+			<div class="mainLeft fl">
+					<div class="mainLeft2">
+						<div class="mainLeftTitle">
+							<a name="title1" id="title_{$one.id}" class="titleHs"></a>
+							<!-- <div class="mainLeftTitleInner">{$one.name}</div> -->
+						</div>
+						<div style="width:100%;">{$data.entry_content}</div>
+					</div>
+				<div class="mainLeftShare">
+					<span class="mainLeftShareText fl">分享到</span>
+					<img src="__IMG__/20180316cjys43.png" alt="微信" class="fl" data-src="20180316cjys43" title="微信">
+					<img src="__IMG__/20180316cjys41.png" alt="微博" class="fl" data-src="20180316cjys41" title="微博">
+					<img src="__IMG__/20180316cjys26.png" alt="QQ" class="fl" data-src="20180316cjys26" title="QQ">
+					<div class="cl"></div>
+				</div>
+				<div class="WeChat">
+					<div class="WeChatLogo fl"><img src="__IMG__/20180316cjys30.png" alt=""></div>
+					<div class="WeChatText fr">关注微信公众号，了解更多医疗信息</div>
+				</div>
+			</div>
+			<div class="mainRight fr"> 
+				<div class="mainRight1">
+					<div class="mainRight1_tip">
+						<img src="__IMG__/20180316cjys44.png" alt="">
+						<span>独家</span>
+					</div>
+					<div class="mainRight1_title">
+						<span class="mainRight1_title1 fl">胃癌治疗超级医生</span>
+						<span class="main1Right_more fr">更多<img src="__IMG__/20180316cjys1.png" alt=""></span>
+					</div>
+					<div class="mainRight1Banner swiper-container">
+						<div class="swiper-wrapper">
+				            <div class="swiper-slide">
+				            	<div class="mainRight1BannerInner">
+									<img src="__IMG__/20180316cjys17.png" alt="">
+									<div class="mainRight1BannerName">鹤丸昌彦&nbsp;教授</div>
+									<div class="mainRight1BannerText">日本消化学会会长</div>
+									<div class="mainRight1BannerText">顺天堂医院癌症中心院长</div>
+									<div class="bannerConsultation">咨询预约</div>
+									<div class="bannerBottomName">日本专家</div>
+								</div>
+					        </div>
+					        <div class="swiper-slide">
+					        	<div class="mainRight1BannerInner">
+									<img src="__IMG__/20180316cjys17.png" alt="">
+									<div class="mainRight1BannerName">鹤丸昌彦&nbsp;教授</div>
+									<div class="mainRight1BannerText">日本消化学会会长</div>
+									<div class="mainRight1BannerText">顺天堂医院癌症中心院长</div>
+									<div class="bannerConsultation">咨询预约</div>
+									<div class="bannerBottomName">日本专家</div>
+								</div>
+					        </div>
+					        <div class="swiper-slide">
+					        	<div class="mainRight1BannerInner">
+									<img src="__IMG__/20180316cjys17.png" alt="">
+									<div class="mainRight1BannerName">鹤丸昌彦&nbsp;教授</div>
+									<div class="mainRight1BannerText">日本消化学会会长</div>
+									<div class="mainRight1BannerText">顺天堂医院癌症中心院长</div>
+									<div class="bannerConsultation">咨询预约</div>
+									<div class="bannerBottomName">日本专家</div>
+								</div>
+					        </div>
+						</div>
+						<div class="my-pagination"></div>
+					</div>
+					<script>
+						var mySwiper1 = new Swiper('.mainRight1Banner',{
+				            loop: true,
+				            autoplay: 5000,
+				            effect : 'fade',
+				            pagination:'.my-pagination',
+				            paginationClickable :true
+				        });
+					</script>
+				</div>
+				<div class="mainRight2">
+					<span class="main1_title3 fl">胃癌治疗顶级医院</span>
+					<span class="main1Right_more fr">更多<img src="__IMG__/20180316cjys1.png" alt=""></span>
+					<div class="cl"></div>
+					<div class="moreHos">
+						<div class="moreHosList fl">
+							<img src="__IMG__/20180316cjys19.png" alt="">
+							<li>北京协和医院</li>
+						</div>
+						<div class="moreHosList fl">
+							<img src="__IMG__/20180316cjys19.png" alt="">
+							<li>北京协和医院</li>
+						</div>
+						<div class="moreHosList fl">
+							<img src="__IMG__/20180316cjys19.png" alt="">
+							<li>北京协和医院</li>
+						</div>
+						<div class="moreHosList fl">
+							<img src="__IMG__/20180316cjys19.png" alt="">
+							<li>北京协和医院</li>
+						</div>
+						<div class="cl"></div>
+					</div>
+				</div>
+				<div class="mainRight3">
+					<img src="__IMG__/20180316cjys32.png" alt="">
+					<span>广告位</span>
+				</div>
+				<div class="mainRight4">
+					<span class="main1_title3 fl">胃癌治疗药物</span>
+					<span class="main1Right_more fr">更多<img src="__IMG__/20180316cjys1.png" alt=""></span>
+					<div class="cl"></div>
+					<div class="moreHos">
+						<div class="medicPic">
+							<img src="__IMG__/20180316cjys20.png" alt="" class="fl medicPicImg medicPicImg_1">
+							<img src="__IMG__/20180316cjys20.png" alt="" class="fl medicPicImg medicPicImg_2">
+							<img src="__IMG__/20180316cjys20.png" alt="" class="fl medicPicImg medicPicImg_3">
+							<img src="__IMG__/20180316cjys20.png" alt="" class="fl medicPicImg medicPicImg_4">
+							<img src="__IMG__/20180316cjys20.png" alt="" class="fl medicPicImg medicPicImg_5">
+							<div class="medicName fl">
+								<li class="medicNameLi over2" data-n="1">卡莫氟片（孚贝）</li>
+								<li class="medicNameLi over2" data-n="2">卡莫氟片（孚贝）</li>
+								<li class="medicNameLi over2" data-n="3">卡莫氟片（孚贝）</li>
+								<li class="medicNameLi over2" data-n="4">卡莫氟片孚贝卡莫氟片孚贝</li>
+								<li class="medicNameLi over2" data-n="5">卡莫氟片孚贝卡莫氟片孚贝</li>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mainRight4" style="height:208px">
+					<span class="main1_title3 fl">胃癌互动问答</span>
+					<span class="main1Right_more fr">更多<img src="__IMG__/20180316cjys1.png" alt=""></span>
+					<div class="cl"></div>
+					<div class="moreHos" style="padding-top:0">
+						<li class="main2TwoList">
+							<span class="main2TwoList1 fl">胃癌能治好吗？</span>
+							<span class="main2TwoList2 fr">2回答</span>
+						</li>
+						<li class="main2TwoList">
+							<span class="main2TwoList1 fl">胃癌能治好吗？</span>
+							<span class="main2TwoList2 fr">2回答</span>
+						</li>
+						<li class="main2TwoList">
+							<span class="main2TwoList1 fl">胃癌能治好吗？</span>
+							<span class="main2TwoList2 fr">2回答</span>
+						</li>
+						<li class="main2TwoList">
+							<span class="main2TwoList1 fl">胃癌能治好吗？</span>
+							<span class="main2TwoList2 fr">2回答</span>
+						</li>
+					</div>
+				</div>
+				<div class="mainRight4 mainRight5">
+					<span class="main1_title3 fl">胃癌治疗案例</span>
+					<span class="main1Right_more fr">更多<img src="__IMG__/20180316cjys1.png" alt=""></span>
+					<div class="cl"></div>
+					<div class="moreHos">
+						<div class="mainRight5Banner swiper-container">
+							<div class="swiper-wrapper">
+				                <div class="swiper-slide">
+				                	<div class="caseBanner">
+						                <img src="__IMG__/20180316cjys27.png" alt="">
+						                <div class="caseBannerText">胃癌Ⅳ期患者秦女士赴日就医得解答</div>
+					                </div>
+				                </div>
+				                <div class="swiper-slide">
+				                 	<div class="caseBanner">
+						                <img src="__IMG__/20180316cjys27.png" alt="">
+						                <div class="caseBannerText">胃癌Ⅳ期患者秦女士赴日就医得解答</div>
+					                </div>
+				                </div>
+				            </div>
+						</div>
+						<div class="lbcon">
+						    <span class="lb_left"><img src="__IMG__/20180316cjys23.png" alt=""></span>
+						    <span class="lb_right"><img src="__IMG__/20180316cjys24.png" alt=""></span>
+					    </div>
+					    <script>
+					        var mySwiper1 = new Swiper('.mainRight5Banner',{
+					            loop: true,
+					            autoplay: 5000,
+					        });
+					        $('body').on('click','.lb_left',function(){
+						      mySwiper1.swipePrev();
+						      
+						    })
+						    $('body').on('click','.lb_right',function(){
+						      mySwiper1.swipeNext();
+						    })
+					    </script>
+					</div>
+				</div>
+				<div class="mainRight4 mainRight6">
+					<span class="main1_title3 fl">最新资讯</span>
+					<span class="main1Right_more fr">更多<img src="__IMG__/20180316cjys1.png" alt=""></span>
+					<div class="cl"></div>
+					<div class="moreHos">
+						<li class="mainRight6Li">
+							<span class="main2DocNewsCircle fl"></span>
+							<span class="main2DocNews1 over2 fl">墓内亚敏肝脏外科研讨会在墓内亚敏墓内亚敏肝脏外科研讨会在墓内亚敏</span> 
+						</li>
+						<li class="mainRight6Li">
+							<span class="main2DocNewsCircle fl"></span>
+							<span class="main2DocNews1 over2 fl">墓内亚敏肝脏外科研讨会在墓内亚敏</span> 
+						</li>
+						<li class="mainRight6Li">
+							<span class="main2DocNewsCircle fl"></span>
+							<span class="main2DocNews1 over2 fl">墓内亚敏肝脏外科研讨会在墓内亚敏</span> 
+						</li>
+						<li class="mainRight6Li">
+							<span class="main2DocNewsCircle fl"></span>
+							<span class="main2DocNews1 over2 fl">墓内亚敏肝脏外科研讨会在墓内亚敏</span> 
+						</li>
+					</div>
+				</div>
+				<div class="mainRight7">
+					<!-- <img src="__IMG__/1511920180747.jpg" alt="" class="mainRight7Img"> -->
+					<!-- <foreach name="data.entry_content" item="one" key="k"> -->
+						<!-- <a href="#title_{$one.id}" target="_self" class="title1"> -->
+							<!-- <li class="mainRight7Title" data-h="{$k}"><div class="mainRight7TitleCircle"></div>{$one.name}</li> -->
+						<!-- </a> -->
+						<!-- <foreach name="one.two" item="two"> -->
+							<!-- <a href="#title_{$one.id}_{$two.id}" target="_self" class="title_{$one.id}_{$two.id}"><li class="mainRight7Text" data-h="2">{$two.name}</li></a> -->
+						<!-- </foreach> -->
+					<!-- </foreach> -->
+					<a href="#top" target="_self">
+						<img src="__IMG__/20180316cjys48.png" alt="" class="mainRight7Top" title="返回顶部">
+					</a>
+				</div>
+			</div>
+			<div class="cl"></div>
+		</div>
+		<!-- footer -->
+		<include file="Public/cjysFooter" />
+	</div>
+	<script>
+		var IMG='__IMG__/';
+		// 分享
+		$('.mainLeftShare img').hover(function(){
+			var src=$(this).data('src');
+			$(this).attr('src',IMG+src+'a.png');
+		},function(){
+			var src=$(this).data('src');
+			$(this).attr('src',IMG+src+'.png');
+		});
+	</script>
+</body>
+</html> 

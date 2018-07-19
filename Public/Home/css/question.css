@@ -1,0 +1,179 @@
+.mainBox{
+	width:100%;
+	height:auto;
+	background:#f5f5f5;
+	padding:20px 0 190px 0;
+}
+.main{
+	width:1240px;
+	height:auto;
+	margin:0 auto;
+}
+.imgBanner{
+	width:100%;
+	display:block;
+	margin-bottom:20px;
+}
+.question-cont{ 
+	background:rgba(255,255,255,1);
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	padding:40px;
+}
+.header-msg{
+	font-size:18px;
+	line-height:18px;
+	color:#333;
+}
+.mb-20{
+	margin-bottom:20px;
+}
+.mb-30{
+	margin-bottom:30px;
+}
+.mt-40{
+	margin-top:40px;
+}
+.question-msg{
+	width:684px;
+	height:40px; 
+	border:1px solid #dcdcdc;
+	border-radius: 2px;
+	padding:0 20px;
+	font-size:14px;
+	line-height:38px;
+	margin-bottom:18px;
+	display: block;
+}
+.qType-msg{
+	font-size:14px;
+	line-height:14px;
+	color:#666;
+	margin-right:16px;
+}
+.radio-cont{
+	display:inline-block;
+	cursor:pointer;
+}
+.radio-cont img{
+	margin-top:4px;
+	margin-right:5px;
+	float:left;
+}
+input[type="radio"]{
+	width:12px;
+	height:12px; 
+	opacity:0;
+}
+label{
+	position:absolute;
+	left:0;
+	top:4px;
+	width:12px;
+	height:12px;
+	border:1px solid #666;
+	border-radius:50%;
+}
+input:checked+label{
+	background:#009fa8;
+	border:1px solid #009fa8;
+	width:8px;
+	height:8px;
+	left:2px;
+	top:6px;
+}
+input:checked+label::after{
+	position:absolute;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	content:"";
+	width:12px;
+	height:12px;
+	border:1px solid #009fa8;
+	border-radius:50%;
+	left:-2.5px;
+	top:-3px;
+}
+.describe-box{
+	width:100%;
+	height:312px;
+	border:1px solid #dcdcdc;
+	position:relative;
+	padding:13px 20px;
+	font-size:14px;
+}
+.describe-box textarea{
+	width: 100%;
+    height: 100%;
+    resize: none;
+    border: none;
+}
+.prompt-msg{
+	font-size:14px;
+	line-height:14px;
+	position:absolute;
+	right:0;
+	top:-27px;
+	color:#999;
+}
+.upload{
+	width:288px;
+	height:40px;
+	line-height:40px;
+	font-size:16px;
+	color:#666;
+	background:#dcdcdc;
+	text-align:center;
+}
+.uploadTip{
+	display:inline-block;
+	font-size:16px;
+	color:#999;
+	margin-top:20px;
+	margin-left:18px;
+}
+.uploadBox{
+	margin-top:40px;
+	margin-bottom:32px;
+}
+.patientMess{
+	font-size:18px;
+	margin-bottom:18px;
+}
+.patientInput{
+	width:153px;
+	height:40px;
+	border:1px solid #dcdcdc;
+	margin-right:35px;
+}
+.patientInput input{
+	width:130px;
+	height:38px;
+	padding:12px;
+	border:none;
+}
+.patientChick{
+	font-size:16px;
+	line-height:40px;
+	margin-right:20px;
+	cursor:pointer;
+}
+.patientChick img{
+	margin-right:3px;
+}
+.patientAge{
+	height:40px;
+}
+.subQues{
+	width:130px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	background:#009FA8;
+	color:#fff;
+	margin-top:40px;
+	font-size:16px;
+	cursor:pointer;
+}

@@ -1,0 +1,385 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+use Home\Model\UploadFileModel as UploadFile;
+
+// +----------------------------------------------------------------------
+// | 爱能社
+// +----------------------------------------------------------------------
+// | Copyright (c) 2006-2015 http://langyue.org All rights reserved.
+// +----------------------------------------------------------------------
+// | 发现
+// +----------------------------------------------------------------------
+// | Author: 狼啸 <11740390@qq.com>
+// +----------------------------------------------------------------------
+class FindController extends LimitController {
+
+	private $user;//用户表
+	private $school;//学校表
+	private $school_activity;//学校活动表
+	private $collect;//收藏表
+	private $privilege;//优惠券表
+	private $privilege_type;//优惠券类型表
+	private $privilege_apply;//优惠券申请表
+	private $curriculum;//最In课程表
+	
+	/**
+	 * 构造方法
+	 */
+	public function __construct() {
+		parent::__construct();
+
+		//实例化用户表
+		$this->user     = D('user');
+		//实例化学校
+		$this->school     = D('school');
+		//实例化学校活动
+		$this->school_activity     = D('school_activity');
+		//实例化收藏表
+		$this->collect     = D('collect');
+		//实例化优惠券表
+		$this->privilege     = D('privilege');
+		//实例化优惠券类型表
+		$this->privilege_type     = D('privilege_type');
+		//实例化优惠券申请
+		$this->privilege_apply     = D('privilege_apply');
+		//实例化最In课程表
+		$this->curriculum     = D('curriculum');
+	}
+	
+	/*
+	* 我的发现普通用户版
+	* 接收数据格式 'uid'=>用户ID
+	* 返回数据格式
+		{
+			'status'=>状态,
+			'message'=>提示信息,
+			'activityList'=热门活动列表=array(
+				每条活动数据=array(
+					'cid'=>学校活动ID,
+					'title'=>学校活动标题,
+					'cover'=>学校活动封面,
+					'stime'=>学校活动开始时间,
+					'etime'=>学校活动结束时间,
+					'adress'=>学校活动地址,
+					'praise'=>活动点赞数,
+					'share'=>活动分享数,
+					'comment'=>活动评论数,
+					'statecode'=>活动状态码 1未开始 2进行中 3已过期,
+				),
+			),
+			'schoolList'=我的关注列表=array(
+				每条关注数据=array(
+					'cid'=>学校ID,
+					'cover'=>学校封面,
+					'grade'=>学校评分,
+					'name'=>学校名称,
+					'adress'=>学校地址,
+					'tags'=>学校标签,
+					'activityList'=该校最新创建活动列表=array(
+						每条活动数据=array(
+							'cid'=>学校活动ID,
+							'title'=>学校活动标题,
+							'cover'=>学校活动封面,
+							'stime'=>学校活动开始时间,
+							'etime'=>学校活动结束时间,
+							'adress'=>学校活动地址,
+							'praise'=>活动点赞数,
+							'share'=>活动分享数,
+							'comment'=>活动评论数,
+							'statecode'=>活动状态码 1未开始 2进行中 3已过期,
+						),
+					),
+				)
+			)
+		} 
+	status = {
+		1：获取成功；
+		2：缺少用户ID;
+	}
+	*/
+	public function user(){
+		$uid =I('uid','');     
+		if($uid){
+			//查询用户关注学校
+			$schoolList=$this->collect->where('uid='.$uid.' and type=1 and state=1')->field('fid')->order('ctime desc')->limit(2)->select();
+			if($schoolList){
+				//用户有关注学校，热门活动推送最新创建的两条
+				//获取学校信息
+				$schoolListNum=count($schoolList);
+				for($i=0;$i<$schoolListNum;$i++){
+					$schoolList[$i]=$this->school ->where('cid='.$schoolList[$i]['fid'].' and state=1')->field('cid,name,tags,cover,adress,grade')->find();
+					//补全封面地址
+					$schoolList[$i]['cover']='http://'.$_SERVER['HTTP_HOST'].__ROOT__.$schoolList[$i]['cover'];
+					//评分
+					$schoolList[$i]['grade']=$schoolList[$i]['grade']/10;
+					//获取学校活动
+					$schoolList[$i]['activityList']=$this->school_activity ->where('fid='.$schoolList[$i]['cid'].' and statecode!=3 and state=1')->field('cid,title,cover,stime,etime,adress,praise,share,comment,statecode')->order('ctime desc')->limit(3)->select();
+					if($schoolList[$i]['activityList']){
+						$activityListNum=null;
+						$activityListNum=count($schoolList[$i]['activityList']);
+						for($j=0;$j<$activityListNum;$j++){
+							//补全封面地址
+							$schoolList[$i]['activityList'][$j]['cover']='http://'.$_SERVER['HTTP_HOST'].__ROOT__.$schoolList[$i]['activityList'][$j]['cover'];
+							//格式化时间
+							$schoolList[$i]['activityList'][$j]['stime']=date('Y/m/d',$schoolList[$i]['activityList'][$j]['stime']);
+							$schoolList[$i]['activityList'][$j]['etime']=date('Y/m/d',$schoolList[$i]['activityList'][$j]['etime']);
+						}
+						
+					}else{
+						$schoolList[$i]['activityList']=array();
+					}	
+				}
+				$activityNum=2;
+			}else{
+				//用户有关注学校，热门活动推送最新创建的四条
+				$schoolList=array();
+				$activityNum=4;
+			}
+		}else{
+			//用户有关注学校，热门活动推送最新创建的四条
+			$schoolList=array();
+			$activityNum=4;
+		}
+		//准备热门活动推荐（创建时间最新）
+		$activityList=$this->school_activity ->where('statecode!=3 and state=1')->field('cid,title,cover,stime,etime,adress,praise,share,comment,statecode')->order('ctime desc')->limit($activityNum)->select();
+		if($activityList){
+			$activityListNum=null;
+			$activityListNum=count($activityList);
+			for($i=0;$i<$activityListNum;$i++){
+				//补全封面地址
+				$activityList[$i]['cover']='http://'.$_SERVER['HTTP_HOST'].__ROOT__.$activityList[$i]['cover'];
+				//格式化时间
+				$activityList[$i]['stime']=date('Y/m/d',$activityList[$i]['stime']);
+				$activityList[$i]['etime']=date('Y/m/d',$activityList[$i]['etime']);
+			}
+		}else{
+			$activityList=array();
+		}
+		$output = array(
+			'status' 	=>'1',
+			'message'	=>'获取成功',
+			'activityList'	=>$activityList,
+			'schoolList'	=>$schoolList
+		);
+		$this->ajaxReturn($output);
+	}
+	
+	
+	/*
+	* 我的发现校长版
+	* 接收数据格式 'uid'=>用户ID
+	* 返回数据格式
+		{
+			'status'=>状态,
+			'message'=>提示信息,
+			'privilegeList'=推荐优惠券列表=array(
+				每条优惠券数据=array(
+					'cid'=>优惠券ID,
+					'title'=>优惠券标题,
+					'type'=>优惠券类型,
+					'bg'=>优惠券背景图,
+					'stime'=>优惠券开始时间,
+					'etime'=>优惠券结束时间,
+					'statecode'=>优惠券状态码 1未开始 2进行中 3已过期,
+					'isapply'=>优惠券领取状态 1已领取 2未领取,
+				),
+			),
+			'curriculumList'=最In课程推荐列表=array(
+				每条课程推荐数据=array(
+					'cid'=>最In课程ID,
+					'title'=>最In课程标题,
+					'cover'=>最In课程封面,
+					'stime'=>最In课程开始时间,
+					'etime'=>最In课程结束时间,
+					'adress'=>最In课程地址,
+					'grade'=>最In课程评分,
+					'praise'=>最In课程点赞数,
+					'share'=>最In课程分享数,
+					'comment'=>最In课程评论数,
+					'statecode'=>最In课程状态码 1未开始 2进行中 3已过期,
+				)
+			)
+		} 
+	status = {
+		1：获取成功；
+		2：缺少用户ID;
+		3：用户不存在;
+		4：用户不是校长身份;
+	}
+	*/
+	public function schoolmaster(){
+		$uid =I('uid','');     
+		if(empty($uid)){
+			$output = array(
+					'status' 	=>'2',
+					'message'	=>'缺少用户ID'
+			);
+			$this->ajaxReturn($output);
+		}
+		//判断用户是否存在
+		$state=$this->user->getFieldByUid($uid,'role');
+		if($state){
+			//判断校长身份
+			if($state!=2){
+				$output = array(
+					'status' 	=>'4',
+					'message'	=>'用户不是校长身份'
+				);
+				$this->ajaxReturn($output);
+			}
+		}else{
+			$output = array(
+					'status' 	=>'3',
+					'message'	=>'用户不存在'
+			);
+			$this->ajaxReturn($output);
+		}
+		//准备推荐优惠券
+		$privilegeList=$this->privilege->where('recommend=1 and state=1')->field('cid,type,title,stime,etime,statecode')->order('orders')->select();
+		if($privilegeList){
+			$privilegeListNum=count($privilegeList);
+			for($i=0;$i<$privilegeListNum;$i++){
+				//获取类型背景图
+				$privilegeList[$i]['bg']=$this->privilege_type->getFieldByCid($privilegeList[$i]['type'],'bg');
+				//补全优惠券背景图地址
+				$privilegeList[$i]['bg']='http://'.$_SERVER['HTTP_HOST'].__ROOT__.$privilegeList[$i]['bg'];
+				//格式化时间
+				$privilegeList[$i]['stime']=date('Y/m/d',$privilegeList[$i]['stime']);
+				$privilegeList[$i]['etime']=date('Y/m/d',$privilegeList[$i]['etime']);
+				//查询用户优惠券领取状态
+				$isapply=null;
+				$isapply=$this->privilege_apply->where('uid='.$uid.' and fid='.$privilegeList[$i]['cid'])->find();
+				if($isapply){
+					//已领取
+					$privilegeList[$i]['isapply']="1";
+				}else{
+					//未领取
+					$privilegeList[$i]['isapply']="2";
+				}
+			}
+		}else{
+			$privilegeList=array();
+		}
+		//准备推荐的最In课程
+		$curriculumList=$this->curriculum->where('recommend=1 and state=1 and statecode!=3')->field('cid,title,address,cover,stime,etime,grade,comment,praise,share,statecode')->order('orders')->select();
+		if($curriculumList){
+			$curriculumListNum=count($curriculumList);
+			for($i=0;$i<$curriculumListNum;$i++){
+				$curriculumList[$i]['adress']=$curriculumList[$i]['address'];
+				//补全封面地址
+				$curriculumList[$i]['cover']='http://'.$_SERVER['HTTP_HOST'].__ROOT__.$curriculumList[$i]['cover'];
+				//格式化时间
+				$curriculumList[$i]['stime']=date('Y/m/d',$curriculumList[$i]['stime']);
+				$curriculumList[$i]['etime']=date('Y/m/d',$curriculumList[$i]['etime']);
+			}
+		}else{
+			$curriculumList=array();
+		}
+		$output = array(
+			'status' 	=>'1',
+			'message'	=>'获取成功',
+			'privilegeList'	=>$privilegeList,
+			'curriculumList'	=>$curriculumList
+		);
+		$this->ajaxReturn($output);
+	}
+	
+	
+	/*
+	* 优惠券申请
+	* 接收数据格式 'uid'=>用户ID,'cid'=>优惠券ID
+	* 返回数据格式
+		{
+			'status'=>状态,
+			'message'=>提示信息,
+		} 
+	status = {
+		1：领取成功；
+		2：缺少用户ID;
+		3：缺少优惠券ID;
+		4：用户不存在;
+		5：用户不是校长身份;
+		6：优惠券不存在或已过期;
+		7：优惠券该用户已领取;
+		8：领取失败;
+	}
+	*/
+	public function privilegeApply(){
+		$uid =I('uid','');     
+		$cid =I('cid','');     
+		if(empty($uid)){
+			$output = array(
+					'status' 	=>'2',
+					'message'	=>'缺少用户ID'
+			);
+			$this->ajaxReturn($output);
+		}
+		if(empty($cid)){
+			$output = array(
+					'status' 	=>'3',
+					'message'	=>'缺少优惠券ID'
+			);
+			$this->ajaxReturn($output);
+		}
+		//判断用户是否存在
+		$state=$this->user->getFieldByUid($uid,'role');
+		if($state){
+			//判断校长身份
+			if($state!=2){
+				$output = array(
+					'status' 	=>'5',
+					'message'	=>'用户不是校长身份'
+				);
+				$this->ajaxReturn($output);
+			}
+		}else{
+			$output = array(
+					'status' 	=>'4',
+					'message'	=>'用户不存在'
+			);
+			$this->ajaxReturn($output);
+		}
+		//获取优惠券信息
+		$privilegeInfo=$this->privilege->where('state=1 and statecode!=3 and cid='.$cid)->find();
+		if($privilegeInfo){
+			//查询该优惠券用户是否已经领取
+			$privilegeState=$this->privilege_apply->where('uid='.$uid.' and fid='.$cid)->find();
+			if($privilegeState){
+				$output = array(
+					'status' 	=>'7',
+					'message'	=>'优惠券该用户已领取'
+				);
+				$this->ajaxReturn($output);
+			}else{
+				//创建用户领取记录
+				$data=null;
+				$data['fid']=$cid;
+				$data['uid']=$uid;
+				$data['stime']=$privilegeInfo['stime'];
+				$data['etime']=$privilegeInfo['etime'];
+				$data['ctime']=time();
+				$data['statecode']=1;
+				$applyId=$this->privilege_apply->add($data);
+				if($applyId){
+					$output = array(
+						'status' 	=>'1',
+						'message'	=>'领取成功'
+					);
+				}else{
+					$output = array(
+						'status' 	=>'8',
+						'message'	=>'领取失败'
+					);
+				}
+				$this->ajaxReturn($output);
+			}
+		}else{
+			$output = array(
+					'status' 	=>'6',
+					'message'	=>'优惠券不存在或已过期'
+			);
+			$this->ajaxReturn($output);
+		}
+	}
+}

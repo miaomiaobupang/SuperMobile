@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>厚朴方舟-超级医生</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8" />
+		<!-- 加载公共样式文件开始 -->
+			<include file="Conmons/CommonCSS"/>
+		<!-- 加载公共样式文件结束 -->  
+		<!-- 仪表盘自有 -->
+			<link rel="stylesheet" href="__PUBLIC__/Theme/Fashion/assets/js/vendor/rickshaw/css/rickshaw.min.css">
+			<link rel="stylesheet" href="__PUBLIC__/Theme/Fashion/assets/js/vendor/morris/css/morris.css">
+			<link rel="stylesheet" href="__PUBLIC__/Theme/Fashion/assets/js/vendor/tabdrop/css/tabdrop.css">
+			<link rel="stylesheet" href="__PUBLIC__/Theme/Fashion/assets/js/vendor/summernote/css/summernote.css">
+			<link rel="stylesheet" href="__PUBLIC__/Theme/Fashion/assets/js/vendor/summernote/css/summernote-bs3.css">
+    
+	</head>
+	<body class="bg-1">
+		<!-- Preloader -->
+		<div class="mask">
+			<div id="loader"></div>
+		</div>
+		<!--/Preloader -->
+		
+		<!-- 页面开始 -->
+    <div id="wrap">
+		<!-- Make page fluid -->
+      <div class="row">
+			<!-- Fixed navbar -->
+			<div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top" role="navigation" id="navbar">
+				<!-- Branding -->
+				<div class="navbar-header col-md-2">
+					<a class="navbar-brand" href="index.html">
+						<strong>实时</strong>数据
+					</a>
+					<div class="sidebar-collapse">
+						<a href="#">
+							<i class="icon-reorder"></i>
+						</a>
+					</div>
+				</div>
+				<!-- Branding end -->
+				<!-- 顶部右侧快速工具栏调用开始 -->
+            <include file="Conmons/QuickActions"/>
+				<!-- 顶部右侧快速工具栏调用结束 -->
+				<!-- 左侧导航栏调用开始 -->
+				<!-- 左侧菜单开始 -->
+				<ul class="nav navbar-nav side-nav" id="sidebar">
+					<li class="collapsed-content"> 
+						<ul>
+							<li class="search"><!-- Collapsed search pasting here at 768px --></li>
+						</ul>
+					</li>
+					<li class="navigation" id="navigation">
+						<a href="#" class="sidebar-toggle" data-toggle="#navigation">功能菜单 <i class="icon-angle-up"></i></a>
+						<ul class="menu">
+							{$LeftNavInfo}
+						</ul>
+					</li>
+				</ul>
+				<!-- Sidebar end -->
+				<!-- 左侧导航栏调用结束 -->
+			</div>
+			<!-- Fixed navbar end -->
+
+			<!-- Page content -->
+			<div id="content" class="col-md-12">
+
+				<!-- page header -->
+				<div class="pageheader">
+					<h2>
+						<i class="icon-dashboard"></i> 超级医生
+						<span>// 管理系统</span>
+					</h2>
+					<div class="breadcrumbs">
+						<ol class="breadcrumb">
+							<li>You are here</li>
+							<li><a href="index.html">Minimal</a></li>
+							<li class="active">Dashboard</li>
+						</ol>
+					</div>
+				</div>
+				<!-- /page header -->
+				<!-- <div style="width:100px;height:100px;background:red;"></div> -->
+				<style>
+					.contents{
+						width:100%;
+						height:1295px;
+					}
+					.box{
+						width:1134px;
+						margin:auto;
+					}
+					.headers{
+						width:100%;
+						height:590px;
+					}
+					.headers_1{
+						width:100%;
+						height:480px;
+						background-color:#5582aa;
+						padding:35px 40px 40px 40px;
+					}
+					.headers_2{
+						width:100%;
+						height:110px;
+						background-color:#487297;
+						padding:15px 42px 15px 42px;
+					}
+					.headers_chart{
+						width:1054px;
+						height:405px;
+					}
+					.chart_1{
+						width:705px;
+						height:100%;
+						float:left;
+					}
+					.headers_chart_right{
+						width:245px;
+						height:100%;
+						float:right;
+					}
+					.chart_2,.chart_3{
+						width:245px;
+						height:50%;
+					}
+					.headers_2_aa{
+						height:80px;
+					}
+					.total_exhibition_1{
+						width:150px;
+						height:100%;
+						.border-radius:6px;
+						.background:rgba(255,255,255,0.5);
+						float:left;
+					}
+					.main_left{
+						margin-left:30px;
+					}
+					.total_text{
+						margin-top:15px;
+					}
+					.total_text1{
+						text-align:center;
+						font-size:14px;
+						color:#fff;
+					}
+					.total_text2{
+						margin-top:3px;
+						text-align:center;
+						font-size:18px;
+						color:#fff;
+						font-weight:500;
+					}
+					.bodys{
+						margin-top:50px;
+						width:100%;
+						height:590px;
+					}
+					.bodys_1{
+						width:100%;
+						height:440px;
+						background-color:#5582aa;
+						padding:35px 40px 40px 40px;
+					}
+					.bodys_2{
+						width:100%;
+						height:110px;
+						background-color:#487297;
+						padding-left:42px;
+					}
+					.bodys_2_aa{
+						margin-top:15px;
+					}
+					.bodys_chart{
+						width:100%;
+						height:405px;
+						background-color:#999;
+					}
+					.total_exhibition_2{
+						width:372px;
+						height:100%;
+						float:left;
+						margin-left:30px;
+						background-color:#466b8b;
+					}
+					.total_texts{
+						margin-top:33px;
+					}
+				</style>
+				<div class="contents">
+					<div class="box">
+						<div class="headers">
+							<div class="headers_1">
+								<div class="headers_chart">
+									<div class="chart_1" id="chart_1">
+										
+									</div>
+									<div class="headers_chart_right">
+										<div class="chart_2" id="chart_2">
+											
+										</div>
+										<div class="chart_3" id="chart_3">
+											
+										</div>
+									</div>
+									<div style="clear:both;"></div>
+								</div>
+							</div>
+							<div class="headers_2">
+								<div class="headers_2_aa">
+									<div class="total_exhibition_1">
+										<div class="total_text">
+											<div class="total_text1">1</div>
+											<div class="total_text2">{$exhibitionTotal}</div>
+										</div>
+									</div>
+									<div class="total_exhibition_1 main_left">
+										<div class="total_text">
+											<div class="total_text1">2</div>
+											<div class="total_text2">{$pavilionTotal}</div>
+										</div>
+									</div>
+									<div class="total_exhibition_1 main_left">
+										<div class="total_text">
+											<div class="total_text1">3</div>
+											<div class="total_text2">{$positionTotal}</div>
+										</div>
+									</div>
+									<div class="total_exhibition_1 main_left">
+										<div class="total_text">
+											<div class="total_text1">4</div>
+											<div class="total_text2">{$article}</div>
+										</div>
+									</div>
+									<div class="total_exhibition_1 main_left">
+										<div class="total_text">
+											<div class="total_text1">5</div>
+											<div class="total_text2">{$userNum}</div>
+										</div>
+									</div>
+									<div class="total_exhibition_1 main_left">
+										<div class="total_text">
+											<div class="total_text1">6</div>
+											<div class="total_text2">{$realUser}</div>
+										</div>
+									</div>
+									<div style="clear:both;"></div>
+								</div>
+							</div>
+						</div>
+						<div class="bodys">
+							<div class="bodys_1">
+								<div class="bodys_chart" id="bodys_chart">
+									
+								</div>
+							</div>
+							<div class="bodys_2">
+								<div class="headers_2_aa" style="height:100%;">
+									<div class="total_exhibition_1 bodys_2_aa">
+										<div class="total_text">
+											<div class="total_text1">1</div>
+											<div class="total_text2">{$enterpriseTotal}</div>
+										</div>
+									</div>
+									<div class="total_exhibition_1 main_left bodys_2_aa">
+										<div class="total_text">
+											<div class="total_text1">2</div>
+											<div class="total_text2">{$customerTotal}</div>
+										</div>
+									</div>
+									<div class="total_exhibition_1 main_left bodys_2_aa">
+										<div class="total_text">
+											<div class="total_text1">3</div>
+											<div class="total_text2">{$linkwayTotal}</div>
+										</div>
+									</div>
+									<div class="total_exhibition_1 main_left bodys_2_aa">
+										<div class="total_text">
+											<div class="total_text1">4</div>
+											<div class="total_text2">{$czRecord}</div>
+										</div>
+									</div>
+									<div class="total_exhibition_1 main_left bodys_2_aa">
+										<div class="total_text">
+											<div class="total_text1">5</div>
+											<div class="total_text2">{$searchTotal}</div>
+										</div>
+									</div>
+									<div class="total_exhibition_1 main_left bodys_2_aa">
+										<div class="total_text">
+											<div class="total_text1">6</div>
+											<div class="total_text2">{$searchTotals}</div>
+										</div>
+									</div>
+									<div style="clear:both;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<!-- /content container -->
+			</div>
+			<!-- Page content end -->
+
+        <div id="mmenu" class="right-panel">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs nav-justified">
+            <li class="active"><a href="#mmenu-users" data-toggle="tab"><i class="fa fa-users"></i></a></li>
+            <li class=""><a href="#mmenu-history" data-toggle="tab"><i class="fa fa-clock-o"></i></a></li>
+            <li class=""><a href="#mmenu-friends" data-toggle="tab"><i class="fa fa-heart"></i></a></li>
+            <li class=""><a href="#mmenu-settings" data-toggle="tab"><i class="fa fa-gear"></i></a></li>
+          </ul>
+        </div>
+
+
+      </div>
+      <!-- Make page fluid-->
+		
+    </div>
+    <!-- Wrap all page content end -->
+	
+
+
+    <section class="videocontent" id="video"></section>
+
+
+
+	
+	<!-- 加载公共JS文件开始 -->
+		<include file="Conmons/CommonJS"/>
+	<!-- 加载公共JS文件结束 --> 
+    <script src="__PUBLIC__/Theme/Fashion/assets/js/vendor/flot/jquery.flot.min.js"></script>
+    <script src="__PUBLIC__/Theme/Fashion/assets/js/vendor/flot/jquery.flot.time.min.js"></script>
+    <script src="__PUBLIC__/Theme/Fashion/assets/js/vendor/flot/jquery.flot.selection.min.js"></script>
+    <script src="__PUBLIC__/Theme/Fashion/assets/js/vendor/flot/jquery.flot.animator.min.js"></script>
+    <script src="__PUBLIC__/Theme/Fashion/assets/js/vendor/flot/jquery.flot.orderBars.js"></script>
+    <script src="__PUBLIC__/Theme/Fashion/assets/js/vendor/easypiechart/jquery.easypiechart.min.js"></script>
+
+    <script src="__PUBLIC__/Theme/Fashion/assets/js/vendor/rickshaw/raphael-min.js"></script> 
+    <script src="__PUBLIC__/Theme/Fashion/assets/js/vendor/rickshaw/d3.v2.js"></script>
+    <script src="__PUBLIC__/Theme/Fashion/assets/js/vendor/rickshaw/rickshaw.min.js"></script>
+
+    <script src="__PUBLIC__/Theme/Fashion/assets/js/vendor/morris/morris.min.js"></script>
+
+    <script src="__PUBLIC__/Theme/Fashion/assets/js/vendor/tabdrop/bootstrap-tabdrop.min.js"></script>
+
+    <script src="__PUBLIC__/Theme/Fashion/assets/js/vendor/summernote/summernote.min.js"></script>
+	<!-- 引入 echarts.js -->
+    <script src="__JS__/echarts.min.js"></script>
+    <script>
+	//*****************************************************************/
+	//*****************************************************************/
+	//****************定时查询是否存在待审核业务***********************/
+	//****************待审核个人实名认证*******************************/
+	//*****************************************************************/
+	window.setInterval(function(){
+		$.post('__WEBURL__/Message/checkmessage',function(data){
+			<!-- var obj = eval("("+data+")"); -->
+			var obj = data;
+			if(obj == 1){
+				$('body').append('<div style="display:none;"><audio controls="controls" autoplay="autoplay"><source src="__NOTICE__/geren.mp3" type="audio/mpeg" /></audio></div>');	
+			}else if(obj == 2){
+				$('body').append('<div style="display:none;"><audio controls="controls" autoplay="autoplay"><source src="__NOTICE__/qiye.mp3" type="audio/mpeg" /></audio></div>');
+			}else if(obj == 3){
+				$('body').append('<div style="display:none;"><audio controls="controls" autoplay="autoplay"><source src="__NOTICE__/zhanhui.mp3" type="audio/mpeg" /></audio></div>');	
+			}else if(obj == 4){
+				$('body').append('<div style="display:none;"><audio controls="controls" autoplay="autoplay"><source src="__NOTICE__/zhanguan.mp3" type="audio/mpeg" /></audio></div>'); 
+			}else if(obj == 5){
+				$('body').append('<div style="display:none;"><audio controls="controls" autoplay="autoplay"><source src="__NOTICE__/zhanwei.mp3" type="audio/mpeg" /></audio></div>');
+			}else if(obj == 6){
+				$('body').append('<div style="display:none;"><audio controls="controls" autoplay="autoplay"><source src="__NOTICE__/piliangzhanwei.mp3" type="audio/mpeg" /></audio></div>');
+			}else if(obj == 7){
+				$('body').append('<div style="display:none;"><audio controls="controls" autoplay="autoplay"><source src="__NOTICE__/qiyegeren.mp3" type="audio/mpeg" /></audio></div>');
+			}
+		});
+	}, 11000);
+	//*****************************************************************/
+	//*****************************************************************/
+      
+    </script>
+	<script type="text/javascript">
+	//**************************柱形图（展会数据统计及分析）***************************************/
+		// 基于准备好的dom，初始化echarts图表
+		var myChart = echarts.init(document.getElementById('chart_1')); 
+		var option = {
+			title: {
+				text: '超级医生数据统计及分析',
+				textStyle:{
+					color:'#fff',
+					fontWeight:'normal',
+				},
+				padding: [
+					0,  // 上
+					0, // 右
+					0,  // 下
+					18, // 左
+				],
+				
+			},
+			grid:{
+				borderColor:['#fff'],
+				show:true
+			},
+			color: ['#03e3c1'],
+			tooltip: {
+				trigger: 'axis',
+				axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+					type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+				}
+			},
+			xAxis: {
+				data: ["2014","2015","2016","2017","2018","2019","2020"],
+				type:'category',
+				axisLine:{
+					lineStyle:{
+						color:'#fff'
+					},
+					show:true,
+				},
+				axisTick:{
+					show:'true',
+					alignWithLabel:'true',
+					lineStyle:{
+						color:'#fff'
+					}
+				},
+				splitLine:{
+					show:false,
+				},
+				splitArea:{
+					show:false
+				},
+				axisLabel:{
+					textStyle:{
+						color:"#fff",
+						fontSize:'18',
+						fontWeight:'normal',
+					}
+				},
+				interval:'20'
+			},
+			yAxis: {
+				type:'value',
+				min:'0',
+				max:'10000',
+				splitNumber:'6',
+				axisLine:{
+					show:false
+				},
+				axisTick:{
+					show:true,
+					lineStyle:{
+						color:'#fff'
+					}
+				},
+				axisLabel:{
+					textStyle:{
+						color:"#fff",
+						fontSize:'18',
+						fontWeight:'normal',
+					}
+				},
+				splitLine:{
+					show:true,
+					lineStyle:{
+						color:['rgba(255,255,255,0.1)']
+					}
+				},
+				data: ["1000"],
+			},
+			series: [{
+				name: '数量',
+				type: 'bar',
+				data: ["{$yearExhibition[0]['num']}","{$yearExhibition[1]['num']}", "{$yearExhibition[2]['num']}","{$yearExhibition[3]['num']}","{$yearExhibition[4]['num']}","{$yearExhibition[5]['num']}","{$yearExhibition[6]['num']}"],
+				barWidth:'50',
+			}]
+		};
+		//alert("{$yearExhibition[5]['num']}")
+		// 为echarts对象加载数据 
+		myChart.setOption(option);
+		//**************************柱形图（展会数据统计及分析）***************************************/
+		var didExhibition="{$didExhibition}";
+		var willExhibition="{$willExhibition}";
+		var gnExhibition="{$gnExhibition}";
+		var gwExhibition="{$gwExhibition}";
+		var v1="{$ac[0]['num']}";
+		var v2="{$ac[1]['num']}";
+		var v3="{$ac[2]['num']}";
+		var v4="{$ac[3]['num']}";
+		var v5="{$ac[4]['num']}";
+		var v6="{$ac[5]['num']}";
+		var v7="{$ac[6]['num']}";
+		var v8="{$ac[7]['num']}";
+		var v9="{$ac[8]['num']}";
+		var v10="{$ac[9]['num']}";
+		//var v11="{$qtSearch}";
+		var n1="{$ac[0]['value']}";
+		var n2="{$ac[1]['value']}";
+		var n3="{$ac[2]['value']}";
+		var n4="{$ac[3]['value']}";
+		var n5="{$ac[4]['value']}";
+		var n6="{$ac[5]['value']}";
+		var n7="{$ac[6]['value']}";
+		var n8="{$ac[7]['value']}";
+		var n9="{$ac[8]['value']}";
+		var n10="{$ac[9]['value']}";
+		var sum=eval(v1)+eval(v2)+eval(v3)+eval(v4)+eval(v5)+eval(v6)+eval(v7)+eval(v8);
+		//var n11="{$ac[10]['value']}";
+		//var n11="其他";
+		
+		// 基于准备好的dom，初始化echarts图表
+		var myChart2 = echarts.init(document.getElementById('chart_2'));
+		var myChart3 = echarts.init(document.getElementById('chart_3'));
+		var myChart4 = echarts.init(document.getElementById('bodys_chart'));
+		//**************************饼图（展会开展分析）***************************************/
+		var option2 = {
+			title: {
+				text: '用户数分析',
+				left: 'left',
+				bottom: 80,
+				textStyle:{
+					color:'#fff',
+					fontWeight:'normal',
+				}
+			},
+			tooltip : {
+				trigger: 'item',
+				formatter: "{b}:{c}({d}%)",
+				enterable:'true'
+			},
+			color:['#2d84d8','#46a4fe'],
+			series : [
+				{
+					type:'pie',
+					radius : '65%',
+					center: ['50%', '50%'],
+					data:[
+						{value:didExhibition, name:'已认证'},
+						{value:willExhibition, name:'未认证'}
+					].sort(function (a, b) { return a.value - b.value}),
+					roseType: 'angle',
+					label: {
+						normal: {
+							textStyle: {
+								color: 'rgb(255, 255, 255)',
+								fontSize:'14'
+							}
+						}
+					},
+					labelLine: {
+						normal: {
+							lineStyle: {
+								color: 'rgba(255, 255, 255, 0.5)'
+							},
+							smooth: 0.2,
+							length: 3,
+							length2: 6
+						}
+					},
+					itemStyle: {
+						emphasis: {
+							shadowBlur: 10,
+							shadowOffsetX: 0,
+							shadowColor: 'rgba(0, 0, 0, 0.5)'
+						}
+					}
+				}
+			]
+		};
+		// 为echarts对象加载数据
+		myChart2.setOption(option2);
+		//**************************饼图（展会开展分析）***************************************/
+		//**************************饼图（国内外展会分析）***************************************/
+		var option3 = {
+			title: {
+				text: '认证用户分析',
+				left: 'left',
+				top: 0,
+				textStyle:{
+					color:'#fff',
+					fontWeight:'normal',
+				},
+			},
+			tooltip : {
+				trigger: 'item',
+				formatter: "{b}:{c} ({d}%)",
+				enterable:'true'
+			},
+			color:['#d1ab15','#fecd0a'],
+			visualMap: {
+				show: false,
+				min: 0,
+				max: 10000,
+				inRange: {
+					colorLightness: [0.3, 0.6]
+				}
+			},
+			series : [
+				{
+					type:'pie',
+					radius : '65%',
+					center: ['50%', '50%'],
+					data:[
+						{value:gnExhibition, name:'国内'},
+						{value:gwExhibition, name:'国外'}
+					].sort(function (a, b) { return a.value - b.value}),
+					roseType: 'angle',
+					label: {
+						normal: {
+							textStyle: {
+								color: 'rgb(255, 255, 255)',
+								fontSize:'14'
+							}
+						}
+					},
+					labelLine: {
+						normal: {
+							lineStyle: {
+								color: 'rgba(255, 255, 255, 0.5)'
+							},
+							smooth: 0.2,
+							length: 5,
+							length2: 10
+						}
+					},
+					itemStyle: {
+						emphasis: {
+							shadowBlur: 10,
+							shadowOffsetX: 0,
+							shadowColor: 'rgba(0, 0, 0, 0.5)'
+						}
+					}
+				}
+			]
+		};
+		// 为echarts对象加载数据 
+		myChart3.setOption(option3);
+		//**************************饼图（国内外展会分析）***************************************/
+		//**************************饼图（展商宝数据统计及热搜分析）***************************************/
+		var option4 = {
+			title: {
+				text: '超级医生数据统计及热搜分析',
+				left: 'left',
+				top: 0,
+				textStyle:{
+					color:'#fff',
+					fontWeight:'normal',
+				},
+				subtext: 'Top8：'+sum,
+				subtextStyle:{
+					color:'#fff',
+					fontSize:'14'
+				}
+			},
+			
+			tooltip : {
+				trigger: 'item',
+				formatter: "{b}:{c} ({d}%)"
+			},
+			color:['#fdc731','#ee71bd','#fe9a9a','#a3d5fe','#03e3c1','#ff627a','#f6b8cf','#52b1ff'],
+			
+			series : [
+				{
+					type:'pie',
+					radius : '77%',
+					center: ['50%', '50%'],
+					data:[
+						{value:v1,name:n1},
+						{value:v2,name:n2},
+						{value:v3,name:n3},
+						{value:v4,name:n4},
+						{value:v5,name:n5},
+						{value:v6,name:n6},
+						{value:v7,name:n7},
+						{value:v8,name:n8},
+					],
+					label: {
+						normal: {
+							textStyle: {
+								color: 'rgb(255,255,255)',
+								fontSize:'14'
+							}
+						}
+					},
+					labelLine: {
+						normal: {
+							lineStyle: {
+								color: 'rgba(255, 255, 255, 0.7)'
+							},
+							smooth: 0.1,
+							length: 15,
+							length2: 25
+						}
+					},
+					itemStyle: {
+						emphasis: {
+							shadowBlur: 10,
+							shadowOffsetX: 0,
+							shadowColor: 'rgba(0, 0, 0, 0.5)'
+						}
+					}
+				}
+			]
+		};
+		// 为echarts对象加载数据 
+		myChart4.setOption(option4); 
+		//**************************饼图（展商宝数据统计及热搜分析）***************************************/
+		setTimeout(function (){
+			window.onresize = function () {
+				myChart2.resize();
+				myChart3.resize();
+				myChart4.resize();
+			}
+		},200)
+    </script>
+  </body>
+</html>
+      
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

@@ -1,0 +1,143 @@
+<style>
+.child{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+body #content .dataTables_wrapper{
+    font-size: 14px;
+}
+body #content .dataTables_filter{
+    margin-left:150px;
+}
+.radioStyle{
+	background-color:#aaa;
+	opacity:0.5;
+	width:140px;
+	height:35px;
+	margin-left:14px;
+	border-radius:5px;
+}
+
+.pull-right{
+	margin-right:10px;
+}
+.form-control{
+	width:200px;
+}
+.divSearch{
+	margin-left:850px;
+	margin-top:-30px;
+}
+.buttonDiv{
+	margin-left:200px;
+	margin-top:-51px;
+}
+.btnSeacher{
+	height:35px;
+	font-size:15px;
+}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">企业管理</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>企业审核失败列表</strong>
+					</h1>
+					<div class="divSearch">
+						<form method="post" action="">
+							<div class="form-group">
+								<input type="text" style="border-radius:4px 0px 0px 4px;" class="form-control" name='name' placeholder="企业名称" value="" />
+							</div>
+							<div class="buttonDiv">
+								<button style="width:66px;border-radius:0px 4px 4px 0px;" class="btnSeacher btn btn-default btn btn-primary btn-sm" type="submit"/><i class="icon-search"></i> 检索</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body form-group form-footer">
+					<table class="table" id="basicDataTable">
+						<thead>
+							<tr>
+							  <th class="text-center">企业ID</th>
+							  <th class="text-center">企业名称</th>
+							  <th class="text-center">负责人</th>
+							  <th class="text-center hidden-xs">企业营业执照号码</th>
+							  <th class="text-center">是否审核</th>
+							  <th class="text-center">状态</th>
+							  <th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<foreach name="datas" item="da">
+								<tr>
+									<td class="text-center">{$da.id}</td>
+									<td class="text-center">{$da.name}</td>
+									<td class="text-center" style="white-space:normal;width:160px;">
+										<if condition="$da.tname neq NULL">{$da.tname}<else/>{$da.nickname}</if>
+									</td>
+									<td class="text-center hidden-xs" style="white-space:normal;width:160px;">{$da.card}</td>
+									<td class="text-center hidden-xs">
+										<if condition="$da.statecode eq 1">认证成功</if>
+										<if condition="$da.statecode eq 2">审核中</if>
+										<if condition="$da.statecode eq 3">审核失败</if>
+									</td>
+									<td class="text-center">
+										<if condition="$da.state eq 1"><span class="icon-ok" title="正常"></span></if>
+										<if condition="$da.state eq 2"><span class="icon-remove" title="禁用"></span></if>
+									</td>
+									<td class="text-right">
+										<div class="btn-group" role="group" aria-label="...">
+											<if condition="$da.statecode eq 3">	
+												<a class="btn btn-default" role="button" href="__CONTROLLER__/real_detail/id/{$da.id}">查看详情</a>
+											</if>
+										</div>
+									</td>
+								</tr>
+							</foreach>
+							<tr>
+								<td colspan="7"><span style="float:right;">{$row}</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+           <!-- /tile body -->
+				
+			</section>
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container --><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

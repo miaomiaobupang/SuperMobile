@@ -1,0 +1,110 @@
+.mainBox{
+	width:100%;
+	height:100vh;
+	background:rgba(0,0,0,0.4);
+	position:fixed;
+	top:0;
+	left:0;
+}
+.main{
+	width:435px;
+	height:487px;
+	background:#fff;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+	padding:0 30px;
+}
+.login_title{
+	font-size:22px;
+	color:#019FAA;
+	padding-top:36px;
+	padding-bottom:50px;
+	text-align:center;
+}
+.title{
+	height:19px;
+}
+.title span{
+	font-size:12px;
+	color:#019FAA;
+	display:none;
+}
+.inputBox{
+	width:370px;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	border:none;
+	border-bottom:1px solid #dcdcdc;
+}
+.wrong{
+	height:19px;
+}
+.wrong span{
+	font-size:12px;
+	color:#C30909;
+	display:none;
+}
+.changeLog{
+	color:#00565B;
+}
+.changeLog:hover{
+	color:#516566;
+	cursor:pointer;
+}
+.forgetPass{
+	color:#999;
+	cursor:pointer;
+}
+.login{
+	width:370px;
+	height:45px; 
+	line-height:43px; 
+	background:rgb(0,159,168);
+	border-radius: 3px;
+	text-align:center;
+	margin-top:35px;
+}
+.login:hover{
+	cursor:pointer;
+	background:#01939B;
+}
+.other_log{
+	width:117px;
+	float:right;
+	margin-top:23px;
+	cursor:pointer;
+}
+.other_log span{
+	color:#ADAEAE;
+}
+.toRegister{
+	width:100%;
+	height:64px;
+	line-height:64px;
+	font-size:16px;
+	text-align:center;
+	position:absolute;
+	bottom:0;
+	left:0;
+	background:#DDDEDE;
+}
+.toRegister span{
+	font-size:16px;
+	color:#00565B;
+	cursor:pointer;
+}
+.register_box{
+	position:relative;
+}
+.yzm{
+	position:absolute;
+	bottom:25px;
+	right:0;
+	color:#009FA8;
+	cursor:pointer;
+}

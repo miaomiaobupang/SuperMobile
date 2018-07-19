@@ -1,0 +1,320 @@
+<style>
+.child{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+body #content .dataTables_wrapper{
+    font-size: 14px;
+}
+body #content .dataTables_filter{
+    margin-left:150px;
+}
+.radioStyle{
+	background-color:#aaa;
+	opacity:0.5;
+	width:140px;
+	height:35px;
+	margin-left:14px;
+	border-radius:5px;
+}
+.form-control{
+	width:200px;
+}
+.pull-right{
+	margin-top:-30px;
+}
+.divSearch{
+	margin-left:850px;
+	margin-top:-37px;
+}
+.buttonDiv{
+	margin-left:200px;
+	margin-top:-51px;
+}
+.btnSeacher{
+	height:35px;
+	font-size:15px;
+}
+.content{
+	width:140px;
+	vertical-align:middle;
+	display:block;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.contenta a{
+	text-decoration:none;
+	color:#fff;
+}
+.contenta a:hover{
+	color:#03b9fc;
+}
+.content{
+	width:280px;
+	vertical-align:middle;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	cursor:pointer;
+	float:left;
+}
+.contents{
+	width:280px;
+	cursor:pointer;
+	float:left;
+}
+.contenta a{
+	text-decoration:none;
+	color:#fff;
+}
+.contenta a:hover{
+	color:#03b9fc;
+}
+.choose{
+	float:right;
+	margin-top:-4px;
+	margin-right:30px;
+}
+.payment{
+	font-size:14px;
+	height:37px;
+	line-height:30px;
+}
+.copy-tips{
+	position:fixed;
+	z-index:999;
+	bottom:50%;
+	left:55%;
+	margin:0 0 -20px -80px;
+	background-color:rgba(0, 0, 0, 0.2);
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr=#30000000, endColorstr=#30000000);
+	padding:6px;
+}
+.copy-tips-wrap{
+	padding:10px 20px;
+	text-align:center;
+	border:1px solid #F4D9A6;
+	background-color:#FFFDEE;
+	font-size:14px;
+}
+.picOnline{
+	height:39px;
+    position:absolute;
+    top:11px;
+    width:39px;
+    z-index:10;
+}
+.copy{
+	display:block;
+}
+.d_clip_buttons{
+	color:#333;
+	margin-left:10px;
+	margin-top:10px;
+}
+.monolayer{
+	width:460px;
+	height:196px;
+	border-radius:4px;
+	background:rgba(50,75,99,0.9) none repeat scroll 0 0;
+	display:none;
+	position:fixed;
+	z-index:999;
+	font-size:16px;
+	color:#fff;
+}
+.monolayer_title{
+	width:100%;
+	height:60px;
+	font-size:18px;
+	text-align:center;
+	line-height:55px;
+}
+.monolayer_con{
+	width:100%;
+	margin-top:10px;
+}
+.monolayer_con1{
+	width:80%;
+	height:50px;
+	margin-left:10%;
+	text-align:center;
+	line-height:25px;
+	overflow:hidden;
+}
+.monolayer_but{
+    border-radius:0 0 4px 4px;
+    height:57px;
+    margin-top:18px;
+    width:100%;
+	text-align:center;
+}
+.set{
+	width:40%;
+	height:35px;
+	font-size:16px;
+	border-radius:0px;
+}
+.get{
+	width:40%;
+	height:35px;
+	font-size:16px;
+	border-radius:0px;
+}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">非速搜报名管理</b> 
+	</h2>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+					<if condition="$contact neq '' "> 
+						<strong>{$businessList['0']['pname']}(展会)</strong>列表
+					<elseif condition="$uid neq '' "/>
+						<strong>{$businessList['0']['uname']}(用户)</strong>列表
+					<else/>
+						<strong>报名</strong>列表
+					</if>
+					</h1>
+					<if condition="$contact eq '' "> 
+					<div class="choose"> 
+						<a href="__WEBURL__/FairsoUser/looklist?Stype={$Stype}&contact={$contact}&uid={$uid}" class="btn btn-default btn-primary payment {$deal?'':'active'}" style="width:66px;border-radius:4px 0px 0px 4px;margin-right:-5px;">全 部</a>
+						<a href="__WEBURL__/FairsoUser/looklist?deal=1&Stype={$Stype}&contact={$contact}&uid={$uid}" class="btn btn-default btn-primary payment  {$deal==1?'active':''}" style="width:66px;border-radius:0px;margin-right:-5px; ">已处理</a>
+						<a href="__WEBURL__/FairsoUser/looklist?deal=2&Stype={$Stype}&contact={$contact}&uid={$uid}" class="btn btn-default btn-primary payment  {$deal==2?'active':''}" style="width:66px;border-radius:0px 4px 4px 0px;margin-right:-5px; ">待处理</a>
+					</div>
+					<div class="choose"> 
+						<a href="__WEBURL__/FairsoUser/looklist?deal={$deal}&contact={$contact}&uid={$uid}" class="btn btn-default btn-primary payment {$Stype?'':'active'}" style="width:66px;border-radius:4px 0px 0px 4px;margin-right:-5px;">全 部</a>
+						<a href="__WEBURL__/FairsoUser/looklist?deal={$deal}&Stype=3&contact={$contact}&uid={$uid}" class="btn btn-default btn-primary payment  {$Stype==3?'active':''}" style="width:66px;border-radius:0px;margin-right:-5px; ">参展记录</a>
+						<a href="__WEBURL__/FairsoUser/looklist?deal={$deal}&Stype=5&contact={$contact}&uid={$uid}" class="btn btn-default btn-primary payment  {$Stype==5?'active':''}" style="width:66px;border-radius:0px 4px 4px 0px;margin-right:-5px; ">观展登记</a>
+					</div>
+					</if>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body form-group form-footer">
+					<table class="table" id="basicDataTable">
+						<thead>
+							<tr>
+							  <th class="text-center" style="width: 9%;">用户名</th>
+							  <th class="text-center" style="width: 9%;">手机号</th>
+							  <th class="text-center" style="width: 10%;">类型</th>
+							  <th class="text-center" style="width: 18%;">展会名称</th>
+							  <th class="text-center" style="width: 17%;">开展时间</th>
+							  <th class="text-center" style="width: 8%;">公司名称</th>
+							  <th class="text-center" style="width: 8%;">职位</th>
+							  <th class="text-center" style="width: 8%;">观展原因</th>
+							  <th class="text-center hidden-xs" style="width: 8%;">反馈时间</th>
+							 <!--  <th class="text-center" style="width: 8%;">是否处理</th> -->
+							  <th class="text-center" style="width:13%;">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<foreach name="businessList" item="da">
+								<tr>
+									<td class="text-center contenta" style="word-break:break-all; ;vertical-align:middle;">
+										<if condition="$da.uid neq 0">
+											<a target='_blank' href='__WEBURL__/FairsoUser/looklist?deal={$deal}&Stype={$Stype}&uid={$da.uid}'>{$da.uname}</a>
+										<else/>
+											{$da.uname}
+										</if>
+									</td>
+									<td class="text-center" style="vertical-align:middle;"><a href="__WEBURL__/FairsoUser/userDetail/uid/{$da.uid}" target="_blank">{$da.uphone}<a></td>
+									<td class="text-center" style="vertical-align:middle;">{$da.source}</td>
+									<td class="text-left" style="vertical-align:middle;">
+										<a target='_blank' href='__WEBURL__/FairsoUser/looklist?deal={$deal}&Stype={$Stype}&contact={$da.contact}'><div class="content" style='color:#fff'>{$da.pname}</div></a>
+										<button class="d_clip_buttons" data-content="{$da.pname}">复制</button>
+									</td>
+									<td class=" " style=" "> 
+									<div>
+										{$da.stime}
+										</div>
+									</td>
+									<td class="text-center" style="vertical-align:middle;">
+									<if condition="$da.bname neq '' ">
+									{$da.bname}
+									<else/>
+									个人
+									</if>
+									</td>
+									<td class="text-center" style="vertical-align:middle;">
+									<if condition="$da.job neq '' ">
+									{$da.job}
+									<else/>
+									个人
+									</if>
+									</td>
+									<td class="text-center" style="vertical-align:middle;">
+									<if condition="$da.cause eq 1">
+									关注行业动态
+									<elseif condition="$da.cause eq 2"/>
+									寻找商业机会
+									<elseif condition="$da.cause eq 3"/>
+									展会不错，随便看看
+									</if>
+									</td>
+									<td class="text-center" style="vertical-align:middle;">{$da.ctime||date="Y-m-d H:i:s",###}</td>
+									<!-- <td class="text-center" style="vertical-align:middle;">
+										<if condition="$da.statecode eq 1">已处理</if>
+										<if condition="$da.statecode eq 2">待处理</if>
+									</td> -->
+									<td class="text-right" style="vertical-align:middle;">
+										<div class="btn-group" role="group" aria-label="...">
+											<if condition="$da.statecode eq 2"> 
+												<a class="btn btn-default" role="button" style="border-bottom:none;" href="__WEBURL__/FairsoUser/deal?id={$da.id}&p={$p}&type=3&deal={$deal}&Stype={$Stype}&contact={$contact}&uid={$uid}">处理</a> 
+											</if> 
+											<if condition="$da.state eq 1">
+											<a class="btn btn-default" role="button" style="border-bottom:none;" href="__WEBURL__/FairsoUser/Prodel?id={$da.id}&p={$p}&type=3&deal={$deal}&Stype={$Stype}&contact={$contact}&uid={$uid}&typeEdit=2"> 
+											禁用
+											<else/>
+											<a class="btn btn-default" role="button" style="border-bottom:none;" href="__WEBURL__/FairsoUser/Prodel?id={$da.id}&p={$p}&type=3&deal={$deal}&Stype={$Stype}&contact={$contact}&uid={$uid}&typeEdit=1"> 
+											启用
+											</if>
+											</a> 
+										</div>
+									</td>
+								</tr>
+							</foreach>
+								<tr>
+									<td colspan="9"><span style="float:right;">{$row}</span></td>
+								</tr>
+						</tbody>
+					</table>
+				</div>
+           <!-- /tile body -->
+			</section>
+			<!-- /tile -->
+			<!-- PC预览弹层开始 -->
+			<div class="monolayer">
+				<div class="monolayer_title">您确定要复制：</div>
+				<div class="monolayer_con">
+					<div class="monolayer_con1" id="fe_text"></div>
+				</div>
+				<div class="monolayer_but">
+					<button class="btn btn-success set">取 消</button><button class="btn btn-success get" id="d_clip_button" data-clipboard-target="fe_text">确 定</button>
+				</div>
+			</div>
+			<!-- PC预览弹层结束 -->
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container --><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

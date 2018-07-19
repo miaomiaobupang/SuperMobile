@@ -1,0 +1,457 @@
+/* 公共样式 */
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {
+  border: 0 none;
+  font-family: tahoma,arial,"Hiragino Sans GB","宋体",sans-serif;
+  font-feature-settings: inherit;
+  font-kerning: inherit;
+  font-language-override: inherit;
+  font-size: inherit;
+  font-size-adjust: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-synthesis: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+ul li{
+	list-style:none;
+}
+.box{
+	width:100%;
+	background:#ececec;
+}
+/* 头部 */
+.header{
+	width:100%;
+	background:#fff;
+}
+.headerContent{
+	width:1200px;
+	height:70px;
+	margin:0px auto;
+}
+
+.headerText{
+	height:70px;
+	float:right;
+	cursor:default;
+}
+
+.headerTextContent{
+	line-height:70px;
+	font-size:14px;
+	float:left;
+	color:#2c3a5d;
+}
+.headerTextContent.fsit{
+	margin-right:60px;
+}
+.headerTextContent.second{
+	margin-right:20px;
+}
+
+/* 主体 */
+.main_body{
+	width:1200px;
+	margin:0px auto;
+}
+
+.main_bodyHead{
+	width:1200px;
+	height:160px;
+	margin-top:90px;
+	background:#3b6276;
+}
+.main_bodyHeadPic{
+	width:165px;
+	height:160px;
+	float:left;
+	margin-top:-62px;
+}
+.headPic{
+	width:122px;
+	height:122px;
+	border-radius:50%;
+	border:4px solid #fff;
+	margin-left:30px;
+}
+.headPicText{
+	float:left;
+	margin-top:-40px;
+	margin-left:-15px;
+	font-size:18px;
+	color:#2c3a5d;
+	cursor:default;
+}
+.headPicTextPic{
+	margin-left:10px;
+	width:18px;
+}
+/* 图标样式 */
+.main_bodynavContent{
+	width:980px;
+	height:160px;
+	float:left;
+}
+.main_bodynavContentPic{
+	width:140px;
+	float:left;
+	margin-top:40px;
+}
+
+.main_bodynavContentText{
+	margin-top:25px;
+	text-align:center;
+	font-size:18px;
+	color:#fff;
+	cursor:pointer;
+}
+.main_bodynavContentText.index{
+	color:#c5e0fe;
+}
+.btnPics{
+	width:20px;
+	height:160px;
+	float:left;
+	margin-top:8px;
+}
+.buttonPic{
+	width:20px;
+	display:block;
+	margin-top:40px;
+}
+
+/* 订单详情样式 */
+/* 外面总的样式 */
+.main_bodyBottom{
+	width:1200px;
+	height:700px;
+}
+
+/* 左边样式 */
+.main_bodyBottomLeft{
+	width:200px;
+	height:700px;
+	background:#fff;
+	margin-top:18px;
+	float:left;
+}
+.main_bodyBottomLeft a:hover{
+	text-decoration:none;
+}
+.main_bodyBottomLeftone{
+	width:200px;
+	height:50px;
+	background:#3b6276;
+	font-size:18px;
+	text-align:center;
+	line-height:50px;
+	color:#fff;
+	cursor:default;
+}
+.main_bodyBottomLeftcontent{
+	width:100%;
+	height:100px;
+	line-height:100px;
+	font-size:18px;
+	text-align:center;
+	color:#2c3a5d;
+	text-align:center;
+}
+/* 鼠标文字样式 */
+.main_bodyBottomLeftcontent.two a{
+	color:#1094e4;
+}
+.main_bodyBottomLeftcontent a{
+	color:#2c3a5d;
+	text-decoration:none;
+}
+.main_bodyBottomLeftcontent a:hover{
+	color:#5dc1fe;
+}
+
+/* 右边样式 */
+/*  整体 */
+.main_bodyBottomRightContent{
+	background: #fff none repeat scroll 0 0;
+    border-radius: 10px;
+    box-shadow: 1px 2px 5px -1px rgba(59, 98, 118, 0.3);
+    float: left;
+    height: 140px;
+    margin-left: 38px;
+    margin-top: 38px;
+    width: 962px;
+}  
+.main_bodyBottomRightContent.Distinguish{
+	margin-top:38px;
+}
+/* 右边上面 */
+.main_bodyBottomRightContentTitle{
+	width:962px;
+	height:40px;
+	border-bottom:1px dashed #5384a0;
+	padding-left:40px;
+	line-height:40px;
+	font-size:14px;
+	color:#2c3a5d;
+	cursor:default;
+}
+.main_bodyBottomRightContentTitleR{
+	margin-right:43px;
+	float:right;
+}
+.main_bodyBottomRightContentTitleL{
+	float:left;
+}
+/* 右边下面 */
+/* 整体样式 */
+.main_bodyBottomRightContentBottom{
+	width:962px;
+	height:100px;
+	float:left;
+	
+}
+.main_bodyBottomRightContentTitle{
+	width:100%;
+	height:40px;
+	line-height:40px;
+	border-bottom:1px dashed #5384a0;
+	padding-left:40px;
+	font-size:14px;
+	color:#2c3a5d;
+}
+.main_bodyBottomRightContentBottomC{
+	float:left;
+	font-size:14px;
+	color:#2c3a5d;
+	margin-top:15px;
+	margin-left:40px;
+	cursor:default;
+	width: 150px;
+}
+.main_bodyBottomRightContentBottomCS{
+	float:left;
+	font-size:14px;
+	color:#2c3a5d;
+	margin-top:15px;
+	margin-left:100px;
+	cursor:default;
+	width: 300px;
+}
+.main_bodyBottomRightContentBottomCSS{
+	float:left;
+	font-size:14px;
+	color:#2c3a5d;
+	margin-top:10px;
+	margin-left:100px;
+	cursor:default;
+	width: 150px;
+}
+/* 右边下面内容样式 */
+.main_bodyBottomRightContentBottomCoT{
+	margin-top:5px;
+}
+/* 分页 */
+.pagingStyle{
+	position:absolute;
+	z-index:10;
+	font-size:18px;
+	color:#2c3a5d;
+	padding-top:20px;
+	text-align:right;
+}
+
+.pagingTextO{
+	float:left;
+	cursor:pointer;
+}
+/* 鼠标指向的样式 1的样式 */
+.pagingTextO:hover{
+	color:#5dc1fe;
+}
+
+.pagingText{
+	margin-left:40px;
+	float:left;
+	cursor:pointer;
+}
+/* 鼠标指向的样式 2的样式 */
+.pagingText.two:hover{
+	color:#5dc1fe;
+}
+
+/* 鼠标指向的样式 3的样式 */
+.pagingText.three:hover{
+	color:#5dc1fe;
+}
+/* 鼠标指向的样式 4的样式 */
+.pagingText.four:hover{
+	color:#5dc1fe;
+}
+.pagingTextOne:hover{
+	color:#5dc1fe;
+}
+.pagingTextOneInput{
+	width:40px;
+	height:30px;
+	margin-left:40px;
+	padding-left:5px;
+}
+.btnPic{
+	width:17px;
+	height:33px;
+	margin-left:80px;
+	cursor:pointer;
+}
+
+.btnPic1{
+	width:17px;
+	height:33px;
+	cursor:pointer;
+}
+
+
+/* 底部 */
+.footerDiv{
+	width:100%;
+	height:150px;
+	background:#e5e8ea;
+}
+.footer{
+	width:1200px;
+	height:150px;
+	background:#e5e8ea;
+	margin:0px auto;
+	margin-top:85px;
+}
+.footerLeft{
+	width:60px;
+	margin-top:40px;
+	float:left;
+}
+.footerLeftPic{
+	width:60px;
+	height:53px;
+}
+.footerPic{
+	width:60px;
+}
+.footerLeftMiddle{
+	width:400px;
+	height:150px;
+	margin-left:30px;
+	float:left;
+}
+.footerLeftText{
+	margin-top:25px;
+	font-size:10px;
+	cursor:default;
+}
+.footerLeftTextLiFist{
+	font-size:12px;
+}
+.footerLeftTextLi{
+	margin-top:10px;
+	color:#aaa;
+}
+.footerRightMiddle{
+	float:right;
+	margin-right:30px;
+	line-height:20px;
+	font-size:12px;
+	margin-top:45px;
+	color:#aaa;
+	text-align:right;
+	cursor:default;
+}
+.footerRightMiddleUlfist{
+	font-size:10px;
+}
+
+.footerRightPic{
+	float:right;
+	margin-top:35px;
+}
+.weixinPic{
+	width:80px;
+	height:80px;
+}
+
+
+.footerRightMiddlePic{
+	float:right;
+}
+
+.footerRightMiddlePic ul li{
+	width:36px;
+	float:right;
+}
+.footerRightMiddlePicli{
+		margin-right:10px;
+}
+.DivStyle{
+	background:#ececec;
+	width:100%;
+	height:100px;
+	line-height:100px;
+	font-size:18px;
+	text-align:center;
+	color:#2c3a5d;
+	text-align:center;
+	border:1px solid #3b6276;
+}
+.main_bodyBottomBillRight{
+	width:960px;
+	height:700px;
+	margin-top:18px;
+	background:#fff;
+	border-radius:10px;
+	box-shadow:0px 1px 5px 1px rgba(59,98,118,0.3);
+	float:right;
+	display:none;
+}
+.main_bodyBottomBillBody{
+	width:500px;
+	height:150px;
+	line-height:150px;
+	margin:0px auto;
+	margin-top:275px;
+}
+.main_bodyBottomBillBodyLeft{
+	width:150px;
+	height:100%;
+	padding-left:80px;
+	float:left;
+}
+.main_bodyBottomBillBodyRight{
+	width:340px;
+	height:50px;
+	line-height:50px;
+	font-size:20px;
+	color:#2a3c5d;
+	margin-top:50px;
+	float:right;
+}
+
+/*============提示框样式================*/
+
+.tooltip-inner {
+  background-color: #3b6276;
+}
+.tooltip.left .tooltip-arrow {
+    border-left-color: #3b6276;
+}
+.tooltip.top .tooltip-arrow {
+    border-top-color: #3b6276;
+}
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #3b6276;
+}
+.tooltip.right .tooltip-arrow {
+    border-right-color: #3b6276;
+}
+/*============提示框样式================*/

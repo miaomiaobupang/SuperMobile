@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>预约</title>
+<link href="__CSS__/xiangmuzhuce.css" type="text/css" rel="stylesheet" />
+<link href="__CSS__/reset.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="__CSS__/footer.css">
+<script src="__JS__/jquery.min.js"></script>
+</head>
+<body>
+    <div class="hdyx_wrap">
+          <a href="javascript:history.go(-1);"><img src="__IMG__/return.png" /></a>
+          <div class="hdyx_logo">
+             <img src="__ACC__/{$houseInfo.tlogo}" />
+          </div> 
+          <a href="#"><img src="__IMG__/gps.png"/ style="float:right;"></a>
+    </div>
+   <div class="content">
+       <div class="form">
+        <form action="__MODULE__/Index/reserve" method="post">
+            <div class="project">
+                <label>项目名称：</label><input type="text" placeholder="请输入项目名称" class="pro" name="pname" />
+            </div>
+            <div class="name">
+                <label>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</label><input type="text" placeholder="请输入姓名" class="nam" name="name" />
+            </div>
+            <div class="tell">
+                <label>手机号码：</label><input type="text" placeholder="请输入手机号码" class="tel" name="tel" />
+            </div>
+            <div class="time">
+                <label>预约时间：</label><input type="text" placeholder="请输入预约时间" class="tim" name="time" />
+            </div>
+            <div class="btn">
+            	<a class="submit-btn">提交</a>
+            </div>
+        </form>	
+        </div>
+   </div>
+   <script>
+	$(".submit-btn").click(function(){
+		$("form").submit();
+	});
+   </script>
+   <div class="fot_bottom">
+		<div class="fot_box">
+			<ul class="ul1">
+				<li>
+					<a href="__MODULE__/Index/houseShow/id/{$houseInfo.id}"><p><img src="__IMG__/icon_fot.png"></p><span>首页</span></a>
+				</li>
+				<li>
+					<a href="__MODULE__/Index/info/id/{$houseInfo.id}"><p><img src="__IMG__/icon_fot_2.png"></p><span>基本信息</span></a>
+				</li>
+				<li>
+					<a href="__MODULE__/Index/trends/id/{$houseInfo.id}"><p><img src="__IMG__/icon_fot_3.png"></p><span>最新动态</span></a>
+				</li>
+				<li>
+					<a href="#"><p><img src="__IMG__/icon_fot_4.png"></p><span>客户推荐</span></a>
+				</li>
+				<li style="background:#a68068;">
+					<a href="__MODULE__/Index/reserve/id/{$houseInfo.id}"><p><img src="__IMG__/icon_fot_5.png"></p><span>预约购房</span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

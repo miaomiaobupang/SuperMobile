@@ -1,0 +1,108 @@
+/*×ó²à*/
+	#left{
+		width:250px;
+		background:#689ACC;
+		padding:0;
+		position:absolute;
+		left:0;
+		padding-top:10px;
+	}
+	#left{
+		height:auto;
+	}
+	#left .lists{
+		height:auto;
+		line-height:40px;
+		font-size:16px;
+		font-weight:900;
+		color:#fff;
+		cursor:pointer;
+		padding:0 20px;
+		position:relative;
+		z-index:2;
+		width:100%;
+		-webkit-transition: all 0.2s linear;
+	    -moz-transition: all 0.2s linear;
+	    transition: all 0.2s linear;
+	}
+	#left .lists:after{
+		content: "";
+	    display: inline-block;
+	    width: 3px;
+	    height: 39px;
+	    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+	    background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    z-index:-1;
+	    -webkit-transition: all 0.2s linear;
+	    -moz-transition: all 0.2s linear;
+	    transition: all 0.2s linear;
+	}
+	#left .lists:hover::after{
+		background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+	    background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+	    width: 100%;
+	}
+	.add_many{
+		color:#fff;
+		float:right;
+		font-size:20px;
+		font-weight:900;
+	}
+	#left .childrenList{
+		width:100%;
+		height:auto;
+		display:none;
+	}
+	#left .childrenList .li{
+		height:35px;
+		line-height:35px;
+		padding-left:20px;
+		color:#fff;
+		font-size:16px;
+		position:relative;
+	}
+	#left .childrenList i{
+		position:absolute;
+		left:10px;
+		top:10px;
+	}
+	#left .childrenList .li:hover{
+		cursor:pointer;
+		color:#FFDF77!important;
+	}
+	#left .childrenListLi_list{
+		height:auto;
+		display:none;
+	}
+	#left .childrenListLi_list li{
+		width:100%;
+		height:30px;
+		line-height:30px;
+		padding-left:12px;
+		font-size:14px;
+		color:#fff;
+		/*background:#055F93;*/
+		cursor:pointer;
+	}
+	#left .childrenListLi_list li:hover{
+		color:#FFDF77!important;
+	}
+	a:focus{outline:none;}
+	a:link {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:active {text-decoration: none;color:#333;}
+	
+#content{
+		padding-left:255px !important;
+	}	
+	
+	
+	
+	
+	
+	
+	
+	

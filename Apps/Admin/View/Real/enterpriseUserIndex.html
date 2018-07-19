@@ -1,0 +1,167 @@
+<style>
+.child{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+body #content .dataTables_wrapper{
+    font-size: 14px;
+}
+body #content .dataTables_filter{
+    margin-left:150px;
+}
+.tile-header h1 strong{
+	margin-left:54px;
+}
+.tile-header{
+	font-size:28px;
+}
+.tile-body{
+	.height:850px;
+}
+.tile-header h1 strong{
+    margin-left:22px;
+}
+.col-md-6{
+	width:52%;
+}
+.divNull{
+	width:200px;
+	height:40px;
+}
+.divTitle{
+	width:1150px;
+	height:25px;
+}
+.divTextTit{
+	font-size:20px;
+	text-align:center;
+	line-height:25px;
+}
+.divCenter{
+	width:1070px;
+	margin-left:37px;
+}
+.divGroup{
+	width:1076px;
+	border:1px dashed #fff;
+	border-radius:4px;
+	margin-top:40px;
+	font-size:16px;
+}
+.groupAll{
+	margin-top:20px;
+	margin-left:20px;
+}
+.group{
+	margin-left:100px;
+	margin-top:-22px;
+}
+.listName{
+	margin-left:85px;
+	margin-top:-22px;
+}
+.enterpriseUserBtn{
+	width:80px;
+	height:26px;
+	font-size:16px;
+	background:#1774cc;
+	color:#fff;
+	border:0px;
+	margin-left:954px;
+	margin-top:-22px;
+}
+.listNameAll{
+	margin-top:-10px;
+	padding-bottom:20px;
+	margin-left:20px;
+}
+.divPage{
+	margin-top:60px;
+	text-align:center;
+	padding-bottom:40px;
+	
+}
+.groupAll a:hover{
+	background:#1164cc;
+	color:#fff;
+}
+.pull-right{
+	margin-left:20px;
+}
+</style>
+
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">非速搜企业管理</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>企业用户组</strong>
+					</h1>
+					<div class="pull-right">
+						<a href="__CONTROLLER__/index" role="button" class="btn btn-default" data-toggle="modal" style="margin-right:22px;border-radius:4px;width:80px;"> 返&nbsp;&nbsp;回</a>
+					</div>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<div class="tile-body nopadding form-group form-footer">
+					<div class="divNull"></div>
+					<div class="divTitle">
+						<div class="divTextTit">{$realName}</div>
+					</div>
+					<div class="divCenter">
+						<foreach name="data" item="da">
+							<div class="divGroup">
+								<div class="groupAll">
+									<div class="textGroup">用户组名称：</div>
+									<div class="group">{$da.name}</div>
+									<a href="__CONTROLLER__/enterpriseUser/id/{$da.id}/rid/{$id}" class="btn btn-default enterpriseUserBtn"><p style="text-align:center;line-height:16px;">企业用户</p></a>
+								</div>
+								<div class="listNameAll">
+									<div class="textGroup">权&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;限：</div>
+									<div class="listName">{$da.listName}</div>
+								</div>
+							</div>
+						</foreach>
+						<div class="divPage">{$row}</div>
+					</div>
+				</div>
+			</section>
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+<script>
+
+</script>

@@ -1,0 +1,295 @@
+<style>
+.child{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+body #content .dataTables_wrapper{
+    font-size: 14px;
+}
+body #content .dataTables_filter{
+    margin-left:150px;
+}
+.radioStyle{
+	background-color:#aaa;
+	opacity:0.5;
+	width:140px;
+	height:35px;
+	margin-left:14px;
+	border-radius:5px;
+}
+.form-control{
+	width:200px;
+}
+.pull-right{
+	margin-top:-30px;
+}
+.divSearch{
+	margin-left:850px;
+	margin-top:-37px;
+}
+.buttonDiv{
+	margin-left:200px;
+	margin-top:-51px;
+}
+.btnSeacher{
+	height:35px;
+	font-size:15px;
+}
+.content{
+	width:140px;
+	vertical-align:middle;
+	display:block;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.contenta a{
+	text-decoration:none;
+	color:#fff;
+}
+.contenta a:hover{
+	color:#03b9fc;
+}
+.content{
+	width:280px;
+	vertical-align:middle;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	cursor:pointer;
+	float:left;
+}
+.contents{
+	width:280px;
+	cursor:pointer;
+	float:left;
+}
+.contenta a{
+	text-decoration:none;
+	color:#fff;
+}
+.contenta a:hover{
+	color:#03b9fc;
+}
+.choose{
+	float:right;
+	margin-top:-4px;
+	margin-right:30px;
+}
+.payment{
+	font-size:14px;
+	height:37px;
+	line-height:30px;
+}
+.copy-tips{
+	position:fixed;
+	z-index:999;
+	bottom:50%;
+	left:55%;
+	margin:0 0 -20px -80px;
+	background-color:rgba(0, 0, 0, 0.2);
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr=#30000000, endColorstr=#30000000);
+	padding:6px;
+}
+.copy-tips-wrap{
+	padding:10px 20px;
+	text-align:center;
+	border:1px solid #F4D9A6;
+	background-color:#FFFDEE;
+	font-size:14px;
+}
+.picOnline{
+	height:39px;
+    position:absolute;
+    top:11px;
+    width:39px;
+    z-index:10;
+}
+.copy{
+	display:block;
+}
+.d_clip_buttons{
+	color:#333;
+	margin-left:10px;
+	margin-top:10px;
+}
+.monolayer{
+	width:460px;
+	height:196px;
+	border-radius:4px;
+	background:rgba(50,75,99,0.9) none repeat scroll 0 0;
+	display:none;
+	position:fixed;
+	z-index:999;
+	font-size:16px;
+	color:#fff;
+}
+.monolayer_title{
+	width:100%;
+	height:60px;
+	font-size:18px;
+	text-align:center;
+	line-height:55px;
+}
+.monolayer_con{
+	width:100%;
+	margin-top:10px;
+}
+.monolayer_con1{
+	width:80%;
+	height:50px;
+	margin-left:10%;
+	text-align:center;
+	line-height:25px;
+	overflow:hidden;
+}
+.monolayer_but{
+    border-radius:0 0 4px 4px;
+    height:57px;
+    margin-top:18px;
+    width:100%;
+	text-align:center;
+}
+.set{
+	width:40%;
+	height:35px;
+	font-size:16px;
+	border-radius:0px;
+}
+.get{
+	width:40%;
+	height:35px;
+	font-size:16px;
+	border-radius:0px;
+}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">非速搜反馈管理</b> 
+	</h2>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>展会登记</strong>列表
+					</h1>
+					<div class="choose">
+						<span class="members" style="display:none;">{$deal}</span>
+						<span class="membersT" style="display:none;">{$Stype}</span>
+						<a href="__WEBURL__/FairsoUser/pending?Stype={$Stype}" class="btn btn-default btn-primary payment" style="width:66px;border-radius:4px 0px 0px 4px;margin-right:-5px;">全 部</a>
+						<a href="__WEBURL__/FairsoUser/pending?deal=1&Stype={$Stype}" class="btn btn-default btn-primary payment payment1" style="width:66px;border-radius:0px;margin-right:-5px;">已处理</a>
+						<a href="__WEBURL__/FairsoUser/pending?deal=2&Stype={$Stype}" class="btn btn-default btn-primary payment payment2" style="width:66px;border-radius:0px 4px 4px 0px;margin-right:-5px;">待处理</a>
+					</div>
+					<div class="choose"> 
+						<a href="__WEBURL__/FairsoUser/pending?deal={$deal}" class="btn btn-default btn-primary payment" style="width:66px;border-radius:4px 0px 0px 4px;margin-right:-5px;">全 部</a>
+						<a href="__WEBURL__/FairsoUser/pending?deal={$deal}&Stype=4" class="btn btn-default btn-primary payment paymentc4" style="width:66px;border-radius:0px;margin-right:-5px;">资讯</a>
+						<a href="__WEBURL__/FairsoUser/pending?deal={$deal}&Stype=3" class="btn btn-default btn-primary payment paymentc3" style="width:66px;border-radius:0px 4px 4px 0px;margin-right:-5px;">展会</a>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body form-group form-footer">
+					<table class="table" id="basicDataTable">
+						<thead>
+							<tr>
+							  <th class="text-center" style="width: 9%;">用户昵称</th>
+							  <th class="text-center" style="width: 10%;">类型</th>
+							  <th class="text-center" style="width: 20%;">来源(展会/资讯)标题</th>
+							  <th class="text-center" style="width: 24%;">登记内容</th>
+							  <th class="text-center" style="width: 8%;">来源地址</th>
+							  <th class="text-center hidden-xs" style="width: 8%;">反馈时间</th>
+							  <th class="text-center" style="width: 8%;">是否处理</th>
+							  <th class="text-center" style="width:13%;">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<foreach name="businessList" item="da">
+								<tr>
+									<td class="text-center contenta" style="word-break:break-all; ;vertical-align:middle;">
+										<if condition="$da.uid neq 0">
+											<a href="__WEBURL__/FairsoUser/userDetail/uid/{$da.uid}" target="_blank">{$da.uname}</a>
+										<else/>
+											{$da.uname}
+										</if>
+									</td>
+									<td class="text-center" style="vertical-align:middle;">{$da.source}</td>
+									<td class="text-left" style="vertical-align:middle;">
+										<div class="content">{$da.pname}</div>
+										<button class="d_clip_buttons" data-content="{$da.pname}">复制</button>
+									</td>
+									<td class=" " style=" "> 
+									<div>
+										{$da.contents}
+										</div>
+									</td>
+									<td class="text-center" style="vertical-align:middle;">{$da.address}</td>
+									<td class="text-center" style="vertical-align:middle;">{$da.ctime||date="Y-m-d H:i:s",###}</td>
+									<td class="text-center" style="vertical-align:middle;">
+										<if condition="$da.statecode eq 1">已处理</if>
+										<if condition="$da.statecode eq 2">待处理</if>
+									</td>
+									<td class="text-right" style="vertical-align:middle;">
+										<div class="btn-group" role="group" aria-label="...">
+											<if condition="$da.statecode eq 2">
+												<if condition="($p neq NULL) AND ($deal eq NULL)">
+													<a class="btn btn-default" role="button" style="border-bottom:none;" href="__WEBURL__/FairsoUser/deal?id={$da.id}&type=2&Stype={$Stype}">处理</a>
+												<else/>
+													<a class="btn btn-default" role="button" style="border-bottom:none;" href="__WEBURL__/FairsoUser/deal?id={$da.id}&p={$p}&type=2&deal={$deal}&Stype={$Stype}">处理</a>
+												</if>
+											</if>
+											 
+												<if condition="$da.state eq 1">
+												<a class="btn btn-default" role="button" style="border-bottom:none;" href="__WEBURL__/FairsoUser/Prodel?id={$da.id}&p={$p}&deal={$deal}&type=2&Stype={$Stype}&typeEdit=2">
+												
+												禁用
+												<else/>
+												<a class="btn btn-default" role="button" style="border-bottom:none;" href="__WEBURL__/FairsoUser/Prodel?id={$da.id}&p={$p}&deal={$deal}&type=2&Stype={$Stype}&typeEdit=1">
+
+												启用
+												</if>
+												</a> 
+										</div>
+									</td>
+								</tr>
+							</foreach>
+								<tr>
+									<td colspan="9"><span style="float:right;">{$row}</span></td>
+								</tr>
+						</tbody>
+					</table>
+				</div>
+           <!-- /tile body -->
+			</section>
+			<!-- /tile -->
+			<!-- PC预览弹层开始 -->
+			<div class="monolayer">
+				<div class="monolayer_title">您确定要复制：</div>
+				<div class="monolayer_con">
+					<div class="monolayer_con1" id="fe_text"></div>
+				</div>
+				<div class="monolayer_but">
+					<button class="btn btn-success set">取 消</button><button class="btn btn-success get" id="d_clip_button" data-clipboard-target="fe_text">确 定</button>
+				</div>
+			</div>
+			<!-- PC预览弹层结束 -->
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container --><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

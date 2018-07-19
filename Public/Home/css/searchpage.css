@@ -1,0 +1,516 @@
+/* 公共样式 */
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {
+  border: 0 none;
+  font-family: tahoma,arial,"Hiragino Sans GB","宋体",sans-serif;
+  font-feature-settings: inherit;
+  font-kerning: inherit;
+  font-language-override: inherit;
+  font-size: inherit;
+  font-size-adjust: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-synthesis: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+ul li{
+	list-style:none;
+}
+.box{
+	width:100%;
+	height:100%;
+	background:#fff;
+}
+
+/* logo头部 */
+.headTitle{
+	width:100%;
+	height:65px;
+	min-width:1106px;
+}
+/* logo图片样式 */
+.headTitleLeft{
+	width:143px;
+	margin-left:40px;
+	float:left;
+	margin-top:16px;
+}
+
+.headTitlelogoPic{
+	width:143px;
+	height:31px;
+}
+/* 搜索框的样式 */
+.headTitleRight{
+	width:645px;
+	float:left;
+	margin-top:14px;
+	margin-left:30px;
+}
+.inputFrame{
+	width:465px;
+	height:40px;
+	border:1px solid #C2C2C2;
+	padding-left:10px;
+	font-size:18px;
+}
+/* 搜索框样式开始 */
+.searchInputs{
+	clear: none;
+	float: left;
+	position: relative;
+	z-index: 297;
+}
+.searchInputSpanL{
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	background: #fff none repeat scroll 0 0;
+	border-color: #b8b8b8 transparent #ccc #b8b8b8;
+	border-image: none;
+	border-style: solid;
+	border-width: 1px 0 1px 1px;
+	display: inline-block;
+	margin-right: -3px;
+	overflow: hidden;
+	vertical-align: top;
+	width: 539px;
+	height: 34px;
+	*height: 32px;/*IE7支持 */
+	position: relative;
+}
+.searchInputSpanLipt{
+	position: relative;
+	width: 500px;
+	background: transparent none repeat scroll 0 0;
+	border: 0 none;
+	font: 16px/18px arial;
+	margin-left: 10px;
+	margin-top: 7px;
+	outline: 0 none;
+	padding: 0;
+	box-sizing: border-box;
+}
+.searchInputSpanBtn{
+	background-image: none;
+	border-bottom: 1px solid transparent;
+	height: auto;
+	width: auto;
+	background-position: -120px -48px;
+	display: inline-block;
+	vertical-align: top;
+	z-index: 0;
+	font-size: 12px;
+	font-family: arial;
+	color: #333;
+}
+.searchInputBtn{
+	background-image: none;
+	background: #21689b none repeat scroll 0 0;
+	border-bottom: 1px solid #2d78f4;
+	color: white;
+	height: 34px;
+	*line-height: 36px;/*IE7支持 */
+	letter-spacing: 1px;
+	outline: medium none;
+	width: 100px;
+	border: 0 none;
+	cursor: pointer;
+	font-size: 14px;
+	padding: 0;
+	width: 95px;
+	box-sizing: border-box;
+	font-family: arial;
+}
+.searchInputsClose {
+  color: #999;
+  font-size: 20px;
+  cursor:pointer;
+}
+.searchInputsClose:hover{
+	color:#000;
+}
+::-ms-clear{display: none;}
+/* 搜索框样式结束 */
+/* 会员快捷菜单开始 */
+.memberKUL {
+	float: left;
+	position: relative;
+	line-height: 65px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+.memberKUL a {
+	text-decoration: none;
+}
+.memberKULName{
+	padding-left:5px;
+	padding-right:5px;
+}
+.memberKUL > ul {
+	background-color: #fff;
+	box-shadow: 0 2px 2px 0 rgba(64, 64, 64, 0.25);
+	display: none;
+	height: auto;
+	left: 0;
+	position: absolute;
+	text-align: center;
+	top: 65px;
+	width: 100%;
+	z-index: 20;
+}
+.memberKUL:hover{
+	background-color: #fff;
+}
+.memberKUL:hover > ul {
+	display: block;
+}
+.memberKUL li {
+	color: #212121;
+	font-size: 12px;
+	cursor:pointer;
+	line-height: 25px;
+}
+.memberKUL li:hover {
+	background-color: #276ca3;
+	color: #fff;
+}
+.navContent{
+	font-size:12px;
+}
+/* 会员快捷菜单结束 */
+.searchText {
+  background: rgba(0, 0, 0, 0) url("../images/search.png") no-repeat scroll 0 0;
+  font-size: 14px;
+  padding-left: 30px;
+  line-height: 20px;
+}
+/* 搜索按钮样式 */
+.inputFramebut{
+	width:180px;
+	height:40px;
+	float:right;
+	background:#2382d0;
+	border:1px solid #2382d0;
+	font-size:18px;
+	color:#fff;
+	text-align:center;
+	line-height:40px;
+	cursor:pointer;
+}
+.headTitleText{
+	float:right;
+	margin-right:40px;
+	line-height:65px;
+	font-size:12px;
+	color:#000;
+}
+.headTitleText a{
+	color:#000;
+}
+.headTitleText a:hover{
+	text-decoration:none;
+	color:#2382d0
+}
+.index{
+	margin-right:30px;
+}
+
+/* 头部搜索 */
+.header{
+	width:100%;
+	min-width:862px;
+	height:40px;
+	background:#f2f2f2;
+}
+.headLeft{
+	width:563px;
+	margin-left:213px;
+	font-size:14px;
+	float:left;
+	line-height:40px;
+}
+.headLeft a{
+	color:#000
+}
+.headLeft a:hover{
+	text-decoration:none;
+	color:#2382d0
+}
+.headLeftText{
+	margin-left:30px;
+}
+.headRight{
+	float:left;
+	margin-top:10px;
+}
+
+.headRight a{
+	color:#000
+}
+.headRight a:hover{
+	text-decoration:none;
+	color:#2382d0
+}
+
+/* 主体 */
+
+.main_body{
+	width:1200px;
+}
+/* 主体左边内容 */
+.main_bodyLeft{
+	width:650px;
+	margin-left:213px;
+	float:left;
+	padding-bottom:130px;
+	margin-top:-20px;
+}
+
+.main_bodyLeftContent{
+	margin-top:50px;
+}
+
+.main_bodyLeftContentTitle{
+	width:650px;
+	height:36px;
+	border-bottom:1px dotted #056cc1;
+	line-height:36px;
+	font-size:16px;
+	font-family:arial;
+}
+.main_bodyLeftContentTitle a{
+	color:#000;
+}
+.main_bodyLeftContentTitle a:hover{
+	text-decoration:none;
+}
+/* .main_bodyLeftContentTitle a:visited{
+	color:#1921b3;
+} */
+.prompt{
+	color:#056cc1;
+}
+.main_bodyLeftContentText{
+	width:650px;
+	font-size:14px;
+	line-height:24px;
+	color:#000;
+}
+.main_bodyLeftContentText.deat{
+	margin-top:5px;
+}
+.main_bodyLeftContentText a{
+	color:#2e9b3d;
+	font-size:16px;
+}
+.main_bodyLeftContentText a:hover{
+	text-decoration:none;
+}
+
+.exhibitionHall{
+	margin-left:30px;
+}
+
+/* 第二条 */
+.main_bodyLeftContent.text{
+	margin-top:20px;
+}
+.main_bodyLeftContent.text a{
+	text-decoration:none;
+}
+.main_bodyLeftContent.text .main_bodyLeftContentTitle{
+	color:black;	
+}
+/* 第三条 */
+.main_bodyLeftContentPic{
+	margin-top:10px;
+	height:100px;
+}
+
+.exhibitionhallpic{
+	width:160px;
+	height:100px;
+	float:left;
+}
+.exhibitionhallText{
+	width:480px;
+	height:100px;
+	float:left;
+	margin-left:10px;
+}
+.exhibitionhallTextContent{
+	width:480px;
+	height: 20px;
+	line-height:20px;
+	color:#000;
+	/*
+	display:block;
+	white-space:nowrap; 
+	overflow:hidden; 
+	text-overflow:ellipsis;
+	*/
+	font-family:arial;
+}
+.exhibitionhallTextContent a{
+	color:#2e9b3d;
+	font-size:16px;
+}
+.exhibitionhallTextContent a:hover{
+	text-decoration:none;
+}
+/* 页数数字样式 */
+.pagination{
+	width:650px;
+	/* margin-top:40px;
+	margin-left:190px; */
+}
+.paginationDigital{
+	width:36px;
+	height:36px;
+	font-size:20px;
+	color:#000;
+	text-align:center;
+	line-height:36px;
+	border:1px solid #aaa;
+	border-radius:4px;
+	float:left;
+	margin-left:10px;
+}
+
+.paginationDigital.nextPage{
+	width:72px;
+	font-size:15px;
+	margin-left:50px;
+}
+.arrow{
+	color:#aaa;
+	padding-left:5px;
+}
+.paginationDigital.default{
+	background:#2382d0;
+	color:#fff;
+	border:none;
+}
+/* 主体右边内容 */
+.main_bodyRight{
+	width:265px;
+	height:602px;
+	float:left;
+	margin-left:72px;
+	margin-top:60px;
+	border-left:1px dotted #056cc1; 
+}
+.main_bodyRightText{
+	width:245px;
+	height:38px;
+	margin-left:20px;
+	font-size:18px;
+	color:#000;
+	line-height:38px;
+}
+.main_bodyRightPicContent{
+	width:245px;
+	height:90px;
+	margin-top:10px;
+	margin-left:20px;
+	
+}
+
+.main_bodyRightPicContent.content{
+	margin-top:30px;
+}
+.main_bodyRightPicContentPic{
+	width:120px;
+	height:90px;
+	float:left;
+}
+.main_bodyRightPicContentText{
+	width:110px;
+	height:90px;
+	font-size:14px;
+	color:#000;
+	line-height:24px;
+	float:left;
+	margin-left:15px;
+	margin-top:10px;
+	font-family:arial;
+}
+
+/* 底部 */
+.footerDiv{
+	width:100%;
+	height:40px;
+	background:#e5e8ea;
+	position: absolute;
+	left:0px;
+	bottom:0px;
+	clear:both;
+	color: #6a6a6a;
+}
+.footer{
+	width:1200px;
+	height:40px;
+	background:#e5e8ea;
+	margin-left:213px;
+}
+
+.footerRightMiddle{
+	font-size:12px;
+	color:#aaa;
+	cursor:default;
+	line-height:40px;
+}
+.footerUlLi{
+	float:left;
+}
+.footerRightMiddleUlfist{
+	float:left;
+	margin-left:40px;
+}
+.searchPageStyle{
+    position: absolute;
+	z-index:20;
+	bottom: 40px;
+    left: 213px;
+}
+.exhibitionhallTextContentOne{
+	font-size:13px;
+	height:20px;
+	line-height:20px;
+}
+.exhibitionhallTextContentTwo{
+	font-size:13px;
+	height:20px;
+	line-height:20px;
+}
+.exhibitionhallTextContentThree {
+	margin-top:20px;
+	width:155px;
+	display:block;
+	white-space:nowrap; 
+	overflow:hidden; 
+	text-overflow:ellipsis;
+	color:#008000;
+}
+.exhibitionhallTextContentThree a{
+	height:18px;
+	line-height:18px;
+	font-size:13px;
+}
+.topFontsize{
+	width:300px;
+	height:42px;
+	line-height:42px;
+	margin-left:213px;
+    color:#999;
+    font-size:12px;
+}
+.headLeftText {
+    font-size: 14px;
+}

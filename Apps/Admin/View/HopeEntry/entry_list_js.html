@@ -1,0 +1,29 @@
+<script>
+	$('.toExamineClass').click(function(){
+		var entry_id = $(this).data('id');
+		var entry_state = $(this).data('state');
+		var type = $(this).data('type');
+		var thisObj = $(this);
+		$.ajax({
+			url:URLS+'/HopeEntry/entry_examine',
+			data:'entry_id='+entry_id+'&& entry_state='+entry_state+'&& type='+type,
+			type:'get',
+			dataType:'json',
+			success:function(data){
+				if(data.status == 1){
+					//更新当前词条上下线状态以及文字
+					thisObj.data('state',data.data);
+					if(data.data == 1){
+						thisObj.html('下线');
+						thisObj.parent().parent().prev().html('正常');
+					}else{
+						thisObj.parent().parent().prev().html('禁用');
+						thisObj.html('上线');
+					}
+					
+				}
+				alert(data.message);
+			}
+		});
+	});
+</script>

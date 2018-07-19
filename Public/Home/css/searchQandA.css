@@ -1,0 +1,24 @@
+.mainleft-list{
+	height:105px;
+}
+.mainBox3Right2{
+	height:254px;
+}
+.mainBox3Right1Tilte{
+	border-bottom:1px solid #dcdcdc;
+}
+.main2TwoList {
+	height:20px;
+    margin-top: 9px;
+    margin-bottom: 0;
+    cursor:pointer;
+}
+.main2TwoList1,.main2TwoList2{
+    color: #666;
+}
+.moreHos{
+	padding-top:5px;
+}
+.main2TwoList:hover .main2TwoList1{
+	color:#ec7837;
+}

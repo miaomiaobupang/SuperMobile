@@ -1,0 +1,380 @@
+.main{
+	width:100%;
+	height:auto;
+}
+.imgBanner{
+	width:1240px;
+	height:140px;
+	display:block;
+	margin:0 auto;
+	margin-top:20px;
+}
+.main4Box{
+	background:#fff;
+}
+.main4Doc1{
+	border:1px solid #dcdcdc;
+}
+.shareTilte{
+	height:59px;
+}
+.main4Doc1_3{
+	height:auto;
+	padding:0 20px;
+}
+.shareBox{
+	width:100%;
+	height:115px;
+	border-top:1px solid #dcdcdc;
+	padding-top:16px;
+	cursor:pointer;
+}
+.shareBox img{
+	width:82px;
+	height:82px;
+}
+.shareBoxName{
+	padding-left:8px;
+}
+.shareBoxName1{
+	width:265px;
+	color:#666;
+	font-size:16px;
+	margin-bottom:10px;
+}
+.shareBoxName2{
+	color:#999;
+	font-size:14px;
+	margin-bottom:6px;
+}
+.shareBoxName1_ans{
+	color:#999;
+	font-size:12px;
+}
+.interlocution1Box{
+	width:100%;
+	height:390px;
+	background:#f5f5f5;
+}
+.interlocution1Box_l{
+	width:820px;
+	height:296px;
+	border:1px solid #dcdcdc;
+	box-shadow:1px 2px 3px rgb(220,220,220);
+	background:#fff;
+}
+.interlocution1Box_l{
+	padding:20px;
+}
+.interlocution1Box_l .main1_title3{
+	padding-top:0;
+}
+.interlocution1Box_l .main1Right_more{
+	padding-top:0;
+	margin:0;
+}
+.interlocution1Banner{
+	width:100%;
+	margin-top:20px;
+}
+.tabListLi{
+	width:97px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	display:inline-block;
+	background:#f5f5f5;
+	float:left;
+	font-size:16px;
+	border-top:1px solid #dcdcdc;
+	cursor:pointer;
+}
+.tabListLiNow{
+	background:#fff;
+	border-top:1px solid #009FA8;
+}
+.tabListLiChild{
+	padding-top:20px;
+	display:none;
+}
+.tabListLiChild_1{
+	display:block;
+}
+.tabListLiChild span{
+	margin-right:20px;
+	font-size:16px;
+	line-height:36px;
+}
+.interlocution1Box_r{
+	width:400px;
+	height:298px;
+	border:1px solid #dcdcdc;
+	box-shadow:1px 2px 3px rgb(220,220,220);
+	background:#fff;
+	padding:20px;
+}
+.interlocution1Box_r .main1_title3{
+	font-size:18px;
+	padding:0;
+}
+.interlocution1Box_r .main1Right_more{
+	margin:0;
+}
+.moreHos{
+	border-top:1px solid #dcdcdc;
+	margin-top:10px;
+	padding-top:20px;
+}
+.moreHosList{
+	width:175px;
+	height:96px;
+	position:relative;
+	margin-bottom:8px;
+}
+.moreHosList:nth-child(2n+1){
+	margin-right:8px;
+}
+.moreHosList li{
+	width:100%;
+	height:38px;
+	position:absolute;
+	margin:auto;
+	bottom:0;
+	text-align:center;
+	color:#fff;
+	line-height:48px;
+	background:-moz-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+	background:-o-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+	background:-webkit-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+	background:linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+}
+/*2222222*/
+.interlocution2Box{
+	width:100%;
+	height:707px;
+}
+.interlocution2Box .main1_title3{
+	margin-left:20px;
+}
+.interlocution2Box .main1Right_more{
+	font-size:20px;
+}
+.expert{
+	width:100%;
+	height:373px;
+	border:1px solid #dcdcdc;
+	box-shadow:1px 2px 3px rgb(220,220,220);
+	margin-top:20px;
+	display:none;
+}
+.expert_1{
+	display:block;
+}
+.expertTop{
+	width:100%;
+	height:200px;
+	background:#E1FDFF;
+}
+.expertTopSign{
+	width:99px;
+	height:100px;
+	position:relative;
+}
+.expertTopSign span{
+	color:#fff;
+	font-size:14px;
+	position:absolute;
+	top:24px;
+	left:5px;
+	transform:rotate(-45deg);
+}
+.expertTopFace{
+	width:310px;
+	height:114px;
+	margin-top:30px;
+}
+.expertTopFace img{
+	width:144px;
+	margin-right:20px;
+}
+.expertTopName{
+	color:#189FA7;
+	margin-bottom:16px;
+	margin-top:16px;
+}
+.expertTopName span{
+	font-size:26px;
+	color:#189FA7;
+	margin-right:10px;
+}
+.expertTopAdd li{
+	font-size:18px;
+	color:#666;
+}
+.expertTopLine{
+	width:1px;
+	height:88px;
+	background:#dcdcdc;
+	margin:57px 50px;
+}
+.expertTopText{
+	width:530px;
+	margin-top:48px;
+}
+.expertTopText1,.expertTopText2{
+	line-height:24px;
+	font-size:18px;
+	color:#666;
+	margin-bottom:15px;
+}
+.expertTopText1{
+	text-align:justify;
+}
+.expertBottom{
+	width:100%;
+	height:173px;
+	padding:20px;
+}
+.expertBottomLi{
+	width:580px;
+	height:24px;
+	margin-bottom:10px;
+}
+.expertBottomLi_L{
+	width:472px;
+	height:24px;
+	line-height:24px;
+	font-size:16px;
+	color:#666;
+}
+.expertBottomLi_L:hover{
+	color:#009FA8;
+	cursor:pointer;
+}
+.expertBottomLi_R{
+	font-size:14px;
+	line-height:24px;
+	color:#999;
+}
+.expertBottomLi:nth-child(2n+1){
+	float:left;
+}
+.expertBottomLi:nth-child(2n){
+	float:right;
+}
+.expertBanner{
+	width:1240px;
+	height:174px;
+	margin:0 auto;
+	margin-top:20px;
+}
+.expertBannerBox{
+	width:884px;
+	height:185px;
+}
+.expertbannerList{
+	width:142px;
+	height:174px;
+	border:1px solid #dcdcdc;
+	box-shadow:1px 2px 3px rgb(220,220,220);
+	margin-right:10px;
+	cursor:pointer;
+}
+.expertbannerListText1{
+	text-align:center;
+	color:#009FA8;
+	margin-top:8px;
+	margin-bottom:5px;
+}
+.expertbannerListText2{
+	text-align:center;
+	font-size:12px;
+	color:#666;
+}
+.expertBanner{
+	position:relative;
+}
+.lb_left{
+	position:absolute;
+	top:70px;
+	left:90px;
+	cursor:pointer;
+}
+.lb_right{
+	position:absolute;
+	top:70px;
+	right:90px;
+	cursor:pointer;
+}
+/*333333*/
+.interlocution3Box .interlocution1Box_l{
+	height:336px;
+}
+.departmentBox{
+	width:375px;
+	margin-bottom:8px;
+}
+.departmentBox:nth-child(2n+1){
+	margin-right:27px;
+}
+.department1{
+	width:292px;
+	height:24px;
+	line-height:24px;
+	font-size:16px;
+	color:#666;
+}
+.department1:hover{
+	color:#009FA8;
+	cursor:pointer;
+}
+.department2{
+	font-size:14px;
+	color:#999;
+	line-height:24px;
+}
+.interlocution3Box .interlocution1Box_r{
+	height:337px;
+}
+.medicPic{
+	height:152px;
+	margin-bottom:20px;
+}
+.medicPic img{
+	width:167px;
+	height:152px;
+}
+.medicName{
+	width:171px;
+	height:129px;
+}
+.medicNameLi{
+	font-size:16px;
+	color:#666;
+	margin-top:13px;
+	margin-left:20px;
+}
+.medicNameLi:hover{
+	color:#009FA8;
+	cursor:pointer;
+}
+.elseDoc{
+	border-top:1px solid #dcdcdc;
+	margin-top:10px;
+	padding-top:15px;
+	text-align:center;
+}
+.elseDoc a{
+	margin-right:20px;
+	font-size:16px;
+}
+.elseDoc a:hover{
+	color:#009FA8;
+	cursor:pointer;
+}
+.medicPicImg{
+	display:none;
+}
+.medicPicImg_1{
+	display:block;
+}

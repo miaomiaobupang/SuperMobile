@@ -1,0 +1,535 @@
+/* 公共样式 */
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {
+  border: 0 none;
+  font-family: tahoma,arial,"Hiragino Sans GB","宋体",sans-serif;
+  font-feature-settings: inherit;
+  font-kerning: inherit;
+  font-language-override: inherit;
+  font-size: inherit;
+  font-size-adjust: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-synthesis: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+html{
+	background: rgb(239, 242, 245);
+}
+ul li{
+	list-style:none;
+}
+
+/* Bootstrap样式冲突继承修改开始 */
+img {
+    vertical-align: inherit;
+}
+* {
+    box-sizing: inherit;
+}
+/* Bootstrap样式冲突继承修改结束 */
+
+/* 整体样式 */
+.box{
+	width:100%;
+	background:#eff2f5;
+}
+/* 头部样式 */
+.head{
+	width:100%;
+	height:80px;
+	background:#fff;
+	
+}
+.head_content{
+	width:1200px;
+	height:80px;
+	margin:0px auto;
+	line-height:80px;
+}
+
+.head_contentLi{
+	float:left;
+	font-size:12px;
+	color:#2c3a5d;
+	cursor:default;
+}
+.liPic{
+	height:39px;
+	margin-top:20px;
+	padding-right:25px;
+}
+.headTitle{
+	font-size:24px;
+	line-height:38px;
+	border-left:2px solid #aaa;
+	margin-top:21px;
+	padding-left:25px;
+}
+.head_contentIndex{
+	margin-left:780px;
+}
+
+.head_contentIndex a{
+	color:#2c3a5d;
+	text-decoration:none
+}
+.head_contentLast a{
+	color:#2c3a5d;
+	text-decoration:none
+}
+
+/* 注册表单样式 */
+/* 注册表单上面 */
+.main_body{
+	width:100%;
+	background:#eff2f5;
+	padding-top:35px;
+}
+.formDiv{
+	width:800px;
+	background:#fff;
+	margin:0px auto;
+}
+.formTitle{
+	width:800px;
+	height:60px;
+	background:#eff2f5;
+	
+}
+.formTitleleft{
+	width:400px;
+	height:90px;
+	background:url("../images/cellphonesignin.png");
+	float:left;
+	font-size:24px;
+	color:#fcfcfa;
+	text-align:center;
+	line-height:60px;
+	cursor:pointer;
+}
+.formTitleright{
+	width:400px;
+	height:60px;
+	background:url("../images/mailboxsignin.png");
+	float:left;
+	font-size:24px;
+	color:#2c3a5d;
+	text-align:center;
+	line-height:60px;
+	cursor:pointer;
+}
+/* 手机注册表单 */
+.formBody{
+	width:800px;
+	height:520px;
+}
+.formBodyMailbox{
+	height:390px;
+}
+.formItem{
+	margin-top:82px;
+	margin-left:190px;
+}
+.inputDiv{
+	/* width:360px; */
+	float:left;
+}
+.inputDiv.inputDivValue{
+	margin-top:20px;
+}
+.inputText{
+	width:88px;
+	height:40px;
+	float:left;
+	font-size:14px;
+	color:#2c3a5d;
+	line-height:40px;
+	cursor:default;
+}
+.inputValue{
+	width:280px;
+	float:left;
+}
+.formFrame{
+	width:270px;
+	height:40px;
+	padding-left:10px;
+	line-height:40px;
+	border: 1px solid #aaa;
+}
+.verificationCode{
+	width:135px;
+	float:left;
+}
+.getVerificationCode{
+	width:106px;
+	height:40px;
+	float:right;
+	background:#eaedf0;
+	font-size:14px;
+	color:#747474;
+	line-height:40px;
+	text-align:center;
+}
+.getVerificationCodeLast{
+	width:106px;
+	height:40px;
+	float:right;
+	background:#eaedf0;
+}
+
+.verificationPic{
+	width:106px;
+	height:40px;
+}
+.textPrompt{
+	font-size:14px;
+	color:#aaa;
+}
+.agreement{
+	width:14px;
+	height:14px;
+	margin-top:40px;
+	font-size:14px;
+	margin-left:5px;
+} 
+.agreement a {
+    color: #9d932c;
+    text-decoration: none;
+	cursor:pointer;
+}
+.formFrameReg{
+	width:270px;
+	height:40px;
+	margin-top:40px;
+	font-size:18px;
+	color:#fff;
+	background:#276ca3;
+	border:1px solid #276ca3;
+}
+.formFrameReg.btn{
+	padding:0px;
+	font-size: 18px;
+	line-height:40px;
+}
+.inputValue.inputValue2{
+	padding-top:40px;
+}
+
+/* 邮箱注册表单样式 */
+.formTitleleftPhone{
+	width:400px;
+	height:60px;
+	background:url("../images/mailboxsignin.png");
+	float:left;
+	font-size:24px;
+	color:#2c3a5d;
+	text-align:center;
+	line-height:60px;
+	cursor:pointer;
+}
+
+.formTitlerightMailbox{
+	width:400px;
+	height:90px;
+	background:url("../images/cellphonesignin.png");
+	float:left;
+	font-size:24px;
+	color:#fcfcfa;
+	text-align:center;
+	line-height:60px;
+	cursor:pointer;
+}
+.formItemMailbox{
+	margin-top:150px;
+	margin-left:190px;
+}
+.inputDivValueMailbox{
+	margin-top:40px;
+}
+.inputDivValueMailboxReg{
+	width:270px;
+	height:40px;
+	margin-top:56px;
+	font-size:18px;
+	color:#fff;
+	background:#276ca3;
+	border:1px solid #276ca3;
+}
+
+.inputDivValueMailboxReg.btn{
+	padding:0px;
+	font-size: 18px;
+	line-height:40px;
+}
+
+/* 底部 */
+.footerDiv{
+	margin-top:30px;
+	background: none repeat scroll 0 0 #E5E8EA;
+    height: 150px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.footer{
+	width:1200px;
+	height:150px;
+	background:#e5e8ea;
+	margin:0px auto;
+}
+.footerLeft{
+	width:60px;
+	margin-top:40px;
+	float:left;
+}
+.footerLeftPic{
+	width:60px;
+	height:53px;
+	
+}
+.footerPic{
+	width:60px;
+}
+.footerLeftMiddle{
+	width:400px;
+	height:150px;
+	margin-left:30px;
+	float:left;
+}
+.footerLeftText{
+	margin-top:25px;
+	font-size:10px;
+	cursor:default;
+}
+.footerLeftTextLiFist{
+	font-size:12px;
+}
+.footerLeftTextLi{
+	margin-top:10px;
+	color:#aaa;
+}
+.footerRightMiddle{
+	float:right;
+	margin-right:30px;
+	font-size:12px;
+	text-align:right;
+	line-height:20px;
+	margin-top:45px;
+	color:#aaa;
+	cursor:default;
+}
+
+.footerRightMiddleUlfist{
+	font-size:10px;
+} 
+
+.footerRightPic{
+	float:right;
+	margin-top:35px;
+}
+.weixinPic{
+	width:80px;
+	height:80px;
+}
+
+
+.footerRightMiddlePic{
+	float:right;
+}
+
+.footerRightMiddlePic ul li{
+	width:36px;
+	float:right;
+}
+.footerRightMiddlePicli{
+		margin-right:10px;
+}
+.findPass{
+	width:222px;
+	margin-top:120px;
+	font-size:14px;
+	color:#fff;
+	text-align:right;
+}
+/* 弹层阴影 */
+#gapDiv{
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0.4);
+	position:absolute;
+	z-index:4;
+}
+/* 弹层样式 */
+.floatingLayerDiv{
+	width:510px;
+	height:330px;
+	position:fixed;
+	z-index:5;
+	background:#fff;
+}
+
+.floatingLayerTop{
+	width:510px;
+	height:40px;
+	background:#f3f3f3;
+	
+}
+.floatingLayerTopText{
+	margin-left:15px;
+	line-height:40px;
+	float:left;
+	font-size:14px;
+	color:#3f435b;
+	cursor:default;
+}
+.floatingLayerTopPic{
+	width:16px;
+	height:16px;
+	margin-right:15px;
+	margin-top:12px;
+	float:right;
+	cursor:pointer;
+}
+.floatingLayerBottom{
+	width:362px;
+	margin-left:74px;
+	margin-top:30px;
+}
+.floatingLayerBottomtop{
+	width:362px;
+	height:25px;
+}
+.floatingLayerBottomtopPic{
+	width:32px;
+	height:25px;
+	float:left;
+}
+.floatingLayerBottomtopText{
+	margin-left:30px;
+	float:left;
+	font-size:18px;
+	color:#3f435b;
+	cursor:default;
+}
+.floatingLayerBottomMiddle{
+	width:362px;
+	margin-top:40px;
+	font-size:14px;
+	color:#3f435b;
+	cursor:default;
+}
+.floatingLayerBottomMiddle a{
+	text-decoration:none;
+	color:#3c9ce9;
+}
+.floatingLayerBottomBelow{
+	width:362px;
+	margin-top:30px;
+}
+.floatingLayerBottomInput{
+	width:362px;
+	height:40px;
+	font-size:18px;
+	color:#fff;
+	background:#276ca3;
+	border:1px solid #276ca3;
+}
+.floatingLayerBottomInput.btn{
+	padding:0px;
+	font-size: 18px;
+	line-height:40px;
+}
+/* 弹层 */
+.GeneralPopup{
+	background-color: #FFFFFF;
+    border-radius: 10px 10px 20px 20px;
+    width: 700px;
+	position: absolute;
+}
+.GeneralPopup.PopupBody{
+	background-color:#E6E9E9;
+	border-radius: 10px 10px 0px 0px;
+	margin:10px 10px 0px 10px;
+	text-align:center;
+}
+.GeneralPopup.PopupBody p{
+	margin:0px;
+	line-height:320px;
+	font-size:24px;
+	color:#668db8;
+}
+.GeneralPopup .PopupHead{
+	font-size: 30px;
+    left: 20px;
+    position: absolute;
+    top: -50px;
+	color:#fff;
+}
+.GeneralPopup .PopupFooter{
+	width:100%;
+	line-height:70px;
+	height:70px;
+	text-align:center;
+	font-size:30px;
+	
+	border-radius: 0 0 20px 20px;
+	cursor:pointer;
+}
+.GeneralPopup .PopupFooter span{
+	display:block;
+	width:50%;
+	text-align:center;
+	float:left;	
+}
+.GeneralPopup .PopupFooter .PopupFooterBack{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 0 20px;
+}
+.GeneralPopup .PopupFooter .PopupFooterTrue{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 20px 0;
+}
+.GeneralPopup .PopupFooter span:hover{
+	color:#FFFFFF;
+	background-color: #668db8;
+}
+
+
+.inputTitle{
+	background-color: #eff2f5;
+	border: 1px solid #aaa;
+	float: left;
+	font-size: 10px;
+	line-height: 20px;
+	margin-left: 10px;
+	padding-left: 20px;
+	width: 160px;
+	display:none;
+	height:40px;
+}
+.inputError{
+	background-color: #ffebeb;
+	border: 1px solid #ff0000;
+	color: #f00;
+	float: left;
+	font-size: 10px;
+	line-height: 20px;
+	margin-left: 10px;
+	padding-left: 20px;
+	width: 160px;
+	display:none;
+	height:40px;
+}
+.smsVerification.btn{
+	height:40px;
+	width:110px;
+	padding:0px;
+}

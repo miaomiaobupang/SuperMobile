@@ -1,0 +1,623 @@
+<style>
+body #content .dataTables_wrapper{
+    font-size: 14px;
+}
+body #content .dataTables_filter{
+    margin-left:150px;
+}
+.tile-header{
+	font-size:28px;
+}
+.tile-header h1 strong{
+	margin-left:35px;
+}
+.col-md-6{
+	width:52%;
+}
+body #content .tile.transparent-black input[type="text"]::-moz-placeholder{
+	color:#333;
+}
+body #content .tile.transparent-black textarea::-moz-placeholder{
+	color:#333;
+}
+.backButton{
+	width:60px;
+	height:30px;
+	line-height:26px;
+}
+.pull-right{
+	margin-right:30px;
+}
+.content{
+	width:100%;
+	.height:300px;
+	margin-top:30px;
+	font-size:15px;
+	padding-bottom:45px;
+}
+.content_all{
+	width:72.2%;
+	margin:auto;
+}
+.header_1{
+	margin-top:5px;
+}
+.header_2{
+	height:30px;
+	line-height:30px;
+	margin-top:30px;
+}
+.text_input{
+	width:28.6%;
+	height:30px;
+	background:#fff;
+	color:#000;
+	margin-left:14px;
+	border:1px solid #fff;
+}
+.inputStyle{
+	color:#000;
+	text-align:center;
+	border-radius:0px;
+	width:28.6%;
+	height:30px;
+	border:1px solid #fff;
+}
+.inputStyles{
+	margin-left:15px;
+}
+.address_input{
+	width:90.5%;
+	height:30px;
+	background:#fff;
+	color:#000;
+	margin-left:14px;
+	border:1px solid #fff;
+}
+.validTime{
+    height:30px;
+    margin-left:165px;
+    margin-top:-30px;
+    width:63%;
+	float:left;
+}
+.longValid{
+	width:14%;
+	margin-left:86%;
+	margin-top:-30px;
+	float:right;
+}
+.choseValid{
+	width:15px;
+	height:15px;
+	margin-top:8px;
+	border:1px solid #fff;
+	float:left;
+	cursor:pointer;
+}
+.choseValids{
+	width:15px;
+	height:15px;
+	margin-top:8px;
+	border:1px solid #fff;
+	float:left;
+	cursor:pointer;
+}
+.glyphicon{
+	display:inline-block;
+    font-family:"Glyphicons Halflings";
+    font-style:normal;
+    line-height:1;
+    position:relative;
+    top:-8px;
+	visibility:hidden;
+}
+.glyphicons{
+	display:inline-block;
+    font-family:"Glyphicons Halflings";
+    font-style:normal;
+    line-height:1;
+    position:relative;
+    top:-8px;
+	visibility:visible;
+}
+.textValid{
+	margin-left:10px;
+}
+.content_body{
+	margin-top:30px;
+}
+.content_body_left{
+	width:49.2%;
+	height:223px;
+	float:left;
+}
+.content_body_right{
+	width:47.2%;
+	height:223px;
+	float:right;
+}
+.body_1{
+	height:100px;
+}
+.tagsMove{
+	margin-left:14px;
+}
+.tagsText{
+	width:80.5%;
+}
+.body_2{
+	margin-top:30px;
+	line-height:30px;
+}
+.tagsBtn{
+	width:80.5%;
+	height:30px;
+	background:#1ccdab;
+	margin-left:19.4%;
+	font-size:15px;
+}
+.coor_input{
+	width:80.6%;
+	height:30px;
+	background:#d7d7d7;
+	color:#000;
+	border:1px solid #fff;
+}
+.content_footer{
+	text-align:center;
+	margin-top:60px;
+}
+.presentBtn{
+	width:300px;
+	height:35px;
+	background:#1ccdab;
+	font-size:15px;
+}
+#allmap {
+	width:100%;
+	height:223px;
+	z-index:10px;
+}
+#allmaps{
+	width:636px;
+	height:340px;
+	margin-top:30px;
+	margin-left:72px;
+}
+.monolayer{
+	width:780px;
+	height:580px;
+	background:rgba(50,75,99,0.95) none repeat scroll 0 0;
+	display:none;
+	position:fixed;
+	z-index:100;
+	font-size:16px;
+	color:#fff;
+}
+.monolayer_header{
+	height:21px;
+}
+.guanbisss{
+	float:right;
+	margin-right:15px;
+	margin-top:15px;
+	cursor:pointer;
+}
+.guanbisss_2{
+	display:none;
+}
+.monolayer_title{
+	height:30px;
+	margin-top:34px;
+}
+.tit_all{
+	width:306px;
+	height:30px;
+	line-height:30px;
+	margin-left:72px;
+}
+.coords{
+	width:221px;
+	margin-left:14px;
+}
+.monolayer_footer{
+	height:30px;
+	text-align:center;
+	margin-top:45px;
+}
+.coordsBtn{
+	width:160px;
+	height:30px;
+	background:#1ccdab;
+	font-size:15px;
+	border-radius:0px;
+}
+
+
+#tradePopup{
+	background-color: #FFFFFF;
+	border-radius: 10px 10px 20px 20px;
+	height: 461px;
+	position: absolute;
+	width: 655px;
+}
+#tradePopup .PopupBody{
+	background-color:#E6E9E9;
+	border-radius: 10px 10px 0px 0px;
+	margin:10px 10px 0px 10px;
+	text-align:center;
+	font-size:14px;
+	font-weight:bold;
+	height: 386px;
+	color:#276ca3;
+}
+#tradePopup .PopupBody p{
+	margin:0px;
+	line-height:320px;
+	font-size:24px;
+	color:#668db8;
+}
+#tradePopup .PopupHead{
+	font-size: 30px;
+	left: 20px;
+	position: absolute;
+	top: -50px;
+	color:#fff;
+}
+#tradePopup .PopupFooter{
+	width:100%;
+	line-height:65px;
+	height:65px;
+	text-align:center;
+	font-size:30px;
+	
+	border-radius: 0 0 20px 20px;
+	cursor:pointer;
+}
+#tradePopup .PopupFooter span{
+	text-align:center;
+}
+#tradePopup .PopupFooter .PopupFooterBack{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 0 20px;
+}
+#tradePopup .PopupFooter .PopupFooterTrue{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 20px 20px;
+}
+#tradePopup .PopupFooter:hover{
+	color:#fff;
+	background-color: #668db8;
+}
+#tradePopup .PopupFooter input:hover{
+	color:#fff;
+}
+.Checkboxtext-text_div{
+	margin-top:20px;
+	width: 345px;
+	height:38px;
+	border-radius:4px;
+	border:1px #eee;
+	font-weight:100;
+	background:none;
+	margin-left: 20px;
+	float: left;
+}
+.list_trade{
+	float:left;
+	.border:1px solid;
+	width: 2376px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.group_li{
+	float:left;
+	width:160px;
+	line-height:20px;
+	text-align:left;
+	margin-left:55px;
+	font-weight:lighter;
+	color:#515151;
+	list-style:none;
+}
+.show_div{
+	color: #222;
+	float: left;
+	height:300px;
+	margin-top: 6px;
+	overflow: hidden;
+	width: 640px;
+}
+.right_png {
+	position: absolute;
+	font-size: 37px;
+	height: 74px;
+	right: 22px;
+	position: absolute;
+	top: 196px;
+	width: 38px;
+	line-height: 74px;
+	background-color:none;
+	cursor:pointer;
+	color: #ababab;
+}
+.left_png {
+	font-size: 37px;
+	height: 74px;
+	left: 22px;
+	position: absolute;
+	top: 196px;
+	width: 38px;
+	line-height: 74px;
+	background-color:none;
+	cursor:pointer;
+	color: #ababab;
+	display:none;
+}
+.formCheckbox,.button_div{
+	 cursor:pointer
+}
+.targ_text{
+	float:left;
+}
+.targ{
+	width:400px;
+	height:23px;
+	float:left;
+	.word-wrap:normal;
+	margin-left: 17px;
+	 margin-bottom: 34px;
+	.overflow:hidden;
+	.text-overflow:ellipsis;
+	cursor:pointer;			
+	display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.mod_js{
+	float:right;
+}
+.title_div{
+	 background-color: #658eb7;
+	border-radius: 4px;
+	color: #fff;
+	display: none;
+	opacity: 0.90;
+	padding: 10px;
+	position: absolute;
+	right: 113px;
+	top: 25px;
+	width: 374px;
+}
+.tar_div_f{
+	position:relative;
+}
+.inputStyle{
+	
+	font-weight:normal;
+}
+input{
+	
+	font-weight:normal;
+}
+
+.showTextTitle{
+	color:#333;
+	
+	font-weight:normal;
+}
+.showTextContent{
+
+
+	font-weight:normal;
+}
+
+.icon-ok-sign{
+	color:green;
+}
+.img_span{
+	display: block;
+	float: left;
+}
+.sou_input{
+	float: left;
+	margin-left: 20px;
+	margin-top: 24px;
+	width: 180px;
+}
+.error_div{
+	font-size:12px;
+	color:red;
+	text-align:right;
+	width:200px;
+	height:15px;
+	float:right;
+	margin-right:85px;
+}
+</style>
+
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">非速搜企业管理</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black" style="border-radius:10px 10px 20px 20px;">
+				<!-- tile header -->
+				<div class="tile-header" style="padding:5px;">
+					<h1>
+						<strong>企业信息补充</strong>
+					</h1>
+					<div class="pull-right">
+						<if condition="$sty eq 1">
+							<a href="__WEBURL__/Real/index?p={$p}&name={$jname}" role="button" class="btn btn-red backButton" style="background:#1bceab;">返 回</a>
+						</if>
+					</div>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<div class="tile-body form-group form-footer" style="border-radius:0px 0px 20px 20px;">
+					<div class="content">
+						<form action="__WEBURL__/Real/realInfoInsert" method="post">
+							<input type="hidden" name="id" value="{$id}"/>
+							<div class="content_all">
+								<div class="content_header">
+									<div class="header_1">
+										<span>企业名称：</span>
+										<span>{$data.name}</span>
+									</div>
+									<div class="header_2">
+										<span>企业法人</span>
+										<span><input name="people" value="{$data.people}" class="text_input"/></span>
+									</div>
+									<div class="header_2">
+										<span>企业区域：</span>
+										<select class="inputStyle" id="provinceSelect" data-id="{$data.provinceId}"><option>--请选择省份--</option></select>
+										<select class="inputStyle inputStyles" id="citySelect" data-id="{$data.cityId}"><option>--请选择城市--</option></select>
+										<select class="inputStyle inputStyles" id="areaSelect" data-id="{$data.area}" name="area" value=""><option>--请选择区域--</option></select>
+										<b id="bLink" data-pid="provinceSelect" data-cid="citySelect" data-aid="areaSelect" style="display:none"></b>
+									</div>
+									<div class="header_2">
+										<span>企业地址</span>
+										<span><input name="address" value="{$data.address}" class="address_input"/></span>
+									</div>
+									<div class="header_2">
+										<span>企业营业执照有效时间</span>
+										<div class="validTime">
+											<div style="width:234px;float:left;" class="input-append date form_datetime" id="personStimeIdStart" data-date="" data-date-format="yyyy-mm-dd H:i:s">
+												<input name="stime" type="text" readonly id="ExhibitionStime" value="{$data.stime}" class="form-control input" style="min-height:30px;text-align:center;background:#fff;color:#000;cursor:pointer;border-radius:0px"/>
+												<span class="add-on" style="z-index:2;position:absolute;margin-top:-21px;margin-left:219px;color:#000;"><i class="icon-th"></i></span>
+											</div>
+											<span style="margin-left:1.7%;">——</span>
+											<div style="width:234px;float:right;" class="input-append date form_datetime" id="personStimeIdStop" data-date="" data-date-format="yyyy-mm-dd H:i:s">
+												<input name="etime" type="text" readonly id="ExhibitionEtime" value="{$data.etime}" class="form-control input" style="min-height:30px;text-align:center;background:#fff;color:#000;cursor:pointer;border-radius:0px"/>
+												<span class="add-on" style="z-index:2;position:absolute;margin-top:-21px;margin-left:219px;color:#000;"><i class="icon-th"></i></span>
+											</div>
+										</div>
+										<div style="clear:both;"></div>
+										<span style="display:none;" class="stimes">{$data.stime}</span>
+										<span style="display:none;" class="etimes">{$data.etime}</span>
+										<if condition="($data.stime neq NULL) && ($data.etime neq NULL)">
+											<div class="longValid"><div class="choseValid" data-state="1"><span class="glyphicon glyphicon-ok"></span></div> <span class="textValid">长期有效</span></div>
+										<else/>
+											<div class="longValid"><div class="choseValids" data-state="2"><span class="glyphicons glyphicon-ok"></span></div> <span class="textValid">长期有效</span></div>
+										</if>
+									</div>
+								</div>
+								<div class="content_body">
+									<div class="content_body_left">
+										<div class="body_1">
+											<span>企业标签</span>
+											<span class="tagsMove">
+												<input class="Checkbox-targe" name='tags' type="hidden" value="{$data['tags']}"/>
+												<textarea disabled="disabled" placeholder="请点击下方按钮选择企业标签" readonly class="tagsText tagsText_sub" style="height:100px;border-radius:0px;background:#d7d7d7;color:#000;">{$data.tagss}</textarea>
+											</span>
+										</div>
+										<div class="body_2">
+											<button type="button" class="tagsBtn btn btn-success">点击选择企业标签</button>
+										</div>
+										<div class="body_2">
+											<span>企业坐标</span>
+											<span class="tagsMove">
+												<input class="coord_input" type="hidden" name="coord" value="{$data.coord}" />
+												<input disabled="disabled" placeholder="请点击地图" value="{$data.coord}" class="tagsText coor_input" id="coordinateid"/>
+											</span>
+										</div>
+									</div>
+									<div class="content_body_right">
+										<div id="allmap"></div>
+									</div>
+									<div style="clear:both;"></div>
+								</div>
+								<div class="content_footer">
+									<button type="submit" class="presentBtn btn btn-success">提 交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</section>
+			<!-- /tile -->
+			<!-- 地图弹层开始 -->
+			<div class="monolayer">
+				<div class="monolayer_header">
+					<img class="guanbisss guanbisss_1" src="__IMG__/iconfont-guanbisss.png"/>
+					<img class="guanbisss guanbisss_2" src="__IMG__/iconfont-guanbi.png"/>
+				</div>
+				<div style="clear:both;"></div>
+				<div class="monolayer_title">
+					<div class="tit_all">
+						<span>企业坐标</span>
+						<input placeholder="请在地图上选择企业坐标" value="{$data.coord}" type="text" style="min-height:30px;border-radius:0px;color:#000;" readonly class="coords"/>
+					</div>
+				</div>
+				<div id="allmaps"></div>
+				<div class="monolayer_footer">
+					<button type="button" class="coordsBtn btn btn-success">确 认</button>
+				</div>
+			</div>
+			<!-- 地图弹层结束 -->
+			<!------------------------------------行业弹层------------------------------------->
+			<div class="GeneralPopup" id="tradePopup">
+				<div class="PopupHead">
+					<span style="padding-left:10px;">修改企业行业	</span>
+				</div>
+				<div class="PopupBody">
+					<input readonly type='text' class='Checkboxtext-text_div'/>
+					<div class="input-group sou_input">
+						<input type="text" class="form-control sou_js" onkeydown="keydownLogin(event)" type="text" placeholder="快速搜索"/>
+						<span class="input-group-btn">
+						  <button class="btn btn-default sou_btn"  type="button">搜索</button>
+						</span>
+					</div>
+					<div  class='left_png directionBtn ' data-type="1"><span class='icon-chevron-left'></span></div>
+					<div  class='right_png directionBtn ' data-type="2"><span class='icon-chevron-right'></span></div>
+					<div class='error_div'></div>
+					<div class='show_div'>
+						<div class='list_trade' data-left="0">
+							<ul>
+							<foreach name='list' item='lists'>
+								<li class='group_li' name="{$lists['name']}"><span class="formCheckbox formCheckbox-targe icon-check-empty" data-id="{$lists['id']}" data-state="2" data-name="targe" data-textname="text_div" data-cname="{$lists['name']}"></span>　{$lists['name']}</li>
+							</foreach>
+							</ul>
+						</div>	
+					</div>						
+				</div>
+				<div class="PopupFooter">
+					<!-- <span class="PopupFooterBack" data-id="tradePopup">取消</span> -->
+					<input data-id="tradePopup" style='border:none;background:none;width:100%;height:65px' class='submit_div PopupFooterBack' type='button' value='确定' />
+				</div>
+			</div>
+			<!------------------------------------行业弹层------------------------------------->
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+<script>
+
+</script>

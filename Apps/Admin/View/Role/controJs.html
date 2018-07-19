@@ -1,0 +1,26 @@
+<script type="text/javascript">
+   function check(id){
+        $(function(){
+            $.ajax({
+                url:'__MODULE__/Role/controSonShow/id/'+id,
+                type:'post',
+                dataType:'json',
+                success:function(data){
+                    var data = eval(data);
+                   $("#Thouses"+id).remove();
+                    var table = "<input type='hidden' name='father"+id+"' value='"+id+"'><table class='table' id='Thouses"+id+"'><tr>";
+                    for(var i=0;i<data.length;i++){
+                        table += "<td><input type='checkbox' name='son"+data[i].id+"' value="+data[i].id+" />"+data[i].name+"</td>";
+                    }
+                    table += "</tr></table>";
+                    $("#fa"+id).after(table);
+                    table = "";
+                }
+            })
+        })
+   }
+$(document).ready(function(){
+	$("#selectUname option[value="+uid+"]").attr("selected", true);
+	$("#selectName option[value="+id+"]").attr("selected", true);
+});
+</script>

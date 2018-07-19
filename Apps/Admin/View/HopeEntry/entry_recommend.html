@@ -1,0 +1,257 @@
+		
+<!-- 表单校验类 -->
+
+<!-- <link rel="stylesheet" href="__CSS__/business3.css"> -->
+<!-- <link rel="stylesheet" href="__CSS__/business3.css"> -->
+
+<style>
+.DepartmentTypen{
+	display:none;
+}
+.DepartmentTypeb{
+	display:block;
+}
+.inputStyle{
+	width:312px;
+	height:37px;
+	background:#253b4d;
+	border:0px;
+	text-align:center;
+	border-radius:4px;
+}
+.entryDivOne{
+	width:100%;
+}
+.divStyleLine{
+	width:100%;
+	height:auto;
+}
+.text_cname{
+	width:10%;
+	height:55px;
+	line-height:55px;
+	float:left;
+	text-align:center;
+}
+.entry_type_example_one{
+	width:10%;
+	height:150;
+	line-height:55px;
+	float:left;
+	text-align:center;
+}
+.entry_type_example_two{
+	width:90%;
+	height:110px;
+	float:left;
+}
+.entry_name_div{
+	width:90%;
+	height:55px;
+	line-height:55px;
+	float:left;
+}
+.input{
+	width:90%;
+	height:55px;
+	line-height:50px;
+}
+.formCheckbox{
+	margin-left:50px;
+	margin-right:5px;
+}
+.entry_type_name{
+	margin-left:-50px;
+}
+button, input, optgroup, select, textarea{
+	color:black;
+}
+#zSelectName{
+	margin-left:50px;
+}
+#zSelectName{
+	visibility:hidden;
+}
+.abstractStyle{
+	margin-left:50px;
+	width:90%;
+	height:200px;
+}
+.entryContentDiv{
+	width:81%;
+	<!-- border:1px solid red; -->
+	height:800px;
+	margin-right:9%;
+	float:right;
+	border:3px dashed white;
+}
+.entryContentDivLeft{
+	width:90%;
+	height:auto;
+	float:left;
+}
+.entryContentDivRight{
+	width:9%;
+	<!-- border:1px solid red; -->
+	height:auto;
+	float:left;
+	margin-left:5px;
+	margin-top:10px;
+}
+.entryContentDivOne{
+	width:100%;
+	height:50px;
+	line-height:50px;
+	margin-bottom:10px;
+	margin-top:10px;
+}
+.catalog{
+	width:100%;
+	height:40px;
+	line-height:40px;
+	float:left;
+	margin-top:2px;
+	text-align:center;
+	cursor:pointer;
+}
+.catalog:hover{
+	font-weight:bold;
+	color:black;
+}
+.catalogOne{
+	background:#0373e4;
+    position: fixed;
+    width: 200px;
+    z-index: 10000;
+    height: 50px;
+	text-align:center;
+	font-size:18px;
+}
+.catalogTwo{
+	background:#009fa8;
+}
+.catalogHidden{
+	background:green;
+}
+.entry_edit_div_line{
+	width:100%;
+}
+.subStyle{
+	width:300px;
+	height:40px;
+	line-height:40px;
+	margin-top:5px;
+	margin-left:30%;
+	background:green;
+	color:white;
+	float:left;
+	border:0 solid green;
+	border-radius:5px;
+	cursor:pointer;
+}
+.butExamineStyle{
+	position:fixed;
+	width:600px;
+	height:100px;
+	z-index:110;
+	font-size:18px;
+}
+.publicSelect{
+	width:100%;
+	border:1px solid red;
+	margin-top:10px;
+	height:auto !important;
+}
+.publicSpan{
+	width:auto;
+	height:40px;
+	line-height:40px;
+	margin-top:4px;
+	margin-left:10px;
+	border:1px solid green;
+	float:left;
+}
+</style>
+<!-- 页面头部开始 -->
+<script src="__PUBLIC__/Theme/Fashion/assets/js/jquery.min.js"></script>
+<div class="pageheader">
+	<h2>
+		<i class="icon-folder-open-alt" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">超级医生</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+    <div class="row">
+		<!-- col 12 -->
+        <div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>{$info.cname}-相关推荐</strong>
+						<input type="hidden" name="entry_id" value="{$info.id}">
+					</h1>
+					<div class="pull-right">
+						<a href="__CONTROLLER__/entry_list" role="button" class="btn btn-red"> 返回词条列表</a>
+					</div>
+					<div class="controlsStyle">
+							<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+							<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+					<!-- /tile header -->
+					<!-- tile body -->
+				<div class="tile-body form-group form-footer" style="height:600px;">
+					<form action="__WEBURL__/Message/message_update" method="post" role="form" enctype='multipart/form-data'>
+						<input name="id" id="messageType" value="{$info.id}" type="hidden"/>
+						<div class="entryDivOne">
+							<div class="form-group col-md-12 col-sm-12">
+								<label for="properties" class="col-sm-1 control-label" style="margin-top:10px;">相关医生</label>
+								<div class="col-sm-11">
+									<div class="selected publicSelect"></div>
+									<div class="select publicSelect"">
+										<div class="publicSpan">开心果</div>
+										<div class="publicSpan">开心果</div>
+										<div class="publicSpan">开心开心果果</div>
+										<div class="publicSpan">开心开心果果</div>
+										<div class="publicSpan">开心开心果开心果果</div>
+										<div class="publicSpan">开心开心果开心果果</div>
+										<div class="publicSpan">开心sdf果</div>
+										<div class="publicSpan">开心sdf果</div>
+										<div class="publicSpan">开心开心果开心果果</div>
+										<div class="publicSpan">开心开心果果</div>
+										<div class="publicSpan">开心开心果果</div>
+										<div class="publicSpan">开心开心果果</div>
+										<div style="clear:both"></div>
+									</div>
+								</div>
+								<div class="col-sm-10 subStyleDiv" style="position:fixed;z-index:1000;">
+									<input type="submit" class="subStyle" style="background:#3399ff" name="" value="提交">
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+                <!-- /tile body -->
+			</section>
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- 表单校验类 -->
+

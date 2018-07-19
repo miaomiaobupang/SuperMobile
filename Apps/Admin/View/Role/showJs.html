@@ -1,0 +1,47 @@
+<script type="text/javascript">
+    $(function(){
+        $("#role").change(function(){
+            var ro = $(this);
+            var uid = $(this).val();
+            $.ajax({
+                url:'__MODULE__/Role/roleShow/id/'+uid,
+                type:'post',
+                dataType:'json',
+                success:function(data){
+                    var data = eval(data);
+                     var table = "<table class='table' id='Thouses'>";
+                     for(var i=0;i<data.length;i++){
+                       table += "<tr><td onclick='fun("+data[i][0].id+","+uid+")'>"+data[i][0].name+"</td></tr>";
+                     }
+                     table += '</table>';
+                     ro.after(table);
+                }
+            });
+        });
+    })
+    function fun(id,uid){
+       $.ajax({
+         url:'__MODULE__/Role/methodShow',
+         type:'post',
+         data:{"id":id,"uid":uid},
+         dataType:'json',
+         success:function(data){
+                $(".state").remove();
+                var data = eval(data);
+                console.log(data);
+                var tr="";
+                if(data){
+                        for(var i=0;i<data.length;i++){
+                            if(data[i][1] == 1){
+                                data[i][1] = "正常";
+                            }else{
+                                data[i][1] = "禁用";
+                            }
+                            tr += "<tr class='state'><td>"+data[i][0]+"</td><td>"+data[i][1]+"</td></tr>";
+                        }
+                        $("#tableX").append(tr);
+                }
+         }   
+       })
+    }
+</script>

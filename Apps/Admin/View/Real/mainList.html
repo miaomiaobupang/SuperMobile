@@ -1,0 +1,214 @@
+<style>
+.child{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+body #content .dataTables_wrapper{
+    font-size: 14px;
+}
+body #content .dataTables_filter{
+    margin-left:150px;
+}
+.radioStyle{
+	background-color:#aaa;
+	opacity:0.5;
+	width:140px;
+	height:35px;
+	margin-left:14px;
+	border-radius:5px;
+}
+.pull-right{
+	margin-right:10px;
+}
+.userName a{
+	text-decoration:none;
+	color:#fff;
+}
+.userName a:hover{
+	color:#97f2ff;
+}
+.divUlli ul li{
+	width:100px;
+	margin-left:10px;
+	border-bottom:1px dashed #fff;
+}
+.divUlli ul li a{
+	color:#fff;
+	font-size:14px;
+	text-align:center;
+}
+.divUlli a{
+	font-size:14px;
+}
+.divUlli ul li:hover{
+	opacity:0.6;
+}
+.divUlli ul li a:hover{
+	color:#fff;
+	background:#466b8e;
+	opacity:1;
+}
+.btn.btn-primary.btn-sm {
+    width: 120px;
+}
+.form-control{
+	width:200px;
+}
+.buttonDiv{
+	margin-left:200px;
+	margin-top:-51px;
+}
+.btnSeacher{
+	height:35px;
+	font-size:15px;
+}
+.divSearch{
+	margin-top:-30px;
+	width:100%;
+	height:35px;
+}
+.moveSearch{
+	float:left;
+	margin-left:170px;
+}
+.choose{
+	float:right;
+}
+.backButton{
+	width:60px;
+	height:30px;
+	line-height:26px;
+	background:#1bceab;
+	margin-top:-2px;
+}
+.backButton:hover{
+	background:#17ac8f;
+}
+.payment{
+	font-size:14px;
+	height:37px;
+	line-height:30px;
+}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">主办管理</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>主办列表</strong>
+					</h1>
+					<div class="divSearch">
+						<form method="get" action="__WEBURL__/Merchanterp/channelUser">
+							<div class="moveSearch">
+								<!-- <div class="form-group">
+									<input type="text" class="form-control" style="border-radius:4px 0px 0px 4px;" id="exampleInputEmail1" name='uphone' placeholder="手机号码" value="{$uphone}" />
+								</div>
+								<div class="buttonDiv">
+									<button style="width:66px;border-radius:0px 4px 4px 0px;" class="btnSeacher btn btn-default btn-primary btn-sm" type="submit"/><i class="icon-search"></i> 检索</button>
+								</div> -->
+							</div>
+							<div class="choose">
+								<span class="members" style="display:none;">{$member}</span>
+								<a href="__WEBURL__/Real/mainList?member=1" class="btn btn-default btn-primary payment payment1" style="width:60px;border-radius:4px 0px 0px 4px;margin-right:-5px;">已通过</a>
+								<a href="__WEBURL__/Real/mainList?member=2" class="btn btn-default btn-primary payment payment1" style="width:60px;border-radius:0px;margin-right:-5px;">待审核</a>
+								<a href="__WEBURL__/Real/mainList?member=3" class="btn btn-default btn-primary payment payment2" style="width:60px;border-radius:0px;margin-right:-5px;">未通过</a>
+								<a href="__WEBURL__/Real/mainList" class="btn btn-default btn-primary payment payment3" style="width:60px;border-radius:0px 4px 4px 0px;">全　部</a>
+							</div>
+						</form>
+						<div style="clear:both;"></div>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body form-group form-footer">
+					<table class="table" id="basicDataTable">
+						<thead>
+							<tr>
+							  <th class="text-center">展会名称</th>
+							  <th class="text-center">企业名称</th>
+							  <th class="text-center">认证人</th>
+							  <th class="text-center">创建时间</th>
+							  <th class="text-center">审核状态</th>
+							  <th class="text-center">禁用/启用</th>
+							</tr>
+						</thead>
+						<tbody>
+							<foreach name="data" item="da">
+								<tr>
+									<td class="text-center" style="width:30%;">{$da.exhibition}</td>
+									<td class="text-center" style="width:20%;">{$da.realName}</td>
+									<td class="text-center" style="width:15%;">{$da.username}</td>
+									<td class="text-center" style="width:15%;">{$da.ctime}</td>
+									<td class="text-center" style="width:10%;">
+										<if condition="$da.statecode eq 1">审核通过</if>
+										<if condition="$da.statecode eq 2">等待审核</if>
+										<if condition="$da.statecode eq 3">未通过</if>
+									</td>
+									<td class="text-center" style="width:10%;">
+										<if condition="$da.state eq 1">正常<else/>禁用</if>
+									</td>
+									<td class="text-right">
+										<div class="dropdown divUlli">
+											<a class="btn btn-primary btn-sm" ata-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+												操&nbsp;&nbsp;&nbsp;作&nbsp;
+												<span class="caret"></span>
+											</a>
+											 <ul class="dropdown-menu" style="min-width:120px;background:#466b8e;opacity:0.8;" aria-labelledby="dLabel">
+												<if condition="$da.statecode eq 2">
+													<li><a role="button" href="__WEBURL__/Real/mainDetailCheck?id={$da.id}" target="_blank">审　　核</a></li>
+												<else/>
+													<li><a role="button" href="__WEBURL__/Real/mainDetailCheck?id={$da.id}" target="_blank">详　　情</a></li>
+												</if>
+												<if condition="$da.state eq 1">
+													<li><a role="button" href="__WEBURL__/Real/mainApply?id={$da.id}&type=1&state=3">禁　　用</a></li>
+												<else/>
+													<li><a role="button" href="__WEBURL__/Real/mainApply?id={$da.id}&type=2&state=3">启　　用</a></li>
+												</if>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</foreach>
+							<tr>
+								<td colspan="7"><span style="float:right;">{$show}</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			<!-- /tile body -->
+			</section>
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container --><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

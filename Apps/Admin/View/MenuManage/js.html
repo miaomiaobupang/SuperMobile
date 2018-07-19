@@ -1,0 +1,283 @@
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=VkKnVPhM1cHw8Gb2YeGv0vfi"></script>
+<script type="text/javascript">
+
+//****判断部门类型，改变对应表单开始****
+//声明“上级部门”选项的储值变量，并初始化为0（总部门，顶级）
+var pids = 0;
+var department;
+//监测是否为直接点击“添加子部门”按钮
+if(isNaN("{$pid}") == false){
+	$("#pid").val("{$pid}");
+	pids = {$pid};
+	//使用Ajax获取相应的部门信息
+	if(pids > 0){
+		$.ajax({
+			url:"__MODULE__/ClassManage/department/id/"+pids,		
+			type:'post',
+			dataType:'json',
+			success:function(data){	//	成功回调函数
+				department = data;
+			}
+		});
+	}
+}
+//重置发送地址并携带上级部门ID
+$("#DepartmentAdd").attr("action","__MODULE__/ClassManage/insert/pid/{$pid}");
+//监测“上级部门”选项变化并储值
+$("#pid").focusout(
+	function(){
+		pids = $("#pid").val();
+		//使用Ajax获取相应的部门信息
+		if(pids > 0){
+			$.ajax({
+				url:"__MODULE__/ClassManage/department/id/"+pids,		
+				type:'post',
+				dataType:'json',
+				success:function(data){	//	成功回调函数
+					department = data;
+				}
+			});
+		}
+		//重置发送地址并携带上级部门ID
+		$("#DepartmentAdd").attr("action","__MODULE__/ClassManage/insert/pid/"+pids);
+	}
+);
+//监测“部门类型”选项变化，并随之改变表单
+function Category(ob){	
+	if(ob.value==1){
+		//分支结构
+		$(".DepartmentType").html("公司");
+		$(".DepartmentTypen").css("display","block");
+		$(".DepartmentTypeb").css("display","none");
+		//当“部门类型”为“分支机构”时，上级部门不能选择为默认值：0（总部门，顶级）
+		$("#pid").val("0");
+	}else{
+		//普通部门
+		$(".DepartmentType").html("部门");
+		$(".DepartmentTypen").css("display","none");
+		$(".DepartmentTypeb").css("display","block");
+		//当“部门类型”切换为“普通部门”时，上级部门的值自动获取为原选择
+		$("#pid").val(pids);
+	}	
+}
+//****判断部门类型，改变对应表单结束****
+
+//****相关选项快速继承处理开始****
+
+//地址栏处理
+$("#addressbtn").click(
+	function(){
+		var pid=$("#pid").val();
+		if(pid == 0){
+			$("#address").val("{$business.address}");
+		}else{
+			$("#address").val(department.address);
+		}
+	}
+);
+
+//坐标栏处理
+$("#coordinatebtn").click(
+	function(){
+		var pid=$("#pid").val();
+		if(pid == 0){
+			$("#coordinate").val("{$business.coordinate}");
+		}else{
+			$("#coordinate").val(department.coordinate);
+		}
+	}
+);
+
+//电话栏处理
+$("#phonebtn").click(
+	function(){
+		var pid=$("#pid").val();
+		if(pid == 0){
+			$("#phone").val("{$business.phone}");
+		}else{
+			$("#phone").val(department.phone);
+		}
+	}
+);
+
+//传真栏处理
+$("#faxbtn").click(
+	function(){
+		var pid=$("#pid").val();
+		if(pid == 0){
+			$("#fax").val("{$business.fax}");
+		}else{
+			$("#fax").val(department.fax);
+		}
+	}
+);
+
+//邮政编码栏处理
+$("#postcodebtn").click(
+	function(){
+		var pid=$("#pid").val();
+		if(pid == 0){
+			$("#postcode").val("{$business.postcode}");
+		}else{
+			$("#postcode").val(department.postcode);
+		}
+	}
+);
+
+//电子邮箱栏处理
+$("#emailbtn").click(
+	function(){
+		var pid=$("#pid").val();
+		if(pid == 0){
+			$("#email").val("{$business.email}");
+		}else{
+			$("#email").val(department.email);
+		}
+	}
+);
+
+//网站栏处理
+$("#sitesbtn").click(
+	function(){
+		var pid=$("#pid").val();
+		if(pid == 0){
+			$("#sites").val("{$business.sites}");
+		}else{
+			$("#sites").val(department.sites);
+		}
+	}
+);
+//****相关选项快速继承处理结束****
+
+
+//开启工具提示框
+$('#classCoding').tooltip();
+
+//*****选择用户实现开始*****
+//声明
+var uids = 0;
+var uidsName = "";
+var classid= 0;
+//输出伸缩部门菜单
+$.ajax({
+	url:"__MODULE__/ClassManage/ClassData/",		
+	type:'post',
+	dataType:'json',
+	success:function(data){	//	成功回调函数
+		
+		var info="";
+		if(data){
+			for(var i=0;i<data.length;i++){
+				info += "<tr class='"+data[i].class+"'>";
+					info += "<td>"+data[i].nbsp+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+					if(data[i].pidState ==1){
+						info += "<span class='hand icon-plus fatherico"+data[i].id+"' onclick='Telescopic("+data[i].id+")'></span>";
+					}
+						info += "<span onclick='UserData("+data[i].id+")' class='hand'>"+data[i].className+"</span>";
+					info += "</td>";
+				info += "</tr>";
+				
+			}
+			$("#company").after(info);
+		}
+	}
+});
+function Telescopic(id){
+	if($(".father"+id).hasClass("child")){
+		$(".father"+id).removeClass("child");
+		$(".fatherico"+id).attr("class","icon-minus fatherico"+id);
+	}else{
+		$(".child"+id).addClass("child");
+		$(".fatherico"+id).attr("class","icon-plus fatherico"+id);
+	}
+	
+}
+
+function UserData(id){
+	$(".user").remove();
+	$(".nodata").remove();
+	classid= id;
+	//使用Ajax加载用户数据信息
+	$.ajax({
+		url:"__MODULE__/User/userData/id/"+id,		
+		type:'post',
+		dataType:'json',
+		success:function(data){	//	成功回调函数
+			var info="";
+			if(data){
+				for(var i=0;i<data.length;i++){							
+					//状态
+					if(data[i].state == 1){
+						info += "<tr class='user' onclick='UserSelected(this)' uid='"+data[i].uid+"'><td class='user"+data[i].uid+"'>"+data[i].username+"("+data[i].coding+")</td></tr>";
+					}			
+				}
+				$("#userData").append(info);
+			}else{
+				info ="<tr class='nodata'><td class='text-center'> 暂 无 数 据 </td></tr>";
+				$("#userData").append(info);
+			}
+		}
+	});
+}
+
+function UserSelected(ob){
+	$(".user").removeClass("bg-danger");
+	$(ob).attr("class","user bg-danger");
+	uids = $(ob).attr("uid");
+	uidsName =$(".user"+$(ob).attr("uid")).html();
+	$("#userSure").removeAttr("disabled");
+}
+//确定用户选择
+function UserSure(){
+	$("#principal").val(uids);
+	$("#principalName").val(uidsName);
+}
+//用户检索实现
+function Search(type){
+	var value="";
+	value=$("#userSearch").val();
+	//type 检索范围类型 1 全部门检索 2 在指定部门下检索
+	$(".user").remove();
+	$(".nodata").remove();
+	if(value){
+		//使用Ajax加载用户数据信息
+		$.ajax({
+			url:"__MODULE__/User/userAPISearch/id/"+classid+"/type/"+type+"/value/"+value,		
+			type:'post',
+			dataType:'json',
+			success:function(data){	//	成功回调函数
+				var info="";
+				if(data){
+					for(var i=0;i<data.length;i++){							
+						//状态
+						if(data[i].state == 1){
+							info += "<tr class='user' onclick='UserSelected(this)' uid='"+data[i].uid+"'><td class='user"+data[i].uid+"'>"+data[i].username+"("+data[i].coding+")</td></tr>";
+						}			
+					}
+					$("#userData").append(info);
+				}else{
+					info ="<tr class='nodata'><td class='text-center'> 暂 无 数 据 </td></tr>";
+					$("#userData").append(info);
+				}
+			}
+		});
+	}
+	
+}
+//*****选择用户实现结束*****
+
+// 百度地图API功能
+var map = new BMap.Map("allmap");            
+map.centerAndZoom("北京",12);  
+map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用         
+//单击获取点击的经纬度
+map.addEventListener("click",function(e){
+	$("#Mapcoding").val(e.point.lng + "," + e.point.lat);
+});
+//确认经纬度信息
+function MapPickupSure(){
+	$("#coordinate").val($("#Mapcoding").val());
+}
+
+</script>

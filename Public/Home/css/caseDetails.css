@@ -1,0 +1,258 @@
+.mainBox1{
+	padding:35px 40px;
+}
+.mainBox1Intro{
+	width:100%;
+}
+.introText{
+	padding-top:38px;
+}
+.mainBox1-img{
+	width:404px;
+}
+.mainBox1-con{
+	width:685px;
+	margin-left:38px;
+	padding-top:15px;
+}
+.mainBox1-title{
+	font-size:18px;
+	/*font-weight:800;*/
+}
+.mainBox1Li{
+	font-size:18px;
+	line-height:33px;
+}
+.mainBox1Li-con{
+	font-size:16px;
+	line-height:33px;
+	margin-top:35px;
+}
+.mainBox2-list{
+	font-size:16px;
+	color:#666;
+	line-height:28px;
+}
+.mainBox2-list-top{
+	margin-top:30px;
+}
+.mainBox2-img{
+	margin:30px 0;
+	text-align:center;
+}
+.mainBox2-img img{
+	display:block;
+	margin:0 auto;
+}
+.mainBox2-img span{
+	font-size:16px;
+	color:#999;
+	line-height:26px;
+}
+.mainBox2-notice{
+	font-size:16px;
+	color:#EC4C37;
+	margin-top:60px;
+}
+.mainBox2-prompt{
+	font-size:14px;
+	color:#999;
+	line-height:27px;
+	margin-top:30px;
+}
+.mainRight1{
+	width:360px;
+	height:451px;
+	position:relative;
+}
+.mainRight1_tip{
+	position:absolute;
+	right:0;
+}
+.mainRight1_tip span {
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    top: 17px;
+    left: 37px;
+    transform: rotate(45deg);
+}
+.mainRight1_title{
+	width:100%;
+	height:46px;
+	line-height:52px;
+	margin:0 auto;
+	border-bottom:1px solid #dcdcdc;
+}
+.mainRight1_title1{
+	font-size:18px;
+}
+.mainRight1_title .main1Right_more{
+	margin:0;
+}
+.mainRight1Banner{
+	width: 320px;
+    height: 400px;
+}
+.mainRight1BannerInner {
+    width: 320px;
+    height: 400px;
+    text-align: center;
+    padding-top: 10px;
+    position: relative;
+}
+.mainRight1BannerName{
+	font-size:18px;
+	margin:12px 0 16px 0;
+}
+.mainRight1BannerText{
+	font-size:16px;
+	color:#666;
+	line-height:22px;
+}
+.mainRight1-line{
+	width:236px;
+	height:1px;
+	background:#1b1b1b;
+	opacity:0.25;
+	margin:12px auto;
+}
+.mainRight1BannerText2{
+	width:236px;
+	line-height:22px;
+	font-size:16px;
+	color:#030303;
+	margin:0 auto;
+}
+.bannerConsultation {
+    width: 100px;
+    height: 30px;
+    line-height: 29px;
+    background: url(../images/20180316cjys47.png);
+    text-align: center;
+    color: #fff;
+    margin: 18px auto;
+    cursor: pointer;
+}
+.my-pagination .swiper-pagination-switch {
+    background: rgb(200,200,200);
+    display: inline-block;
+    margin: 0 10px;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    cursor: pointer;
+}
+.my-pagination .swiper-active-switch {
+    background: rgb(236, 120, 55);
+}
+.my-pagination {
+    width: 85px;
+    height: 8px;
+    position: absolute;
+    margin:auto;
+    left:0;
+    right: 0;
+    bottom: 30px;
+    z-index: 1;
+}
+.mainRight3{
+	width:360px;
+	height:390px;
+}
+.mainRight1-con{
+	width:100%;
+	/*padding:0 20px;*/
+	cursor:pointer;
+}
+.mainRight1-context:hover .context-r-1{
+	color:#009FA8;
+}
+.mainRight1-context{
+	height:111px;
+	border-bottom:1px solid #dcdcdc;
+	padding-top:15px;
+}
+.mainRight1-context:last-child{
+	border:none;
+}
+.mainRight1-context img{
+	width:124px;
+	height:80px;
+	display:inline-block;
+}
+.context-r-1{
+	font-size:16px;
+}
+.context-r-2{
+	color:#666;
+	margin:15px 0 5px 0;
+}
+.context-r-3{
+	color:#999;
+	width:100%;
+	height:20px;
+}
+.mainRight1-context-r{
+	width:183px;
+	margin-left:10px;
+}
+.mainRight2{
+	width:360px;
+	height:490px;
+}
+.mainRight5Banner{
+	width:320px;
+	height:192px;
+}
+.caseBanner{
+	width:320px;
+	height:192px;
+}
+.moreHos{
+	padding-top:20px;
+}
+.caseBannerText{
+}
+.caseBannerText span{
+	width:276px;
+	height:50px;
+	color:#fff;
+	display:inline-block;
+	width:276px;
+	line-height:52px;
+}
+.my-pagination2 .swiper-pagination-switch {
+    background: rgb(200,200,200);
+    display: inline-block;
+    margin: 0 5px;
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    cursor: pointer;
+}
+.my-pagination2 .swiper-active-switch {
+    background: #fff;
+}
+.my-pagination2 {
+    width: 49px;
+    height: 6px;
+    position: absolute;
+    margin:auto;
+    left:0;
+    right: 0;
+    bottom: 15px;
+    z-index: 1;
+}
+.caseList{
+	width:100%;
+	height:16px;
+	line-height:16px;
+	font-size:16px;
+	color:#666;
+	cursor:pointer;
+	margin-top:18px;
+}
+.caseList:hover{
+	color:#009FA8;
+}

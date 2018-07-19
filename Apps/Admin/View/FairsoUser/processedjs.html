@@ -1,0 +1,58 @@
+<script type="text/javascript">
+$('body').on('click', '.content',function() {
+	$(this).removeClass("content");
+	$(this).addClass("contents");
+});
+$('body').on('click', '.contents',function() {
+	$(this).addClass("content");
+	$(this).removeClass("contents");
+});
+//检索默认
+$(window).ready(function(){
+	var deal=$('.members').html();
+	var dealt=$('.membersT').html();
+	$('.payment').each(function(){
+		//$(this).css({'background':'#327ab7'});
+	});
+	if(deal==1){
+		//$('.payment1').css({'background':'#286091'});
+	}else if(deal==2){
+		//$('.payment2').css({'background':'#286091'});
+	}
+	 
+	//$('.paymentc'+dealt).css({'background':'#286091'}); 
+});
+//点击复制
+$('.d_clip_buttons').click(function(){
+	//弹框
+	var height=($(window).height()-200)/2;
+	var width=($(".tile-body").width())/2;
+	$('.monolayer').css({display:'inline',top:height+'px',left:width+'px'});
+	//获取值
+	var value=$(this).data("content");
+	 
+	$('.monolayer_con1').html(value);
+});
+$('.set').click(function(){
+	$('.monolayer').css({display:'none',top:0,left:0});
+	$('.monolayer_con1').html("");
+});
+//复制到剪切板
+$(document).ready(function() {
+	var clip = new ZeroClipboard($("#d_clip_button"));
+		clip.on("ready", function(){
+		this.on("aftercopy", function(event) {
+			var copysuc = $("<div class='copy-tips'><div class='copy-tips-wrap'>☺ 复制成功</div></div>");
+			$("body").find(".copy-tips").remove().end().append(copysuc);
+			$(".copy-tips").fadeOut(1500);
+			setTimeout(function(){
+				$('.monolayer').css({display:'none',top:0,left:0});
+				$('.monolayer_con1').html("");
+			},1000);
+		});
+	});
+	clip.on("error", function(event) {
+		ZeroClipboard.destroy();
+	});
+});
+</script>

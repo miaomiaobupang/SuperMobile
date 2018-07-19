@@ -1,0 +1,359 @@
+<include file="Public/publicHeader" />
+	<style>
+		/*主体部分开始*/
+		.mainBox{
+			width:102%;
+			height:auto;
+			margin-left:-0.8rem;
+			background:#f0f0f0;
+			position:absolute;
+		}
+		.questionDiseaseKind{
+			width:100%;
+			height:auto;
+			margin-top:12rem;
+			background:#fff;
+		}
+		.questionKind{
+			width:20%;
+			height:22rem;
+			float:left;
+		}
+		.questionKindU{
+			width:100%;
+			height:15rem;
+			line-height:15rem;
+			text-align:center;
+			margin-top:1rem;
+		}
+		.questionKindD{
+			width:100%;
+			height:4rem;
+			line-height:4rem;
+			text-align:center;
+			font-size:4rem;
+			color:#333;
+		}
+		.questionListBox{
+			width:100%;
+			height:auto;
+			margin-top:2rem;
+			padding:2rem;
+			background:#fff;
+		}
+		.questionListTitle{
+			width:100%;
+			height:auto;
+		}
+		.questionList{
+			width:50%;
+			border:0.2rem solid #009FA8;
+			height:8rem;
+			line-height:8rem;
+			float:left;
+			color:#009FA8;
+			text-align:center;
+			font-size:4rem;
+		}
+		.questionListBoxWait{
+			width:100%;
+			height:auto;
+			margin-top:2rem;
+			display:none;
+		}
+		.questionLists{
+			width:100%;
+			height:8rem;
+			line-height:8rem;
+		}
+		.questionListsL{
+			width:90%;
+			height:5rem;
+			line-height:5rem;
+			float:left;
+			color:#666;
+			font-size:4rem;
+			overflow: hidden;
+			text-overflow:ellipsis;
+			white-space: nowrap;
+		}
+		.questionListsR{
+			width:10%;
+			height:5rem;
+			line-height:5rem;
+			float:left;
+			font-size:3rem;
+			color:#666;
+		}
+		.questionListBoxNice{
+			width:100%;
+			height:auto;
+			margin-top:2rem;
+		}
+		.questionListNices{
+			width:100%;
+			height:20rem;
+			margin-top:2rem;
+		}
+		.questionListNiceU{
+			width:100%;
+			height:7rem;
+			line-height:7rem;
+			font-size:4rem;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 1;
+			overflow: hidden;
+		}
+		.questionListNiceD{
+			width:100%;
+			height:13rem;
+		}
+		.questionListNiceDL{
+			width:15%;
+			height:13rem;
+			line-height:13rem;
+			text-align:left;
+			float:left;
+		}
+		.questionListNiceDR{
+			width:85%;
+			height:13rem;
+			line-height:6rem;
+			font-size:3.5rem;
+			color:#666;
+			float:left;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+			overflow: hidden;
+		}
+		
+		.quicklyQuestion{
+			width:100%;
+			height:auto;
+			padding:2rem;
+			margin-top:2rem;
+			background:#fff;
+		}
+		.quicklyQuestionTitle{
+			width:26rem;
+			height:7rem;
+			line-height:7rem;
+			font-size:4rem;
+			background:#009FA8;
+			border-radius:5rem;
+			color:#fff;
+			padding-left:3rem;
+		}
+		.quicklyQuestionTitleOne{
+			width:auto;
+			height:5rem;
+			line-height:5rem;
+			font-size:4rem;
+			margin-top:5rem;
+		}
+		.quicklyQuestionTitleIn{
+			width:100%;
+			height:auto;
+			margin-top:2rem;
+		}
+		.quicklyQuestionTitleInput{
+			width:100%;
+			height:10rem;
+			border:0.1rem solid #999;
+			font-size:4rem;
+			text-indent:2rem;
+		}
+		.quicklyQuestionCntent{
+			width:100%;
+			height:20rem;
+			font-size:3.5rem;
+			text-indent:2rem;
+		}
+		.uploadDivsImages{
+			width:100%;
+			height:auto;
+			margin-top:5rem;
+		}
+		#uploadDivs{
+			float:left;
+		}
+		.uploadDivsDescribe{
+			width:40%;
+			padding:2rem 0 0 2rem;
+			height:auto;
+			line-height:5rem;
+			font-size:4rem;
+			color:#666;
+			float:left;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 7;
+			overflow: hidden;
+		}
+		.questionSubmitDiv{
+			width:85%;
+			height:10rem;
+			line-height:10rem;
+			background:#009FA8;
+			color:#fff;
+			text-align:center;
+			font-size:4rem;
+			margin:0 auto;
+			margin-top:8rem;
+			border-radius:10rem;
+		}
+	</style>
+	<div class="mainBox">
+		<div class="questionDiseaseKind">
+			<a href="http://192.168.1.21/Mobile/index.php/Mobile/Index/questionList">
+				<div class="questionKind">
+					<div class="questionKindU"><img src="__IMG__/20180626zhongliuke.png"></div>
+					<div class="questionKindD">肿瘤</div>
+				</div>
+			</a>
+			<div class="questionKind">
+				<div class="questionKindU"><img src="__IMG__/20180626xinneike.png"></div>
+				<div class="questionKindD">心脏疾病</div>
+			</div>
+			<div class="questionKind">
+				<div class="questionKindU"><img src="__IMG__/20180626shenjingwaike.png"></div>
+				<div class="questionKindD">神经疾病</div>
+			</div>
+			<div class="questionKind">
+				<div class="questionKindU"><img src="__IMG__/20180626zhongliuke.png"></div>
+				<div class="questionKindD">其他</div>
+			</div>
+			<div class="questionKind">
+				<div class="questionKindU"><img src="__IMG__/20180626shenjingwaike.png"></div>
+				<div class="questionKindD">神经疾病</div>
+			</div>
+			<div class="cl"></div>
+		</div>
+		<div class="questionListBox">
+			<div class="questionListTitle">
+				<div class="questionList" data-n="1" data-t="1">优质问答</div>
+				<div class="questionList" data-n="2" data-t="2">待解决</div>
+				<div class="cl"></div>
+			</div>
+			<div class="questionListBoxWait">
+				<div class="questionLists">
+					<div class="questionListsL">女性右腰部隐痛的原因是什么呢？</div>
+					<div class="questionListsR">6 回答</div>
+				</div>
+				<div class="questionLists">
+					<div class="questionListsL">女性右腰部隐痛的原因是什么呢？</div>
+					<div class="questionListsR">6 回答</div>
+				</div>
+				<div class="questionLists">
+					<div class="questionListsL">女性右腰部隐痛的原因是什么呢？</div>
+					<div class="questionListsR">6 回答</div>
+				</div>
+				<div class="questionLists">
+					<div class="questionListsL">女性右腰部隐痛的原因是什么呢？</div>
+					<div class="questionListsR">6 回答</div>
+				</div>
+				<div class="questionLists">
+					<div class="questionListsL">女性右腰部隐痛的原因是什么呢？</div>
+					<div class="questionListsR">6 回答</div>
+				</div>
+				<div class="questionLists">
+					<div class="questionListsL">女性右腰部隐痛的原因是什么呢？</div>
+					<div class="questionListsR">6 回答</div>
+				</div>
+				<div class="questionLists">
+					<div class="questionListsL">女性右腰部隐痛的原因是什么呢？</div>
+					<div class="questionListsR">6 回答</div>
+				</div>
+			</div>
+			<div class="questionListBoxNice">
+				<div class="questionListNices">
+					<div class="questionListNiceU">女性右腰部隐痛的原因是什么呢？</div>
+					<div class="questionListNiceD">
+						<div class="questionListNiceDL"><img src="__IMG__/20180626xinneike.png"></div>
+						<div class="questionListNiceDR">很高兴为您解答，病因很多，目前不能确定决定的患病原因，就应该要面对现实，去专业的医</div>
+					</div>
+				</div>
+				<div class="questionListNices">
+					<div class="questionListNiceU">女性右腰部隐痛的原因是什么呢？</div>
+					<div class="questionListNiceD">
+						<div class="questionListNiceDL"><img src="__IMG__/20180626xinneike.png"></div>
+						<div class="questionListNiceDR">很高兴为您解答，病因很多，目前不能确定决定的患病原因，就应该要面对现实，去专业的医</div>
+					</div>
+				</div>
+				<div class="questionListNices">
+					<div class="questionListNiceU">女性右腰部隐痛的原因是什么呢？</div>
+					<div class="questionListNiceD">
+						<div class="questionListNiceDL"><img src="__IMG__/20180626xinneike.png"></div>
+						<div class="questionListNiceDR">很高兴为您解答，病因很多，目前不能确定决定的患病原因，就应该要面对现实，去专业的医</div>
+					</div>
+				</div>
+				<div class="questionListNices">
+					<div class="questionListNiceU">女性右腰部隐痛的原因是什么呢？</div>
+					<div class="questionListNiceD">
+						<div class="questionListNiceDL"><img src="__IMG__/20180626xinneike.png"></div>
+						<div class="questionListNiceDR">很高兴为您解答，病因很多，目前不能确定决定的患病原因，就应该要面对现实，去专业的医</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="quicklyQuestion">
+			<div class="quicklyQuestionTitle">快速提问<img style="margin-left:2rem;width:4rem;" src="__IMG__/20180704edit.png"></div>
+			<div class="quicklyQuestionTitleOne"><img style="margin-right:1rem;margin-top:-1rem;" src="__IMG__/20180704titleLine.png"> 疾病/症状</div>
+			<div class="quicklyQuestionTitleIn"><input class="quicklyQuestionTitleInput" type="text" name="title" value=""/></div>
+			<div class="quicklyQuestionTitleOne"><img style="margin-right:1rem;margin-top:-1rem;" src="__IMG__/20180704titleLine.png"> 详细描述您的病情及疑问</div>
+			<div class="quicklyQuestionTitleIn"><textarea class="quicklyQuestionCntent" name="content"/></textarea></div>
+			<div class="uploadDivsImages">
+				<div id="uploadDivs" data-style="2" data-upname="上传疾病部位或检查报告" data-upopacity="0.7" data-upback="#f0f0f0" data-upborder="#ececec" data-upcolor="#999" data-err="1" data-isbig="2" data-width="140" data-height="200" data-subheight="100" data-headsize="40" data-errsize="14" data-filename="authbook" data-filetype="4" ></div>
+				<div class="uploadDivsDescribe">可上传病症部位，检查报告，只有您和医生可以看到</div>
+				<div class="cl"></div>
+			</div>
+			<div class="questionSubmitDiv">创建问题</div>
+			<div style="width:100%;height:20rem;"></div>
+		</div>
+	</div>
+	<script src="__JS__/jquery.form.js"></script>
+	<script src="__JS__/hopePublic.js"></script>
+	<script>
+		//动态改变导航栏信息
+		$('.oneNavDiv').html('<img src="__IMG__/20180627reback.png">');
+		$('.oneNavDiv').data('n',2);
+		$('.twoNavDiv').html('互动问答');
+		//遍历切换问题
+		$('.questionList').each(function(){
+			var n = $(this).data('n');
+			if(n == 1){
+				$(this).css({'background':'#009FA8','color':'#fff'});
+			}
+		});
+		//问答列表点击切换
+		$('.questionList').on('click',function(){
+			var n = $(this).data('n');
+			var t = $(this).data('t');
+			if(n == 2){
+				$('.questionList').css({'background':'#fff','color':'#009FA8'});
+				$('.questionList').data('n',2);
+				$(this).css({'background':'#009FA8','color':'#fff'});
+				$(this).data('n',1);
+			}
+			if(t==1){
+				$('.questionListBoxWait').hide('fast');
+				$('.questionListBoxNice').show('fast');
+			}else if(t==2){
+				$('.questionListBoxNice').hide('fast');
+				$('.questionListBoxWait').show('fast');
+			}
+		});
+		//实例化上传图片
+		var urlss = "__URL__/index.php";
+		var url = "__URL__/";
+		fileUploadBody('uploadDivs',urlss,url);
+		$('#uploadDivs').css({'width':'60%','height':'35rem','margin-top':'2rem'});
+		//创建问题
+		$('.questionSubmitDiv').click(function(){
+			$('.loginPublicModel').css({'display':'block'});
+		});
+	</script> 
+<include file="Public/publicFooter"/>
+	

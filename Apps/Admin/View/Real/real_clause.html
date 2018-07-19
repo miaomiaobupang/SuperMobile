@@ -1,0 +1,240 @@
+<style>
+body #content .dataTables_wrapper{
+    font-size: 14px;
+}
+body #content .dataTables_filter{
+    margin-left:150px;
+}
+.tile-header{
+	font-size:28px;
+}
+.tile-body{
+	min-height:573px;
+}
+.col-md-6{
+	width:52%;
+}
+.headers{
+	height:60px;
+}
+.headers_child{
+	width:1000px;
+	height:60px;
+	line-height:63px;
+	margin-left:20px;
+	font-size:16px;
+	float:left;
+}
+.menu_left{
+	float:left;
+	font-size:20px;
+	cursor:pointer;
+	display:block;
+}
+.menu_right{
+	float:right;
+	font-size:20px;
+	cursor:pointer;
+	display:block;
+}
+.menu_middle{
+	float:left;
+}
+.menu_middle a{
+	text-decoration:none;
+	color:#fff;
+}
+.menus{
+	display:block;
+	height:60px;
+	float:left;
+	margin-left:40px;
+	cursor:pointer;
+}
+.menus:hover{
+	border-bottom:3px solid #7dbdfe;
+	color:#7dbdfe;
+}
+.menu5{
+	border-bottom:3px solid #7dbdfe;
+}
+.menu5{
+	color:#7dbdfe;
+}
+.backButton{
+	width:60px;
+	height:30px;
+	line-height:25px;
+}
+.pull-right{
+	float:right;
+	margin-right:20px;
+    margin-top:7px;
+}
+/**子用户修饰****/
+.content{
+	margin-left:55px;
+}
+.childUser{
+	width:1020px;
+	margin-top:15px;
+	padding-bottom:35px;
+	font-size:15px;
+}
+.userNameMoon a{
+	color:#54affc;
+	text-decoration:none;
+}
+.userNameMoon a:hover{
+	color:#0289fc;
+}
+.userMoon a{
+	color:#54affc;
+	text-decoration:none;
+}
+.userMoon a:hover{
+	color:#0289fc;
+}
+.realOrder_choose{
+	width:1040px;
+	height:35px;
+	margin-top:35px;
+	line-height:44px;
+}
+.choose_left{
+	font-size:18px;
+}
+.inpText{
+	margin-right:65px;
+}
+.buttonDiv{
+    margin-left:200px;
+    margin-top:-56px;
+}
+.content_title1{
+	display:block;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	width:400px;
+	cursor:pointer;
+}
+.content_title3{
+	width:400px;
+	cursor:pointer;
+	word-break:break-all;
+	display:list-item;
+	white-space:normal;
+	text-overflow:ellipsis;
+	overflow:auto;
+}
+.content_title2{
+	display:block;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	width:150px;
+}
+</style>
+
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">非速搜企业管理</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black" style="border-radius:10px 10px 20px 20px;">
+				<!-- tile header -->
+				<div class="tile-header" style="padding:0px;">
+					<div class="headers">
+						<div class="headers_child">
+							<!-- <div class="menu_left"><span class="glyphicon glyphicon-menu-left"></span></div> -->
+							<div class="menu_middle">
+								<a href="__WEBURL__/Real/real_detail/id/{$id}"><span class="menus menu1">企业信息</span></a>
+								<a href="__WEBURL__/Real/real_childUser/id/{$id}"><span class="menus menu2">企业子用户</span></a>
+								<a href="__WEBURL__/Real/real_order/id/{$id}"><span class="menus menu3">企业订单</span></a>
+								<a href="__WEBURL__/Real/real_contract/id/{$id}"><span class="menus menu4">企业合同</span></a>
+								<a href="__WEBURL__/Real/real_clause/id/{$id}"><span class="menus menu5">合同模板</span></a>
+								<a href="__WEBURL__/Real/real_venue/id/{$id}"><span class="menus menu6">展馆历史</span></a>
+								<a href="__WEBURL__/Real/real_exhibition/id/{$id}"><span class="menus menu7">展会历史</span></a>
+								<a href="__WEBURL__/Real/real_position/id/{$id}"><span class="menus menu8">展位</span></a>
+							</div>
+							<!-- <div class="menu_right"><span class="glyphicon glyphicon-menu-right"></span></div> -->
+						</div>
+						<!-- <div class="pull-right">
+							<a href="javascript:history.back(-1);" role="button" class="btn btn-red backButton" style="background:#1bceab;"> 返 回 </a>
+						</div> -->
+					</div>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<div class="tile-body form-group form-footer" style="border-radius:0px 0px 20px 20px;">
+					<div class="content">
+						<div class="realOrder_choose">
+							<div class="choose_left">{$rew}</div>
+						</div>
+						<div class="childUser">
+							<table class="table" style="min-width:1040px;">
+								<tr style="height:50px;">
+									<th  style="border-color:#284a6c;vertical-align:middle;" class="text-center">商家用户</th>
+									<th  style="border-color:#284a6c;vertical-align:middle;" class="text-center">所属类型</th>
+									<th  style="border-color:#284a6c;vertical-align:middle;" class="text-center">条款内容</th>
+									<th  style="border-color:#284a6c;vertical-align:middle;" class="text-center">创建时间</th>
+									<th  style="border-color:#284a6c;vertical-align:middle;" class="text-center">状态</th>
+									<th  style="border-color:#284a6c;vertical-align:middle;" class="text-center">备注</th>
+								</tr>
+								<foreach name="data" item="ma">
+									<tr style="height:50px;line-height:20px;">
+										<td style="border-color:#284a6c;vertical-align:middle;" class="text-center userNameMoon"><a href="__WEBURL__/FairsoUser/userDetail/uid/{$ma.uid}" target="_blank">{$ma.buyer}</a></td>
+										<td style="border-color:#284a6c;vertical-align:middle;" class="text-center">
+											<if condition="$ma.type eq 1">展会</if>
+										</td>
+										<td style="border-color:#284a6c;vertical-align:middle;" class="text-center"><span class="content_title1" data-state="1">{$ma.content}</span></td>
+										<td style="border-color:#284a6c;vertical-align:middle;" class="text-center">{$ma.ctime|date="Y-m-d H:i:s",###}</td>
+										<td style="border-color:#284a6c;vertical-align:middle;" class="text-center">
+											<if condition="$ma.statecode eq 1">已启用</if>
+											<if condition="$ma.statecode eq 2">已停用</if>
+										</td>
+										<td style="border-color:#284a6c;vertical-align:middle;" class="text-center"><span class="content_title2" title="{$ma.title}">{$ma.title}</span></td>
+									</tr>
+								</foreach>
+								<tr>
+									<td style="border-color:#284a6c;" colspan="6"><span style="float:right;">{$row}</span></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+<script>
+
+</script>

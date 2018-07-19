@@ -1,0 +1,84 @@
+<script type="text/javascript">
+//声明页码
+var Page =0;
+//获取最大页数
+var MaxPage;
+//声明储存上一次页码
+var lastPage =null;
+//声明ICO名称
+var icoName;
+//加载所有图标数据
+$.ajax({
+	url:"__MODULE__/Ico/IcoPageShowData/num/20",		
+	type:'post',
+	dataType:'json',
+	success:function(data){	//	成功回调函数
+		var info;
+		for(var i=0;i<data.length;i++){
+			for( var j=0;j<data[i].length;j++){
+				if(j%5 == 0){
+					info +="<tr class='IcoPage IcoPage"+i+" hiddens'>";
+					info +="<td icodata='"+data[i][j]+"' onclick='IcoSelected(this)' class='IcoData hand text-center'><h2><span class='"+data[i][j]+"'></span></h2></td>";
+				}else if((j+1)%5 == 0){					
+					info +="<td icodata='"+data[i][j]+"' onclick='IcoSelected(this)' class='IcoData hand text-center'><h2><span class='"+data[i][j]+"'></span></h2></td>";
+					info +="</tr>";
+				}else{
+					info +="<td icodata='"+data[i][j]+"' onclick='IcoSelected(this)' class='IcoData hand text-center'><h2><span class='"+data[i][j]+"'></span></h2></td>";
+				}
+			}		
+		}
+		MaxPage = data.length;
+		$('#icodata').append(info);	
+		IcoDataPage(Page);
+	}
+});
+//分屏显示数据
+function IcoDataPage(pages){
+	$(".IcoPage"+lastPage).addClass("hiddens");
+	$(".IcoPage"+pages).removeClass("hiddens");
+	if(Page ==0){
+		$("#IcoDataLeftH").addClass("hiddens");
+	}else{
+		$("#IcoDataLeftH").removeClass("hiddens");
+	}
+	if(Page == MaxPage-1){
+		$("#IcoDataRightH").addClass("hiddens");
+	}else{
+		$("#IcoDataRightH").removeClass("hiddens");
+	}
+}
+
+//监测左箭头点击
+$("#IcoDataLeft").click(function(){
+	if(Page ==0){
+		Page =0;
+	}else{
+		lastPage = Page;
+		Page = Page-1;
+	}
+	IcoDataPage(Page);
+});
+//监测右箭头点击
+$("#IcoDataRight").click(function(){
+	if(Page == MaxPage-1){
+		Page = MaxPage-1;
+	}else{
+		lastPage = Page;
+		Page = Page +1;
+	}
+	IcoDataPage(Page);
+});
+
+//图标选中状态监测
+function IcoSelected(ob){
+	$(".IcoData").removeClass("bg-danger");
+	$(ob).addClass("bg-danger");
+	icoName = $(ob).attr("icodata");
+	$("#IcoDataSure").removeAttr("disabled");
+}
+//图标选中确认
+function IcoSelectedSure(){
+	$("#IcoSelectResult").attr("class",icoName);
+	$("#IcoSelectResultName").val(icoName);
+}
+</script>

@@ -1,0 +1,94 @@
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">角色添加</b> 
+		<span>- role add</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+    <div class="row">
+		<!-- col 12 -->
+        <div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>角色</strong>增加
+					</h1>
+					<div class="pull-right">
+						<a href="__MODULE__/Role/showRole" role="button" class="btn btn-red"><span class="icon-reply"></span> 返回角色列表</a>
+					</div>
+              <div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+              </div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body">
+					<form class="form-horizontal " action="__MODULE__/Role/RoleInsert" method="post" role="form">
+							<div class="form-group col-md-6 col-sm-12">
+								<label for="coding" class="col-sm-4 control-label">
+									角色名称
+								</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="name" id="name" />
+								</div>
+							</div>
+                            <div class="form-group">
+								<div class="form-group col-md-12 col-sm-12">
+									<label for="describe" class="col-md-2 col-sm-4 control-label">
+										描述
+									</label>
+									<div class="col-md-10 col-sm-8">
+										<textarea class="form-control" id="describe" rows="6" name="describe"></textarea>
+									</div>
+								</div>
+							</div>
+                              <div class="form-group">
+								<div class="form-group col-md-12 col-sm-12">
+									<label for="describe" class="col-md-2 col-sm-4 control-label">
+										备注
+									</label>
+									<div class="col-md-10 col-sm-8">
+										<textarea class="form-control" id="remark" rows="6" name="remark"></textarea>
+									</div>
+								</div>
+							</div>
+                       
+							<div class="form-group form-footer">
+								<div class="col-sm-offset-4 col-sm-4">
+									<button type="submit" class="btn btn-greensea btn-block">提交</button>
+								</div>
+							</div>
+                    </form>
+				</div>
+                <!-- /tile body -->
+			</section>
+            <!-- /tile -->
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+
+
+
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

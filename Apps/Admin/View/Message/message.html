@@ -1,0 +1,386 @@
+		
+<!-- 表单校验类 -->
+
+<!-- <link rel="stylesheet" href="__CSS__/business3.css"> -->
+<!-- <link rel="stylesheet" href="__CSS__/business3.css"> -->
+
+<style>
+	.DepartmentTypen{
+		display:none;
+	}
+	.DepartmentTypeb{
+		display:block;
+	}
+	.inputStyle{
+		width:312px;
+		height:37px;
+		background:#253b4d;
+		border:0px;
+		text-align:center;
+		border-radius:4px;
+	}
+	.entryDivOne{
+		width:100%;
+	}
+	.divStyleLine{
+		width:100%;
+		height:auto;
+	}
+	.text_cname{
+		width:10%;
+		height:55px;
+		line-height:55px;
+		float:left;
+		text-align:center;
+	}
+	.entry_type_example_one{
+		width:10%;
+		height:150;
+		line-height:55px;
+		float:left;
+		text-align:center;
+	}
+	.entry_type_example_two{
+		width:90%;
+		height:110px;
+		float:left;
+	}
+	.entry_name_div{
+		width:90%;
+		height:55px;
+		line-height:55px;
+		float:left;
+	}
+	.input{
+		width:90%;
+		height:55px;
+		line-height:50px;
+	}
+	.formCheckbox{
+		margin-left:50px;
+		margin-right:5px;
+	}
+	.entry_type_name{
+		margin-left:-50px;
+	}
+	button, input, optgroup, select, textarea{
+		color:black;
+	}
+	#zSelectName{
+		margin-left:50px;
+	}
+	#zSelectName{
+		visibility:hidden;
+	}
+	.abstractStyle{
+		margin-left:50px;
+		width:90%;
+		height:200px;
+	}
+	.entryContentDiv{
+		width:81%;
+		<!-- border:1px solid red; -->
+		height:800px;
+		margin-right:9%;
+		float:right;
+		border:3px dashed white;
+	}
+	.entryContentDivLeft{
+		width:90%;
+		height:auto;
+		float:left;
+	}
+	.entryContentDivRight{
+		width:9%;
+		<!-- border:1px solid red; -->
+		height:auto;
+		float:left;
+		margin-left:5px;
+		margin-top:10px;
+	}
+	.entryContentDivOne{
+		width:100%;
+		height:50px;
+		line-height:50px;
+		margin-bottom:10px;
+		margin-top:10px;
+	}
+	.catalog{
+		width:100%;
+		height:40px;
+		line-height:40px;
+		float:left;
+		margin-top:2px;
+		text-align:center;
+		cursor:pointer;
+	}
+	.catalog:hover{
+		font-weight:bold;
+		color:black;
+	}
+	.catalogOne{
+		background:#0373e4;
+		position: fixed;
+		width: 200px;
+		z-index: 10000;
+		height: 50px;
+		text-align:center;
+		font-size:18px;
+	}
+	.catalogTwo{
+		background:#009fa8;
+	}
+	.catalogHidden{
+		background:green;
+	}
+	.entry_edit_div_line{
+		width:100%;
+	}
+	.subStyle{
+		width:300px;
+		height:50px;
+		line-height:50px;
+		margin-top:20px;
+		margin-left:30%;
+		background:green;
+		color:white;
+		border:0 solid green;
+	}
+	.butExamineStyle{
+		position:fixed;
+		width:600px;
+		height:100px;
+		z-index:110;
+		font-size:18px;
+	}
+	.publicSpan{
+		width:auto;
+		height:30px;
+		line-height:30px;
+		margin-top:4px;
+		margin-left:10px;
+		border:1px solid white;
+		background:white;
+		border-radius:4px;
+		color:black;
+		padding:2px;
+		float:left;
+		cursor:pointer;
+	}
+	.publicSpanOne{
+		width:30px;
+		height:30px;
+		line-height:30px;
+		text-align:center;
+		margin-top:4px;
+		margin-left:10px;
+		border:1px solid white;
+		background:white;
+		border-radius:4px;
+		color:black;
+		padding:2px;
+		float:left;
+		cursor:pointer;
+	}
+</style>
+<!-- 页面头部开始 -->
+<script src="__PUBLIC__/Theme/Fashion/assets/js/jquery.min.js"></script>
+<script>
+	var URL_A = '__URL__/admin.php';
+//alert(URLS)	
+</script>
+<div class="pageheader">
+	<h2>
+		<i class="icon-folder-open-alt" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">超级医生</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+    <div class="row">
+		<!-- col 12 -->
+        <div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>超级医生-创建资讯</strong>
+					</h1>
+					<div class="pull-right">
+						<a href="__WEBURL__/Message/message_list" role="button" class="btn btn-red"> 返回资讯列表</a>
+					</div>
+					<div class="controlsStyle">
+							<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+							<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+					<!-- /tile header -->
+					<!-- tile body -->
+				<div class="tile-body form-group form-footer" style="height:600px;">
+					<form action="__WEBURL__/Message/message_add" method="post" role="form" enctype='multipart/form-data'>
+						<input name="fromUrl" value="{$fromUrl}" type="hidden"/>
+						<div class="entryDivOne">
+							<div class="form-group col-md-12 col-sm-12">
+								<label for="properties" class="col-sm-1 control-label" style="margin-top:10px;">资讯类型</label>
+								<div class="col-sm-11">
+									<ul class="nolisttypes inlineSelect inline">
+										<li>
+											<div class="radio radio-transparent">
+												<input type="radio" value="1" id="properties1" class="selectPro" data-type="1" name="sign_type">
+												<label for="properties1">医疗前沿</label>
+											</div>
+										</li>
+										<li>
+											<div class="radio radio-transparent">
+												<input type="radio" value="2" id="properties2" class="selectPro" data-type="1" name="sign_type">
+												<label for="properties2">最新案例</label>
+											</div>
+										</li>
+										<li>
+											<div class="radio radio-transparent">
+												<input type="radio" value="3" id="properties3" class="selectPro" data-type="1" name="sign_type">
+												<label for="properties3">公益</label>
+											</div>
+										</li>
+										<li>
+											<div class="radio radio-transparent">
+												<input type="radio" value="4" id="properties4" class="selectPro" data-type="1" name="sign_type">
+												<label for="properties4">海外医疗</label>
+											</div>
+										</li>
+										<li>
+											<div class="radio radio-transparent">
+												<input type="radio" value="5" id="properties5" class="selectPro" data-type="1" name="sign_type">
+												<label for="properties5">世界大师中国行</label>
+											</div>
+										</li>
+										<li>
+											<div class="radio radio-transparent">
+												<input type="radio" value="6" id="properties6" class="selectPro" data-type="1" name="sign_type">
+												<label for="properties6">专家资讯</label>
+											</div>
+										</li>
+										<li>
+											<div class="radio radio-transparent">
+												<input type="radio" value="7" id="properties7" class="selectPro" data-type="1" name="sign_type">
+												<label for="properties7">医院新闻</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="form-group col-md-12 col-sm-12 selected selectedOne">
+								<label for="properties" class="col-sm-1 control-label" style="margin-top:10px;">所属国家</label>
+								<div class="col-sm-11">
+									<ul class="nolisttypes inlineSelect inline">
+										<li>
+											<div class="radio radio-transparent" style="float:left;margin-top:10px;">
+												<input type="radio" value="1" id="propertiess1" class="selectPro" data-type="2" name="country_id" checked>
+												<label for="propertiess1">中国</label>
+											</div>
+											<div class="radio radio-transparent" style="float:left;margin-top:10px;">
+												<input type="radio" value="2" id="propertiess2" class="selectPro" data-type="2" name="country_id">
+												<label for="propertiess2">美国</label>
+											</div>
+											<div class="radio radio-transparent" style="float:left;margin-top:10px;">
+												<input type="radio" value="3" id="propertiess3" class="selectPro" data-type="2" name="country_id">
+												<label for="propertiess3">日本</label>
+											</div>
+											<div class="radio radio-transparent" style="float:left;margin-top:10px;">
+												<input type="radio" value="4" id="propertiess4" class="selectPro" data-type="2" name="country_id">
+												<label for="propertiess4">其他</label>
+											</div>
+											<div style="clear:both;"></div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="form-group col-md-12 col-sm-12">
+								<label for="properties" class="col-sm-1 control-label" style="margin-top:10px;">资讯图片</label>
+								<div class="col-sm-11">
+									<div id="uploadDivs"  data-style="2" data-path="" data-upname="上传资讯封面图" data-upopacity="0.7" data-upback="white" data-upborder="#ececec" data-upcolor="#249efb" data-err="1" data-isbig="1" data-width="300" data-height="200" data-subheight="30" data-headsize="14" data-errsize="14" data-filename="messageimg" data-filetype="1"></div>
+								</div>
+							</div>
+							<div class="form-group col-md-12 col-sm-12 selected selectedTwo">
+								<label for="properties" class="col-sm-1 control-label" style="margin-top:29px;">所属科室</label>
+								<div class="col-sm-11" style="float:right;margin-top:20px;padding-left:-6px;">
+									<foreach name="disease_department" item="disease_department">
+										<div class="publicSpan" data-type="4" data-state="2" data-id="{$disease_department.id}">{$disease_department.cname}</div>
+									</foreach>
+									<div style="clear:both"></div>
+								</div>
+							</div>
+							<div class="form-group col-md-12 col-sm-12 selected selectedThree">
+								<label for="properties" class="col-sm-1 control-label" style="margin-top:20px;">所属疾病</label>
+								<div class="col-sm-11 publicSpanOneDiv" style="float:right;margin-top:10px;padding-left:-6px;">
+									<foreach name="disease_type" item="fname_two">
+										<div  class="publicSpanOne" data-state="1" data-clic="1" data-pid="{$fname_two.pid}">{$fname_two.pid}</div>
+									</foreach>
+								</div>
+							</div>
+							<div class="form-group col-md-12 col-sm-12 selected selectedFive">
+								<label for="properties" class="col-sm-1 control-label" style="margin-top:20px;">疾病种类</label>
+								<div class="col-sm-11" style="float:right;margin-top:10px;padding-left:-6px;">
+									<foreach name="disease_kind" item="disease_kind">
+										<div class="publicSpan" data-type="5" data-state="2" data-id="{$disease_kind.id}">{$disease_kind.name}</div>
+									</foreach>
+									<div style="clear:both"></div>
+								</div>
+							</div>
+							<div class="form-group col-md-12 col-sm-12">
+								<label for="properties" class="col-sm-1 control-label">资讯标题</label>
+								<div class="col-sm-10">
+									<input type="text" name="cname" value="" id="messageTitle" style="width:100%;" placeholder="请输入中文标题">
+									<input type="text" name="ename" value="" style="width:100%;margin-top:10px;" placeholder="请输入英文标题">
+								</div>
+							</div>
+							<div class="form-group col-md-12 col-sm-12">
+								<label for="properties" class="col-sm-2 control-label">资讯简介</label>
+								<div class="col-sm-10">
+									<textarea name="abstract" value="" id="messageTitle" style="width:100%;margin-left:-107px;height:150px;" placeholder="请输入资讯简介"></textarea>
+								</div>
+							</div>
+							<div class="form-group col-md-12 col-sm-12">
+								<label for="properties" class="col-sm-2 control-label">关键词</label>
+								<div class="col-sm-10">
+									<input type="text" name="keywords" value="" id="messageTitle" style="width:100%;margin-left:-108px;" placeholder="请以空格分割关键词">
+								</div>
+							</div>
+							<div class="form-group col-md-12 col-sm-12">
+								<label for="properties" class="col-sm-2 control-label">资讯内容</label>
+								<div class="col-sm-10">
+									<script id="editor" type="text/plain" name="catalogContent" style="width:100%;height:auto;margin-left:-107px;margin-top:10px;"></script>
+								</div>
+							</div>
+								<div class="col-sm-10 subStyleDiv" style="position:fixed;z-index:1000;">
+									<input type="submit" class="subStyle" name="" value="提交">
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+                <!-- /tile body -->
+			</section>
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<script>
+		$('#navbar').css({'z-index':1});
+	</script>
+	<!-- /row -->
+</div>
+<!-- 表单校验类 -->
+

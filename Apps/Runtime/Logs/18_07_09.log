@@ -1,0 +1,175 @@
+<<<<<<< HEAD
+[ 2018-07-09T08:58:18+08:00 ] 192.168.1.21 /Mobile/index.php/Mobile/Index/questionList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+
+[ 2018-07-09T08:58:24+08:00 ] 192.168.1.21 /Mobile/index.php/Mobile/Index/questionList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000136s ]
+=======
+[ 2018-07-09T09:14:10+08:00 ] 210.12.18.39 /index.php/Mobile/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000067s ]
+
+[ 2018-07-09T09:14:11+08:00 ] 210.12.18.39 /Public/Mobile/css/bootstrap.min.css.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000055s ]
+ERR: 无法加载控制器:Public
+
+[ 2018-07-09T09:14:11+08:00 ] 210.12.18.39 /Public/Mobile/js/swiper.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000063s ]
+ERR: 无法加载控制器:Public
+
+[ 2018-07-09T09:14:11+08:00 ] 210.12.18.39 /Public/Mobile/js/swiper.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000078s ]
+ERR: 无法加载控制器:Public
+
+[ 2018-07-09T09:15:38+08:00 ] 210.12.18.39 /index.php/Mobile/Index/questionList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000054s ]
+
+[ 2018-07-09T09:15:38+08:00 ] 210.12.18.39 /Public/Mobile/css/bootstrap.min.css.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000051s ]
+ERR: 无法加载控制器:Public
+
+[ 2018-07-09T09:15:39+08:00 ] 210.12.18.39 /Public/Mobile/js/swiper.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000046s ]
+ERR: 无法加载控制器:Public
+
+[ 2018-07-09T09:18:21+08:00 ] 210.12.18.39 /index.php/Mobile/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+
+[ 2018-07-09T09:18:28+08:00 ] 210.12.18.39 /index.php/Mobile/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+
+[ 2018-07-09T09:18:38+08:00 ] 210.12.18.39 /index.php/Mobile/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000060s ]
+
+[ 2018-07-09T09:18:42+08:00 ] 210.12.18.39 /Public/Mobile/js/swiper.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+ERR: 无法加载控制器:Public
+
+[ 2018-07-09T09:18:42+08:00 ] 210.12.18.39 /Public/Mobile/css/bootstrap.min.css.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000047s ]
+ERR: 无法加载控制器:Public
+
+[ 2018-07-09T10:28:03+08:00 ] 123.243.133.175 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000054s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-09T10:57:08+08:00 ] 93.159.184.132 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-09T11:34:38+08:00 ] 187.57.120.199 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000054s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-09T11:36:29+08:00 ] 188.16.23.103 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000055s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-09T11:51:20+08:00 ] 177.223.98.210 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000055s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-09T12:20:36+08:00 ] 58.11.216.19 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-09T13:04:18+08:00 ] 185.34.152.28 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-09T13:18:14+08:00 ] 68.67.34.234 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000069s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-09T17:45:31+08:00 ] 118.208.177.218 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000066s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-09T19:01:47+08:00 ] 187.0.91.231 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000060s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-09T20:04:49+08:00 ] 196.32.198.166 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-09T21:18:15+08:00 ] 187.102.55.83 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000055s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-09T21:55:51+08:00 ] 177.86.200.255 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000051s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-09T22:00:38+08:00 ] 177.152.75.99 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000051s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-09T22:25:31+08:00 ] 177.45.36.212 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+
+[ 2018-07-09T23:45:57+08:00 ] 84.52.71.216 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000056s ]
+ERR: Access denied for user 'root'@'localhost' (using password: NO)
+>>>>>>> 9b8c6280e92d3edd6975bf495c3736ea8fa291b8
+

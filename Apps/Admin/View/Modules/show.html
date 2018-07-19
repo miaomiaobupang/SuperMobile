@@ -1,0 +1,106 @@
+<style>
+.child{
+	display:none;
+}
+body #content .dataTables_wrapper{
+    font-size: 14px;
+}
+body #content .dataTables_filter{
+    margin-left:150px;
+}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">模块管理</b> 
+		<span>- Module Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+           <div class="tile-header">
+					<h1>
+						<strong>{$tit}</strong>列表
+					</h1>
+					<div class="pull-right">
+						<if condition="$properties == 1">
+						<a href="__MODULE__/Modules/add/" role="button" class="btn btn-red" data-toggle="modal"><span class="icon-plus"></span> 增加模块</a>
+						<else />
+						<a href="__MODULE__/Modules/show/" role="button" class="btn btn-red" data-toggle="modal"><span class="icon-reply"></span> 返回模块列表</a>
+						</if>
+					</div>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body nopadding">
+					<table class="table" id="basicDataTable">
+						<thead>
+							<tr>
+								<th class="text-center">{$tit}名称</th>
+								<th class="text-center">{$tit}状态</th>
+								<th class="text-center hidden-xs"><if condition="$properties == 1">&nbsp;&nbsp;&nbsp;&nbsp;相&nbsp;&nbsp;&nbsp;&nbsp;关&nbsp;&nbsp;&nbsp;&nbsp;权&nbsp;&nbsp;&nbsp;&nbsp;限&nbsp;&nbsp;&nbsp;&nbsp;</if></th>
+                                <th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<volist name="list" id="vo" empty="暂时没有数据">
+								<tr>
+									<td class="text-center col-md-2"><span class="{$vo.picPath} color red"></span> {$vo.name}</td>
+									<td class="text-center col-md-1">
+										<if condition="$vo.state == 1"><span class="icon-ok"></span>
+											<else /><span class="icon-remove"></span>
+										</if>
+									</td>
+									<td class="hidden-xs"><if condition="$properties == 1">{$vo.child}</if></td>
+									<td class="text-right col-md-4">
+										<div class="btn-group" role="group" aria-label="...">
+											<a class="btn btn-default" role="button" href="__MODULE__/Modules/edit/id/{$vo.id}">修改</a>
+											<a class="btn btn-default" role="button" href="__MODULE__/Modules/del/id/{$vo.id}">删除</a>
+											<if condition="$properties == 1">
+											<a class="btn btn-default" role="button" href="__MODULE__/Modules/show/id/{$vo.id}">管理权限</a>
+											<a class="btn btn-default" role="button" href="__MODULE__/Modules/add/id/{$vo.id}">增加权限</a>
+											</if>
+										</div>
+									</td>
+								</tr>
+							</volist>
+						</tbody>
+              </table>
+				</div>
+           <!-- /tile body -->				
+			</section>
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+
+
+
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

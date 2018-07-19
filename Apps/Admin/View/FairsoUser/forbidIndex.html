@@ -1,0 +1,321 @@
+<style>
+.child{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+body #content .dataTables_wrapper{
+    font-size: 14px;
+}
+body #content .dataTables_filter{
+    margin-left:150px;
+}
+.radioStyle{
+	background-color:#aaa;
+	opacity:0.5;
+	width:140px;
+	height:35px;
+	margin-left:14px;
+	border-radius:5px;
+}
+.form-control{
+	width:200px;
+}
+.tile-body{
+	min-height:450px;
+}
+.pull-right{
+	margin-top:-30px;
+}
+.divSearch{
+	margin-left:850px;
+	margin-top:-37px;
+}
+.buttonDiv{
+	margin-left:200px;
+	margin-top:-51px;
+}
+.btnSeacher{
+	height:35px;
+	font-size:15px;
+}
+.divChoose{
+	margin-left:512px;
+	margin-top:4px;
+}
+.chooseButtonLeft{
+	height:36px;
+	line-height:30px;
+	background:#304962;
+	color:#fff;
+	border:0px;
+}
+.chooseButtonRight{
+	height:36px;
+	line-height:30px;
+	background:#304962;
+	color:#fff;
+	border:0px;
+}
+.chooseButtonCenter{
+	height:36px;
+	line-height:30px;
+	background:#f2f2f2;
+	color:#000;
+	border:0px;
+}
+.chooseButtonCenter:hover{
+	background:#243446;
+	color:#fff;
+}
+.chooseButtonLeft:hover{
+	background:#243446;
+	color:#fff;
+}
+.chooseButtonRight:hover{
+	background:#243446;
+	color:#fff;
+}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">非速搜用户管理</b> 
+	</h2>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>用户禁用</strong>列表
+					</h1>
+					<div class="divChoose btn-group" role="group" aria-label="...">
+						<a href="__CONTROLLER__/index/member/2" style="border-radius:4px 0px 0px 4px;" class="btn btn-default chooseButtonLeft" type="button">普通会员</a>
+						<a href="__CONTROLLER__/index/memberAll/1" style="border-radius:0px;" class="btn btn-default chooseButtonCenter" type="button"> 全部 </a>
+						<a href="__CONTROLLER__/index/business/3" style="border-radius:0px 4px 4px 0px;" class="btn btn-default chooseButtonRight" type="button">商家用户</a>
+					</div>
+					<div class="divSearch">
+						<form method="post" action="">
+							<div class="form-group">
+								<input type="text" class="form-control" style="border-radius:4px 0px 0px 4px;" id="exampleInputEmail1" name='name' placeholder="邮箱 / 手机号码" value="" />
+							</div>
+							<div class="buttonDiv">
+								<button style="width:66px;border-radius:0px 4px 4px 0px;" class="btnSeacher btn btn-default btn-primary btn-sm" type="submit"/><i class="icon-search"></i> 检索</button>
+							</div>
+						</form>
+					</div>
+					<!-- <div class="pull-right">
+						<a href="#moduleAdd" role="button" class="btn btn-red" data-toggle="modal"><span class="icon-plus"></span> 添加用户</a>
+					</div> -->
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body form-group form-footer">
+					<table class="table" id="basicDataTable">
+						<thead>
+							<tr>
+							  <th class="text-center">用户名</th>
+							  <th class="text-center">用户电话</th>
+							  <th class="text-center">用户邮箱</th>
+							  <th class="text-center hidden-xs">用户昵称</th>
+							  <th class="text-center hidden-xs">性别</th>
+							  <th class="text-center">积分</th>
+							  <th class="text-center">创建类型</th>
+							  <th class="text-center">实名认证</th>
+							  <th class="text-center">用户类型</th>
+							  <th class="text-center">用户状态</th>
+							</tr>
+						</thead>
+						<tbody>
+							<foreach name="list" item="vo">
+									<td class="text-center">{$vo.uname}</td>
+									<td class="text-center">{$vo.uphone}</td>
+									<td class="text-left">{$vo.uemail}</td>
+									<td class="text-center hidden-xs">{$vo.nickname}</td>
+									<td class="text-center hidden-xs">
+										<if condition="$vo.sex eq 1">男</if>
+										<if condition="$vo.sex eq 2">女</if>
+										<if condition="$vo.sex eq 3">保密</if>
+									</td>
+									<td class="text-center">{$vo.score}</td>
+									<td class="text-center">
+										<if condition="$vo.ctype eq 1">手机</if>
+										<if condition="$vo.ctype eq 2">邮箱</if>
+										<if condition="$vo.ctype eq 3">QQ</if>
+										<if condition="$vo.ctype eq 4">微信</if>
+									</td>
+									<td class="text-center">
+										<if condition="$vo.isname eq 1"><span class="icon-ok" title="认证通过"></span></if>
+										<if condition="$vo.isname eq 2"><span class="icon-remove-circle" title="未认证"></span></if>
+										<if condition="$vo.isname eq 3"><span class="icon-spinner" title="审核中"></span></if>
+										<if condition="$vo.isname eq 4"><span class="icon-remove" title="认证未通过"></span></if>
+									</td>
+									<td class="text-center">
+										<if condition="$vo.role eq 1">游客</if>
+										<if condition="$vo.role eq 2">普通会员</if>
+										<if condition="$vo.role eq 3">商家用户</if>
+									</td>
+									<td class="text-center">
+										<if condition="$vo.state eq 1"><span class="icon-ok" title="正常"></span></if>
+										<if condition="$vo.state eq 2"><span class="icon-remove" title="禁用"></span></if>
+									</td>
+									<td class="text-right">
+										<div class="btn-group" role="group" aria-label="...">
+											<a class="btn btn-default" role="button" href="__MODULE__/FairsoUser/userDetail/uid/{$vo.uid}">详情</a>
+											<!-- <a class="btn btn-default" role="button" href="__MODULE__/FairsoUser/edit/id/{$vo.uid}">修改</a> -->
+											<if condition="$vo.state eq 2">	
+												<a class="btn btn-default" role="button" style="border-bottom:none;" href="__MODULE__/FairsoUser/del/id/{$vo.uid}/type/1">启用</a>
+											<else/>	
+												<a class="btn btn-default" role="button" style="border-bottom:none;" href="__MODULE__/FairsoUser/del/id/{$vo.uid}/type/2">禁用</a>
+											</if>
+										</div>
+									</td>
+								</tr>
+							</foreach>
+								<tr>
+									<td colspan="11"><span style="float:right;">{$row}</span></td>
+								</tr>
+						</tbody>
+              </table>
+				</div>
+           <!-- /tile body -->
+				<!-- 模块增加表单开始 -->
+				<div class="modal fade" id="moduleAdd" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true" enctype='multipart/form-data'>
+					<div class="modal-dialog" style="margin-top:40px;">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">关闭</button>
+								<h3 class="modal-title" id="modalConfirmLabel"><strong>非速搜用户</strong> 添加</h3>
+							</div>
+							<form class="form-horizontal" role="form" action="__MODULE__/FairsoUser/insert" method="post">
+								<div class="modal-body">
+									<div class="form-group col-md-6 col-sm-12">
+										<label for="coding" class="col-sm-4 control-label">头像</label>
+										<div class="col-sm-8">
+											<img src="__PUBLIC__/headImage/{$vo.headimg}" width="80" height="80">
+											<input type="hidden"  name="headimg" data-name="{$vo.headimg}" id="headImg">
+										</div>
+									</div> 
+									<div class="form-group col-md-6 col-sm-12">
+										<label for="coding"  class="col-sm-4 control-label">用户名</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" id="coding" name="uname">
+										</div>
+									</div>
+									<div class="form-group col-md-6 col-sm-12">
+										<label for="coding" class="col-sm-4 control-label">电话</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" id="uphone" name="uphone">
+										</div>
+									</div>
+									<div class="form-group col-md-6 col-sm-12">
+										<label for="coding" class="col-sm-4 control-label">密码</label>
+										<div class="col-sm-8">
+											<input type="password" class="form-control" id="coding" name="upassOne" placeholder="设置密码">
+										</div>
+									</div>
+									<div class="form-group col-md-6 col-sm-12">
+										<label for="coding" class="col-sm-4 control-label">密码</label>
+										<div class="col-sm-8">
+											<input type="password" class="form-control" id="coding" name="upassTwo" placeholder="确认密码">
+										</div>
+									</div>
+									<div class="form-group col-md-6 col-sm-12">
+										<label for="coding" class="col-sm-4 control-label">邮箱</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" id="uemail" name="uemail">
+										</div>
+									</div>
+									<div class="form-group col-md-6 col-sm-12">
+										<label for="coding" class="col-sm-4 control-label">地址</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" id="coding" name="address">
+										</div>
+									</div>
+									<div class="form-group col-md-6 col-sm-12">
+										<label for="coding" class="col-sm-4 control-label">生日</label>
+									    <div class="input-append date col-sm-8" id="datetimepicker" data-date="" data-date-format="dd-mm-yyyy">
+									        <input type="text" value="" class="form-control" name="birthday">
+									        <span class="add-on" style="z-index:2;position:absolute;margin-top:-30px;margin-left:120px;"><i class="icon-th"></i></span>
+									    </div>
+									</div>
+									<div class="form-group col-md-6 col-sm-12">
+										<label for="coding" class="col-sm-4 control-label">昵称</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" id="nickname" name="nickname" readonly value="">
+										</div>
+									</div>
+									<div class="form-group col-md-6 col-sm-12">
+										<label for="coding" class="col-sm-4 control-label">性别</label>
+										<div class="col-sm-8 radioStyle">
+											<ul class="nolisttypes inlineSelect inline" style="width:140px">
+												<li>
+													<div class="radio radio-transparent" style="width:25px;margin-left:-35px;">
+														<input type="radio" value="1" id="properties1" name="sex">
+														<label for="properties1" style="padding-left:18px;color:black;">男</label>
+													</div>
+												</li>
+												<li>
+													<div class="radio radio-transparent" style="width:25px;margin-left:2px;">
+														<input type="radio" value="2" id="properties2" name="sex">
+														<label for="properties2" style="padding-left:18px;color:black;">女</label>
+													</div>
+												</li>
+												<li>
+													<div class="radio radio-transparent" style="width:80px;margin-left:10px;">
+														<input type="radio" value="3" id="properties3" name="sex">
+														<label for="properties3" style="width:65px;padding-left:18px;color:black;">保密</label>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="form-group col-md-6 col-sm-12">
+										<label for="coding" class="col-sm-4 control-label">推送</label>
+										<div class="col-sm-8 radioStyle">
+											<ul class="nolisttypes inlineSelect inline">
+												<li>
+													<div class="radio radio-transparent" style="width:30px;">
+														<input type="radio" value="1" id="isAccept1" name="user_ispush" checked>
+														<label for="isAccept1" style="color:black;">是</label>
+													</div>
+												</li>
+												<li>
+													<div class="radio radio-transparent" style="width:30px;margin-left:15px;">
+														<input type="radio" value="2" id="isAccept2" name="user_ispush">
+														<label for="isAccept2" style="color:black;">否</label>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>									
+								</div>						
+								<div class="modal-footer" style="height:80px;margin-top:300px;">
+									<button class="btn btn-red" data-dismiss="modal" aria-hidden="true">取消</button>
+									<input class="btn btn-green" type="submit" value="提交">
+								</div>
+							</form>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->  
+				<!-- 模块增加表单结束 -->
+			</section>
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container --><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

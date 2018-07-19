@@ -1,0 +1,32 @@
+<script type="text/javascript">
+	
+	//执行复选框初始化
+	$('.fairsoformJS').ready(function(){
+		var length=$('.entry_type').data('num');
+		var num=0;
+		for(i=1;i<length;i++){
+			num=num+1;
+			formCheckboxStar('demo'+num);
+		}
+		for(m=1;m<length;m++){
+			num=num+1;
+			formCheckboxStar('demom'+num);
+		}
+	});
+	$('.unamemMod').click(function(){
+		$('#diseaselistname').val($(this).data('name'));
+		$('#diseaselistid').val($(this).data('id'));
+		$('#hiddenLevel').val($(this).data('level'));
+		
+		//修改判断是否选中
+		var departmentidStr = $(this).data('departmentid').trim(',');
+		var departmentidArr = departmentidStr.split(',');
+		for(var i in departmentidArr){
+			//选中当前复选框，同时给input赋值
+			$('.formCheckbox-demom'+departmentidArr[i]).removeClass("icon-check-empty");
+			$('.formCheckbox-demom'+departmentidArr[i]).addClass("icon-check");
+			$('.Checkbox-demom'+departmentidArr[i]).val(departmentidArr[i]+',');
+			$('.formCheckbox-demom'+departmentidArr[i]).data('state',1);
+		}
+	});
+</script>

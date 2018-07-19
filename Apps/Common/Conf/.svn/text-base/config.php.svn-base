@@ -1,0 +1,11 @@
+<?php
+$configarr=require APP_PATH.'Common/Common/webconfig.php';
+$dbarr = array(
+	//'配置项'=>'配置值'
+		'DB_PREFIX' => 'ly_',
+		'DB_DSN' => 'mysql://root:xxfltyh@127.0.0.1:3306/phpainengshe',
+		'URL_MODEL' => '2',
+		'MODULE_ALLOW_LIST' => array('Home','Admin'),
+		'DEFAULT_MODULE' =>  'Home',
+);
+return array_merge($configarr,$dbarr);

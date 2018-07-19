@@ -1,0 +1,376 @@
+<script>
+
+	
+//**********************************创建编辑按钮*********************************开始
+	function entry_edit(edit){
+		var editObj = $('.'+edit);
+		var editHTML = '<div style="width:50px;height:30px;line-height:30px;font-size:16px;background:#3399ff;color:white;cursor:pointer;text-align:center;position:relative;z-index:100;top:-40px;left:20%;">编辑</div>';
+		editObj.after(editHTML);
+	}
+	//产生编辑事件
+	$('.editStyle').mouseenter(function(){
+		$(this).children().children(".editStyleDiv").addClass('edit');
+		$(this).children().children(".editStyleDiv").data('sign',$(this).data('id'));
+		entry_edit('edit');
+	}).mouseleave(function(){
+		$(this).children().children(".editStyleDiv").removeClass('edit');
+		$(this).children().children(".editStyleDiv").next().remove();
+	});
+	publicBombBOX('editStyle');
+	publicBombBOX('publicEntryList');
+	//**********************************创建编辑按钮*********************************结束
+	
+//**********************************提交词条审核状态*********************************开始
+	//提交按钮样式
+	$('.butExamineStyle').css({'top':$(window).height()-100,'left':$(window).width()/2-350});
+	subExamineFunc('butExamineStyleYES');
+	subExamineFunc('butExamineStyleNO');
+	function subExamineFunc(subExamine){
+		var subExamineObj = $('.'+subExamine);
+		var entry_id = subExamineObj.data('id');
+		var type = subExamineObj.data('type');
+		var entry_examine = subExamineObj.data('examine');
+		subExamineObj.click(function(){
+			$.ajax({
+				url:URLS+'/HopeEntry/entry_examine',
+				data:'entry_id='+entry_id+'&& entry_examine='+entry_examine+'&& type='+type,
+				type:'get',
+				dataType:'json',
+				success:function(data){
+					if(data.status == 1){
+						window.location.href = URLS+'/HopeEntry/entry_list';
+					}
+				}
+			});
+		});
+	}
+	//**********************************提交词条审核状态*********************************结束
+/***********************************************自定义公共弹框*********************************************************/
+	function publicBombBOX(boxClass){
+		var boxClassObj = $('.'+boxClass);
+		boxClassObj.click(function(){
+			var sign = $(this).data('sign');
+			var id = $(this).data('id');
+			var editHTML = '';
+			if(sign == 1){
+				var cname = $(this).data('cname');
+				var ename = $(this).data('ename');
+				editName = '词条名称';
+				editHTML += '<div style="width:560px;height:50px;margin-left:20px;margin-top:40px;">'; 
+					editHTML += '<div style="width:100px;height:40px;line-height:40px;text-align:center;margin-top:5px;float:left;">中文名称</div>'; 
+					editHTML += '<input type="text" id="cname" name="cname" value="'+cname+'" style="height:40px;width:458px;float:left;margin-top:5px;">'; 
+				editHTML += '</div>'; 
+				editHTML += '<div style="width:560px;height:50px;margin-left:20px;margin-top:10px;">'; 
+					editHTML += '<div style="width:100px;height:40px;line-height:40px;text-align:center;margin-top:5px;float:left;">英文名称</div>'; 
+					editHTML += '<input type="text" id="ename" name="ename" value="'+ename+'" style="height:40px;width:458px;float:left;margin-top:5px;">'; 
+				editHTML += '</div>'; 
+			}else if(sign == 2){
+				editName = '词条类型';
+				var entry_type_id = $(this).data('typeid');
+				editHTML += '<div style="width:560px;height:50px;margin-left:20px;margin-top:40px;">'; 
+					editHTML += '<input name="entry_id" class="CheckboxValue" type="hidden" value=""/>'; 
+					editHTML += '<input name="" class="Checkbox Checkbox-demo1" type="hidden" value=""/><span class="formCheckbox formCheckbox-demo1 icon-check-empty" style="margin-left:15px;" data-id="1" data-state="2" data-name="demo1"></span>疾病';
+					editHTML += '<input name="" class="Checkbox Checkbox-demo2" type="hidden" value=""/><span class="formCheckbox formCheckbox-demo2 icon-check-empty" style="margin-left:15px;" data-id="2" data-state="2" data-name="demo2"></span>医生';
+					editHTML += '<input name="" class="Checkbox Checkbox-demo3" type="hidden" value=""/><span class="formCheckbox formCheckbox-demo3 icon-check-empty" style="margin-left:15px;" data-id="3" data-state="2" data-name="demo3"></span>医院';
+					editHTML += '<input name="" class="Checkbox Checkbox-demo4" type="hidden" value=""/><span class="formCheckbox formCheckbox-demo4 icon-check-empty" style="margin-left:15px;" data-id="4" data-state="2" data-name="demo4"></span>药物';
+					editHTML += '<input name="" class="Checkbox Checkbox-demo5" type="hidden" value=""/><span class="formCheckbox formCheckbox-demo5 icon-check-empty" style="margin-left:15px;" data-id="5" data-state="2" data-name="demo5"></span>科室';
+					editHTML += '<input name="" class="Checkbox Checkbox-demo6" type="hidden" value=""/><span class="formCheckbox formCheckbox-demo6 icon-check-empty" style="margin-left:15px;" data-id="6" data-state="2" data-name="demo6"></span>治疗方式';
+					editHTML += '<input name="" class="Checkbox Checkbox-demo7" type="hidden" value=""/><span class="formCheckbox formCheckbox-demo7 icon-check-empty" style="margin-left:15px;" data-id="7" data-state="2" data-name="demo7"></span>其他';
+				editHTML += '</div>';
+			}else if(sign == 3){
+				var zid = $(this).data('zid');
+				var fid = $(this).data('fid');
+				var deseaseName = $(this).data('name');
+				editName = '疾病类型';
+				$.ajax({
+					url:URLS+'/Common/DiseaseList',
+					type:'post',
+					dataType:'json',
+					async:false,
+					data:'level=1&type=1',
+					success:function(data){
+						if(data.status == 1){
+							editHTML += '<div style="width:560px;height:50px;margin-left:20px;margin-top:40px;">'; 
+								editHTML += '<div style="width:100px;height:40px;line-height:40px;text-align:center;margin-top:5px;float:left;">疾病类型</div>'; 
+								editHTML += '<div style="height:40px;width:458px;margin-top:5px;float:left;">'; 
+									editHTML += '<select id="fSelectName" style="height:40px;color:black;">';
+									editHTML += '<option>请选择疾病一级类型</option>';
+									for(var i in data.data){
+										if(data.data[i]['id'] == fid){
+											editHTML += '<option data-id="'+data.data[i]['id']+'" selected="selected">'+data.data[i]['name']+'</option>';
+										}else{
+											editHTML += '<option data-id="'+data.data[i]['id']+'">'+data.data[i]['name']+'</option>';
+										}
+									}
+									editHTML += '</select>';
+									editHTML += '<select id="zSelectName" style="height:40px;margin-left:50px;color:black;">';
+										editHTML += '<option selected="selected">'+deseaseName+'</option>';
+									editHTML += '</select>';
+								editHTML += '</div>'; 
+							editHTML += '</div>'; 
+						}else{
+							alert('获取数据失败');
+						}
+					}
+				});	
+			}else if(sign == 4){
+				editName = '词条摘要';
+				var abstracts = $(this).data('abstract');
+				editHTML += '<div style="width:560px;height:50px;margin-left:20px;margin-top:40px;">'; 
+					editHTML += '<div style="width:100px;height:40px;line-height:40px;text-align:center;margin-top:5px;float:left;">词条摘要</div>'; 
+					editHTML += '<textarea id="abstract" name="abstract" style="height:200px;width:458px;float:left;margin-top:5px;">"'+abstracts+'"</textarea>'; 
+				editHTML += '</div>'; 
+			}else if(sign == 5){
+				var dataname = $(this).data('dataname');
+				var dataurl = $(this).data('dataurl');
+				editName = '参考资料';
+				editHTML += '<div style="width:560px;height:50px;margin-left:20px;margin-top:40px;">'; 
+					editHTML += '<div style="width:100px;height:40px;line-height:40px;text-align:center;margin-top:5px;float:left;">文件名称</div>'; 
+					editHTML += '<input id="dataname" type="text" name="cname" value="'+dataname+'" style="height:40px;width:458px;float:left;margin-top:5px;">'; 
+				editHTML += '</div>'; 
+				editHTML += '<div style="width:560px;height:50px;margin-left:20px;margin-top:10px;">'; 
+					editHTML += '<div style="width:100px;height:40px;line-height:40px;text-align:center;margin-top:5px;float:left;">文件来源</div>'; 
+					editHTML += '<input id="dataurl" type="text" name="ename" value="'+dataurl+'" style="height:40px;width:458px;float:left;margin-top:5px;">'; 
+				editHTML += '</div>'; 
+			}else if(sign == 6){
+				var ctype = $(this).data('ctype'); //目录层级：1一级 2二级
+				var ntype = $(this).data('ntype'); //标题内容：1标题 2内容
+				var editID = $(this).data('id');
+				var uEditorID = 'editor_'+editID+'_'+ntype;
+				var script = 'script';
+				var editName = $(this).data('catalog');
+				var editContent = $('#contentOne_'+editID).html();
+				
+				editHTML += '<div style="width:660px;height:50px;margin-left:20px;margin-top:40px;">'; 
+					editHTML += '<div style="width:100px;height:40px;line-height:40px;text-align:center;margin-top:5px;float:left;">目录标题</div>'; 
+					editHTML += '<input id="cataeditName" type="text" name="cname" value="'+editName+'" style="height:40px;width:560px;float:left;margin-top:5px;">'; 
+				editHTML += '</div>'; 
+				editHTML += '<input type="hidden" name="catalogid" value="'+editID+'"/>';
+				editHTML += '<div style="width:660px;height:50px;margin-left:20px;margin-top:10px;">'; 
+					editHTML += '<div style="width:100px;height:40px;line-height:40px;text-align:center;margin-top:5px;float:left;">内容</div>'; 
+					editHTML += '<'+script+' id="'+uEditorID+'" type="text/plain" name="catalogTwoedit" style="float:left;width:560px;height:280px;overflow-y:auto;max-height:280px;">'+editContent+'</'+script+'>'; 
+				editHTML += '</div>'; 
+				
+			}
+			boxClassOne = boxClass+1;
+			boxClassTwo = boxClass+2;
+			boxClassThree = boxClass+3;
+			//样式
+			boxWidth = $(window).width()+'px';
+			boxHeight = $(window).height()+'px';
+			tboxWidth = (($(window).width()-600)/2)+'px';
+			tboxHeight = (($(window).height()-371)/2)+'px';
+			mboxWidth = (($(window).width()-600)/2+610)+'px';
+			mboxHeight = (($(window).height()-371)/2-50)+'px';
+			nboxHeight = (($(window).height()-371)/2+317-25)+'px';
+			var boxHTML = '';
+			boxHTML += '<div class="'+boxClassOne+'" style="width:'+boxWidth+';color:white;height:'+boxHeight+';z-index:10000;background:rgba(0,0,0,0.8);position:relative;padding-top:'+tboxHeight+';top:0px;">';
+				boxHTML += '<div class="'+boxClassTwo+'" style="width:600px;height:371px;background:white;position:absolute;color:black;margin-left:'+tboxWidth+';opacity:1;border-radius:5px;;">';
+					boxHTML += editHTML;
+				boxHTML += '</div>';
+				boxHTML += '<div class="'+boxClassThree+'" style="width:100px;height:50px;line-height:50px;text-align:center;position:absolute;left:'+mboxWidth+';top:'+mboxHeight+';font-size:18px;color:white;cursor:pointer;">X  关闭</div>';
+				boxHTML += '<div class="'+boxClassThree+'" style="width:auto;height:50px;font-weight:bold;line-height:50px;text-align:left;position:absolute;left:'+tboxWidth+';top:'+mboxHeight+';font-size:18px;color:white;cursor:pointer;font-size:24px;">'+editName+'  <span style="font-size:18px;color:white;font-weight:normal;">修改</span></div>';
+				boxHTML += '<div class="lastDivSubmit" style="width:600px;height:80px;position:absolute;left:'+tboxWidth+';top:'+nboxHeight+';">';	
+					boxHTML += '<div id="publicSubDIV" data-sign="'+sign+'" data-id="'+id+'" style="width:50%;height:100%;line-height:80px;text-align:center;background:green;border-radius:0 0 0 5px;float:left;font-size:24px;cursor:pointer;">确  定';
+					boxHTML += '</div>';
+					boxHTML += '<div class="'+boxClassThree+'" style="width:50%;height:100%;line-height:80px;text-align:center;background:red;border-radius:0 0 5px 0;float:right;font-size:24px;cursor:pointer;">取  消';
+					boxHTML += '</div>';
+				boxHTML += '</div>';
+				if(sign == 6){
+					var nboxHeights = (($(window).height()-371)/2+410)+'px';
+					boxHTML += '<div style="width:400px;height:100px;position:absolute;left:'+tboxWidth+';top:'+nboxHeights+';">';
+						boxHTML += '<input type="submit" class="subStyle" name="" value="提交" style="margin-left:0px;margin-top:0px;width:100%;height:100%;border:0px solid green;background:green;font-size:18px;color:white;">';
+					boxHTML += '</div>';
+				}
+			boxHTML += '</div>';
+							<!-- console.log(boxHTML); -->
+			//写入容器
+			if(sign == 6){
+				var formEditCata = '';
+				formEditCata += '<form  action="'+URLS+'/HopeEntry/entry_edit?sign=6" method="post" role="form" enctype="multipart/form-data">';
+				formEditCata += boxHTML;
+				formEditCata += '</form>';
+				$('#content').after(formEditCata);
+			}else{
+				$('#content').after(boxHTML);
+			}
+			lastSubmitFunc()
+			if(sign == 2){
+				//激活词条类型复选框
+				$('.fairsoformJS').ready(function(){
+					for(i=1;i<7;i++){
+						formCheckboxStar('demo'+i);
+					}
+					//激活默认选中项
+					$('.formCheckbox-demo'+entry_type_id).removeClass("icon-check-empty");
+					//增加选中样式
+					$('.formCheckbox-demo'+entry_type_id).addClass("icon-check");
+					$('.formCheckbox-demo'+entry_type_id).data("state",1);
+					$('#publicSubDIV').data('entry_id',entry_type_id);
+					//点击选中或取消
+					$('.formCheckbox').click(function(){
+						var pid=$(this).data('id');
+						var state=$(this).data('state');
+						<!-- alert(state) -->
+						if(state == 1){
+							//去除选中样式
+							$(this).removeClass("icon-check");
+							//增加未选中样式
+							$(this).addClass("icon-check-empty");
+							//更新缓存状态
+							$('.CheckboxValue').val('');
+							$(this).data('state',2);
+						}else if(state == 2){
+							//未被选中执行选中操作
+							 $(".formCheckbox").each(function(){
+								if($(this).data('state') == 1){
+									$(this).removeClass("icon-check");
+									$(this).data('state',2);
+									$(this).addClass("icon-check-empty");
+								}
+							  });
+							//初始化所有复选框
+							$(this).removeClass("icon-check-empty");
+							//增加选中样式
+							$(this).addClass("icon-check");
+							$('.CheckboxValue').val(pid);
+							$(this).data('state',1);
+						}
+						//同时写入数据等待提交修改
+						$('#publicSubDIV').data('id',id);
+						$('#publicSubDIV').data('entry_id',pid);
+					})
+				});
+			}else if(sign == 3){
+				//确定按钮的默认值
+				$('#publicSubDIV').data('disease_id',zid);
+				//点击一级疾病类型
+				$("#fSelectName").change(function(){
+					//获取父级ID
+					var fDeseaseId = $(this).find('option:selected').data('id');
+					//一级赋值
+					$('.deseaseFtype').val(fDeseaseId);
+					$.ajax({
+						url:URLS+'/Common/DiseaseList',
+						type:'get',
+						async:false,
+						dataType:'json',
+						data:'fid='+fDeseaseId+'&level=2&type=2',
+						success:function(info){
+							if(info.status == 1){
+								//清空二级下拉框
+								$('#zSelectName').html('');
+								var selectHTML = '';
+								selectHTML += '<option>请选择疾病一级类型</option>';
+								for(var i in info.data){
+									selectHTML += '<option data-id="'+info.data[i]['id']+'">'+info.data[i]['name']+'</option>';
+								}
+								$('#zSelectName').append(selectHTML);
+							}else{
+								//隐藏二级下拉框
+							alert('获取数据失败');
+							}
+						}
+					});	
+				});
+				
+				//点击一级疾病类型
+				$("#zSelectName").change(function(){
+					//获取父级ID
+					var fDeseaseId = $(this).find('option:selected').data('id');
+					//同时写入数据等待提交修改
+					$('#publicSubDIV').data('id',id);
+					$('#publicSubDIV').data('disease_id',fDeseaseId);
+				});
+				
+				
+			}else if(sign == 6){
+				//实例化编辑器
+				//建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+				var ue = UE.getEditor(uEditorID);
+				function getContent() {
+					var arr = [];
+					arr.push(UE.getEditor(uEditorID).getContent());
+				};
+				tboxHeight = (($(window).height()-500)/2)+'px';
+				nboxHeight = (($(window).height()-500)/2+500-25)+'px';
+				$('.'+boxClassTwo).css({'width':'800px','height':'500px'});
+				$('.lastDivSubmit').css({'width':'800px','height':'100px','top':nboxHeight});
+				//同时写入数据等待提交修改
+				$('#publicSubDIV').data('id',editID);
+			}
+			//实例化
+			boxClassOneObj = $('.'+boxClassOne);
+			boxClassTwoObj = $('.'+boxClassTwo);
+			boxClassThreeObj = $('.'+boxClassThree);
+			
+			//关闭按钮
+			boxClassThreeObj.click(function(){
+				boxClassOneObj.remove();
+			}); 
+		});
+	}
+	//确定提交
+	function lastSubmitFunc(){
+		$('#publicSubDIV').click(function(){
+			var sign = $(this).data('sign');
+			var id = $(this).data('id');
+			if(sign == 1){
+				var cname = $('#cname').val();
+				var ename = $('#ename').val();
+				var subData = 'cname='+cname+'& ename='+ename+'& id='+id+'& sign='+sign;
+			}else if(sign == 2){
+				var entry_id = $(this).data('entry_id');
+				var subData = 'entry_id='+entry_id+'& id='+id+'& sign='+sign;
+			}else if(sign == 3){
+				var disease_id = $(this).data('disease_id');
+				var subData = 'disease_id='+disease_id+'& id='+id+'& sign='+sign;
+			}else if(sign == 4){
+				var abstracts = $('#abstract').val();
+				var subData = 'abstract='+abstracts+'& id='+id+'& sign='+sign;
+			}else if(sign == 5){
+				var dataname = $('#dataname').val();
+				var dataurl = $('#dataurl').val();
+				var subData = 'dataname='+dataname+'& dataurl='+dataurl+'& id='+id+'& sign='+sign;
+			}
+			$.ajax({
+				url:URLS+'/HopeEntry/entry_edit',
+				data:subData,
+				type:'get',
+				dataType:'json',
+				success:function(data){
+					if(data.status == 1){
+						 window.location.reload();;
+					}else{
+						alert('修改失败!');
+					}
+				}
+			});
+		});
+	}
+///***********************************************自定义公共弹框******************************************************结束
+	var entryContentDivHeight = $('.entryContentDiv').height();
+	var entryContentDivHeightALL = entryContentDivHeight+400+'px';
+	$('.entryDivOne').css({'height':entryContentDivHeightALL});
+//***********************************************词条内容编辑按钮****************************************************开始
+	$('.publicEntryList').mouseenter(function(){
+		$(this).css({'border':'1px dashed grey'});
+		//添加编辑按钮
+		$(this).addClass('edit');
+		entry_edit('edit');
+	}).mouseleave(function(){
+		$(this).removeClass('edit');
+		$(this).next().remove();
+		$(this).css({'border':'hidden'});
+	});
+
+//***********************************************词条内容编辑按钮****************************************************结束
+
+
+
+
+
+
+
+
+</script>

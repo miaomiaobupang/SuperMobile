@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>超级医生后台管理-登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <!-- Bootstrap -->
+    <link href="__PUBLIC__/Theme/Fashion/assets/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="__PUBLIC__/Theme/Fashion/assets/css/vendor/bootstrap-checkbox.css">
+    <link href="__PUBLIC__/Theme/Fashion/assets/css/minimal.css" rel="stylesheet">
+    <script src="__PUBLIC__/Theme/Fashion/assets/js/jquery.min.js"></script>
+	<script type="text/javascript">
+        $(function(){
+            $('#username').focus();
+            //用户退出
+            $('#out').bind('click',function(){
+                $.ajax({
+                    url:'__MODULE__/Login/loginOut',
+                    dataType:'json',
+                    success:function(data){
+                       $('#out').next().html('再见');
+                    }
+                })
+            });
+			
+			$('#username,#password').blur(function(){
+				$(this).css({'backgroundColor':'#fff'});
+			});
+			$('#username,#password').focus(function(){
+				$(this).css({'backgroundColor':'#fff'});
+			});
+        })
+		
+    </script>
+	<style>
+		.loginnewDiv{
+			margin-top:100px;
+			padding-bottom:60px;
+			font-size:40px;
+			color:#009fa8;
+		}
+		.ac,.ec{
+			height:40px;
+			width:360px;
+			padding-left:11px;
+			color:#000;
+		}
+		body #content.full-page .inside-block form .input-group input{
+			border-radius:4px!important;
+			background-color:#fff!important;
+		}
+		body #content.full-page .inside-block form .input-group input::-moz-placeholder{
+			color:#999!important;
+		}
+		.input-groups{
+			margin-top:15px;
+		}
+		#su{
+			height:40px;
+			width:360px;
+			color:#fff;
+			background-color:#3399ff;
+			margin-top:50px;
+			font-size:16px;
+			line-height:25px;
+		}
+		#su:hover{
+			background-color:#0373e4;
+		}	
+	</style>
+</head>
+<body class="bg-1">
+
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+      <!-- Make page fluid -->
+      <div class="row">
+        <!-- Page content -->
+        <div id="content" class="col-md-12 full-page login">
+          <div class="inside-block">
+			<div class="loginnewDiv">
+				<!-- <img src="__IMG__/loginnew.png" alt class="logo"> -->
+				超级医生
+			</div>
+            <form id="form-signin" class="form-signin" >
+              <section>
+                <div class="input-groups">
+                  <input type="text" class="ac" name="username" id="username" placeholder="帐号">
+                </div>
+                <div class="input-groups">
+                  <input type="password" class="ec" name="password" id="password" onkeyup="keydownLogins(event);" placeholder="密码">
+                </div>
+              </section>
+              <section class="log-ins">
+                <a class="btn btn-greensea btn-block" id="su">登录</a>
+                <!-- <span>or</span>
+                <button class="btn btn-slategray">Create an account</button>-->
+              </section>
+            </form>
+          </div>
+
+
+        </div>
+        <!-- /Page content -->  
+      </div>
+    </div>
+    <!-- Wrap all page content end -->
+</body>
+<script>
+	function login(){
+		var username = $('#username').val();
+		var password = $('#password').val();
+		if(username == ''){
+			$('#username').next().html('用户名不能为空');
+			$('#username').focus();
+			return false;
+		}
+		if(password == ''){
+			$('#password').next().html('密码不能为空');
+			$('#password').focus();
+			return false;
+		}
+		$.ajax({
+			url:'__MODULE__/Login/check',
+			type:'post',
+			dataType:'json',
+			data:{"username":username,"password":password},
+			beforeSend:function(){
+				$('#before').html('登陆中.....');
+			},
+
+			success:function(data){
+				if(data == 1){
+					$('#before').html('登陆成功');
+					window.location.href="__MODULE__/Index/index";
+				}else{
+					$('#before').remove();
+					$('#error').html('登陆失败');
+				return false;
+				}
+			}
+		})
+	}
+	$('.btn').click(function(){
+		//执行登录
+		login();
+	});
+	function keydownLogins(evt){
+		evt = (evt) ? evt : ((window.event) ? window.event : "")
+		keyCode = evt.keyCode ? evt.keyCode : (evt.which ? evt.which : evt.charCode);
+		if (keyCode == 13) {
+			//执行登录
+			login();
+		}
+	}
+</script>
+</html>
+      
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

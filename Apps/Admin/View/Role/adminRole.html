@@ -1,0 +1,126 @@
+<style>
+.divContents{
+	width:425px;
+	margin-left:323px;
+	margin-top:45px;
+	font-size:16px;
+}
+.content_top{
+	height:35px;
+	width:425px;
+	line-height:30px;
+}
+.selectContent{
+	color:#000;
+	width:340px;
+	margin-left:85px;
+	margin-top:-31px;
+}
+.selectContent select{
+	width:340px;
+	height:35px;
+	text-align:center;
+}
+.content_down{
+	width:425px;
+	margin-top:35px;
+}
+.divButton{
+    margin-left:425px;
+    margin-top:60px;
+	padding-bottom:45px;
+}
+.backButton{
+	width:60px;
+	height:30px;
+	line-height:25px;
+}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">权限管理</b> 
+		<span>- role add</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+    <div class="row">
+		<!-- col 12 -->
+        <div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>配置用户权限</strong>
+					</h1>
+					<div class="pull-right">
+						<a href="__WEBURL__/Role/showUser?p={$p}" role="button" class="btn btn-red backButton" style="background:#1bceab;"> 返 回 </a>
+					</div>
+					<div class="controls">
+						<a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+						<a href="#" class="remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body form-group form-footer">
+					<form action="__MODULE__/Role/userRole" method="post">
+                        <div class="divContents">
+							<div class="content_top">
+								<span>后台用户：</span>
+								<div class="selectContent">
+									<select id="selectUname" name="uid">
+										<option value=""> 请选择管理员 </option>
+										<foreach name="data" item="da">
+											<option value="{$da.uid}"> {$da.uname} </option>
+										</foreach>
+									</select>
+								</div>
+							</div>
+							<div class="content_down">
+								<span>选择角色：</span>
+								<div class="selectContent">
+									<select id="selectName" name="roles">
+										<option value=""> 请选择角色 </option>
+										<foreach name="map" item="ma">
+											<option value="{$ma.id}"> {$ma.name} </option>
+										</foreach>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="divButton"><input type="submit" value="提交" style="width:300px;font-size:16px;" class="btn btn-greensea btn-block"/></div>
+					</form>
+				</div>
+                <!-- /tile body -->
+			</section>
+            <!-- /tile -->
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container -->
+<script>
+	var uid="{$uid}";
+	var id="{$row}";
+</script>
+
+
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

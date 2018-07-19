@@ -1,0 +1,260 @@
+<style>
+.child{
+	display:none;
+}
+.hand{
+	cursor: pointer;
+}
+body #content .dataTables_wrapper{
+    font-size: 14px;
+}
+body #content .dataTables_filter{
+    margin-left:150px;
+}
+.radioStyle{
+	background-color:#aaa;
+	opacity:0.5;
+	width:140px;
+	height:35px;
+	margin-left:14px;
+	border-radius:5px;
+}
+.pull-right{
+	margin-right:10px;
+}
+.userName a{
+	text-decoration:none;
+	color:#fff;
+}
+.userName a:hover{
+	color:#97f2ff;
+}
+.divUlli ul li{
+	width:100px;
+	margin-left:10px;
+	border-bottom:1px dashed #fff;
+}
+.divUlli ul li a{
+	color:#fff;
+	font-size:14px;
+	text-align:center;
+}
+.divUlli a{
+	font-size:14px;
+}
+.divUlli ul li:hover{
+	opacity:0.6;
+}
+.divUlli ul li a:hover{
+	color:#fff;
+	background:#466b8e;
+	opacity:1;
+}
+.btn.btn-primary.btn-sm {
+    width: 120px;
+}
+.form-control{
+	width:200px;
+}
+.divSearch{
+	margin-left:850px;
+	margin-top:-30px;
+}
+.buttonDiv{
+	margin-left:200px;
+	margin-top:-51px;
+}
+.btnSeacher{
+	height:35px;
+	font-size:15px;
+}
+#WorkPopup{
+	background-color: #FFFFFF;
+    border-radius: 10px 10px 20px 20px;
+    width:730px;
+	position: absolute;
+	margin-left:125px;
+}
+#WorkPopup .PopupBody{
+	background-color:#E6E9E9;
+	border-radius: 10px 10px 0px 0px;
+	margin:10px 10px 0px 10px;
+	text-align:center;
+}
+#WorkPopup .PopupBody p{
+	margin:0px;
+	line-height:320px;
+	font-size:24px;
+	color:#668db8;
+}
+#WorkPopup .PopupHead{
+	font-size: 30px;
+    left: 20px;
+    position: absolute;
+    top: -50px;
+	color:#fff;
+}
+#WorkPopup .PopupFooter{
+	width:100%;
+	line-height:70px;
+	height:70px;
+	text-align:center;
+	font-size:30px;
+	border-radius: 0 0 20px 20px;
+	cursor:pointer;
+}
+#WorkPopup .PopupFooter span{
+	display:block;
+	width:50%;
+	text-align:center;
+	float:left;	
+}
+#WorkPopup .PopupFooter .PopupFooterBack{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 0 20px;
+}
+#WorkPopup .PopupFooter .PopupFooterTrue{
+	color:#668db8;
+	background-color: #FFFFFF;
+	border-radius:0 0 20px 0;
+}
+#WorkPopup .PopupFooter span:hover{
+	color:#FFFFFF;
+	background-color: #668db8;
+}
+</style>
+<!-- 页面头部开始 -->
+<div class="pageheader">
+	<h2>
+		<i class="icon-cogs" style="line-height: 48px;padding-left: 1px;"></i> 
+		<b class="chineseBlack">企业管理</b> 
+		<span>- Department Management</span>
+	</h2>
+	<!-- 小面包屑导航开始 -->
+	<div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li>You are here</li>
+			<li><a href="index.html">Minimal</a></li>
+			<li><a href="form-elements.html">Forms</a></li>
+			<li class="active">Form Elements</li>
+		</ol>
+	</div>
+</div>
+<!-- 页面头部结束 -->
+<!-- content main container -->
+<div class="main">
+	<!-- row -->
+	<div class="row">
+		<!-- col 12 -->
+		<div class="col-md-12">
+			<!-- tile -->
+			<section class="tile color transparent-black">
+				<!-- tile header -->
+				<div class="tile-header">
+					<h1>
+						<strong>企业列表</strong>
+					</h1>
+					<div class="pull-right">
+						<!-- <a href="__CONTROLLER__/real_add" role="button" class="btn btn-red" data-toggle="modal"><span class="icon-plus"></span> 添加企业</a> -->
+						<!-- <a href="__CONTROLLER__/real_checkList" role="button" class="btn btn-red" data-toggle="modal"> 企业审核</a> -->
+					</div>
+					<div class="divSearch">
+						<form method="get" action="__WEBURL__/Real/index">
+							<div class="form-group">
+								<input type="text" style="border-radius:4px 0px 0px 4px;" class="form-control" id="exampleInputEmail1" name='name' placeholder="企业名称" value="" />
+							</div>
+							<div class="buttonDiv">
+								<button style="width:66px;border-radius:0px 4px 4px 0px;" class="btnSeacher btn btn-default btn btn-primary btn-sm" type="submit"/><i class="icon-search"></i> 检索</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- /tile header -->
+				<!-- tile body -->
+				<div class="tile-body form-group form-footer">
+					<table class="table" id="basicDataTable">
+						<thead>
+							<tr>
+							  <th class="text-center">ID</th>
+							  <th class="text-center">企业名称</th>
+							  <th class="text-center">负责人</th>
+							  <th class="text-center hidden-xs">企业营业执照号码</th>
+							  <th class="text-center">是否审核</th>
+							  <th class="text-center">审核时间</th>
+							  <th class="text-center">状态</th>
+							  <th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<foreach name="datas" item="da">
+								<tr>
+									<td class="text-center">{$da.id}</td>
+									<td class="text-center" style="white-space:normal;width:280px;">{$da.name}</td>
+									<td class="text-center" style="white-space:normal;width:160px;">
+										<if condition="$da.tname neq NULL">{$da.tname}<else/>无</if>
+									</td>
+									<td class="text-center hidden-xs" style="white-space:normal;width:160px;">{$da.card}</td>
+									<td class="text-center hidden-xs">
+										<if condition="$da.statecode eq 1">认证成功</if>
+										<if condition="$da.statecode eq 2">审核中</if>
+										<if condition="$da.statecode eq 3">审核失败</if>
+									</td>
+									<td class="text-center">{$da.ktime|date="Y-m-d H:i:s",###}</td>
+									<td class="text-center">
+										<if condition="$da.state eq 1"><span class="icon-ok" title="正常"></span></if>
+										<if condition="$da.state eq 2"><span class="icon-remove" title="禁用"></span></if>
+									</td>
+									<td class="text-right">
+										<div class="dropdown divUlli">
+											<a class="btn btn-primary btn-sm" ata-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+												操&nbsp;&nbsp;&nbsp;作&nbsp;
+												<span class="caret"></span>
+											</a>
+											 <ul class="dropdown-menu" style="margin-left:28px;min-width:120px;background:#466b8e;opacity:0.8;" aria-labelledby="dLabel">
+												<li><a role="button" href="__CONTROLLER__/jurisdictionUser/id/{$da.id}">权&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;限</a></li>
+												<li><a role="button" href="__WEBURL__/Real/realInfoAdd?id={$da.id}&sty=1&p={$p}&jname={$jname}">修正信息</a></li>
+												<li><a role="button" href="__CONTROLLER__/real_detail/id/{$da.id}" target="_blank">详&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;情</a></li>
+												<if condition="($da.uphoneNum eq 1) AND ($num eq 1)">
+												<li><a role="button"  class="superPass" data-id="{$da.id}">超级密码</a></li>
+												</if>
+												<!-- <li>
+													<if condition="$da.state eq 2">	
+														<a role="button" href="__CONTROLLER__/real_del/id/{$da.id}/type/1">启&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用</a>
+													<else />	
+														<a role="button" href="__CONTROLLER__/real_del/id/{$da.id}/type/2">禁&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用</a>
+													</if>
+												</li> -->
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</foreach>
+							<tr>
+								<td colspan="8"><span style="float:right;">{$row}</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			<!-- /tile body -->
+			</section>
+			<!-- 模块确认修改密码开始表单结束 -->
+				<div class="GeneralPopup" id="WorkPopup">
+					<div class="PopupBody">
+						<p><span class="icon-ok" style="color:#4CAE4C;padding-right:30px;font-size:40px"></span>您确定要修改吗？将以短信形式发送至手机</p>
+					</div>
+					<div class="PopupFooter">
+						<span class="PopupFooterBack" data-id="WorkPopup">取消</span>
+						<span class="PopupFooterTrue cooperationSure PopupFooterBack" data-id="WorkPopup" data-ids="">确认</span>
+					</div>
+				</div>
+				<!-- 模块确认修改密码开始结束 -->
+			<!-- /tile -->				
+		</div>
+		<!-- /col 6 -->
+	</div>
+	<!-- /row -->
+</div>
+<!-- /content container --><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

@@ -1,0 +1,170 @@
+
+<script>
+	//------------------------执行复选框初始化---------------开始
+	$('.fairsoformJS').ready(function(){
+		var length=$('.entry_type').data('num');
+		var num=0;
+		for(i=1;i<length;i++){
+			num=num+1;
+			formCheckboxStar('demo'+num);
+		}
+		//点击选中或取消
+		$('.formCheckbox').click(function(){
+			var pid=$(this).data('id');
+			var state=$(this).data('state');
+			if(state == 2){
+				//去除选中样式
+				$('.formCheckbox-demo'+pid).removeClass("icon-check");
+				//增加未选中样式
+				$('.formCheckbox-demo'+pid).addClass("icon-check-empty");
+				//更新缓存状态
+				$('.CheckboxValue').val('');
+			}else{
+				//未被选中执行选中操作
+				 $(".formCheckbox").each(function(){
+					if($(this).data('state') == 1){
+						$(this).removeClass("icon-check");
+						$(this).data('state',2);
+						$(this).addClass("icon-check-empty");
+					}
+				  });
+				 $(this).data('state',1);
+				//初始化所有复选框
+				$('.formCheckbox-demo'+pid).removeClass("icon-check-empty");
+				//增加选中样式
+				$('.formCheckbox-demo'+pid).addClass("icon-check");
+				$('.CheckboxValue').val(pid);
+				if(pid == 3){
+					$('.cointryStyle').show(1000);
+				}else{
+					$('.cointryStyle').hide(1000);
+				}
+			}
+		})
+	});
+
+	//------------------------执行复选框初始化---------------结束
+	
+	//--------------------选中疾病类型事件---------------开始
+	$("#fSelectName").change(function(){
+		//获取父级ID
+		var fDeseaseId = $(this).find('option:selected').data('id');
+		//一级赋值
+		$('.deseaseFtype').val(fDeseaseId);
+		$.ajax({
+			url:URLS+'/Common/DiseaseList',
+			type:'get',
+			dataType:'json',
+			data:'fid='+fDeseaseId+'&level=2&type=2',
+			success:function(data){
+				if(data.status == 1){
+					//清空二级下拉框
+					$('.publicSpanDIV').html('');
+					//显示二级下拉框
+					$('.publicSpanDIV').css({'visibility':'visible'});
+					var selectHTML = '';
+					for(var i in data.data){
+						selectHTML += '<div class="publicSpan" data-state="2" data-id="'+data.data[i]['id']+'">'+data.data[i]['name']+'</div>';
+					}
+					selectHTML += '<div style="clear:both"></div>';
+					$('.publicSpanDIV').append(selectHTML);
+					twoDiseaseSelect('publicSpan');
+				}else{
+					//隐藏二级下拉框
+					$('.publicSpanDIV').css({'visibility':'hidden'});
+				}
+			}
+		});	
+		
+		
+	});
+	
+	$("#zSelectName").change(function(){
+		//获取父级ID
+		var zDeseaseId = $(this).find('option:selected').data('id');
+		//一级赋值
+		$('.deseaseZtype').val(zDeseaseId);
+	})
+	//多选二级疾病类型
+	function twoDiseaseSelect(publicSpan){
+		var twoDiseaseSelectObj = $('.'+publicSpan);
+		twoDiseaseSelectObj.click(function(){
+			var state = $(this).data('state');
+			var id = $(this).data('id');
+			if(state == 1){
+				//放弃选中状态
+				$(this).data('state',2);
+				$(this).css({'background':'white','color':'black'});
+				//移除二级疾病选中值
+				$(this).next().remove();
+			}else if(state == 2){
+				//添加选中状态
+				$(this).data('state',1);
+				$(this).css({'background':'red','color':'white'});
+				//添加二级疾病选中值
+				var selectHTML ='<input name="diseaseID[]" value="'+id+'" type="hidden">';
+				$(this).after(selectHTML);
+			}
+		});
+	}
+	
+	
+	//--------------------选中疾病类型事件---------------结束
+	//--------------------词条主体内容-------------------开始
+	//实例化编辑器
+	//建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+	var ue = UE.getEditor('editor');
+	function getContent() {
+		var arr = [];
+		arr.push(UE.getEditor('editor').getContent());
+		
+	};
+	
+	
+	//**************************提交表单数据************************************开始
+	$("form").submit(function(e){
+		var EntryCname = $('#EntryCname').val();
+		if(EntryCname == '' || EntryCname == undefined){
+			alert('请填写词条名称');
+			return false;
+		}
+		//判断图片接收ID不能为空
+		var uploadDivsID = $('.uploadDivs11').val();
+		if(uploadDivsID == '' || uploadDivsID == undefined){
+			alert('请上传词条封面图');
+			return false;
+		}
+		var CheckboxValue = $('.CheckboxValue').val();
+		if(CheckboxValue == '' || CheckboxValue == undefined){
+			alert('请选择词条类型');
+			return false;
+		}
+		var deseaseFtype = $('.deseaseFtype').val();
+		if(deseaseFtype == '' || deseaseFtype == undefined){
+			alert('请选择疾病一级类型');
+			return false;
+		}
+		var abstractName = $('#abstractName').val();
+		if(abstractName == '' || abstractName == undefined){
+			alert('请选填写词条摘要');
+			return false;
+		}
+		var entryContentDivOne = $('#editor').html();
+		if(entryContentDivOne == '' || entryContentDivOne == undefined){
+			alert('请选填写词条内容');
+			return false;
+		}
+		return true;
+	});
+	//**************************提交表单数据************************************结束
+	//提交按钮样式
+	$('.butExamineStyle').css({'top':$(window).height()-100,'left':$(window).width()/2-200});
+	$('.catalogOneFixed').css({'top':$(window).height()-82,'left':$(window).width()/2-250});
+	//页面高度
+	var entryContentDivHeight = $('.entryContentDiv').height();
+	var entryContentDivHeightALL = entryContentDivHeight+1000+'px';
+	$('.entryDivOne').css({'height':entryContentDivHeightALL});
+	
+	//****************************初始化上传图片***********************************开始
+	fileUploadBody('uploadDivs');
+</script>

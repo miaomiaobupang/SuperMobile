@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>朗月（中国）</title>
+	<link rel="shortcut icon" href="img/icon.png">
+	<link rel="stylesheet" type="text/css" href="__CSS__/css_reset.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/style.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/owl.carousel.css" >
+  	<link rel="stylesheet" type="text/css" href="__CSS__/owl.theme.css">
+  	<link rel="stylesheet" type="text/css" href="__CSS__/owl.transitions.css">
+
+	<script type="text/javascript" src="__JS__/jquery.min.js"></script>
+	<script type="text/javascript" src="__JS__/move-top.js"></script>
+	<script type="text/javascript" src="__JS__/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="__JS__/scroll_y.js"></script>
+	<style type="text/css">
+        #owl-demo .item img{
+            display: block;
+            width: 100%;
+            height: 680px;
+        } 
+        .owl-pagination{display: none;}
+        #owl-demo .owl-buttons{display: none;} 
+        .owl-theme .owl-controls{margin: 0;}
+        /**/
+        .bd{display: none;position: fixed;top:200px;z-index: 99;width:774px;margin:0 auto;height:696px;border: 2px solid #1b1b1b;border-right-width: 0px;background: #000000;}
+		.bd .top{width: 758px;height:696px;overflow:hidden;float:left;}
+		.bd .top > div{width:100%;padding: 80px 0 80px 0;color: #fff;font-size: 16px;}
+		.bd .top > div {width: 554px;margin: 0 auto;line-height: 40px;}
+		.bd .top > div > h2{font-size: 30px;line-height: 40px;padding-top: 9px;}
+		.bd .top > div > span{font-size: 12px;display: block;}
+		.bd .top > div .news_center{text-align: center;width: 100%;}
+		.bd .top > div em{font-weight: bold;} 
+		.bd .top > div > div{margin-top: 20px;}
+		.bd .top > div > div img{width: 100%;}
+		.bd .top > div > div p{line-height: 40px;font-size: 16px;}
+		.bd .scroll{width:16px;height:577px;float:left;height:696px;background:#464646;position:relative;}
+		.bd .scroll p{width:10px;height:160px;background:#aaaaaa;cursor:auto;left:3px;top:1px;position:absolute;}
+	</style>
+</head>
+<body>
+	<div class="head">
+		<!-- logo -->
+		<div class="logo"><a href="http://www.langyue.org/"></a></div>
+		<!-- nav -->
+		<ul class="top-nav clearfix">                                               
+			<li><a href="#move" class="scroll">移动互联网服务</a></li>
+			<li><a href="#app" class="scroll">交互式APP</a></li>
+			<li><a href="#news" class="scroll">媒体报道</a></li>
+			<li><a href="#client" class="scroll">合作客户</a></li>
+			<li><a href="#about" class="scroll">公司介绍</a></li>
+			<li><a href="#join" class="scroll">加入我们</a></li>
+		</ul>
+	</div>
+	<!-- nav-js -->
+	<script type="text/javascript">
+		$(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top - 142},800);
+			});
+		});
+	</script>
+	<div class="scroll_wrap" style="margin-top: 142px;">
+		<a href="#move" class="scroll scroll_href">
+			<img src="__IMG__/scroll_href.png" alt="" />
+		</a>
+		<div id="owl-demo" class="owl-carousel scroll_img">
+		    <div class="item scroll_img1"></div>
+		    <div class="item scroll_img2"></div>
+		    <div class="item scroll_img3"></div>
+		</div>
+	</div>
+
+	<!-- 定制app -->
+	<div id="move" class="Dapp_wrap">
+		<div class="Dapp">
+			<div class="title Dapp_title">
+				<h2>APP定制开发</h2>
+				<p>专注于企业级商用APP</p>
+			</div>
+			<ul class="Dapp_class clearfix">
+				<li>
+					<a href="#">
+						<img src="__IMG__/app_class1.png" alt="展示型APP" />
+						<span>展示型APP</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="__IMG__/app_class2.png" alt="交互型APP" />
+						<span>交互型APP</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="__IMG__/app_class3.png" alt="软件升级及维护管理" />
+						<span>软件升级及维护管理</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="owl-demo1" class="owl-carousel" style="border-bottom: 1px solid #ccc;">
+	    <div class="item">
+	    	<!-- 展示型APP -->
+			<div class="Zapp_wrap">
+				<div class="Zapp">
+					<div class="title Zapp_title">
+						<h2>展示型APP</h2>
+						<p>针对企业介绍、产品说明、服务体系等，以展示为目的专属APP定制开<br />发，通过先进的技术开发与国际化视觉设计，将企业多种对外信息展示<br />到有效客户，让客户体验更加清晰、生动，更具交互性。</p>
+					</div>
+				</div>
+				<div class="Zapp_img">
+					<img src="__IMG__/Zapp_img.jpg" alt="" />
+				</div>
+			</div>
+	    </div>
+	    <div class="item">
+	    	<!-- 交互式APP -->
+			<div class="Japp_wrap">
+				<div class="Japp clearfix">
+					<div class="left">
+						<img src="__IMG__/Japp_img.jpg" alt="" />
+					</div>
+					<div class="title right">
+						<h2>交互型APP</h2>
+						<p>实现以企业不同类型模块管理为基础的定制开发，实现客户关系管理(CRM)、办公自动化管理（OA）、销售控制管理(SM)、物业管理(PM)、金融服务管理(FSA)等功能的企业级APP，在功能设计及技术开发方面注重企业内外部信息传送、强调客户的参与、体验及交互感受。</p>
+					</div>
+				</div>
+			</div>
+	    </div>
+	    <div class="item">
+			<!-- 管理 -->
+			<div class="manage_wrap">
+				<div class="manage">
+					<div class="left">
+						<img src="__IMG__/manage_img.png" alt="" />
+					</div>
+					<div class="title right">
+						<h2>软件升级及维护管理</h2>
+						<p>对原有APP结合客户最新需求进行升级及二次开发；对合作客户APP进行定期维护和更新。</p>
+					</div>
+				</div>
+			</div>
+	    </div>
+	    <div class="item">
+	    	<!-- 微信 -->
+			<div class="wechat_wrap">
+				<div class="wechat">
+					<div class="left">
+						<img src="__IMG__/wechat_img.png" alt="" />
+					</div>
+					<div class="title right">
+						<h2>微信深度开发运维</h2>
+						<p>通过微信公众平台协助企业建立微信公众平台，来实现企业形象展示、推动销售及CRM管理等。</p>
+					</div>
+				</div>	
+			</div>
+	    </div>
+	    <div class="item">
+	    	<!-- 营销 -->
+			<div class="marketing_wrap">
+				<div class="marketing">
+					<div class="title left">
+						<h2>渠道营销</h2>
+						<p>利用基于精准营销数据库所产生的互动营销系统，运用多种传播渠道，统计分析在任何时间地点产生的可衡量回复或交易，从而实现个性化营销及精准营销的目标。</p>
+						<h3>渠道营销包括：</h3>
+						<p style="margin-top: 0px;"> 直递邮件、EDM、SMS、展架摆放、快递直销、小区插箱等。</p>
+					</div>
+				</div>
+			</div>
+	    </div>
+	</div>	
+
+	<div id="app" class="mutual_wrap" style="border-bottom: 1px solid #ccc;">
+		<div class="mutual clearfix">
+			<div class="left">
+				<img src="__IMG__/mutual_img.jpg" alt="" />
+			</div>
+			<div class="title right">
+				<h2>交互式APP</h2>
+				<p>交互式APP，能更好的将用户习惯与CRM、OA、SM、PM、FSA等功能通过移动终端设备实现，将线上和线下的用户群联系在一起，提供一个更为紧密的交互体验，不仅可以给用户提供相关资讯，还能巩固品牌与用户之间的关系、获得用户第一手行为习惯数据；“线上+线下”的互动方式，能够充分调动用户的参与性，具有极强的互动营销效果。</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- 新闻 -->
+	<div id="news" class="new_wrap"  style="border-bottom: 1px solid #ccc;">
+		<div id="owl-demo3" class="owl-carousel">
+			<div class="item">
+				<div class="new clearfix">
+					<div class="left">
+						<img src="__IMG__/new_img2.jpg" alt="" />
+					</div>
+					<div class="right">
+						<h2>微软携合作伙伴加速Surface Pro 3进入商用市场</h2>
+						<em>
+							<span>中国电子报</span>
+							<span>2014.06.09</span>
+						</em>
+						<p>　　5月20日微软公司在全球推出Surface Pro 3平板电脑，这款产品相对与前两代产品在诸多方面有突出变化。为了加速此款产品进入中国商用市场，日前，微软公司在北京携手宇信易诚科技、朗月中国等合作伙伴举行Surface Pro 3商用市场推介......</p>
+						<span class="move_button">更多</span>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="new clearfix">
+					<div class="left">
+						<img src="__IMG__/new_img3.jpg" alt="" />
+					</div>
+					<div class="right">
+						<h2>朗月中国APP定制开发携手微软Surface</h2>
+						<em>
+							<span>搜狐</span>
+							<span>2014.06.06</span>
+						</em>
+						<p>　　6月5日上午，朗月中国受邀参加由微软全球主办的“与Surface大家庭热情欢聚”商用媒体沟通会。创始人兼首席执行官姜子先生带领优秀技术主创人员出席了此次活......</p>
+						<span class="move_button">更多</span>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="new clearfix">
+					<div class="left">
+						<img src="__IMG__/new_img4.jpg" alt="" />
+					</div>
+					<div class="right">
+						<h2>APP定制市场规模超500亿 企业级应用或爆发</h2>
+						<em>
+							<span>21世纪网</span>
+							<span>2014.06.18</span>
+						</em>
+						<p>　　朗月中国创始人姜子向21世纪网表示，每天中国都有大量的优质商户等待着被移动化，但APP的推广却需要长期的投入。海量的应用，高昂的推广成本，目前看来APP开发行业确实如同红海一般，如果没有极好的创意以及强大的经济实力，要想从这个红海中脱颖而出可谓难度极高。......</p>
+						<span class="move_button">更多</span>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="new clearfix">
+					<div class="left">
+						<img src="__IMG__/new_img5.jpg" alt="" />
+					</div>
+					<div class="right">
+						<h2>专注APP的商业之道 朗月中国成微软新伙伴</h2>
+						<em>
+							<span>环球网科技</span>
+							<span>2014.06.19</span>
+						</em>
+						<p>　　【环球科技综合报道】APP 的爆发式增长，给生活带来了中国成为APP增长最快的国家之一。2011年以来，人们花费在APP上的时间已经超过网页，而且势头不减。朗月中国的创始人兼执行官姜子告诉环球科技记者，朗月3年以来做了127个企业APP，覆盖地产、制造业、医疗、教育等行业，并为企业提供新......</p>
+						<span class="move_button">更多</span>
+					</div>
+				</div>
+			</div>				
+		</div>
+	</div>
+	
+
+
+	<!-- 合作客户 -->
+	<div id="owl-demo2" class="owl-carousel" style="border-bottom: 1px solid #ccc;">
+		<div class="item">
+			<div id="client" class="client_wrap">
+				<div class="client_top">
+					<h2>合作客户</h2>
+					<p>历年服务的行业包括：制造、IT、地产、零售、餐饮、教育、娱乐</p>
+				</div>
+				<div class="client_bottom">
+					<ul class="clearfix">
+						<li>
+							<a href="javascript:void(0);">
+								<img src="__IMG__/client_img1.png" onmouseover="this.src='__IMG__/client_img11.png'" onmouseout="this.src='__IMG__/client_img1.png'" alt="" />
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<img src="__IMG__/client_img2.png" onmouseover="this.src='__IMG__/client_img22.png'" onmouseout="this.src='__IMG__/client_img2.png'" alt="" />
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<img src="__IMG__/client_img3.png" onmouseover="this.src='__IMG__/client_img33.png'" onmouseout="this.src='__IMG__/client_img3.png'" alt="" />
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<img src="__IMG__/client_img4.png" onmouseover="this.src='__IMG__/client_img44.png'" onmouseout="this.src='__IMG__/client_img4.png'" alt="" />
+							</a>
+						</li>
+						<li class="clear_border">
+							<a href="javascript:void(0);">
+								<img src="__IMG__/client_img5.png" onmouseover="this.src='__IMG__/client_img55.png'" onmouseout="this.src='__IMG__/client_img5.png'" alt="" />
+							</a>
+						</li>
+						<li class="clear_border_bottom">
+							<a href="javascript:void(0);">
+								<img src="__IMG__/client_img6.png" onmouseover="this.src='__IMG__/client_img66.png'" onmouseout="this.src='__IMG__/client_img6.png'" alt="" />
+							</a>
+						</li>
+						<li class="clear_border_bottom">
+							<a href="javascript:void(0);">
+								<img src="__IMG__/client_img7.png" onmouseover="this.src='__IMG__/client_img77.png'" onmouseout="this.src='__IMG__/client_img7.png'" alt="" />
+							</a>
+						</li>
+						<li class="clear_border_bottom">
+							<a href="javascript:void(0);">
+								<img src="__IMG__/client_img8.png" onmouseover="this.src='__IMG__/client_img88.png'" onmouseout="this.src='__IMG__/client_img8.png'" alt="" />
+							</a>
+						</li>
+						<li class="clear_border_bottom">
+							<a href="javascript:void(0);">
+								<img src="__IMG__/client_img9.png" onmouseover="this.src='__IMG__/client_img99.png'" onmouseout="this.src='__IMG__/client_img9.png'" alt="" />
+							</a>
+						</li>
+						<li class="clear_border_bottom clear_border">
+							<a href="javascript:void(0);">
+								<img src="__IMG__/client_img10.png" onmouseover="this.src='__IMG__/client_img1010.png'" onmouseout="this.src='__IMG__/client_img10.png'" alt="" />
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="client2_wrap">
+				<div class="client2">
+					<ul class="client2_wrap2 clearfix">
+						<li>
+							<a href="javascript:void(0);">
+								<img src="__IMG__/fangda.png" alt="" />
+							</a>
+							<img src="__IMG__/client2_img1.jpg" alt="" />
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<img src="__IMG__/fangda.png" alt="" />
+							</a>
+							<img src="__IMG__/client2_img2.jpg" alt="" />
+						</li>
+						<li class="clear_mar">
+							<a href="javascript:void(0);">
+								<img src="__IMG__/fangda.png" alt="" />
+							</a>
+							<img src="__IMG__/client2_img3.jpg" alt="" />
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<img src="__IMG__/fangda.png" alt="" />
+							</a>
+							<img src="__IMG__/client2_img4.jpg" alt="" />
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<img src="__IMG__/fangda.png" alt="" />
+							</a>
+							<img src="__IMG__/client2_img5.jpg" alt="" />
+						</li>
+						<li class="clear_mar">
+							<a href="javascript:void(0);">
+								<img src="__IMG__/fangda.png" alt="" />
+							</a>
+							<img src="__IMG__/client2_img6.jpg" alt="" />
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="about" class="about_wrap"  style="border-bottom: 1px solid #ccc;">
+		<div class="about">
+			<img src="__IMG__/about_img.jpg" alt="" />
+		</div>
+	</div>
+
+	<div id="join" class="join_wrap">
+		<h2>加入我们</h2>
+		<div class="join">
+			<div class="join_text_wrap">
+				<div class="join_text clearfix">
+					<li>
+						<em style="margin-top: 92px;">岗位职责：销售总监（3名）</em>
+						<em>薪酬待遇：年薪70万以上，底薪+提成</em>
+						<p>1、全面负责APP销售项目任务的计划实施，制定相关销售政策和制度拟定；<br />2、负责APP销售人员业务工作的指导、培训及评估；<br />3、协助总经理进行APP销售目标、销售模式、销售战略的制定；<br />4、负责APP市场策略、调研与分析，研究行业发展状况，为公司决策提供依据。</p>
+						<em style="margin-top: 26px;">任职要求：</em>
+						<p>1、具备3-5年管理工作经验；<br />2、有软件,广告销售工作经验者优先考虑；<br />3、熟悉APP软件市场，计算机专业毕业或熟悉计算机相关知识优先；<br />4、具备良好的谈判能力、沟通应变能力，能够独立分析和解决问题，并能承受较大的工作压力；<br />5、确定APP项目销售部门目标体系和销售配额，制定APP市场定价,销售计划和销售预算。</p>
+					</li>
+					<li>
+						<em style="margin-top: 92px;">岗位职责：销售经理（10名）</em>
+						<em>薪酬待遇：年薪50万以上，底薪+提成</em>
+						<p>1、带领团队完成APP项目的销售任务，协助完成部门销售指标制定；<br />
+2、开发APP目标客户，拓展新市场；<br />
+3、擅长APP产品方案和PPT撰写，熟悉移动互联网行业的业务发展和产品运营；<br />
+4、负责与客户间的有效沟通，关注方案的执行，并及时反馈信息至相关部门；<br />
+5、客户关系的有效维护及管理，提供最佳销售方案，引导客户下单；<br />
+6、负责APP项目年度销售目标的制定及分解。</p>
+						<em style="margin-top: 26px;">任职要求：</em>
+						<p>1、2-3年以上媒体、广告销售/电话营销相关经验，熟悉互联网、房地产领域优先。<br />
+2、学习能力强、主动积极，良好的人际沟通以及业务拓展能力；<br />
+3、具有稳定的相关行业客户资源，具备3人以上团队经验优先；<br />
+4、敏锐的市场嗅觉，有独立策划及提案能力。</p>
+					</li>
+					<li>
+						<em style="margin-top: 92px;">岗位职责：UI设计师（2名）</em>
+						<p>1、负责公司产品（IPAD  APP 手机端APP)的UI UE设计；<br />
+2、负责公司产品的切片，坐标制作；<br />
+3、负责公司设计类（如平面，修图等设计类工作）；<br />
+4、负责公司产品（WED端的设计制作）。</p>
+						<em style="margin-top: 26px;">任职要求：</em>
+						<p>1、大专及以上学历，专业不限；<br />
+2、一年以上工作经验；<br />
+3、熟悉Photoshop  AI  Markman  AE或Flash经验。</p>
+					</li>
+					<li>
+						<em style="margin-top: 92px;">岗位职责：开发工程师（IOS / Android /win工程师）</em>
+						<p>1、负责IOS或Android客户端业务的软件设计与开发。<br />
+2、进行软件需求分析及可行性分析；<br />
+3、与项目相关人员配合共同完成手机应用软件的开发设计工作；<br />
+4、遵循软件开发流程，独立的进行应用及人机界面软件模块的设计和实现；<br />
+5、应用软件开发环境的设计、实现和维护。</p>
+						<em style="margin-top: 26px;">任职要求：</em>
+						<p>1、本科及以上学历，计算机相关专业；<br />
+2、具有一年以上IOS或Android平台开发经验，熟悉掌握一种或以上开发语言；<br />
+3、具有良好的沟通表达能力、组织协调能力和团队合作精神；<br />
+4、熟悉算法思想，有较强的解决问题的能力，具有良好的编写程序的习惯；<br />
+5、思路清晰，思维敏捷，快速的学习能力；</p>
+					</li>
+					<li>
+						<em style="margin-top: 92px;">岗位职责：信息专员(5名)</em>
+						<p>1、根据紧急职位和提供对应的list电话沟通目标候选人；<br />
+通过简历的初步筛选，电话沟通有意向候选人推荐职位；<br />
+3、汇总整理寻访表，要求简历基本信息完整，沟通意向明确；<br />
+4、整理完善候选人推荐报告，确保内容准确完整；<br />
+5、职位信息收集，分析，明确沟通候选人方向和重点，制定工作计划；<br />
+6、定期分享候选人沟通技巧和经验，积极参加公司培训。</p>
+						<em style="margin-top: 26px;">任职要求：</em>
+						<p>1、专科及以上学历，1年以上工作经验；<br />
+2、具备人力和地产行业相关知识；<br />
+3、具有优秀的口头表达能力，良好地沟通能力和责任心；<br />
+4、工作积极主动，表达清晰，口齿伶俐，学习能力强；<br />
+5、熟练操作办公软件及计算机操作能力。</p>
+					</li>
+				</div>
+			</div>
+			<ul class="join_nav clearfix">
+				<li class="show">
+					<a href="javascript:vois(0);">
+						<img src="__IMG__/join_img1.png" alt="" />
+						<p>销售总监（3名）</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:vois(0);">
+						<img src="__IMG__/join_img2.png" alt="" />
+						<p>销售经理（10名）</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:vois(0);">
+						<img src="__IMG__/join_img3.png" alt="" />
+						<p>UI设计师（2名）</p>
+					</a>
+				</li>
+				<li style="padding-bottom: 1px;">
+					<a href="javascript:vois(0);">
+						<img src="__IMG__/join_img4.png" alt="" />
+						<p style="margin-top: 10px;">开发工程师<span>（IOS / Android /win工程师）</span></p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:vois(0);">
+						<img src="__IMG__/join_img5.png" alt="" />
+						<p>信息专员（5名）</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- 底部 -->
+	<div class="foot_wrap">
+		<div class="return_wrap">
+			<a href="javascript:void(0);" class="return actGotop">
+				<img src="__IMG__/top.png" alt="" />
+			</a>
+		</div>
+		<div class="foot">
+			<div class="left">
+				<span class="share">分享到：</span>
+				<ul class="share_img clearfix">
+					<li>
+						<a target="_blank" href="http://www.bshare.cn/api/share/sinaminiblog?url=http://www.langyue.org/&title=朗月（中国）&summary=中国最顶尖的移动互联网服务&publisherUuid=站长id&pic=http://www.langyue.org/img/logo90.png">
+							<img src="__IMG__/share_img1.png" alt="分享到微信微博" />
+						</a>
+					</li>
+					<li>
+						<a target="_blank" href="http://www.bshare.cn/api/share/qqmb?url=http://www.langyue.org/&title=朗月（中国）&summary=中国最顶尖的移动互联网服务&publisherUuid=站长id&pic=http://www.langyue.org/img/logo90.png">
+							<img src="__IMG__/share_img2.png" alt="分享到腾讯微博" />
+						</a>
+					</li>
+					<li>
+						<a target="_blank" href="tencent://message/?uin=295590002&Site=qq&Menu=yes">
+							<img src="__IMG__/share_img3.png" alt="QQ在线" />
+						</a>
+					</li>
+					<li class="two_button">
+						<img src="__IMG__/two.jpg" lat="二维码" />
+						<a href="javascript:void(0);">
+							<img src="__IMG__/share_img4.png" alt="点击扫描二维码" />
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="right">
+				<span>联系我们</span>
+				<div class="clearfix">
+					<span>联系电话：010-57812788</span>
+					<span>公司传真：010-59625009</span>
+					<span>市场合作：010-57812788-827</span>
+					<span style="width: auto;">电子邮件：ly_marketing@sina.com</span>
+				</div>
+				<p>通信地址：北京市朝阳区东四环中路78号大成国际 A2 座1709（100022）</p>
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+	</div>
+
+	<!-- 固定 -->
+	<!-- <div class="fixed_img">
+		<a href="#">
+			<img src="__IMG__/iico.jpg" alt="" />
+		</a>
+	</div> -->
+
+	<!-- 黑屏 -->
+	<div class="screen_hei"></div>
+	<!-- 下拉框 -->
+	<div class="bd" id="scroll_bd">
+		<div class="top" id="bd">
+			<div id="ul">
+			</div>
+		</div>
+		<div class="scroll" id="scroll">
+			<p id="p"></p>
+		</div>
+		<span class="kuai"></span>
+	</div>
+	<!-- 图片放大 -->
+	<div class="img_xd">
+		<span></span>
+		<img src="" alt="" />
+	</div>
+	<!-- 文章 -->
+	<ul class="text_wrap">
+		<li>
+		<h2>微软携合作伙伴加速Surface Pro 3进入商用市场</h2>
+		<span>2014-06-09</span>
+		<div>
+		<p>5月20日微软公司在全球推出Surface Pro 3平板电脑，这款产品相对与前两代产品在诸多方面有突出变化。为了加速此款产品进入中国商用市场，日前，微软公司在北京携手宇信易诚科技、朗月中国等合作伙伴举行Surface Pro 3商用市场推介会。</p>
+		<em>“性能等同笔记本，比苹果MacBook Air更轻薄”</em>
+	　　<p>微软中国公司黄继佳强调，Surface Pro 3在设计和功能上有诸多亮点：包括屏幕尺寸的变化，12英寸屏幕和更新的一体式支架，并比MacBook Air笔记本电脑还要再薄30%；包括续航时间，可以提供长达9个小时的网页浏览续航时间；包括专为Surface Pro 3而设计的拓展坞以及以太网适配器；包括支持无线投影，支持3D打印等。</p>
+	　　<p>微软公司副总裁，负责Surface事业部的Panos Panay介绍说：“有许多用户平时出门既要带笔记本，又要带平板电脑，但他们最希望的是能有一台设备可以满足他们的所有需求。而Surface Pro 3平板电脑正是这样的一台设备。它功能强大，足以取代笔记本电脑，而且更薄、更轻、设计更优雅，让工作和娱乐都很舒适。“</p>
+		<em>Surface Pro 加速进入中国商用市场</em>
+		<p>据微软公司介绍，自从Surface 进入到商用领域以来，再不到一年的时间内，已经成功打入了31个商业市场，且新客户源源不断。Surface Pro 3刚推出，宝马集团、可口可乐公司和LVMH -酩悦•轩尼诗-路易•威登集团等公司已经承诺购买该设备，作为内部部署使用的选择之一。</p>
+		<p>北京宇信易诚科技有限公司副总裁、战略发展部总经理孟东炜坦言，宇信易诚专注金融行业市场多年，银行用户对移动设备的需求有几个挑战，一是安全性，二是外设的支持和应用的兼容性上，在这两个维度苹果和安卓都无法与微软公司竞争。所以在商用设备市场Surface Pro 3是他们向客户推荐解决方案的首选移动硬件设备。</p>
+		<p>朗月中国创世人兼首席执行官CEO姜子透露，朗月的技术团队是从2011年开始做APP开发，截止到2013年年初的时候，国内大概一半左右的营销APP开发都是朗月来做的，微软Surface Pro 3在兼容性、在展示等方面都显示出很强的优势。而且用户使用移动设备关注几个关键点，设计、造型、性能、品牌等几个维度上Surface Pro 3都能够让客户“有面子“。</p>
+		<em>Surface Pro 3现在预定6月20日供货</em>
+		<p>Surface Pro 3平板电脑共有3种配置，分别采用第四代英特尔酷睿i3, i5, i7处理器。</p>
+		<p>微软公司称，自6月20日起，用户可以通过加拿大和美国的微软官方商城、微软零售商店和指定的第三方零售商以及商业客户渠道购买采用第四代英特尔酷睿i5处理器的全新Surface Pro 3及指定配件。更多配置的Surface Pro 3将于8月正式上市，此外，其他配件也将在未来几个月中陆续开始供货。</p>
+		<p>至8月底，Surface Pro 3及指定配件将在以下26个国家和地区开始供货，包括澳大利亚、奥地利、比利时、中国，丹麦、芬兰、法国、德国、中国香港特别行政区、爱尔兰、意大利、日本，韩国，卢森堡、马来西亚，荷兰、新西兰、挪威、葡萄牙、新加坡、西班牙、瑞典、瑞士、中国台湾地区、泰国及英国。</p>
+		</div>			
+		</li>
+		
+		<li>
+		<h2>朗月中国APP定制开发携手微软Surface</h2>
+		<span>2014-06-06</span>
+		<div>
+		<p>6月5日上午，朗月中国受邀参加由微软全球主办的 “与Surface大家庭热情欢聚”商用媒体沟通会。创始人兼首席执行官姜子先生带领优秀技术主创人员出席了此次活动。</p>
+　　 <img src="__IMG__/03-1.jpg">
+　　<p class="news_center">“朗月中国”创始人姜子先生与其技术团队主创人员合影</p>
+　　<p>Surface Pro 3是微软基于win8平台的第三代平板电脑，作为商用产品，朗月中国作为APP定制开发的先行者，有幸成为Surface 的战略合作伙伴。</p>
+　　 <img src="__IMG__/03-2.jpg">
+　　 <img src="__IMG__/03-3.jpg">
+　　<p class="news_center">Brian Hall 进行主题演讲</p>
+　　<p>首先由来自微软全球Surface产品部总经理Brian Hall介绍Surface Pro在国内外的商用应用情况(涵盖教育、医疗、金融、航空等行业)，通过视频及现场体验展示，强调企业移动办公需求的重要性，为不同行业量身定制的APP解决方案将在很大程度上提升企业的竞争优势。</p>
+　　 <img src="__IMG__/03-4.jpg">
+　　<p class="news_center">姜子先生以OTIS电梯进行现场解说及演示</p>
+　　<p>作为Surface的战略合作伙伴的朗月中国，在企业级APP定制开发具有独一无二的技术优势，以及强大的新媒体营销策略与渠道。创始人兼首席执行官姜子先生，作为此次活动的特约演讲嘉宾，现场为各位企业及媒体朋友介绍公司自创立以来的发展历程，在APP定制开发过程中的技术突破与设计创新;3年中已服务127家知名企业，并以为OTIS电梯特别定制开发的APP为例，进行了详细全面的现在展示。</p>
+　　<p>朗月中国可根据企业需求定制开发出各具特色的交互式APP，并为企业提供相应的专业新媒体营销。</p>
+　　 <img src="__IMG__/03-5.jpg">
+　　<p>姜子先生的一句“Surface pro 3的出现---商界从此平启平做”，赢得了全场热烈的掌声。</p>
+　　 <img src="__IMG__/03-6.jpg">
+　　<p class="news_center">姜子先生与Brian Hall 先生会后合影留念</p>
+　　<p>随后是Surface Pro 3的产品展示时间，大家相互合影留恋，Steffi主动与姜子先生亲切交谈，并交换名片。并一起走到产片展示区亲自体验暂未公开发售的Surface Pro 3。(记者 景保玉)</p>
+
+		</div>
+		</li>
+		
+		
+		<li>
+		<h2>APP定制市场规模超500亿 企业级应用或爆发</h2>
+		<span>2014-06-18</span>
+		<div>
+		<p>移动互联网时代，使用智能手机的人越来越多，APP开发也呈现出了一个遍地开花的状态。</p>
+      <p>不过其间的问题亦显而易见：目前苹果App Store有120万的应用，GooglePlay应用商店内的应用数亦已超过百万。任何一个APP，要想在如此庞大的资源库里脱颖而出，显然不是一件容易的事情。因此，“APP开发行业严重饱和”的声音此起彼伏。</p>
+	<p> 那么，对于APP开发者来说，其未来的道路又在何方？对此，有在一些人士看来，开发者的下一个金矿将在企业级APP，即企业级APP定制开发将成为移动互联网另一掘金战场 。</p>
+     <p>数据显示：2014年整个APP生态圈中占比较重的开发市场规模将超过500亿元，全国数百万企业网站潜在的APP开发需求呈爆发式的增长，而目前国内APP开发年营收综合不到20亿。</p>
+    <p> 朗月中国创始人兼首席执行官姜子表示：“目前，众多政府机构、企业、社会组织都计划拥有自己的APP客户端，这一市场有望在未来一段时间爆发式增长。”</p>
+
+	<em>APP开发的红海</em><br>
+     <p> 一夜之间，又一款APP分享在朋友圈里被疯传：一张张各种朋友分享的萌萌的脸。</p>
+      <p>随着分享自身卡通头像的用户越来越多，脸萌在各大社交网站上的人气直线上涨。“光前天，我们的用户就增加了100万，今天估计还要翻倍增长。”脸萌创始人郭列表示。这两天，郭列的电话被风投公司打爆。</p>
+     <p> 脸萌的成功或许只是一个特别的案例，另外一个数据显示，脸萌发布时间早在2013年12月底，上线以来一直不温不火。不过其却在6月迎来爆发式增长。其在App Store上的排名曾从198蹿升至首位。</p>
+     <p> 对于脸萌的一夜爆红，郭列都感到意外：“80%是狗屎运。”</p>
+      <p>事实上，由于App天生的封闭特性以及用户难以共享的特点，要想如脸萌一般一夜爆红在互联网行业可遇不可求，在其中很多APP随着时间的流逝而逐渐被人淡忘。</p>
+     <p>数据显示，目前苹果App Store有120万的应用，GooglePlay应用商店内的应用数亦已超过百万。</p>
+     <p>根据百度官方披露的一份移动数据调查，在应用商店中下载量最大的前1000个APP（数量占比不足总应用的0.1%）却占据了下载总量的55%。那意味着百万APP中，能够获得用户青睐的不足千分之一。调查还显示，2012年三季度，下载量大的高频APP占据了用户83%的使用时长，这个数字到2013年时增长到了85%。</p>
+      <p>一位业内人士向21世纪网感慨到，要想在百万计的应用商店中，要想脱颖而出并不是一件容易的事情。</p>
+     <p> 而为了能够让自己的应用能够在激烈的竞争中突出重围，避免成为僵尸软件，刷榜等现象开始出现。</p>
+      <p>所谓刷榜，就是通过人工手段提升排行榜排名，一些第三方营销公司在应用程序推广过程中，帮客户刷应用下载量及排行榜名次作为赢利的主要手段，同时为应用积累大量好评，在短时间提高指定软件的排名，提升口碑，有时也会故意给出大量差评，以帮助别人打压具有竞争关系的应用。</p>
+     <p> 对于刷榜的成本，曾有媒体报道称：有应用开发者以传统的方式推广，花费60万元得到了3万个真实用户，平均每个用户的成本折合20元；另一个20多人的游戏团队，每个月花费几十万元进行刷榜，随着新增用户增多，每个月的盈利保持在200万元左右。</p>
+      <p>朗月中国创始人姜子向21世纪网表示，每天中国都有大量的优质商户等待着被移动化，但APP的推广却需要长期的投入。</p>
+      <p>海量的应用，高昂的推广成本，目前看来APP开发行业确实如同红海一般，如果没有极好的创意以及强大的经济实力，要想从这个红海中脱颖而出可谓难度极高。</p>
+      <em>企业级成新亮点</em><br>
+      <p>当别人掘金的时候，有人在忙于卖铲。到头来，人们忽然发现，真正赚钱的是那些卖工具的人。</p>
+     <p>最近不少以前埋头于商业应用APP的开发者们开始做起了APP定制开发的生意，其目标客户从以前的个人客户变成了企业主。</p>
+     <p>业内一致认为，企业级APP定制开发将是移动互联网中孕育着巨大商机的新兴项目之一。</p>
+     <p> 朗月中国创始人姜子向21世纪网表示，目前商业应用的APP市场已经处于红海状态。但是企业定制化移动应用刚起步，可以预见企业级APP定制开发将成为移动互联网另一掘金战场。“朗月中国APP定制开发业务在一年内营收从零增加至两三千万元。</p>
+     <p> 姜子表示：“企业APP市场潜力巨大，在未来几年，大部分政府机构、企业、社会组织都将拥有自己的APP客户端，根据功能不同，目前单个APP开发的费用市场价格在人民币十几万至几十万之间，市场前景广阔、需求巨大，被公认为移动互联网领域新的造富浪潮。”</p>
+     <p> 数据显示：2014年整个APP生态圈中占比较重的开发市场规模将超过500亿人民币，全国数百万企业网站潜在的APP开发需求呈爆发式的增长，而目前国内APP开发年营收综合不到20亿。</p>
+      <p>虽然有越来越多的互联网团队及新创的创业团队加入到这场逐浪的热潮中。但企业APP定制开发却已经开始问题丛生。</p>
+     <p>一位业内人士向21世纪网表示，目前客户的需求越来越高：例如手机兼容性、功能交互、界面效果、应用实用性等，这些不是一些小公司能完成的。因此，不少小公司就选择先忽悠客户，将合同签下来，然后再将项目进行二次发包。“目前不少创业公司就是原来一些互联网公司市场部的人手上拥有企业资源，就招聘几个人成立一家公司或者就是两个会写代码的技术人员搭伙找企业接业务。”</p>
+     <p>姜子表示，类似这种情况在行业内已经不新鲜了。“经常会有一些人会拿着用户的需求来找我们，希望我们帮助开发满足客户苛刻的要求。此外，我们和企业沟通时也会听到抱怨，一些公司开发完APP就消失了，后续升级等都不知道找谁。”</p>
+     <p> 对此，姜子认为，对企业来说，选择一家App定制开发企业，不能只是简单的百度上随便搜一下，然后就轻易选择一些不规范的外包公司，应该APP开发定制的公司资质反复检验，查看其以往的操作案例。” 而对于APP开发定制的公司来说，不仅要掌握最新的技术，也需要倾听客户的声音，最终将技术与客户需求有机结合起来。(记者 陆晓辉)</p>
+		</div>
+			
+		</li>
+		
+		
+		<li>
+		<h2>APP定制市场规模超500亿 企业级应用或爆发</h2>
+		<span>2014-06-19</span>
+		<div>
+		<p>【环球科技综合报道】APP 的爆发式增长，给生活带来了中国成为APP增长最快的国家之一。2011年以来，人们花费在APP上的时间已经超过网页，而且势头不减。朗月中国的创始人兼执行官姜子告诉环球科技记者，朗月3年以来做了127个企业APP，覆盖地产、制造业、医疗、教育等行业，并为企业提供新媒体营销渠道和策略。这种智能移动硬件+APP的办公潮流，正在朗月中国的推动下，在国内引发新变革。</p>
+　　 <img src="__IMG__/05-1.jpg">
+　　<p>作为surface战略合作伙伴之一的“朗月中国”创始人兼首席执行官姜子先生现场演讲</p>
+　　<p>有人曾说软件正在吞噬着世界，实际情况是APP正在吞噬着软件。十多年前，用户使用App在PC端工作。现在，各种智能终端设备涌现，人们开始重新认识App。移动智能终端的发展，使人们不再局限于传统PC，从而实现了超越空间的限制。</p>
+　　<p>姜子告诉记者，在中国，人们对于APP认识的加深，是在微信诞生之后。业内人士分析，2014年微信用户数量将突破10亿。这款社交应用软件给现代人生活带来的颠覆性变革不言自明。但是对于企业来说，APP又能带来什么呢？</p>
+　　<em>一、客户可以通过企业APP参加公司组织的活动，与客服、销售、工程部甚至总经理进行点对点沟通;</em><br>
+　　<em>二、企业和项目人员可以通过APP快速、便捷的安排工作，“摇一摇”功能可以预定会议室、建立日程安排与提醒、待办事项记录、工作报告等;</em><br>
+　　<em>三、通过企业APP，企业或项目人员可以对客户进行更深层次的关怀，生活、健康、医疗信息等;</em><br>
+　　<p>姜子告诉记者，对于许多企业来说，一个有着良好交互体验的APP，无论是内部管理还是对外展示，都顺应了移动互联网时代的新型办公需求。</p>
+　　<p>就在前不久举办的微软主办的“Surface大家庭热情欢聚”的沟通会上，朗月中国作为国内企业APP的“实力派”开发者，也是微软Surface的战略合作伙伴出席活动。Surface Pro 3是微软基于win8平台的第三代平板电脑，作为一款力求贴近移动办公需求的商用产品，微软非常注重企业对于APP的需求。</p>
+　　<p>Surface Pro在国内外的商业应用涵盖了教育、医疗、金融、航空等行业，微软全球Surface产品部总经理Brian Hall认为，为不同行业量身定制的APP解决方案将在很大程度上提升企业的竞争优势。</p>
+　　<p>作为Surface战略合作伙伴的朗月中国，在企业级APP定制开发具有独一无二的技术优势，以及强大的新媒体营销策略与渠道。对于以高端人力资源和地产研究起步的朗月中国来说，APP已经是未来的重点发展业务。姜子强调，朗月不仅有着优秀的APP技术开发团队，而且深谙专业的新媒体营销之道，兼具两大优势，助力传统企业顺应移动互联网趋势。</p>
+　　<p>姜子介绍，朗月中国也是美国OTIS电梯指定APP开发商，为世茂中国、合生集团、华远地产等中国50家品牌地产公司提供了APP研发服务，是国内APP开发最多的企业。朗月中国也将致力于企业专属、系统开发、专业成熟、创新思维的APP平台服务，同时打造中国最大、最专业的企业级APP定制开发、运营管理、咨询顾问综合服务体系。(记者 芮益芳)</p>
+
+		</div>
+		</li>
+	</ul>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		  	$(window).scroll(function() {		
+				if($(window).scrollTop() >= 100){
+					$('.actGotop').fadeIn(300); 
+				}else{    
+					$('.actGotop').fadeOut(300);    
+				}  
+			});
+			$('.actGotop').click(function(){
+			$('html,body').animate({scrollTop: '0px'}, 800);});	
+		});
+	</script>
+
+	<p class="copyright">© 2014 Langyue. All Rights Reserved.</p>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+		  	$("#owl-demo").owlCarousel({
+		      	autoPlay : 5000,
+			    stopOnHover : true,
+			    navigation:true,
+			    paginationSpeed : 1000,
+			    goToFirstSpeed : 2000,
+			    singleItem : true,
+			    autoHeight : true,
+			    transitionStyle:"fade"
+			    //淡入淡出
+		  	});
+		  	$("#owl-demo1").owlCarousel({
+			  	autoPlay : false,
+			  	rewindNav : false,
+			    navigation : true,
+			    slideSpeed : 300,
+			    paginationSpeed : 400,
+			    singleItem:true
+		      	// 滑动
+		  	});
+		  	$("#owl-demo2").owlCarousel({
+			  	autoPlay : false,
+			  	rewindNav : false,
+			    navigation : true,
+			    slideSpeed : 300,
+			    paginationSpeed : 400,
+			    singleItem:true
+		      	// 滑动
+		  	});
+		  	$("#owl-demo3").owlCarousel({
+			  	autoPlay : false,
+			  	rewindNav : false,
+			    navigation : true,
+			    slideSpeed : 300,
+			    paginationSpeed : 400,
+			    singleItem:true
+		      	// 滑动
+		  	});
+		  	// 二维码
+		  	$('.two_button').click(function (){
+		  		$('.two_button').children('img').slideToggle(200);
+		  	});
+		  	var hei_color = $('.screen_hei');
+		  	var bd = $('.bd');
+		  	var img_xd = $('.img_xd');
+		  	var clients = $('.client2_wrap2 li');
+		  	// 下拉框定位
+		  	bd.css({
+		  		left : hei_color.width()/2 - 387
+		  	});
+		  	img_xd.css({
+		  		left : hei_color.width()/2 - 293
+		  	});
+
+		  	var buttons = $('.move_button');
+		  	buttons.click(function (){
+		  		hei_color.show();
+		  		bd.show(200);
+		  		$('#ul').html($('.text_wrap li').eq($('.move_button').index(this)).html());
+		  	});
+		  	$('.kuai').click(function (){
+		  		hei_color.hide();
+		  		bd.hide(100);
+		  	});
+			// 图片放大
+			clients.mouseover(function (){
+				$(this).children('a').show();
+			}).mouseout(function (){
+				$(this).children('a').hide();
+			});
+			clients.click(function (){
+		  		hei_color.show();
+		  		img_xd.show(200);
+		  		var str = $(this).children('img').attr('src');
+		  		var strs = $(this).children('img').attr('src').substring(0,str.length-4);
+		  		img_xd.children('img').attr('src',strs + '-1.jpg');
+		  	});
+		  	img_xd.children('span').click(function (){
+		  		hei_color.hide();
+		  		img_xd.hide(100);
+		  	});
+		  	// 滚动文字
+		  	var join_text = $('.join_text');
+		  	var join_nav = $('.join_nav li');
+		  	join_text.css({
+		  		width : join_nav.length*1080
+		  	});
+		  	join_nav.click(function (){
+		  		$(this).addClass('show').siblings().removeClass('show');
+		  		join_text.animate({left : -$(this).index()*1080 },200);
+		  	});
+		  	$('#news').mouseover(function (){
+		  		$('#owl-demo3 .owl-buttons').show();
+		  	}).mouseout(function (){
+		  		$('#owl-demo3 .owl-buttons').hide();
+		  	});
+		  	$('#owl-demo2').mouseover(function (){
+		  		$('#owl-demo2 .owl-buttons').show();
+		  	}).mouseout(function (){
+		  		$('#owl-demo2 .owl-buttons').hide();
+		  	});
+		  	$('#owl-demo1').mouseover(function (){
+		  		$('#owl-demo1 .owl-buttons').show();
+		  	}).mouseout(function (){
+		  		$('#owl-demo1 .owl-buttons').hide();
+		  	});
+		});
+	</script>
+	<div style="display:none;">
+	<script type="text/javascript"> var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F076ba3670bf9e7612f7dc131d3e00885' type='text/javascript'%3E%3C/script%3E")) </script>
+	</div>
+</body>
+</html>

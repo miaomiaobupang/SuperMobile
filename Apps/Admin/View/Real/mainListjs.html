@@ -1,0 +1,14 @@
+<script type="text/javascript">
+
+$('body').ready(function(){
+	//获取屏幕宽度
+	var width=$('.tile-body').width();
+	var widthNum=width*(27/1630);
+	if(width > 1440){
+		$('.menutop').css({'left':widthNum+'px'});
+	}else{
+		$('.menutop').css({'left':'0px'});
+	}
+});
+//======================================================
+</script>
